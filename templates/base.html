@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudSov{% if title %} · {{ title }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="logo">🛡️ CloudSov</span>
+    </div>
+    <nav class="topbar-nav">
+        <a href="/" class="nav-link {% if active == 'sovscore' %}active{% endif %}">SovScore</a>
+        <a href="/cloudbench" class="nav-link {% if active == 'cloudbench' %}active{% endif %}">CloudBench</a>
+    </nav>
+</header>
+
+<main class="content">
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>
