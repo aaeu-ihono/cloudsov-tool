@@ -15,7 +15,7 @@ def get_state():
         session["answers"] = {}
     if "min_seals" not in session:
         session["min_seals"] = {k: v["default_min_seal"] for k, v in SOV_OBJECTIVES.items()}
-    pprint(session)
+    # pprint(session)
     return session["providers"], session["answers"], session["min_seals"]
 
 

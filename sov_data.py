@@ -127,7 +127,7 @@ DEFAULT_PROVIDERS = [
     "Cleura",
     "Infomaniak",
     "Nine",
-    "Fuga Cloud",
+    "Fuga Cloud / Cyso Cloud",
     "local-hosting",
 ]
 

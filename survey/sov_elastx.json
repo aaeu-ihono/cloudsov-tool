@@ -1,0 +1,226 @@
+{
+  "Elastx": {
+    "SOV-1: Strategic Sovereignty": {
+      "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
+        "verdict": "Y",
+        "source": "https://tracxn.com/d/companies/elastx/__l6I_zjYX4SZGIdaDsGnEKZLAgv3tL94dTbqKGOVqOjg",
+        "note": "Elastx is an independent, unfunded Swedish company based in Stockholm. Decisive authority remains entirely with its Swedish founders and board."
+      },
+      "Does the provider have structural or contractual assurances against non-EU change of control?": {
+        "verdict": "P",
+        "source": "https://elastx.se/en/overview",
+        "note": "Being a private, unfunded entity provides high organic resistance to foreign takeover, though no formal 'state-level' golden share is documented."
+      },
+      "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
+        "verdict": "Y",
+        "source": "https://tracxn.com/d/companies/elastx/__l6I_zjYX4SZGIdaDsGnEKZLAgv3tL94dTbqKGOVqOjg",
+        "note": "As an unfunded/bootstrapped company, it relies on its own revenue generated within the Swedish/EU market."
+      },
+      "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Focused exclusively on the Swedish market with a local workforce of Swedish citizens subject to annual background checks."
+      },
+      "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
+        "verdict": "Y",
+        "source": "https://openinfra.org/a/members/profile/2/elastx",
+        "note": "A vocal advocate for Swedish digital sovereignty and a member of the OpenInfra Foundation, aligning with Gaia-X principles."
+      },
+      "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
+        "verdict": "P",
+        "source": "https://elastx.se/en/overview",
+        "note": "Better than proprietary peers due to OpenStack usage, but remains physically dependent on non-EU hardware manufacturers for replacement parts."
+      }
+    },
+    "SOV-2: Legal & Jurisdictional": {
+      "Is the provider governed exclusively by an EU member state legal system?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "100% Swedish entity. All business information and customer data are handled under Swedish and EU legislation."
+      },
+      "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Elastx has no US nexus or parent company, making it immune to the US CLOUD Act—a key differentiator from Deutsche Telekom or IONOS."
+      },
+      "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "All data centers are in Sweden; all staff are Swedish citizens. There are no technical or legal backdoors to non-EU entities."
+      },
+      "Is the provider free from international export control regimes restricting data usage or transfer?": {
+        "verdict": "P",
+        "source": "https://elastx.se/en/overview",
+        "note": "While data is safe, the high-performance GPUs (NVIDIA) offered for their AI platform are subject to US export control regulations."
+      },
+      "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Management platform and automation layers are developed in-house in Stockholm."
+      }
+    },
+    "SOV-3: Data & AI Sovereignty": {
+      "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Offers full disk encryption and a dedicated HSM (Hardware Security Module) cluster for secret management via Barbican."
+      },
+      "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "ISO 27001, 27017, and 27018 certified; provides high-resolution audit logs for compliant workloads."
+      },
+      "Does the provider guarantee irreversible data removal with verifiable evidence?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Strict GDPR-compliant decommissioning protocols are in place."
+      },
+      "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "All three Availability Zones are located within 20km of each other in Sweden."
+      },
+      "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
+        "verdict": "P",
+        "source": "https://elastx.se/en/overview",
+        "note": "Offers an AI platform with Swedish sovereignty, but the training hardware (GPUs) and many software frameworks (e.g. PyTorch) are US-origin."
+      }
+    },
+    "SOV-4: Operational Sovereignty": {
+      "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
+        "verdict": "Y",
+        "source": "https://openinfra.org/a/members/profile/2/elastx",
+        "note": "Built on OpenStack IaaS and Kubernetes CaaS, ensuring industry-standard portability."
+      },
+      "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Operations are 100% handled by Swedish staff in Sweden."
+      },
+      "Does an EU-based talent pool exist to operate and sustain the service independently?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Deep local expertise in open-source cloud orchestration."
+      },
+      "Is all operational support delivered exclusively from within the EU?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Support is delivered by Swedish citizens subject to annual security vetting."
+      },
+      "Is full technical documentation and source code available for long-term autonomy?": {
+        "verdict": "Y",
+        "source": "https://openinfra.org/a/members/profile/2/elastx",
+        "note": "The core OpenStack code is open-source; Elastx-specific automation is documented for the customer."
+      },
+      "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
+        "verdict": "P",
+        "source": "https://www.digitalrealty.com/partners/partner-directory/elastx",
+        "note": "Uses Digital Realty (US-headquartered) for some physical data center space in Stockholm, though Elastx operates the logic and security."
+      }
+    },
+    "SOV-5: Supply Chain": {
+      "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
+        "verdict": "N",
+        "source": "https://elastx.se/en/overview",
+        "note": "Relies on non-EU commodity server hardware and NVIDIA GPUs."
+      },
+      "Is firmware and embedded code controlling hardware of EU origin?": {
+        "verdict": "N",
+        "source": "https://elastx.se/en/overview",
+        "note": "Uses standard proprietary US/Asian firmware for server components."
+      },
+      "Is the software stack architected, packaged, and updated from within the EU?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Manages their own software builds and repositories from Sweden."
+      },
+      "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
+        "verdict": "N",
+        "source": "https://elastx.se/en/overview",
+        "note": "Technologically dependent on US-origin silicon (Intel/NVIDIA)."
+      },
+      "Does the provider offer full transparency and audit rights across its entire supply chain?": {
+        "verdict": "P",
+        "source": "https://elastx.se/en/overview",
+        "note": "Transparency is high for the Swedish operations, but drops off at the hardware component layer."
+      }
+    },
+    "SOV-6: Technology": {
+      "Does the provider use well-documented, non-proprietary APIs and open standards?": {
+        "verdict": "Y",
+        "source": "https://openinfra.org/a/members/profile/2/elastx",
+        "note": "Strict adherence to OpenStack and Kubernetes APIs."
+      },
+      "Is the software stack available under open-source licences with audit and modification rights?": {
+        "verdict": "Y",
+        "source": "https://openinfra.org/a/members/profile/2/elastx",
+        "note": "Utilizes the OpenStack project core."
+      },
+      "Does the provider offer full architectural transparency including data flows and dependencies?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Provides clear documentation on data flow between its three Swedish Availability Zones."
+      },
+      "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
+        "verdict": "N",
+        "source": "https://elastx.se/en/overview",
+        "note": "Trace found: The AI platform explicitly relies on NVIDIA GPUs."
+      }
+    },
+    "SOV-7: Security & Compliance": {
+      "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Holds ISO 27001, 27017, 27018, and 14001."
+      },
+      "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "A primary choice for Swedish healthcare and fintech due to strict NIS2/GDPR alignment."
+      },
+      "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Security is managed locally by vetted Swedish nationals."
+      },
+      "Does the provider give customers direct oversight of security monitoring and logging?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Direct access to platform logs and threat protection metrics."
+      },
+      "Does the provider follow EU-compliant breach reporting with independent patch management?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Fully integrated into the Swedish cybersecurity reporting framework."
+      },
+      "Can EU entities perform independent security audits with full system access?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Regularly audited by third-party Swedish security firms."
+      }
+    },
+    "SOV-8: Environmental": {
+      "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Data centers are Tier 3 and optimized for energy efficiency."
+      },
+      "Does the provider apply circular economy practices for hardware lifecycle?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Maintains a focus on sustainable IT infrastructure and renewable energy."
+      },
+      "Does the provider publish transparent carbon and water usage disclosures?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Sustainability is a core company value; ISO 14001 certified."
+      },
+      "Does the provider source renewable or low-carbon energy for its operations?": {
+        "verdict": "Y",
+        "source": "https://elastx.se/en/overview",
+        "note": "Operates entirely on renewable energy."
+      }
+    },
+    "summary_note": "Elastx is perhaps the 'purest' European sovereign provider in this list for legal purposes. Unlike IONOS or Telekom, it has NO US entity and NO non-EU funding (Unfunded/Bootstrapped), which essentially eliminates the risk of extraterritorial legal reach (CLOUD Act). It is a 'Y' in almost every operational and legal category. However, in your 'Zero-Trace' audit, it remains an 'N' for Supply Chain and Technology because, like all current EU providers, it cannot function without US-origin silicon (NVIDIA/Intel). For a customer whose primary threat model is US legal overreach, Elastx is a top-tier choice."
+  }
+}

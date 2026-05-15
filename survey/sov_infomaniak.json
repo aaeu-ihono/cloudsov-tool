@@ -1,0 +1,226 @@
+{
+  "Infomaniak": {
+    "SOV-1: Strategic Sovereignty": {
+      "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
+        "verdict": "Y",
+        "source": "https://www.bcorporation.net/find-a-b-corp/company/infomaniak-group-sa/",
+        "note": "Wholly owned by its employees and founders. No non-EU venture capital, private equity, or external board seats."
+      },
+      "Does the provider have structural or contractual assurances against non-EU change of control?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "The employee-ownership structure acts as a native legal firewall against acquisition by non-EU hyperscalers."
+      },
+      "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Fully self-funded through operations; maintains complete financial independence from global markets."
+      },
+      "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Employs over 200 engineers in Geneva and Winterthur; 70% of staff are high-level technical talent contributing to the local economy."
+      },
+      "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "A vocal leader in European digital independence; heavily aligned with Gaia-X 'Season 2.0' objectives for trusted AI and data spaces."
+      },
+      "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
+        "verdict": "P",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "High software autonomy due to in-house developed layers on OpenStack, but still relies on non-EU semiconductor firms for physical hardware support."
+      }
+    },
+    "SOV-2: Legal & Jurisdictional": {
+      "Is the provider governed exclusively by an EU member state legal system?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Governed by Swiss law and the Federal Act on Data Protection (nDSG), which is fully recognized as GDPR-equivalent."
+      },
+      "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "No US parent or substantial US operations. Infomaniak is a 'CLOUD Act-free' zone."
+      },
+      "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/hosting/datacenter-housing",
+        "note": "Data access requires a Swiss judicial warrant; the provider has no legal presence in countries that could bypass this."
+      },
+      "Is the provider free from international export control regimes restricting data usage or transfer?": {
+        "verdict": "P",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Indirectly subject to US export controls for AI accelerators (NVIDIA A100/L40S) used in their Swiss data centers."
+      },
+      "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Holds the 'Swiss Made Software' label; core stack developed entirely in Switzerland."
+      }
+    },
+    "SOV-3: Data & AI Sovereignty": {
+      "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Provides end-to-end encryption tools and full support for client-managed keys (Swiss Backup, Public Cloud)."
+      },
+      "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/hosting/datacenter-housing",
+        "note": "Full audit trails available; data centers are Tier III+ with physical access controls (biometric)."
+      },
+      "Does the provider guarantee irreversible data removal with verifiable evidence?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Strict data destruction protocols compliant with Swiss privacy law."
+      },
+      "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/support/faq/71/discover-infomaniak",
+        "note": "Data is hosted exclusively in Infomaniak's own facilities in the Canton of Geneva."
+      },
+      "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
+        "verdict": "Y",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Offers a sovereign AI API (OpenAI-compatible) using open-source models executed entirely on Swiss soil."
+      }
+    },
+    "SOV-4: Operational Sovereignty": {
+      "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
+        "verdict": "Y",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Based on OpenStack (IaaS) and Kubernetes (KaaS) standards, facilitating high portability."
+      },
+      "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Managed 100% by local Swiss engineering teams."
+      },
+      "Does an EU-based talent pool exist to operate and sustain the service independently?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Partners with local schools (EPFL, 42 Lausanne) to ensure a continuous sovereign talent pipeline."
+      },
+      "Is all operational support delivered exclusively from within the EU?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Support is provided 7/7, strictly by in-house staff based in Switzerland."
+      },
+      "Is full technical documentation and source code available for long-term autonomy?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Heavy usage of open-source projects with published API documentation for all services."
+      },
+      "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/hosting/datacenter-housing",
+        "note": "Infomaniak owns its data centers and manages its own network, minimizing subcontractor risk."
+      }
+    },
+    "SOV-5: Supply Chain": {
+      "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
+        "verdict": "N",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Physical hardware (CPUs/GPUs) remains non-EU origin (NVIDIA, Intel)."
+      },
+      "Is firmware and embedded code controlling hardware of EU origin?": {
+        "verdict": "N",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Hardware firmware is proprietary to global vendors."
+      },
+      "Is the software stack architected, packaged, and updated from within the EU?": {
+        "verdict": "Y",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Infomaniak develops its own high-level software layers (managed services) internally."
+      },
+      "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
+        "verdict": "P",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "The transition to open-source K8s and DBaaS reduces software vendor risk, but hardware reliance is unavoidable."
+      },
+      "Does the provider offer full transparency and audit rights across its entire supply chain?": {
+        "verdict": "P",
+        "source": "https://www.bcorporation.net/find-a-b-corp/company/infomaniak-group-sa/",
+        "note": "B-Corp certification ensures transparency in community and environmental impact, but deep silicon supply chain visibility is limited."
+      }
+    },
+    "SOV-6: Technology": {
+      "Does the provider use well-documented, non-proprietary APIs and open standards?": {
+        "verdict": "Y",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "API is OpenAI-compatible; IaaS is OpenStack-standard; PaaS is Kubernetes-standard."
+      },
+      "Is the software stack available under open-source licences with audit and modification rights?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Utilizes and contributes to major open-source ecosystems."
+      },
+      "Does the provider offer full architectural transparency including data flows and dependencies?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/hosting/datacenter-housing",
+        "note": "Infrastructure design is transparently documented for enterprise clients."
+      },
+      "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
+        "verdict": "N",
+        "source": "https://kommunikasjon.ntb.no/pressemelding/18785947/infomaniak-expands-its-sovereign-public-cloud",
+        "note": "Trace found: GPU instances use NVIDIA L4, T4, A2, and A100."
+      }
+    },
+    "SOV-7: Security & Compliance": {
+      "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "ISO 27001, ISO 9001, and ISO 14001 certified."
+      },
+      "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Fully compliant with nDSG (Switzerland) and GDPR (EU)."
+      },
+      "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "SOC operations are local to Geneva."
+      },
+      "Does the provider give customers direct oversight of security monitoring and logging?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/en/sovereign-cloud",
+        "note": "Detailed logging and event history are native to the Infomaniak Manager."
+      },
+      "Does the provider follow EU-compliant breach reporting with independent patch management?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Adheres to strict Swiss and EU regulatory timelines."
+      },
+      "Can EU entities perform independent security audits with full system access?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "Regular third-party audits are standard for their hosting and housing services."
+      }
+    },
+    "SOV-8: Environmental": {
+      "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "One of the most eco-friendly providers globally; uses 100% renewable energy and natural data center cooling (no AC)."
+      },
+      "Does the provider apply circular economy practices for hardware lifecycle?": {
+        "verdict": "Y",
+        "source": "https://www.bcorporation.net/find-a-b-corp/company/infomaniak-group-sa/",
+        "note": "Extends hardware life up to 15 years and repurposes components; high B-Corp score (29.7 for Environment)."
+      },
+      "Does the provider publish transparent carbon and water usage disclosures?": {
+        "verdict": "Y",
+        "source": "https://www.bcorporation.net/find-a-b-corp/company/infomaniak-group-sa/",
+        "note": "Detailed disclosures provided via B-Corp and annual CSR reports."
+      },
+      "Does the provider source renewable or low-carbon energy for its operations?": {
+        "verdict": "Y",
+        "source": "https://www.infomaniak.com/de/about",
+        "note": "100% of electricity is certified renewable; 40% of their local energy is from self-produced solar."
+      }
+    },
+    "summary_note": "Infomaniak is arguably the most 'Sovereign' provider in this protocol. Its unique employee-owned status (SOV-1) and strict Swiss jurisdiction (SOV-2) create a double-barrier against foreign influence. While it still faces the 'Global Silicon Reality' (SOV-5), its software independence and commitment to open standards (SOV-6) make it the top choice for users who want to avoid both the CLOUD Act and proprietary vendor lock-in."
+  }
+}
