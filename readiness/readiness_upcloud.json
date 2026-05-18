@@ -1,0 +1,394 @@
+{
+  "UpCloud": {
+    "meta": {
+      "scalability_score": 48,
+      "scalability_note": "12 global locations including Frankfurt, Amsterdam, Warsaw, Helsinki, London; managed K8s with node auto-scaling; no serverless FaaS",
+      "scalability_source": "https://upcloud.com/data-centres/",
+      "performance_score": 83,
+      "performance_note": "99.999% uptime SLA (industry-leading); ISO 27001; MaxIOPS NVMe storage; 25 Gbps network; low-latency EU backbone",
+      "performance_source": "https://upcloud.com/upcloud-service-level-agreement/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No full-stack application hosting or CI/CD platform equivalent to Amplify",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS or serverless function service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime service; containers are deployed via Kubernetes only",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon EKS": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Managed Kubernetes",
+        "note": "Fully managed Kubernetes, node group auto-scaling, integrated with UpCloud networking and storage",
+        "source": "https://upcloud.com/products/managed-kubernetes/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Cloud Servers",
+        "note": "Flexible VM instances with NVMe SSD, hourly/monthly billing, available across multiple EU locations",
+        "source": "https://upcloud.com/products/cloud-servers/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment platform available",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Object Storage (S3-compatible)",
+        "note": "Multi-region EU deployment, full S3 API compatibility, versioning, and lifecycle policies",
+        "source": "https://upcloud.com/products/object-storage/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No cold/archival storage tier available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Block Storage (MaxIOPS)",
+        "note": "NVMe-based block volumes up to 1M IOPS, snapshots, and cross-AZ attach supported",
+        "source": "https://upcloud.com/products/block-storage/"
+      },
+      "AWS Backup": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Managed Backup",
+        "note": "Automated backup policies for servers and storage; point-in-time restore; cross-location replication",
+        "source": "https://upcloud.com/products/managed-backup/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed shared/elastic file system service available",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Managed Database (PostgreSQL, MySQL, Redis)",
+        "note": "Fully managed relational database with automated backups, failover, and read replicas",
+        "source": "https://upcloud.com/products/managed-databases/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed MongoDB-compatible or document database service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless NoSQL key-value/document database available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No MySQL/PostgreSQL-compatible high-performance managed cloud database equivalent",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Managed Redis",
+        "note": "Fully managed Redis cluster with HA and automatic failover; included in the Managed Database product",
+        "source": "https://upcloud.com/products/managed-databases/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed cloud data warehouse service available",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Load Balancer",
+        "note": "Managed HTTP/HTTPS load balancer with TLS termination, health checks, and advanced routing rules",
+        "source": "https://upcloud.com/products/load-balancer/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "UpCloud Load Balancer (TCP mode)",
+        "note": "TCP mode available within the same Load Balancer product; limited UDP support compared to AWS NLB",
+        "source": "https://upcloud.com/products/load-balancer/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Software Defined Networking (SDN)",
+        "note": "Private networks, IP routing, security groups, and floating IPs for full network isolation",
+        "source": "https://upcloud.com/products/networking/"
+      },
+      "Amazon Route 53": {
+        "coverage": "Y",
+        "equivalent": "UpCloud DNS Manager",
+        "note": "Managed DNS with full record type support and low TTL configuration",
+        "source": "https://upcloud.com/products/dns-manager/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway or gateway-as-a-service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CDN service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private connectivity product equivalent to Direct Connect",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image or video analysis AI service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML model training and deployment platform available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model or generative AI API service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL or data integration service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless interactive query service for object storage available",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "UpCloud IAM",
+        "note": "Full RBAC with users, roles, policies, and IP-restricted API tokens",
+        "source": "https://upcloud.com/products/iam/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed identity and user pool service for application authentication",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No SSO or centralised identity federation service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS KMS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed key management service; encryption at rest is provided at the infrastructure level",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets storage or rotation service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "P",
+        "equivalent": "UpCloud Load Balancer TLS (Let's Encrypt)",
+        "note": "TLS certificate provisioning via Load Balancer with Let's Encrypt auto-renewal; no standalone certificate management service",
+        "source": "https://upcloud.com/products/load-balancer/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection or intelligent security monitoring service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management or aggregation service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed resource configuration tracking or compliance service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": "UpCloud DDoS Protection (network-level)",
+        "note": "Network-level DDoS mitigation included in all plans; no advanced application-layer protection service",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed web application firewall service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": "UpCloud Audit Log",
+        "note": "Account activity and API audit logging available; limited export options and retention compared to CloudTrail",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "UpCloud Monitoring",
+        "note": "Built-in metrics and alerting for servers, load balancers, and databases; less integrated and feature-rich than CloudWatch",
+        "source": "https://upcloud.com/products/monitoring/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification or messaging service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed operational management or configuration compliance service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": "UpCloud Billing & Usage",
+        "note": "Detailed cost breakdown per resource and zone available in the management console",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline orchestration service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon ECR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container registry; customers use Docker Hub or self-hosted registries",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No native IaC service; official Terraform provider available for infrastructure automation",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity or device messaging service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device fleet management service available",
+        "source": "https://upcloud.com/products/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless event bus or event routing service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration or state machine service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional email sending service available",
+        "source": "https://upcloud.com/products/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service available",
+        "source": "https://upcloud.com/products/"
+      }
+    }
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "Infomaniak": {
+    "meta": {
+      "scalability_score": 35,
+      "scalability_note": "2 Swiss data centers (Geneva DC2, DC3); managed K8s; object storage scaling; no serverless FaaS; Swiss law data residency",
+      "scalability_source": "https://www.infomaniak.com/en/cloud/public-cloud",
+      "performance_score": 78,
+      "performance_note": "ISO 27001; Swiss Federal Act on Data Protection; 99.9% SLA; low-latency Geneva data centers; privacy-first architecture",
+      "performance_source": "https://www.infomaniak.com/en/legal/sla"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed full-stack application platform available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS/serverless function platform available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container service without Kubernetes",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EKS": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Managed Kubernetes",
+        "note": "Fully managed K8s with auto-scaling and integrated storage; based on OpenStack Magnum",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Public Cloud (OpenStack Nova)",
+        "note": "Flexible VM instances, SSD-backed, hourly billing",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed PaaS application deployment service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Object Storage (S3-compatible)",
+        "note": "Swiss-hosted, multi-AZ within Geneva region, S3 API",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No archival/cold storage tier available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Block Storage (OpenStack Cinder)",
+        "note": "SSD volumes, snapshots, hot-detach/attach",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "VM and volume snapshots available; no centralised backup policy orchestration service",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed elastic NFS file system available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Managed Database",
+        "note": "Managed PostgreSQL and MySQL with automated backups, failover, and read replicas",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed document database service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed NoSQL key-value store available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed high-performance relational database at Aurora scale available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed in-memory caching service (Redis/Memcached) available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Infomaniak Load Balancer (OpenStack Octavia)",
+        "note": "HTTP/HTTPS load balancing; basic routing rules; less feature-rich than AWS ALB",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Infomaniak Load Balancer (OpenStack Octavia)",
+        "note": "TCP load balancing mode in the same Octavia product",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Virtual Network (OpenStack Neutron)",
+        "note": "Private networks, security groups, floating IPs",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Route 53": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak DNS",
+        "note": "Managed DNS with full record type support; fast propagation",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No CDN service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private network connection service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image/video analysis AI service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML model training and deployment platform available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model/generative AI service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL and data integration service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless query service for S3 data available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak IAM (OpenStack Keystone)",
+        "note": "Project/domain RBAC, API token scoping, federated identity",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed user identity and authentication service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed SSO/identity center service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS KMS": {
+        "coverage": "P",
+        "equivalent": "Infomaniak Key Management (OpenStack Barbican)",
+        "note": "Key lifecycle management available; no HSM-backed service",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets rotation and storage service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "TLS certificate management via load balancer and Let's Encrypt; no standalone managed PKI service",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed security posture management service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed resource configuration tracking and compliance service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Data center DDoS protection included; no application-layer WAF service",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed web application firewall service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Basic OpenStack API audit logging; limited retention options",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Infomaniak Metrics (Grafana-based)",
+        "note": "Resource metrics with Grafana dashboards; less integrated than CloudWatch",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed operations and configuration management service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": "Infomaniak Usage & Billing",
+        "note": "Per-project cost tracking and usage reports available in the portal",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon ECR": {
+        "coverage": "P",
+        "equivalent": "Infomaniak Container Registry",
+        "note": "Basic Docker/OCI image registry via public cloud; limited scanning and retention",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "Terraform provider available; OpenStack Heat for native IaC; no CloudFormation-equivalent managed service",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity and messaging service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device fleet management service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event bus/routing service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless workflow orchestration service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional email service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service available",
+        "source": "https://www.infomaniak.com/en/cloud/public-cloud"
+      }
+    }
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "Elastx": {
+    "meta": {
+      "scalability_score": 32,
+      "scalability_note": "3 Swedish zones (Stockholm sto1, sto2, sto3); OpenStack Heat auto-scaling; managed K8s; no serverless FaaS",
+      "scalability_source": "https://elastx.se/en/infrastructure/",
+      "performance_score": 78,
+      "performance_note": "ISO 27001; ISO 14001 (environmental); 99.9% SLA; Swedish data residency; NVMe storage; GDPR-compliant",
+      "performance_source": "https://elastx.se/en/legal/service-level-agreement/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed full-stack application platform available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS/serverless functions platform available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime without Kubernetes",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EKS": {
+        "coverage": "Y",
+        "equivalent": "Elastx Managed Kubernetes (ELKS)",
+        "note": "Fully managed K8s with auto-scaling, persistent storage integration, and GitOps support",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Elastx OpenStack Compute (Nova)",
+        "note": "Flexible VM instances, NVMe SSD, multiple flavors",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed PaaS application deployment service available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Elastx Object Storage (S3-compatible)",
+        "note": "Multi-zone within Stockholm region, S3 API, bucket versioning",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No archival/cold storage tier available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Elastx Block Storage (OpenStack Cinder)",
+        "note": "NVMe/SSD volumes, snapshots, hot-attach",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "VM and volume snapshots available; no centralised cross-service backup policy engine",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed elastic NFS file system available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "P",
+        "equivalent": "Elastx DBaaS (PostgreSQL)",
+        "note": "Managed PostgreSQL available; limited to PostgreSQL, less automated than RDS",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed document database service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed NoSQL key-value store available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed high-performance relational database compatible with MySQL/PostgreSQL at Aurora scale",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed in-memory caching service (Redis/Memcached) available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse service available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Elastx Load Balancer (OpenStack Octavia)",
+        "note": "HTTP/HTTPS load balancing; basic routing; less feature-rich than AWS ALB",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Elastx Load Balancer (OpenStack Octavia)",
+        "note": "TCP mode via the same Octavia service",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Elastx Virtual Network (OpenStack Neutron)",
+        "note": "Private networks, security groups, floating IPs, routers",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Route 53": {
+        "coverage": "P",
+        "equivalent": "Elastx DNS (OpenStack Designate)",
+        "note": "Basic DNS management via OpenStack; no health-check routing or traffic policies",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No CDN service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private network connection service available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image/video analysis AI service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML model training and deployment platform available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model/generative AI service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL and data integration service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless query service for S3 data available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Elastx IAM (OpenStack Keystone)",
+        "note": "Project/domain RBAC, federated identity support, scoped API tokens",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed user identity and authentication service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed SSO/identity center service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS KMS": {
+        "coverage": "P",
+        "equivalent": "Elastx Key Management (OpenStack Barbican)",
+        "note": "Key lifecycle management available; no HSM-backed service",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets rotation and storage service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed TLS/SSL certificate provisioning service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed security posture management service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed resource configuration tracking and compliance service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Data center DDoS mitigation included; no self-service application-layer protection",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed web application firewall service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Basic OpenStack API audit logging; limited retention and export options",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Elastx Monitoring",
+        "note": "Resource metrics exportable to external Prometheus/Grafana; no native integrated dashboard",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed operations and configuration management service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": null,
+        "note": "Per-project cost reporting available in the OpenStack portal",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon ECR": {
+        "coverage": "P",
+        "equivalent": "Elastx Container Registry",
+        "note": "Basic container image registry; limited scanning and retention policies",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "OpenStack Heat templates and Terraform provider available; no native IaC service equivalent to CloudFormation",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity and messaging service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device fleet management service available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event bus/routing service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless workflow orchestration service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional email service available",
+        "source": "https://elastx.se/en/cloud/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service available",
+        "source": "https://elastx.se/en/cloud/"
+      }
+    }
+  }
+}

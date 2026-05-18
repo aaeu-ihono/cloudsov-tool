@@ -1,0 +1,94 @@
+{
+  "Locally Hosted": {
+    "meta": {
+      "scalability_score": 15,
+      "scalability_note": "On-premise infrastructure scales only with hardware procurement cycles; no elastic auto-scaling; capacity must be over-provisioned; no global regions or CDN edge; high CapEx for growth",
+      "scalability_source": "https://www.gartner.com/en/information-technology/insights/cloud-computing",
+      "performance_score": 65,
+      "performance_note": "Performance depends entirely on hardware investment and team expertise; no vendor SLA; typical enterprise on-premise targets 99.9% uptime; no geo-redundancy without significant additional investment",
+      "performance_source": "https://www.gartner.com/en/information-technology/insights/cloud-computing"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed web/mobile app hosting platform. Self-hosted on Nginx/Apache or Kubernetes ingress.", "source": "https://aws.amazon.com/amplify/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No managed FaaS. Self-hosted alternatives: OpenFaaS, Knative, or Apache OpenWhisk on Kubernetes.", "source": "https://aws.amazon.com/lambda/" },
+      "Amazon ECS": { "coverage": "N", "equivalent": null, "note": "No managed container orchestration. Self-hosted Docker Swarm or Kubernetes required.", "source": "https://aws.amazon.com/ecs/" },
+      "Amazon EKS": { "coverage": "N", "equivalent": null, "note": "No managed Kubernetes. Self-managed kubeadm or Rancher cluster on bare metal or VMware.", "source": "https://aws.amazon.com/eks/" },
+      "Amazon EC2": { "coverage": "P", "equivalent": "On-premise VMs (VMware / KVM / Hyper-V)", "note": "Virtual machines available via on-premise hypervisor (VMware vSphere, KVM, Hyper-V). No elastic provisioning; manual sizing and lifecycle management required.", "source": "https://aws.amazon.com/ec2/" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch service. Self-hosted schedulers (Slurm, Apache Airflow) required.", "source": "https://aws.amazon.com/batch/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS deployment platform. Manual deployment pipelines required.", "source": "https://aws.amazon.com/elasticbeanstalk/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "N", "equivalent": null, "note": "No managed object storage. Self-hosted alternatives: MinIO on Kubernetes, Ceph RadosGW. Requires dedicated ops team.", "source": "https://aws.amazon.com/s3/" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No managed archival storage. Tape libraries or cold-tier NAS solutions required.", "source": "https://aws.amazon.com/s3/glacier/" },
+      "Amazon EBS": { "coverage": "P", "equivalent": "SAN / NAS block storage (on-premise)", "note": "Block storage available via on-premise SAN (NetApp, Pure Storage, Dell EMC). No elastic provisioning; manual LUN management required.", "source": "https://aws.amazon.com/ebs/" },
+      "AWS Backup": { "coverage": "N", "equivalent": null, "note": "No managed centralised backup. Self-hosted Veeam, Bacula, or Commvault required.", "source": "https://aws.amazon.com/backup/" },
+      "Amazon EFS": { "coverage": "P", "equivalent": "NFS server (on-premise)", "note": "Shared file system available via on-premise NFS/CIFS servers. No elastic capacity; manual management required.", "source": "https://aws.amazon.com/efs/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "N", "equivalent": null, "note": "No managed database service. Self-hosted PostgreSQL/MySQL on VMs. Manual patching, backup, and failover configuration required.", "source": "https://aws.amazon.com/rds/" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed document database. Self-hosted MongoDB on VMs.", "source": "https://aws.amazon.com/documentdb/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value store. Self-hosted Cassandra or Redis required.", "source": "https://aws.amazon.com/dynamodb/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database. Self-hosted InfluxDB or TimescaleDB required.", "source": "https://aws.amazon.com/timestream/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No Aurora equivalent on-premise. Self-hosted PostgreSQL/MySQL clusters.", "source": "https://aws.amazon.com/rds/aurora/" },
+      "Amazon ElastiCache": { "coverage": "N", "equivalent": null, "note": "No managed caching. Self-hosted Redis or Memcached on VMs.", "source": "https://aws.amazon.com/elasticache/" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed data warehouse. Self-hosted Greenplum or ClickHouse on bare metal.", "source": "https://aws.amazon.com/redshift/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "N", "equivalent": null, "note": "No managed ALB. Self-hosted HAProxy or Nginx Plus required.", "source": "https://aws.amazon.com/elasticloadbalancing/" },
+      "AWS Network Load Balancer": { "coverage": "N", "equivalent": null, "note": "No managed NLB. Physical or virtual load balancers (F5, HAProxy) required.", "source": "https://aws.amazon.com/elasticloadbalancing/" },
+      "Amazon VPC": { "coverage": "P", "equivalent": "On-premise VLAN / physical network segmentation", "note": "Network isolation via VLANs and physical firewalls (Cisco, Palo Alto). No software-defined networking; manual VLAN provisioning by network team.", "source": "https://aws.amazon.com/vpc/" },
+      "Amazon Route 53": { "coverage": "N", "equivalent": null, "note": "No managed cloud DNS. Self-hosted BIND or Microsoft DNS on-premise.", "source": "https://aws.amazon.com/route53/" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway. Self-hosted Kong, Traefik, or NGINX required.", "source": "https://aws.amazon.com/api-gateway/" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No CDN. Third-party CDN (Cloudflare, Akamai) required at additional cost.", "source": "https://aws.amazon.com/cloudfront/" },
+      "AWS Direct Connect": { "coverage": "N", "equivalent": null, "note": "Not applicable — on-premise infrastructure already uses direct physical networking.", "source": "https://aws.amazon.com/directconnect/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision API. Self-hosted models (OpenCV, TensorFlow) on GPU servers.", "source": "https://aws.amazon.com/rekognition/" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed ML platform. Self-hosted MLflow + Jupyter + GPU servers required.", "source": "https://aws.amazon.com/sagemaker/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed GenAI API. Self-hosted LLMs (Ollama, vLLM) on GPU hardware.", "source": "https://aws.amazon.com/bedrock/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL service. Self-hosted Apache Airflow or Spark pipelines.", "source": "https://aws.amazon.com/glue/" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data cluster. Self-hosted Hadoop/Spark on bare metal.", "source": "https://aws.amazon.com/emr/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless SQL analytics. Self-hosted Trino or ClickHouse required.", "source": "https://aws.amazon.com/athena/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "N", "equivalent": null, "note": "No managed cloud IAM. On-premise Active Directory or LDAP provides identity; no cloud-native resource policy engine.", "source": "https://aws.amazon.com/iam/" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed user pool. Self-hosted Keycloak or Auth0 on-premise.", "source": "https://aws.amazon.com/cognito/" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No managed SSO. On-premise ADFS or self-hosted Keycloak required.", "source": "https://aws.amazon.com/iam/identity-center/" },
+      "AWS KMS": { "coverage": "N", "equivalent": null, "note": "No managed KMS. On-premise HSM (Thales, Utimaco) or manual key management required.", "source": "https://aws.amazon.com/kms/" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets service. Self-hosted HashiCorp Vault required.", "source": "https://aws.amazon.com/secrets-manager/" },
+      "AWS Certificate Manager": { "coverage": "N", "equivalent": null, "note": "No managed certificate service. Manual TLS certificate procurement and renewal by ops team.", "source": "https://aws.amazon.com/certificate-manager/" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed threat detection. On-premise SIEM (Splunk, IBM QRadar) required.", "source": "https://aws.amazon.com/guardduty/" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No managed security posture dashboard. Manual compliance tooling required.", "source": "https://aws.amazon.com/security-hub/" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed config compliance. Self-hosted Ansible/Chef compliance scanning required.", "source": "https://aws.amazon.com/config/" },
+      "AWS Shield": { "coverage": "N", "equivalent": null, "note": "No managed DDoS protection. On-premise firewalls (Palo Alto, Fortinet) provide limited DDoS mitigation.", "source": "https://aws.amazon.com/shield/" },
+      "AWS WAF": { "coverage": "N", "equivalent": null, "note": "No managed WAF. Self-hosted ModSecurity or commercial WAF appliance required.", "source": "https://aws.amazon.com/waf/" },
+      "AWS CloudTrail": { "coverage": "N", "equivalent": null, "note": "No managed audit trail. On-premise syslog/SIEM required for API and system audit logging.", "source": "https://aws.amazon.com/cloudtrail/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "N", "equivalent": null, "note": "No managed monitoring. Self-hosted Prometheus + Grafana + Alertmanager stack required.", "source": "https://aws.amazon.com/cloudwatch/" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed pub/sub. Self-hosted RabbitMQ or NATS for notification routing.", "source": "https://aws.amazon.com/sns/" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed operations platform. Self-hosted Ansible AWX or Puppet Enterprise required.", "source": "https://aws.amazon.com/systems-manager/" },
+      "AWS Cost Explorer": { "coverage": "N", "equivalent": null, "note": "No cloud cost dashboard. CapEx-based accounting via ERP (SAP, Oracle); no real-time resource cost visibility.", "source": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI build service. Self-hosted Jenkins, GitLab CI, or GitHub Actions runners required.", "source": "https://aws.amazon.com/codebuild/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed deployment automation. Self-hosted Ansible, Spinnaker, or ArgoCD required.", "source": "https://aws.amazon.com/codedeploy/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed pipeline orchestration. Self-hosted GitLab CI/CD or Jenkins pipelines required.", "source": "https://aws.amazon.com/codepipeline/" },
+      "Amazon ECR": { "coverage": "N", "equivalent": null, "note": "No managed container registry. Self-hosted Harbor or Docker Registry required.", "source": "https://aws.amazon.com/ecr/" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No managed IaC service. Self-managed Terraform, Ansible, or Pulumi on-premise.", "source": "https://aws.amazon.com/cloudformation/" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT broker. Self-hosted Eclipse Mosquitto or EMQX MQTT broker required.", "source": "https://aws.amazon.com/iot-core/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed device registry. Self-hosted ThingsBoard or custom device management solution required.", "source": "https://aws.amazon.com/iot-device-management/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "N", "equivalent": null, "note": "No managed message queue. Self-hosted RabbitMQ or ActiveMQ required.", "source": "https://aws.amazon.com/sqs/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus. Self-hosted Kafka or NATS JetStream required.", "source": "https://aws.amazon.com/eventbridge/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed workflow orchestration. Self-hosted Apache Airflow or Temporal required.", "source": "https://aws.amazon.com/step-functions/" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed email service. Self-hosted Postfix/Sendmail or on-premise Exchange required.", "source": "https://aws.amazon.com/ses/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed streaming service. Self-hosted Apache Kafka on bare metal required.", "source": "https://aws.amazon.com/kinesis/" }
+    }
+  }
+}

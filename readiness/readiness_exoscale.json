@@ -1,0 +1,394 @@
+{
+  "Exoscale": {
+    "meta": {
+      "scalability_score": 42,
+      "scalability_note": "6 EU zones (Zurich, Geneva, Frankfurt, Vienna, Munich, Sofia); managed K8s; auto-scaling groups; no serverless FaaS",
+      "scalability_source": "https://www.exoscale.com/datacenters/",
+      "performance_score": 80,
+      "performance_note": "ISO 27001; 99.95% SLA; Swiss and EU data residency; GDPR-by-design; NVMe storage",
+      "performance_source": "https://www.exoscale.com/sla/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No full-stack application hosting or integrated CI/CD platform equivalent to Amplify",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS or serverless function service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime service without Kubernetes; containers require SKE",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon EKS": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Scalable Kubernetes Engine (SKE)",
+        "note": "Fully managed Kubernetes with node pool auto-scaling and multi-zone support",
+        "source": "https://www.exoscale.com/sks/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Compute Instances",
+        "note": "Flexible instance types (Standard, CPU, Memory, GPU, Storage) with NVMe SSD storage",
+        "source": "https://www.exoscale.com/compute/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment platform available",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Simple Object Storage (SOS)",
+        "note": "S3-compatible object storage with multi-zone redundancy within region and lifecycle policies",
+        "source": "https://www.exoscale.com/object-storage/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No cold/archival storage tier available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Block Storage",
+        "note": "NVMe/SSD block volumes with snapshots and detach/reattach from instances",
+        "source": "https://www.exoscale.com/block-storage/"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": "Exoscale Instance and Volume Snapshots",
+        "note": "Instance snapshots and volume snapshots available; no centralised cross-service backup policy engine",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed shared or elastic network file system service available",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Database as a Service (DBaaS)",
+        "note": "Managed PostgreSQL, MySQL, and OpenSearch with automated backups and high availability",
+        "source": "https://www.exoscale.com/dbaas/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed MongoDB-compatible document database service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless NoSQL key-value database available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No high-performance MySQL/PostgreSQL-compatible cloud-native database equivalent",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "Y",
+        "equivalent": "Exoscale DBaaS Redis",
+        "note": "Managed Redis with HA and auto-failover; part of the same DBaaS product",
+        "source": "https://www.exoscale.com/dbaas/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed cloud data warehouse service available",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Network Load Balancer (NLB)",
+        "note": "Managed HTTP/HTTPS and TCP load balancing with TLS termination and health checks",
+        "source": "https://www.exoscale.com/network-load-balancer/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Network Load Balancer (NLB) — TCP/UDP mode",
+        "note": "TCP/UDP load balancing available in the same NLB product alongside HTTP/HTTPS",
+        "source": "https://www.exoscale.com/network-load-balancer/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Private Networks",
+        "note": "Private L2 networks, security groups, and elastic IPs for full network isolation",
+        "source": "https://www.exoscale.com/private-network/"
+      },
+      "Amazon Route 53": {
+        "coverage": "Y",
+        "equivalent": "Exoscale DNS",
+        "note": "Managed DNS with full record type support and configurable low TTL",
+        "source": "https://www.exoscale.com/dns/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway or gateway-as-a-service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CDN service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private connectivity product equivalent to Direct Connect",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image or video analysis AI service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML model training and deployment platform available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model or generative AI API service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL or data integration service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless interactive query service for object storage available",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Exoscale IAM",
+        "note": "Fine-grained RBAC with users, roles, and API key scoping per service and operation",
+        "source": "https://www.exoscale.com/iam/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed identity and user pool service for application authentication",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No SSO or centralised identity federation service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS KMS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed key management service; storage encryption is handled at the infrastructure level",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets storage or rotation service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "P",
+        "equivalent": "Exoscale Load Balancer TLS (Let's Encrypt integration)",
+        "note": "TLS via Let's Encrypt integration with load balancers; no standalone certificate management service",
+        "source": "https://www.exoscale.com/network-load-balancer/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection or intelligent security monitoring service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management or findings aggregation service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed resource configuration tracking or compliance service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": "Exoscale Data Center DDoS Protection",
+        "note": "Data center DDoS protection included; no application-layer mitigation or advanced protection service",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed web application firewall service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": "Exoscale Audit Trail",
+        "note": "API request logs for account activity available; limited retention period and export options compared to CloudTrail",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Exoscale Metrics (Datadog-compatible)",
+        "note": "Resource metrics exportable to Datadog/Grafana; no native integrated dashboard at CloudWatch scale or depth",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification or push messaging service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed operational management or configuration compliance service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": "Exoscale Billing Console",
+        "note": "Per-resource usage and cost tracking available directly in the management portal",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline orchestration service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon ECR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container registry; customers use Docker Hub or self-hosted registries",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No native IaC service; official Terraform and Pulumi providers available for infrastructure automation",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity or device messaging service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device fleet management service available",
+        "source": "https://www.exoscale.com/platform/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "P",
+        "equivalent": "Exoscale DBaaS Kafka",
+        "note": "Managed Kafka cluster available and can be used for queue-like messaging patterns; not a native SQS equivalent",
+        "source": "https://www.exoscale.com/dbaas/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed serverless event bus or event routing service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration or state machine service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional or bulk email sending service available",
+        "source": "https://www.exoscale.com/platform/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "P",
+        "equivalent": "Exoscale DBaaS Kafka",
+        "note": "Managed Kafka covers real-time data streaming use cases comparable to Kinesis Data Streams",
+        "source": "https://www.exoscale.com/dbaas/"
+      }
+    }
+  }
+}
