@@ -11,22 +11,22 @@
         "source": "https://www.noris.de/en/company/about-us/",
         "note": "Private ownership by founders acts as a native structural defense against foreign acquisition."
       },
-      "Does the provider rely primarily on financing sourced from EU institutions?": {
+      "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
         "note": "Grown almost exclusively through organic revenue and local German capital."
       },
-      "Does the provider demonstrate significant investment and job creation within the EU?": {
+      "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
         "note": "Employs over 600 people across 6 German locations (Nuremberg, Munich, Berlin, Hof)."
       },
-      "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X)?": {
+      "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
         "note": "Founder member and active contributor to Gaia-X and the Sovereign Cloud Stack (SCS) project."
       },
-      "Can the provider sustain secure operations if vendor support is withdrawn?": {
+      "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "Heavy use of open-source OpenStack/SCS layers provides software autonomy, but physical hardware remains dependent on non-EU chipsets (Intel/AMD)."
@@ -38,66 +38,66 @@
         "source": "https://www.noris.de/en/service/legal-notice/",
         "note": "Strictly governed by German Law (BGB/HGB) and the BDSG/GDPR."
       },
-      "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act)?": {
+      "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "No US parent or nexus. Infrastructure is 100% German-hosted, providing immunity from the US CLOUD Act."
       },
-      "Are there no channels for non-EU authorities to compel access to data?": {
+      "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Data access requires a German judicial warrant; the provider has no legal presence in jurisdictions that could bypass this."
       },
-      "Is the provider free from international export control regimes?": {
+      "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
         "source": "Supply Chain Ledger 2026",
         "note": "Hardware layer remains subject to global export control regimes for advanced silicon."
       },
-      "Is the provider's IP created and developed exclusively within the EU?": {
+      "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
         "note": "Core infrastructure automation and data center management stacks are developed in-house in Germany."
       }
     },
     "SOV-3: Data & AI Sovereignty": {
-      "Does the customer retain exclusive cryptographic control (BYOK)?": {
+      "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "Full customer-managed encryption supported across the noris Sovereign Cloud."
       },
-      "Does the provider offer full auditability of data and AI model usage?": {
+      "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Holds highest-tier certifications including ISO 27001 (BSI IT-Grundschutz) and BSI C5."
       },
-      "Does the provider guarantee irreversible data removal?": {
+      "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Standard compliance for KRITIS-regulated industries and German financial sectors."
       },
-      "Is all data storage strictly confined to EU jurisdictions?": {
+      "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/locations-and-directions/",
         "note": "Infrastructure is located entirely in proprietary German data centers (Nuremberg, Munich, Hof)."
       },
-      "Are AI models trained and governed exclusively under EU control?": {
+      "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "Infrastructure for training is local, but high-end GPU stacks (NVIDIA) and frameworks remain non-EU."
       }
     },
     "SOV-4: Operational Sovereignty": {
-      "Can workloads be migrated without vendor lock-in?": {
+      "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
         "source": "https://sovereigncloudstack.org/",
         "note": "100% based on Sovereign Cloud Stack (SCS) standards, ensuring seamless portability to other OpenStack clouds."
       },
-      "Can EU operators fully maintain the service independently?": {
+      "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/management/",
         "note": "Managed entirely by an in-house German engineering team with deep open-source expertise."
       },
-      "Does an EU-based talent pool exist to operate the service?": {
+      "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
         "note": "Strong recruitment and training focus within the German 'Mittelstand' ecosystem."
@@ -107,68 +107,68 @@
         "source": "https://www.noris.de/en/data-centers/",
         "note": "24/7 technical support is provided strictly by staff on-site in Germany."
       },
-      "Is full technical documentation and source code available?": {
+      "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
         "source": "https://sovereigncloudstack.org/",
         "note": "The core stack is 100% open-source and conforms to published SCS specifications."
       },
-      "Are all critical suppliers located within EU jurisdiction?": {
+      "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Noris owns and operates its own data centers, minimizing reliance on foreign facility subcontractors."
       }
     },
     "SOV-5: Supply Chain": {
-      "Is key hardware manufactured within the EU?": {
+      "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
         "source": "Supply Chain Ledger 2026",
         "note": "Relies on global (US/Asian) silicon and networking hardware."
       },
-      "Is hardware firmware of EU origin?": {
+      "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
         "source": "Supply Chain Ledger 2026",
         "note": "Hardware firmware remains proprietary to international vendors."
       },
-      "Is the software stack updated from within the EU?": {
+      "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "Patch management and software lifecycles are managed internally by German staff."
       },
-      "Is the provider free from significant reliance on non-EU vendors?": {
+      "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "The SCS-certified cloud is free from proprietary software lock-in, though hardware remains a 'Trace' point."
       },
-      "Does the provider offer transparency across the supply chain?": {
+      "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "High transparency for German data center ops (ISO/BSI), but limited for global chip fabrication."
       }
     },
     "SOV-6: Technology": {
-      "Does the provider use non-proprietary APIs and open standards?": {
+      "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
         "source": "https://sovereigncloudstack.org/",
         "note": "Uses standard OpenStack and Kubernetes APIs."
       },
-      "Is the software stack available under open-source licenses?": {
+      "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
         "note": "The Sovereign Cloud product is 100% open-source."
       },
-      "Does the provider offer full architectural transparency?": {
+      "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Detailed architectural documentation is standard for enterprise and KRITIS clients."
       },
-      "Is the provider free from dependency on non-EU high-performance computing?": {
+      "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
         "source": "Supply Chain Ledger 2026",
         "note": "Trace found: Compute and GPU resources are provided by non-EU vendors."
       }
     },
     "SOV-7: Security & Compliance": {
-      "Does the provider hold recognized EU certifications?": {
+      "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Holds BSI C5 (Type II) and ISO 27001 on the basis of IT-Grundschutz."
@@ -178,44 +178,44 @@
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Fully compliant; explicitly supports German KRITIS and FINMA requirements."
       },
-      "Are all SOCs operating exclusively under EU jurisdiction?": {
+      "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/management/",
         "note": "The noris Security Operations Center is 100% German-based and managed."
       },
-      "Does the provider give customers oversight of security logging?": {
+      "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/",
         "note": "Offers integrated SIEM/SOC visibility for regulated customers."
       },
-      "Does the provider follow EU-compliant breach reporting?": {
+      "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Adheres to German BSI breach notification standards."
       },
-      "Can EU entities perform independent security audits?": {
+      "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
         "note": "Standard for high-compliance KRITIS customers."
       }
     },
     "SOV-8: Environmental": {
-      "Does the provider operate energy-efficient infrastructure?": {
+      "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
         "note": "Uses patented CECC cooling system; targets PUE < 1.2 at newer sites."
       },
-      "Does the provider apply circular economy practices?": {
+      "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
         "note": "Uses reprocessed hardware where possible; member of 'Climate Neutral Data Center Pact'."
       },
-      "Does the provider publish carbon and water disclosures?": {
+      "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
         "note": "Transparent disclosures via annual sustainability reports."
       },
-      "Does the provider source renewable energy?": {
+      "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
         "note": "100% of electricity for all data centers comes from renewable sources."

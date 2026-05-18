@@ -62,7 +62,7 @@
     },
 
     "SOV-3: Data & AI Sovereignty": {
-      "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?:": {
+      "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
         "source": "https://www.scaleway.com/en/docs/managed-inference/reference-content/data-privacy-security-scaleway-ai-services/",
         "note": "Encryption in transit and VPC isolation provided, but no explicit BYOK/KMS offering documented."

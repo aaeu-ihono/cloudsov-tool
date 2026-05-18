@@ -1,18 +1,25 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+# CloudSov dev runner
+# Starts FastAPI backend + Vite frontend in parallel
 
-if ! command -v python3 &> /dev/null; then
-    echo "ERROR: Python 3 not found."
-    exit 1
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ ! -d "venv" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv venv
-fi
+echo "Starting FastAPI backend on http://localhost:8000 ..."
+cd "$SCRIPT_DIR/backend"
+uvicorn main:app --reload --port 8000 &
+BACKEND_PID=$!
 
-source venv/bin/activate
-pip install -r requirements.txt -q
-echo "Starting CloudSov at http://localhost:5000"
-open "http://localhost:5000" 2>/dev/null || xdg-open "http://localhost:5000" 2>/dev/null &
-python app.py
+echo "Starting Vite frontend on http://localhost:5173 ..."
+cd "$SCRIPT_DIR/frontend"
+npm run dev &
+FRONTEND_PID=$!
+
+echo ""
+echo "CloudSov running:"
+echo "  Frontend → http://localhost:5173"
+echo "  API docs → http://localhost:8000/docs"
+echo ""
+echo "Press Ctrl+C to stop both."
+
+trap "kill $BACKEND_PID $FRONTEND_PID 2>/dev/null; exit" INT TERM
+wait
