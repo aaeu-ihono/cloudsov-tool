@@ -1,0 +1,94 @@
+{
+  "noris network": {
+    "meta": {
+      "scalability_score": 22,
+      "scalability_note": "Single primary region (Nuremberg); VMware-based infrastructure with manual scaling; no serverless compute; no auto-scaling groups; limited horizontal elasticity for dynamic workloads",
+      "scalability_source": "https://www.noris.de/cloud/",
+      "performance_score": 82,
+      "performance_note": "BSI IT-Grundschutz certified; ISO 27001; 99.95% uptime SLA; German Tier-3 data centers in Nuremberg; strong compliance posture for regulated industries",
+      "performance_source": "https://www.noris.de/compliance/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed web or mobile application hosting platform. Applications are deployed on VMware-based VMs or Kubernetes.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No FaaS or serverless function service. Event-driven compute workloads must be implemented on VMs or Kubernetes Jobs.", "source": "https://www.noris.de/cloud/virtuelle-server/" },
+      "Amazon ECS": { "coverage": "N", "equivalent": null, "note": "No managed container orchestration service equivalent to ECS. Container deployments are handled via Kubernetes only.", "source": "https://www.noris.de/cloud/kubernetes/" },
+      "Amazon EKS": { "coverage": "P", "equivalent": "noris Managed Kubernetes", "note": "Kubernetes is available as a managed service but with limited managed features; the primary infrastructure is VMware vSphere-based rather than cloud-native.", "source": "https://www.noris.de/cloud/kubernetes/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "noris vCloud (VMware)", "note": "Enterprise VM hosting on VMware vSphere with flexible vCPU and RAM configurations. Suited for enterprise and regulated workloads.", "source": "https://www.noris.de/cloud/virtuelle-server/" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch job processing service. Batch workloads require manual orchestration on VMs or Kubernetes Jobs.", "source": "https://www.noris.de/cloud/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS application deployment platform. All deployments are managed by the customer on VMs or Kubernetes.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "noris Object Storage", "note": "S3-compatible object storage service available within the noris data center environment.", "source": "https://www.noris.de/cloud/object-storage/" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No dedicated archive or cold storage tier. Long-term data retention relies on standard object or block storage.", "source": "https://www.noris.de/cloud/object-storage/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "noris Block Storage", "note": "SAN-based block storage with high IOPS for enterprise VM workloads. Persistent and attachable to virtual servers.", "source": "https://www.noris.de/cloud/storage/" },
+      "AWS Backup": { "coverage": "P", "equivalent": "noris Backup Service", "note": "VM-level backups and snapshots are available as a managed service. No unified cross-service backup policy management equivalent to AWS Backup.", "source": "https://www.noris.de/managed-services/backup/" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed elastic NFS-compatible shared file system. Shared storage solutions must be self-hosted.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "P", "equivalent": null, "note": "Managed database hosting is available as a managed service, limited to MySQL and PostgreSQL. Less automated failover and scaling compared to AWS RDS.", "source": "https://www.noris.de/managed-services/datenbanken/" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed MongoDB-compatible document database. Self-hosting required on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value or wide-column database. Self-hosted DynamoDB-compatible services must be deployed on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database service. Self-hosted InfluxDB or TimescaleDB must be deployed.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No managed high-performance Aurora-compatible relational database. Managed databases are limited to standard MySQL and PostgreSQL.", "source": "https://www.noris.de/managed-services/datenbanken/" },
+      "Amazon ElastiCache": { "coverage": "N", "equivalent": null, "note": "No managed in-memory caching service. Redis or Memcached must be self-hosted on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed cloud data warehouse. Analytical workloads require self-hosted solutions on VMs.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "P", "equivalent": null, "note": "Load balancing is available but HTTP/HTTPS routing configuration is less self-service and feature-rich than AWS ALB. Managed via support request.", "source": "https://www.noris.de/cloud/netzwerk/" },
+      "AWS Network Load Balancer": { "coverage": "P", "equivalent": null, "note": "TCP load balancing is available. Advanced features and self-service configuration are limited compared to AWS NLB.", "source": "https://www.noris.de/cloud/netzwerk/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "noris Private Cloud Network", "note": "VLAN-based isolated private networking with firewalls, custom routing, and segmentation for enterprise workloads.", "source": "https://www.noris.de/cloud/netzwerk/" },
+      "Amazon Route 53": { "coverage": "P", "equivalent": null, "note": "DNS services are available but advanced routing policies such as latency-based or geolocation routing are limited compared to Route 53.", "source": "https://www.noris.de/cloud/netzwerk/" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway service. API management must be self-hosted using tools such as Kong or nginx.", "source": "https://www.noris.de/cloud/" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No CDN service available. Content delivery requires third-party CDN providers.", "source": "https://www.noris.de/cloud/" },
+      "AWS Direct Connect": { "coverage": "Y", "equivalent": "noris Dedicated Connectivity", "note": "Dedicated MPLS lines and colocation cross-connects available for private, high-bandwidth connectivity to the noris data center.", "source": "https://www.noris.de/netzwerk/anbindung/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image/video recognition service. Self-hosted or third-party AI APIs required.", "source": "https://www.noris.de/cloud/" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed ML training or inference platform. ML workloads must be deployed manually on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed generative AI or foundation model API. Self-hosted LLM deployments on GPU infrastructure required.", "source": "https://www.noris.de/cloud/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL or data integration service. Data pipelines must be self-hosted.", "source": "https://www.noris.de/cloud/" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data processing cluster. Hadoop or Spark must be self-deployed on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless query service for object storage. Self-hosted Trino or Presto required.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "P", "equivalent": null, "note": "User and role management is available via the customer portal. Permission granularity is less fine-grained than AWS IAM; resource-level policies are limited.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed identity and user pool service for applications. Self-hosted Keycloak or similar is required.", "source": "https://www.noris.de/cloud/" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No managed SSO or centralised identity federation service.", "source": "https://www.noris.de/cloud/" },
+      "AWS KMS": { "coverage": "N", "equivalent": null, "note": "No managed key management service. Encryption key management relies on self-managed solutions or third-party HSM integration.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets storage or automated rotation service. HashiCorp Vault or similar must be self-hosted.", "source": "https://www.noris.de/cloud/" },
+      "AWS Certificate Manager": { "coverage": "P", "equivalent": null, "note": "TLS certificate management is available via the portal. Certificate renewal is a manual process; no automated lifecycle management equivalent to ACM.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed intelligent threat detection service. External SIEM tools must be integrated for security monitoring.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No unified security posture management or findings aggregation dashboard.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration compliance and continuous audit service.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "AWS Shield": { "coverage": "P", "equivalent": null, "note": "Network-level DDoS protection is provided at the data center level. No advanced application-layer DDoS mitigation equivalent to AWS Shield Advanced.", "source": "https://www.noris.de/cloud/sicherheit/ddos-schutz/" },
+      "AWS WAF": { "coverage": "N", "equivalent": null, "note": "No managed web application firewall service. WAF capabilities require self-hosted solutions.", "source": "https://www.noris.de/cloud/sicherheit/" },
+      "AWS CloudTrail": { "coverage": "N", "equivalent": null, "note": "No managed API activity logging or audit trail service. Infrastructure-level audit logging is managed by noris internally but not exposed as a customer-facing service.", "source": "https://www.noris.de/cloud/sicherheit/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "noris Monitoring", "note": "Infrastructure metrics and alerting provided via a Zabbix-based monitoring platform. Less integrated and with fewer data sources than CloudWatch; no log aggregation service.", "source": "https://www.noris.de/managed-services/monitoring/" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed pub/sub notification service. Alerting notifications are delivered via email or SNMP from the monitoring platform.", "source": "https://www.noris.de/managed-services/monitoring/" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed operations management platform for patching, inventory, or session management. These functions are handled by noris as part of managed services.", "source": "https://www.noris.de/managed-services/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": null, "note": "Detailed billing and cost reports per service are available in the customer portal with monthly and resource-level breakdowns.", "source": "https://www.noris.de/cloud/abrechnung/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI build service. CI/CD pipelines must use self-hosted or external tools such as GitLab CI or Jenkins.", "source": "https://www.noris.de/cloud/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed application deployment automation service.", "source": "https://www.noris.de/cloud/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD pipeline orchestration service.", "source": "https://www.noris.de/cloud/" },
+      "Amazon ECR": { "coverage": "N", "equivalent": null, "note": "No managed container image registry. Customers must deploy and operate their own registry such as Harbor or Docker Registry.", "source": "https://www.noris.de/cloud/" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No native IaC templating service. Infrastructure automation relies on external tools; Terraform with VMware or noris APIs is the recommended approach.", "source": "https://www.noris.de/cloud/" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT device gateway or connectivity service. IoT brokers must be self-hosted on VMs.", "source": "https://www.noris.de/cloud/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device fleet management or over-the-air update service.", "source": "https://www.noris.de/cloud/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "N", "equivalent": null, "note": "No managed message queue service. RabbitMQ or Apache Kafka must be self-hosted on VMs.", "source": "https://www.noris.de/cloud/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus or event routing service.", "source": "https://www.noris.de/cloud/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed serverless workflow orchestration service. Workflow automation requires self-hosted Apache Airflow or similar.", "source": "https://www.noris.de/cloud/" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed transactional email sending service. Third-party SMTP providers or self-hosted mail infrastructure required.", "source": "https://www.noris.de/cloud/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming service. Self-hosted Apache Kafka or Redpanda required.", "source": "https://www.noris.de/cloud/" }
+    }
+  }
+}

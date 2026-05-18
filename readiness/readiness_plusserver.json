@@ -1,0 +1,94 @@
+{
+  "PlusServer": {
+    "meta": {
+      "scalability_score": 35,
+      "scalability_note": "2 German regions (Cologne, Hamburg), managed K8s auto-scaling, no serverless FaaS; limited global footprint restricts horizontal scale-out beyond DACH",
+      "scalability_source": "https://www.plusserver.com/en/cloud-infrastructure/",
+      "performance_score": 80,
+      "performance_note": "BSI C5 attested, ISO 27001 certified, 99.95% SLA, all data centers located in Germany; high compliance assurance with strong uptime guarantee",
+      "performance_source": "https://www.plusserver.com/en/compliance/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed frontend or full-stack web application hosting platform. Web apps must be self-hosted on VMs or Kubernetes.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No Function-as-a-Service offering. Serverless compute is not part of the PlusServer portfolio; workloads require VMs or containers.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon ECS": { "coverage": "N", "equivalent": null, "note": "No managed container runtime service outside of Kubernetes. Container orchestration is only available via PSKE (managed K8s).", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EKS": { "coverage": "Y", "equivalent": "PlusServer Managed Kubernetes (PSKE)", "note": "Fully managed Kubernetes service with auto-scaling, GitOps-ready configuration, and multi-version support. Available in both German regions.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "PlusServer Cloud Compute (OpenStack Nova)", "note": "Flexible VM instances across multiple flavor profiles (general purpose, compute-optimized, memory-optimized). OpenStack Nova backend.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch compute service. Batch workloads must be orchestrated manually via VMs or Kubernetes Jobs.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS application deployment platform. Application lifecycle management requires custom pipelines.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "PlusServer Object Storage (S3-compatible)", "note": "Multi-region S3-compatible object storage with full S3 API support. Hosted exclusively in German data centers.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No archival or cold-storage tier. Object Storage is offered at a single standard tier with no automated lifecycle archival.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "PlusServer Block Storage (Cinder)", "note": "SSD and NVMe-backed block volumes attachable to compute instances. Snapshots supported. Managed via OpenStack Cinder.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Backup": { "coverage": "P", "equivalent": "PlusServer VM and Volume Snapshots", "note": "VM snapshots and volume snapshots are available for manual and scheduled use. No centralised cross-service backup orchestration or policy engine.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed shared or distributed file system. NFS can be self-hosted on compute instances but is not offered as a managed service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "Y", "equivalent": "PlusServer Managed Databases", "note": "Managed PostgreSQL and MySQL with automated backups, point-in-time recovery, and high-availability failover.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed document database service. MongoDB or similar must be self-hosted.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value or wide-column database service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No high-performance distributed relational database equivalent to Aurora.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon ElastiCache": { "coverage": "P", "equivalent": "PlusServer Managed Redis", "note": "Managed Redis instance available. Clustering options are limited and Redis Cluster mode with advanced sharding is not fully supported.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed cloud data warehouse service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "PlusServer Load Balancer (Octavia)", "note": "HTTP/HTTPS load balancing with TLS termination, health checks, and routing rules. Managed via OpenStack Octavia.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Network Load Balancer": { "coverage": "P", "equivalent": "PlusServer Load Balancer TCP mode (Octavia)", "note": "TCP-level load balancing is available via the same Octavia product. Advanced NLB features such as static IPs and ultra-low latency modes are limited.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "PlusServer Virtual Private Cloud (Neutron)", "note": "Full private networking with subnets, routing tables, security groups, and floating IPs. Managed via OpenStack Neutron.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "PlusServer DNS (Designate)", "note": "Managed DNS service with support for all standard record types. Managed via OpenStack Designate.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway service. API management requires self-hosted solutions such as Kong or nginx.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No global CDN service. Content delivery requires third-party CDN integration.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Direct Connect": { "coverage": "P", "equivalent": "PlusServer Dedicated Line", "note": "Dedicated private connectivity to PlusServer data centers is available on request. Limited self-service provisioning; requires manual engagement.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image/video analysis service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed machine learning platform for model training and deployment.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed generative AI or foundation model API service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL or serverless data integration service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data processing service (Hadoop/Spark). Must be self-hosted.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless interactive query service for data in object storage.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "PlusServer IAM (Keystone)", "note": "Full RBAC with support for projects, domains, roles, and federated identity. Managed via OpenStack Keystone.", "source": "https://www.plusserver.com/en/compliance/" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed user identity and authentication service for applications. Requires self-hosted identity providers (e.g. Keycloak).", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No centralized SSO or workforce identity management service.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS KMS": { "coverage": "P", "equivalent": "PlusServer Key Management (Barbican)", "note": "Key lifecycle management available via OpenStack Barbican. HSM integration is limited and not offered as a standard self-service feature.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets rotation and storage service. Secrets management requires self-hosted tools such as HashiCorp Vault.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS Certificate Manager": { "coverage": "P", "equivalent": "TLS Certificate Provisioning via Load Balancer", "note": "TLS certificate provisioning is handled via the load balancer with Let's Encrypt integration. No standalone managed certificate lifecycle service.", "source": "https://www.plusserver.com/en/compliance/" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed threat detection or continuous security monitoring service.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No managed cloud security posture management or centralised finding aggregation service.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration tracking or compliance evaluation service.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS Shield": { "coverage": "P", "equivalent": "PlusServer Network-level DDoS Protection", "note": "Network-level DDoS mitigation is provided at the data center perimeter. No advanced application-layer or WAF-integrated DDoS mitigation.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS WAF": { "coverage": "P", "equivalent": "PlusServer WAF", "note": "Basic web application firewall available. Rule customisation is limited compared to AWS WAF managed rule groups.", "source": "https://www.plusserver.com/en/compliance/" },
+      "AWS CloudTrail": { "coverage": "P", "equivalent": "PlusServer Audit Logs (Keystone)", "note": "IAM and API activity audit logging via OpenStack Keystone. Log retention periods and export options are limited.", "source": "https://www.plusserver.com/en/compliance/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "PlusServer Monitoring (Prometheus / Grafana)", "note": "Prometheus and Grafana-based metrics collection and alerting are provided. Less tightly integrated with platform services than CloudWatch.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed pub/sub or push notification service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed operational tooling for patching, run commands, or inventory collection.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "PlusServer Billing Dashboard", "note": "Detailed billing dashboard with per-resource cost breakdown and usage history. Available in the customer portal.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI build service. CI pipelines require self-hosted or third-party tools (e.g. GitLab CI, Jenkins).", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed application deployment automation service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD pipeline orchestration service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon ECR": { "coverage": "Y", "equivalent": "PlusServer Container Registry", "note": "Managed OCI/Docker container registry with namespace isolation. Integrated with PSKE for image pulls.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No native infrastructure-as-code service. An official Terraform provider is available for PlusServer OpenStack resources.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT connectivity or device messaging platform.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device registry or fleet management service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "N", "equivalent": null, "note": "No managed message queue service. Message queuing requires self-hosted solutions such as RabbitMQ or Kafka.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus or event-driven integration service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed serverless workflow orchestration service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed transactional or bulk email delivery service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming or ingestion service.", "source": "https://www.plusserver.com/en/cloud-infrastructure/" }
+    }
+  }
+}

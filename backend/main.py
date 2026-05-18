@@ -10,12 +10,15 @@ from pydantic import BaseModel
 
 from sov_data import SOV_OBJECTIVES, SEAL_DESCRIPTIONS, compute_results
 from sov_loader import load_survey
+from readiness_data import READINESS_CATEGORIES, CHART_DIMENSIONS
+from readiness_loader import load_readiness
 
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
 BASE_DIR = Path(__file__).parent.parent          # /cloudsov
 SURVEY_DIR = BASE_DIR / "survey"
+READINESS_DIR = BASE_DIR / "readiness"
 
 
 # ---------------------------------------------------------------------------
@@ -25,6 +28,7 @@ _SURVEY: dict[str, dict] = load_survey(SURVEY_DIR)
 
 # Pre-compute initial scores for all loaded providers
 _DEFAULT_MIN_SEALS = {k: v["default_min_seal"] for k, v in SOV_OBJECTIVES.items()}
+_READINESS: dict[str, dict] = load_readiness(READINESS_DIR)
 _INITIAL_ANSWERS = {name: data["answers"] for name, data in _SURVEY.items()}
 _INITIAL_SCORES = compute_results(_INITIAL_ANSWERS, _DEFAULT_MIN_SEALS)
 
@@ -87,6 +91,33 @@ def get_providers():
             "from_json": True,
         }
     return payload
+
+
+@app.get("/api/readiness")
+def get_readiness():
+    """
+    Returns pre-computed readiness data for all providers.
+    chart_data: list of { dimension, provider: score } — ready for Recharts LineChart.
+    """
+    providers = list(_READINESS.keys())
+
+    chart_data = []
+    for dim in CHART_DIMENSIONS:
+        row: dict = {"dimension": dim}
+        for pname, pdata in _READINESS.items():
+            row[pname] = pdata["scores"].get(dim, 0)
+        chart_data.append(row)
+
+    return {
+        "providers": providers,
+        "dimensions": CHART_DIMENSIONS,
+        "chart_data": chart_data,
+        "details": {
+            pname: {"meta": pdata["meta"], **pdata["details"]}
+            for pname, pdata in _READINESS.items()
+        },
+        "categories": READINESS_CATEGORIES,
+    }
 
 
 @app.post("/api/score")

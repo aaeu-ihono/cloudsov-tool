@@ -1,0 +1,94 @@
+{
+  "OVHcloud": {
+    "meta": {
+      "scalability_score": 68,
+      "scalability_note": "40+ regions globally including EU, North America, APAC; managed auto-scaling via Instance Groups; up to 224 vCPUs (r3-960); global Anycast network",
+      "scalability_source": "https://www.ovhcloud.com/en/public-cloud/regions-availability/",
+      "performance_score": 83,
+      "performance_note": "99.99% availability SLA for key managed services; anti-DDoS VAC infrastructure protecting all services; multiple AZs per region; 17 Tbps network capacity",
+      "performance_source": "https://www.ovhcloud.com/en/terms-and-conditions/contracts/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "P", "equivalent": "OVHcloud Web Hosting / Cloud Web", "note": "Managed shared and cloud web hosting available. Less developer-focused than Amplify (no built-in CI/CD, auth, or GraphQL).", "source": "https://www.ovhcloud.com/en/web-hosting/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "P", "equivalent": "OVHcloud Serverless Functions", "note": "Managed FaaS available (beta/early access). Supports Node.js, Python, Go. Less mature ecosystem than AWS Lambda.", "source": "https://www.ovhcloud.com/en/public-cloud/serverless-functions/" },
+      "Amazon ECS": { "coverage": "Y", "equivalent": "OVHcloud Managed Kubernetes (Kube workloads)", "note": "Full container workload management via Managed Kubernetes. Docker-native workloads fully supported.", "source": "https://www.ovhcloud.com/en/public-cloud/kubernetes/" },
+      "Amazon EKS": { "coverage": "Y", "equivalent": "OVHcloud Managed Kubernetes (MKS)", "note": "Fully managed Kubernetes clusters with automated upgrades and multi-AZ node pools.", "source": "https://www.ovhcloud.com/en/public-cloud/kubernetes/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "OVHcloud Public Cloud Instances (B3/C3/R3)", "note": "Wide range of instance families: compute, memory, GPU, storage-optimised. Up to 224 vCPUs.", "source": "https://www.ovhcloud.com/en/public-cloud/prices/" },
+      "AWS Batch": { "coverage": "P", "equivalent": "OVHcloud Public Cloud Instances (spot + orchestration)", "note": "Spot instances available for cost-effective batch workloads. No native managed batch service; requires orchestration tooling.", "source": "https://www.ovhcloud.com/en/public-cloud/spot-instances/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No managed PaaS deployment platform equivalent.", "source": "https://www.ovhcloud.com/en/public-cloud/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "OVHcloud Object Storage (S3 API)", "note": "S3-compatible object storage across EU regions. Standard and High Performance tiers.", "source": "https://www.ovhcloud.com/en/public-cloud/object-storage/" },
+      "Amazon S3 Glacier": { "coverage": "Y", "equivalent": "OVHcloud Cold Archive", "note": "Dedicated cold archival storage tier with tape-based backend. WORM compliance option available.", "source": "https://www.ovhcloud.com/en/public-cloud/cold-archive/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "OVHcloud Block Storage", "note": "Persistent SSD block volumes attachable to instances. Classic and High Speed tiers.", "source": "https://www.ovhcloud.com/en/public-cloud/block-storage/" },
+      "AWS Backup": { "coverage": "Y", "equivalent": "OVHcloud Snapshot / Volume Backup", "note": "Automated and manual instance snapshots and volume backups. Backup policies configurable.", "source": "https://www.ovhcloud.com/en/public-cloud/volumes/" },
+      "Amazon EFS": { "coverage": "P", "equivalent": "OVHcloud NAS-HA", "note": "Managed NFS-based storage via NAS-HA product. Less elastic than AWS EFS; requires pre-provisioning capacity.", "source": "https://www.ovhcloud.com/en/storage-solutions/nas-ha/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "Y", "equivalent": "OVHcloud Managed Databases (PostgreSQL, MySQL)", "note": "Fully managed PostgreSQL and MySQL with automated backups, high-availability, and read replicas.", "source": "https://www.ovhcloud.com/en/public-cloud/databases/" },
+      "Amazon DocumentDB": { "coverage": "P", "equivalent": "OVHcloud Managed MongoDB", "note": "Managed MongoDB available (as part of the DBaaS portfolio). Not fully MongoDB-compatible on all APIs.", "source": "https://www.ovhcloud.com/en/public-cloud/mongodb/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed serverless key-value NoSQL database equivalent to DynamoDB.", "source": "https://www.ovhcloud.com/en/public-cloud/databases/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database. InfluxDB or TimescaleDB can be self-hosted.", "source": "https://www.ovhcloud.com/en/public-cloud/databases/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No Aurora-equivalent high-performance MySQL/PostgreSQL compatible engine.", "source": "https://www.ovhcloud.com/en/public-cloud/databases/" },
+      "Amazon ElastiCache": { "coverage": "Y", "equivalent": "OVHcloud Managed Redis", "note": "Fully managed Redis with clustering, replication and persistence options.", "source": "https://www.ovhcloud.com/en/public-cloud/redis/" },
+      "Amazon Redshift": { "coverage": "P", "equivalent": "OVHcloud Managed OpenSearch / Analytics", "note": "Managed OpenSearch for analytics use cases. No columnar data warehouse equivalent to Redshift.", "source": "https://www.ovhcloud.com/en/public-cloud/opensearch/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "OVHcloud Load Balancer (Layer 7)", "note": "Managed HTTP/HTTPS load balancer with SSL termination, path-based routing, and health checks.", "source": "https://www.ovhcloud.com/en/public-cloud/load-balancer/" },
+      "AWS Network Load Balancer": { "coverage": "Y", "equivalent": "OVHcloud Load Balancer (Layer 4)", "note": "TCP/UDP layer-4 load balancing supported in the same managed product.", "source": "https://www.ovhcloud.com/en/public-cloud/load-balancer/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "OVHcloud vRack / Private Network", "note": "Private VLAN-based networking across OVHcloud services (vRack). Isolated private subnets fully supported.", "source": "https://www.ovhcloud.com/en/network/vrack/" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "OVHcloud DNS / Anycast DNS", "note": "Managed DNS with Anycast infrastructure. Supports advanced records, TTL control, and zone management.", "source": "https://www.ovhcloud.com/en/domains/dns-subdomain/" },
+      "Amazon API Gateway": { "coverage": "P", "equivalent": "OVHcloud API Gateway (early access)", "note": "API Gateway product available in early access. REST API management with authentication and rate limiting.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "Amazon CloudFront": { "coverage": "Y", "equivalent": "OVHcloud CDN", "note": "Managed CDN available across OVHcloud edge locations. Integrates with Object Storage and Web Hosting.", "source": "https://www.ovhcloud.com/en/cdn/" },
+      "AWS Direct Connect": { "coverage": "Y", "equivalent": "OVHcloud Connect", "note": "Dedicated private connectivity (1–10 Gbps) between customer infrastructure and OVHcloud via partner PoPs.", "source": "https://www.ovhcloud.com/en/network/ovhcloud-connect/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image recognition API service.", "source": "https://www.ovhcloud.com/en/public-cloud/ai-machine-learning/" },
+      "Amazon SageMaker": { "coverage": "P", "equivalent": "OVHcloud AI Notebooks / AI Training / AI Deploy", "note": "Managed Jupyter notebooks, training jobs, and model deployment. Less integrated than SageMaker; no AutoML or managed pipelines.", "source": "https://www.ovhcloud.com/en/public-cloud/ai-machine-learning/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed Generative AI / foundation model API service.", "source": "https://www.ovhcloud.com/en/public-cloud/ai-machine-learning/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed serverless ETL/data pipeline service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "Amazon EMR": { "coverage": "P", "equivalent": "OVHcloud Data Processing (Apache Spark)", "note": "Managed Apache Spark job execution available. Limited to Spark; no Hadoop, Hive, or Presto managed services.", "source": "https://www.ovhcloud.com/en/public-cloud/data-processing/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless SQL query service over object storage.", "source": "https://www.ovhcloud.com/en/public-cloud/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "OVHcloud Identity and Access Management (IAM)", "note": "Policy-based IAM with users, groups, and service accounts. Supports fine-grained resource permissions.", "source": "https://www.ovhcloud.com/en/identity-access-management/" },
+      "Amazon Cognito": { "coverage": "P", "equivalent": "OVHcloud IAM (partial user pool)", "note": "No dedicated app-level user authentication service. IAM covers account-level users only.", "source": "https://www.ovhcloud.com/en/identity-access-management/" },
+      "AWS IAM Identity Center": { "coverage": "P", "equivalent": "OVHcloud SSO / federated identity", "note": "SAML-based SSO available for OVHcloud console. Limited to console access; no cross-service SSO like AWS IAM Identity Center.", "source": "https://www.ovhcloud.com/en/identity-access-management/" },
+      "AWS KMS": { "coverage": "Y", "equivalent": "OVHcloud Key Management Service (KMS)", "note": "Managed KMS for key generation and encryption, integrated with Object Storage and Block Storage.", "source": "https://www.ovhcloud.com/en/public-cloud/key-management-service/" },
+      "AWS Secrets Manager": { "coverage": "P", "equivalent": "OVHcloud Secret Manager (beta)", "note": "Managed secret storage available in early access. API-accessible secrets with rotation support planned.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS Certificate Manager": { "coverage": "Y", "equivalent": "OVHcloud SSL certificates / Let's Encrypt", "note": "Free Let's Encrypt and paid SSL certificates managed via OVHcloud. Auto-renewal available via ACME protocol.", "source": "https://www.ovhcloud.com/en/web-hosting/ssl_gateway/" },
+      "Amazon GuardDuty": { "coverage": "P", "equivalent": "OVHcloud Anti-DDoS / Network monitoring", "note": "Advanced anti-DDoS (VAC) protecting all services. No ML-based threat detection comparable to GuardDuty.", "source": "https://www.ovhcloud.com/en/security/anti-ddos/" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No centralised security findings aggregation or compliance dashboard.", "source": "https://www.ovhcloud.com/en/security/" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration compliance and drift detection service.", "source": "https://www.ovhcloud.com/en/security/" },
+      "AWS Shield": { "coverage": "Y", "equivalent": "OVHcloud Anti-DDoS (VAC)", "note": "Industry-leading anti-DDoS infrastructure (17 Tbps mitigation capacity) protecting all OVHcloud services at no extra cost.", "source": "https://www.ovhcloud.com/en/security/anti-ddos/" },
+      "AWS WAF": { "coverage": "Y", "equivalent": "OVHcloud Web Application Firewall", "note": "Managed WAF available with CDN and Load Balancer products. OWASP rule sets supported.", "source": "https://www.ovhcloud.com/en/security/" },
+      "AWS CloudTrail": { "coverage": "P", "equivalent": "OVHcloud Logs Data Platform / API audit", "note": "API call logs available. Logs Data Platform provides log streaming. Not as comprehensive as CloudTrail for cross-service audit.", "source": "https://www.ovhcloud.com/en/logs-data-platform/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "OVHcloud Metrics / Logs Data Platform", "note": "Separate metrics (Gra1) and logging (Logs Data Platform) products. Good observability but less unified than CloudWatch.", "source": "https://www.ovhcloud.com/en/public-cloud/metrics/" },
+      "Amazon SNS": { "coverage": "P", "equivalent": "OVHcloud Notifications / webhooks", "note": "Basic alerting and webhook notifications available. No managed pub/sub notification service at the scale of SNS.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS Systems Manager": { "coverage": "P", "equivalent": "OVHcloud vRack / basic infrastructure management", "note": "Server management tools available but no unified SSM-equivalent with patch management, parameter store, and OpsCenter.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "OVHcloud Billing Dashboard", "note": "Detailed billing and cost breakdown per project and service available in the OVHcloud control panel.", "source": "https://www.ovhcloud.com/en/public-cloud/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD build service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed deployment automation service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed pipeline orchestration service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "Amazon ECR": { "coverage": "Y", "equivalent": "OVHcloud Managed Private Registry (Harbor)", "note": "Fully managed Harbor-based container registry with vulnerability scanning and multi-user access.", "source": "https://www.ovhcloud.com/en/public-cloud/registry/" },
+      "AWS CloudFormation": { "coverage": "P", "equivalent": "Terraform / OpenTofu (Hetzner/OVH providers)", "note": "No native IaC service. Official OVHcloud Terraform provider available and well-maintained.", "source": "https://registry.terraform.io/providers/ovh/ovh/latest" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "P", "equivalent": "OVHcloud IoT (limited)", "note": "Basic IoT connectivity features available. No full managed MQTT broker at the scale or feature set of AWS IoT Core.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device registry or fleet management service.", "source": "https://www.ovhcloud.com/en/public-cloud/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "Y", "equivalent": "OVHcloud Managed Queuing Service", "note": "Managed message queuing (Kafka-based / SQS-compatible API). Available across EU regions.", "source": "https://www.ovhcloud.com/en/public-cloud/queues/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event routing or serverless event bus service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed workflow orchestration service.", "source": "https://www.ovhcloud.com/en/public-cloud/" },
+      "Amazon SES": { "coverage": "Y", "equivalent": "OVHcloud Email Platform / Transactional Email", "note": "Managed transactional and bulk email sending service. SMTP and API access.", "source": "https://www.ovhcloud.com/en/emails/email-pro/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming service.", "source": "https://www.ovhcloud.com/en/public-cloud/" }
+    }
+  }
+}

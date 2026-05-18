@@ -1,0 +1,94 @@
+{
+  "AWS": {
+    "meta": {
+      "scalability_score": 100,
+      "scalability_note": "35+ regions, 100+ AZs globally, fully managed auto-scaling groups, instances up to 192 vCPUs (c7i.48xlarge), global CDN and edge network",
+      "scalability_source": "https://aws.amazon.com/about-aws/global-infrastructure/",
+      "performance_score": 100,
+      "performance_note": "99.99% SLA for EC2; up to 6 AZs per region; sub-millisecond intra-region latency; CloudFront CDN with 400+ PoPs; latency SLAs published per service",
+      "performance_source": "https://aws.amazon.com/legal/service-level-agreements/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "Y", "equivalent": "AWS Amplify", "note": "Native managed service for web and mobile app hosting with CI/CD, auth, and backend", "source": "https://aws.amazon.com/amplify/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "Y", "equivalent": "AWS Lambda", "note": "Native serverless FaaS; 15-min timeout; 10 GB memory; 1000 concurrent executions default", "source": "https://aws.amazon.com/lambda/" },
+      "Amazon ECS": { "coverage": "Y", "equivalent": "Amazon ECS", "note": "Fully managed container orchestration for Docker workloads", "source": "https://aws.amazon.com/ecs/" },
+      "Amazon EKS": { "coverage": "Y", "equivalent": "Amazon EKS", "note": "Fully managed Kubernetes; supports Fargate and EC2 node groups", "source": "https://aws.amazon.com/eks/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "Amazon EC2", "note": "600+ instance types; Linux, Windows, macOS; bare metal; Graviton ARM", "source": "https://aws.amazon.com/ec2/" },
+      "AWS Batch": { "coverage": "Y", "equivalent": "AWS Batch", "note": "Fully managed batch computing across EC2 and Fargate", "source": "https://aws.amazon.com/batch/" },
+      "AWS Elastic Beanstalk": { "coverage": "Y", "equivalent": "AWS Elastic Beanstalk", "note": "Managed PaaS for deploying web apps without managing infrastructure", "source": "https://aws.amazon.com/elasticbeanstalk/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "Amazon S3", "note": "Industry-standard object storage; 11 nines durability; S3 API", "source": "https://aws.amazon.com/s3/" },
+      "Amazon S3 Glacier": { "coverage": "Y", "equivalent": "Amazon S3 Glacier", "note": "Three archival tiers: Instant, Flexible, Deep Archive", "source": "https://aws.amazon.com/s3/storage-classes/glacier/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "Amazon EBS", "note": "SSD (gp3/io2) and HDD (st1/sc1) volumes; up to 256K IOPS", "source": "https://aws.amazon.com/ebs/" },
+      "AWS Backup": { "coverage": "Y", "equivalent": "AWS Backup", "note": "Centralised backup across EC2, RDS, EFS, S3 and more", "source": "https://aws.amazon.com/backup/" },
+      "Amazon EFS": { "coverage": "Y", "equivalent": "Amazon EFS", "note": "Fully managed NFS-compatible elastic file system", "source": "https://aws.amazon.com/efs/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "Y", "equivalent": "Amazon RDS", "note": "Managed relational DB: PostgreSQL, MySQL, MariaDB, Oracle, SQL Server", "source": "https://aws.amazon.com/rds/" },
+      "Amazon DocumentDB": { "coverage": "Y", "equivalent": "Amazon DocumentDB", "note": "MongoDB-compatible managed document database", "source": "https://aws.amazon.com/documentdb/" },
+      "Amazon DynamoDB": { "coverage": "Y", "equivalent": "Amazon DynamoDB", "note": "Serverless key-value and document DB; single-digit ms latency", "source": "https://aws.amazon.com/dynamodb/" },
+      "Amazon Timestream": { "coverage": "Y", "equivalent": "Amazon Timestream", "note": "Purpose-built serverless time-series database for IoT and metrics", "source": "https://aws.amazon.com/timestream/" },
+      "Amazon Aurora": { "coverage": "Y", "equivalent": "Amazon Aurora", "note": "MySQL/PostgreSQL-compatible; 5x faster than standard MySQL", "source": "https://aws.amazon.com/rds/aurora/" },
+      "Amazon ElastiCache": { "coverage": "Y", "equivalent": "Amazon ElastiCache", "note": "Managed Redis and Memcached in-memory caching", "source": "https://aws.amazon.com/elasticache/" },
+      "Amazon Redshift": { "coverage": "Y", "equivalent": "Amazon Redshift", "note": "Petabyte-scale cloud data warehouse with columnar storage", "source": "https://aws.amazon.com/redshift/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "AWS ALB", "note": "Layer-7 HTTP/HTTPS load balancing with path-based routing", "source": "https://aws.amazon.com/elasticloadbalancing/application-load-balancer/" },
+      "AWS Network Load Balancer": { "coverage": "Y", "equivalent": "AWS NLB", "note": "Layer-4 TCP/UDP/TLS load balancing; millions of requests/sec", "source": "https://aws.amazon.com/elasticloadbalancing/network-load-balancer/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "Amazon VPC", "note": "Isolated virtual network with subnets, route tables, security groups", "source": "https://aws.amazon.com/vpc/" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "Amazon Route 53", "note": "Highly available DNS with health checks, routing policies, domain registration", "source": "https://aws.amazon.com/route53/" },
+      "Amazon API Gateway": { "coverage": "Y", "equivalent": "Amazon API Gateway", "note": "Fully managed REST, HTTP and WebSocket API management", "source": "https://aws.amazon.com/api-gateway/" },
+      "Amazon CloudFront": { "coverage": "Y", "equivalent": "Amazon CloudFront", "note": "Global CDN with 400+ PoPs; integrates with S3, ALB, Lambda@Edge", "source": "https://aws.amazon.com/cloudfront/" },
+      "AWS Direct Connect": { "coverage": "Y", "equivalent": "AWS Direct Connect", "note": "Dedicated 1–100 Gbps connections from on-premise to AWS", "source": "https://aws.amazon.com/directconnect/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "Y", "equivalent": "Amazon Rekognition", "note": "Computer vision: object detection, facial analysis, video analysis", "source": "https://aws.amazon.com/rekognition/" },
+      "Amazon SageMaker": { "coverage": "Y", "equivalent": "Amazon SageMaker", "note": "End-to-end ML platform: notebooks, training, tuning, deployment, pipelines", "source": "https://aws.amazon.com/sagemaker/" },
+      "Amazon Bedrock": { "coverage": "Y", "equivalent": "Amazon Bedrock", "note": "Fully managed GenAI: Claude, Llama, Mistral, Titan via unified API", "source": "https://aws.amazon.com/bedrock/" },
+      "AWS Glue": { "coverage": "Y", "equivalent": "AWS Glue", "note": "Serverless ETL and data integration; Data Catalog included", "source": "https://aws.amazon.com/glue/" },
+      "Amazon EMR": { "coverage": "Y", "equivalent": "Amazon EMR", "note": "Managed Hadoop/Spark/Hive/Presto clusters for big data", "source": "https://aws.amazon.com/emr/" },
+      "Amazon Athena": { "coverage": "Y", "equivalent": "Amazon Athena", "note": "Serverless interactive SQL query over S3 data; pay-per-query", "source": "https://aws.amazon.com/athena/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "AWS IAM", "note": "Fine-grained identity and access management with policies, roles, and MFA", "source": "https://aws.amazon.com/iam/" },
+      "Amazon Cognito": { "coverage": "Y", "equivalent": "Amazon Cognito", "note": "User pools and identity pools for app authentication and federation", "source": "https://aws.amazon.com/cognito/" },
+      "AWS IAM Identity Center": { "coverage": "Y", "equivalent": "AWS IAM Identity Center", "note": "Centralised SSO across AWS accounts and SAML apps", "source": "https://aws.amazon.com/iam/identity-center/" },
+      "AWS KMS": { "coverage": "Y", "equivalent": "AWS KMS", "note": "FIPS 140-2 key management; integrated with 100+ AWS services", "source": "https://aws.amazon.com/kms/" },
+      "AWS Secrets Manager": { "coverage": "Y", "equivalent": "AWS Secrets Manager", "note": "Managed secrets rotation and retrieval for API keys, passwords, certs", "source": "https://aws.amazon.com/secrets-manager/" },
+      "AWS Certificate Manager": { "coverage": "Y", "equivalent": "AWS Certificate Manager", "note": "Free public TLS certificates; auto-renewal; private CA available", "source": "https://aws.amazon.com/certificate-manager/" },
+      "Amazon GuardDuty": { "coverage": "Y", "equivalent": "Amazon GuardDuty", "note": "ML-based threat detection across CloudTrail, VPC Flow Logs, DNS logs", "source": "https://aws.amazon.com/guardduty/" },
+      "AWS Security Hub": { "coverage": "Y", "equivalent": "AWS Security Hub", "note": "Centralised security findings aggregation and CIS/PCI compliance checks", "source": "https://aws.amazon.com/security-hub/" },
+      "AWS Config": { "coverage": "Y", "equivalent": "AWS Config", "note": "Continuous resource configuration recording and compliance rule evaluation", "source": "https://aws.amazon.com/config/" },
+      "AWS Shield": { "coverage": "Y", "equivalent": "AWS Shield", "note": "Standard (free) + Advanced DDoS protection with 24/7 DRT support", "source": "https://aws.amazon.com/shield/" },
+      "AWS WAF": { "coverage": "Y", "equivalent": "AWS WAF", "note": "Web application firewall with managed rule groups and bot control", "source": "https://aws.amazon.com/waf/" },
+      "AWS CloudTrail": { "coverage": "Y", "equivalent": "AWS CloudTrail", "note": "Full API call audit trail across all AWS services; 90-day free retention", "source": "https://aws.amazon.com/cloudtrail/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "Y", "equivalent": "Amazon CloudWatch", "note": "Unified observability: metrics, logs, dashboards, alarms, APM traces", "source": "https://aws.amazon.com/cloudwatch/" },
+      "Amazon SNS": { "coverage": "Y", "equivalent": "Amazon SNS", "note": "Managed pub/sub messaging and mobile push notifications at scale", "source": "https://aws.amazon.com/sns/" },
+      "AWS Systems Manager": { "coverage": "Y", "equivalent": "AWS Systems Manager", "note": "Operational management: patch, run commands, parameter store, OpsCenter", "source": "https://aws.amazon.com/systems-manager/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "AWS Cost Explorer", "note": "Cost visualisation, anomaly detection, savings plans recommendations", "source": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "Y", "equivalent": "AWS CodeBuild", "note": "Fully managed build service; compiles, tests, produces artifacts", "source": "https://aws.amazon.com/codebuild/" },
+      "AWS CodeDeploy": { "coverage": "Y", "equivalent": "AWS CodeDeploy", "note": "Automated deployments to EC2, Lambda, ECS with blue/green support", "source": "https://aws.amazon.com/codedeploy/" },
+      "AWS CodePipeline": { "coverage": "Y", "equivalent": "AWS CodePipeline", "note": "Fully managed CI/CD pipeline orchestration", "source": "https://aws.amazon.com/codepipeline/" },
+      "Amazon ECR": { "coverage": "Y", "equivalent": "Amazon ECR", "note": "Fully managed Docker and OCI container registry; integrated with ECS/EKS", "source": "https://aws.amazon.com/ecr/" },
+      "AWS CloudFormation": { "coverage": "Y", "equivalent": "AWS CloudFormation", "note": "Infrastructure-as-Code with JSON/YAML templates; 1000+ resource types", "source": "https://aws.amazon.com/cloudformation/" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "Y", "equivalent": "AWS IoT Core", "note": "Managed MQTT/HTTPS broker; connects billions of devices; rules engine", "source": "https://aws.amazon.com/iot-core/" },
+      "AWS IoT Device Management": { "coverage": "Y", "equivalent": "AWS IoT Device Management", "note": "Device registry, OTA updates, fleet indexing and remote operations", "source": "https://aws.amazon.com/iot-device-management/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "Y", "equivalent": "Amazon SQS", "note": "Fully managed message queue; standard and FIFO; unlimited throughput", "source": "https://aws.amazon.com/sqs/" },
+      "Amazon EventBridge": { "coverage": "Y", "equivalent": "Amazon EventBridge", "note": "Serverless event bus; 200+ AWS service sources; event patterns and rules", "source": "https://aws.amazon.com/eventbridge/" },
+      "AWS Step Functions": { "coverage": "Y", "equivalent": "AWS Step Functions", "note": "Visual workflow orchestration with state machines; 220+ service integrations", "source": "https://aws.amazon.com/step-functions/" },
+      "Amazon SES": { "coverage": "Y", "equivalent": "Amazon SES", "note": "High-volume transactional and marketing email sending and receiving", "source": "https://aws.amazon.com/ses/" },
+      "Amazon Kinesis": { "coverage": "Y", "equivalent": "Amazon Kinesis", "note": "Real-time data streaming: Data Streams, Firehose, Data Analytics", "source": "https://aws.amazon.com/kinesis/" }
+    }
+  }
+}

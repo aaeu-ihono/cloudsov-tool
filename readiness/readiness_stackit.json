@@ -1,0 +1,94 @@
+{
+  "STACKIT": {
+    "meta": {
+      "scalability_score": 32,
+      "scalability_note": "2 German regions (Frankfurt/Main, Berlin); enterprise-grade auto-scaling; up to 120 vCPUs; primarily EU/German footprint; no global CDN",
+      "scalability_source": "https://www.stackit.de/en/product/cloud-server/",
+      "performance_score": 80,
+      "performance_note": "Enterprise-grade SLA backed by Schwarz Group infrastructure; ISO 27001 certified datacenters; strong uptime guarantees for business-critical workloads; GDPR-compliant by design",
+      "performance_source": "https://www.stackit.de/en/terms-and-conditions/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed web/mobile app hosting platform. Apps are deployed on VMs or Kubernetes.", "source": "https://www.stackit.de/en/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "P", "equivalent": "STACKIT Serverless Functions (beta)", "note": "Serverless Functions available in beta. Limited runtime support and throughput vs AWS Lambda.", "source": "https://www.stackit.de/en/product/serverless-functions/" },
+      "Amazon ECS": { "coverage": "Y", "equivalent": "STACKIT SKE (Kubernetes) with container workloads", "note": "Container workloads fully supported via Kubernetes. Docker-based deployments work natively on SKE.", "source": "https://www.stackit.de/en/product/kubernetes-engine/" },
+      "Amazon EKS": { "coverage": "Y", "equivalent": "STACKIT Kubernetes Engine (SKE)", "note": "Fully managed Kubernetes with automated upgrades, monitoring integration, and private networking.", "source": "https://www.stackit.de/en/product/kubernetes-engine/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "STACKIT Cloud Server (VMs)", "note": "On-demand and reserved VMs in Frankfurt and Berlin. GPU instances available for AI workloads.", "source": "https://www.stackit.de/en/product/cloud-server/" },
+      "AWS Batch": { "coverage": "P", "equivalent": "STACKIT VMs + orchestration", "note": "Batch workloads supported via VMs and Kubernetes Jobs. No dedicated managed batch service.", "source": "https://www.stackit.de/en/product/cloud-server/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No managed PaaS deployment platform.", "source": "https://www.stackit.de/en/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "STACKIT Object Storage", "note": "S3-compatible object storage with standard S3 API. Available in both German regions. High durability.", "source": "https://www.stackit.de/en/product/object-storage/" },
+      "Amazon S3 Glacier": { "coverage": "P", "equivalent": "STACKIT Object Storage (cold tier)", "note": "Cold storage tier available in Object Storage. Less feature-rich than AWS Glacier Flexible/Deep Archive.", "source": "https://www.stackit.de/en/product/object-storage/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "STACKIT Block Storage", "note": "Persistent block volumes attachable to Cloud Servers. SSD-backed with high IOPS.", "source": "https://www.stackit.de/en/product/block-storage/" },
+      "AWS Backup": { "coverage": "Y", "equivalent": "STACKIT Backup Service", "note": "Managed backup service for VMs and volumes with scheduled policies and retention management.", "source": "https://www.stackit.de/en/product/backup/" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed elastic NFS-compatible file system.", "source": "https://www.stackit.de/en/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "Y", "equivalent": "STACKIT PostgreSQL Flex / MySQL Flex", "note": "Fully managed PostgreSQL and MySQL with automated backups, high availability, and monitoring.", "source": "https://www.stackit.de/en/product/postgresql-flex/" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed document/MongoDB-compatible database service.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed serverless NoSQL key-value database.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database service.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No Aurora-equivalent high-performance relational DB.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon ElastiCache": { "coverage": "Y", "equivalent": "STACKIT Redis Flex", "note": "Fully managed Redis with clustering, replication, and TLS. Production-ready managed caching.", "source": "https://www.stackit.de/en/product/redis-flex/" },
+      "Amazon Redshift": { "coverage": "P", "equivalent": "STACKIT OpenSearch (partial)", "note": "Managed OpenSearch for search and log analytics. No columnar data warehouse comparable to Redshift.", "source": "https://www.stackit.de/en/product/opensearch/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "STACKIT Load Balancer (Layer 7)", "note": "Managed HTTP/HTTPS load balancer with TLS termination, health checks, and path routing.", "source": "https://www.stackit.de/en/product/load-balancer/" },
+      "AWS Network Load Balancer": { "coverage": "Y", "equivalent": "STACKIT Load Balancer (Layer 4)", "note": "TCP/UDP load balancing supported in the same managed product. High-throughput capable.", "source": "https://www.stackit.de/en/product/load-balancer/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "STACKIT Virtual Private Cloud", "note": "Isolated private networks with custom subnets, routing, and security groups. Full VPC equivalent.", "source": "https://www.stackit.de/en/product/virtual-private-cloud/" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "STACKIT DNS", "note": "Managed DNS with zone management, record types, and TTL control. No advanced routing policies.", "source": "https://www.stackit.de/en/product/dns/" },
+      "Amazon API Gateway": { "coverage": "P", "equivalent": "STACKIT API management (limited)", "note": "Basic API management capabilities. Full managed API gateway not yet a standalone product.", "source": "https://www.stackit.de/en/" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No native CDN service. Third-party CDNs must be used.", "source": "https://www.stackit.de/en/" },
+      "AWS Direct Connect": { "coverage": "Y", "equivalent": "STACKIT Direct Connect / Schwarz network", "note": "Private dedicated connectivity available leveraging Schwarz Group's enterprise backbone network.", "source": "https://www.stackit.de/en/product/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image recognition API.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon SageMaker": { "coverage": "P", "equivalent": "STACKIT AI (GPU instances + JupyterHub)", "note": "GPU-enabled VMs and managed JupyterHub for ML workloads. No end-to-end MLOps pipeline or AutoML.", "source": "https://www.stackit.de/en/product/gpu-as-a-service/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed GenAI / foundation model API service.", "source": "https://www.stackit.de/en/product/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed serverless ETL / data pipeline service.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data cluster service (Spark/Hadoop).", "source": "https://www.stackit.de/en/product/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless SQL analytics over object storage.", "source": "https://www.stackit.de/en/product/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "STACKIT Identity and Access Management", "note": "RBAC-based IAM with users, groups, service accounts, and resource-level permissions.", "source": "https://www.stackit.de/en/product/iam/" },
+      "Amazon Cognito": { "coverage": "P", "equivalent": "STACKIT IAM (limited app auth)", "note": "No dedicated app-level user authentication. IAM covers platform-level access management only.", "source": "https://www.stackit.de/en/product/iam/" },
+      "AWS IAM Identity Center": { "coverage": "P", "equivalent": "STACKIT SSO (Schwarz Group integration)", "note": "SAML-based SSO via Schwarz Group corporate identity. Limited to console and API access.", "source": "https://www.stackit.de/en/product/iam/" },
+      "AWS KMS": { "coverage": "Y", "equivalent": "STACKIT Key Management Service", "note": "Managed encryption key lifecycle management integrated with storage and compute services.", "source": "https://www.stackit.de/en/product/key-management-service/" },
+      "AWS Secrets Manager": { "coverage": "Y", "equivalent": "STACKIT Secrets Manager", "note": "Managed secrets storage with API access for applications. Supports rotation and versioning.", "source": "https://www.stackit.de/en/product/secrets-manager/" },
+      "AWS Certificate Manager": { "coverage": "Y", "equivalent": "STACKIT Certificate Manager", "note": "Managed TLS certificate provisioning and auto-renewal via Let's Encrypt and private CA.", "source": "https://www.stackit.de/en/product/" },
+      "Amazon GuardDuty": { "coverage": "P", "equivalent": "STACKIT security monitoring (basic)", "note": "Basic security event monitoring and alerting. No ML-based threat detection comparable to GuardDuty.", "source": "https://www.stackit.de/en/security/" },
+      "AWS Security Hub": { "coverage": "P", "equivalent": "STACKIT compliance dashboard (partial)", "note": "BSI C5 and ISO 27001 compliance posture visible in portal. No unified findings aggregation service.", "source": "https://www.stackit.de/en/security/" },
+      "AWS Config": { "coverage": "P", "equivalent": "STACKIT resource monitoring (partial)", "note": "Resource change tracking available through audit logs. No rule-based compliance enforcement service.", "source": "https://www.stackit.de/en/security/" },
+      "AWS Shield": { "coverage": "Y", "equivalent": "STACKIT DDoS Protection", "note": "Network-level DDoS protection included across all services. Backed by Schwarz Group enterprise network.", "source": "https://www.stackit.de/en/security/" },
+      "AWS WAF": { "coverage": "Y", "equivalent": "STACKIT Web Application Firewall", "note": "Managed WAF with OWASP rule sets available for workloads exposed via Load Balancer.", "source": "https://www.stackit.de/en/security/" },
+      "AWS CloudTrail": { "coverage": "Y", "equivalent": "STACKIT Audit Log", "note": "Comprehensive API audit trail for all STACKIT services. Meets BSI C5 and GDPR audit requirements.", "source": "https://www.stackit.de/en/security/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "STACKIT Observability (Grafana / Prometheus)", "note": "Managed Prometheus and Grafana for metrics and dashboards. Log management available separately. Less unified than CloudWatch.", "source": "https://www.stackit.de/en/product/observability/" },
+      "Amazon SNS": { "coverage": "P", "equivalent": "STACKIT Alerting / notifications", "note": "Alert notifications via email and webhooks available through the Observability stack. No managed pub/sub service.", "source": "https://www.stackit.de/en/product/observability/" },
+      "AWS Systems Manager": { "coverage": "P", "equivalent": "STACKIT infrastructure management tools", "note": "VM management, patching, and SSH access tools available. No unified SSM-equivalent with parameter store.", "source": "https://www.stackit.de/en/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "STACKIT Cost Management", "note": "Detailed cost tracking and reporting per project and service in the STACKIT portal.", "source": "https://www.stackit.de/en/product/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD build service. External CI/CD tools (GitLab CI, GitHub Actions) are used.", "source": "https://www.stackit.de/en/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed deployment automation service.", "source": "https://www.stackit.de/en/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed pipeline orchestration service.", "source": "https://www.stackit.de/en/" },
+      "Amazon ECR": { "coverage": "Y", "equivalent": "STACKIT Container Registry", "note": "Managed OCI/Docker container registry with vulnerability scanning.", "source": "https://www.stackit.de/en/product/container-registry/" },
+      "AWS CloudFormation": { "coverage": "P", "equivalent": "Terraform (STACKIT provider)", "note": "Official STACKIT Terraform provider for IaC. No native CloudFormation-equivalent.", "source": "https://registry.terraform.io/providers/stackitcloud/stackit/latest" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT MQTT broker or device connectivity service.", "source": "https://www.stackit.de/en/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device registry or fleet management.", "source": "https://www.stackit.de/en/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "Y", "equivalent": "STACKIT Message Queuing (RabbitMQ)", "note": "Managed RabbitMQ-based message queuing. AMQP and MQTT protocols supported.", "source": "https://www.stackit.de/en/product/message-queuing/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus or serverless event routing service.", "source": "https://www.stackit.de/en/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed workflow orchestration service.", "source": "https://www.stackit.de/en/" },
+      "Amazon SES": { "coverage": "P", "equivalent": "STACKIT / Schwarz email services (partial)", "note": "Transactional email available via Schwarz Group partnerships. Not a standalone managed SES-equivalent.", "source": "https://www.stackit.de/en/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time streaming data service.", "source": "https://www.stackit.de/en/" }
+    }
+  }
+}

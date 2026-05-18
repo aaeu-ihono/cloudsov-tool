@@ -1,0 +1,394 @@
+{
+  "Deutsche Telekom": {
+    "meta": {
+      "scalability_score": 42,
+      "scalability_note": "German data centers (Biere, Magdeburg, Frankfurt); managed K8s; auto-scaling for VMs; no serverless FaaS on consumer/SME cloud",
+      "scalability_source": "https://geschaeftskunden.telekom.de/cloud",
+      "performance_score": 85,
+      "performance_note": "BSI IT-Grundschutz, ISO 27001, 99.95% SLA; carrier-grade German data centers; Telekom backbone network",
+      "performance_source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No equivalent full-stack application deployment platform offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS on Telekom Business Cloud; serverless only via T-Systems OTC",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime without K8s offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EKS": {
+        "coverage": "Y",
+        "equivalent": "Telekom Managed Kubernetes Service",
+        "note": "Fully managed K8s available for business customers; auto-scaling, GitOps support",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Telekom Open Cloud Compute",
+        "note": "Flexible VM instances via Open Telekom Cloud infrastructure",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Telekom Open Cloud Storage (OBS)",
+        "note": "S3-compatible; German data residency",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No archival/cold storage tier offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Telekom Block Storage",
+        "note": "SSD volumes with snapshot support",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "VM-level backup and snapshot service; limited cross-service policy management",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed elastic NFS file system offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "Y",
+        "equivalent": "Telekom Managed Database",
+        "note": "MySQL and PostgreSQL with automated backups and failover",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed document database service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed NoSQL key-value/document database offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No Aurora-equivalent high-performance managed RDBMS offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Managed Redis available for business customers; limited clustering support",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "Y",
+        "equivalent": "Telekom Load Balancer",
+        "note": "HTTP/HTTPS load balancing with TLS termination",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Telekom Load Balancer",
+        "note": "TCP mode available in the same load balancer product",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Telekom Virtual Private Cloud",
+        "note": "Private networks, routing, security groups",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Route 53": {
+        "coverage": "Y",
+        "equivalent": "Telekom DNS Service",
+        "note": "Managed DNS with full record type support",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon CloudFront": {
+        "coverage": "P",
+        "equivalent": "Telekom CDN",
+        "note": "CDN available via partnership; limited self-service configuration",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Direct Connect": {
+        "coverage": "Y",
+        "equivalent": "Telekom Direct Connect / Dedicated Line",
+        "note": "Dedicated MPLS/DCI connectivity for enterprise customers",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image/video recognition service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML platform offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model / generative AI service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL/data integration service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless interactive query service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Telekom IAM",
+        "note": "RBAC with users, groups, and resource policies",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed customer identity and access management service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No SSO / centralized identity federation service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS KMS": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Key management available; limited HSM-backed options",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets management service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "TLS certificate management via portal and load balancer integration",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed configuration compliance and tracking service offered",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS Shield": {
+        "coverage": "Y",
+        "equivalent": "Telekom Anti-DDoS",
+        "note": "Network and application-level DDoS protection; carrier-grade Telekom backbone scrubbing",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS WAF": {
+        "coverage": "P",
+        "equivalent": "Telekom WAF",
+        "note": "Web application firewall available; limited custom rules",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "IAM and resource audit logging; limited export options",
+        "source": "https://www.telekom.com/en/corporate-responsibility/data-protection-privacy-and-security"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Telekom Cloud Monitoring",
+        "note": "Resource metrics, dashboards and alerting; less integrated than CloudWatch",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed systems operations and configuration service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": "Telekom Cost Management",
+        "note": "Detailed billing dashboard with per-resource cost breakdown",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon ECR": {
+        "coverage": "Y",
+        "equivalent": "Telekom Container Registry",
+        "note": "Managed Docker/OCI container registry for business customers",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "Terraform provider available; no native IaC orchestration platform",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "P",
+        "equivalent": "Telekom Cloud of Things (CoT)",
+        "note": "Managed IoT connectivity platform; MQTT support; less feature-rich than IoT Core",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "P",
+        "equivalent": "Telekom Cloud of Things Device Management",
+        "note": "Basic device registry and management; limited compared to AWS IoT Device Management",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event bus service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon SES": {
+        "coverage": "P",
+        "equivalent": "Telekom Email Service",
+        "note": "Transactional email via business platform; limited API access",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service offered",
+        "source": "https://geschaeftskunden.telekom.de/cloud"
+      }
+    }
+  }
+}

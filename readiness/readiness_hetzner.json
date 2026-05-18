@@ -1,0 +1,94 @@
+{
+  "Hetzner": {
+    "meta": {
+      "scalability_score": 35,
+      "scalability_note": "3 EU regions (Nuremberg, Falkenstein, Helsinki) + 1 US (Ashburn) + 1 Singapore; limited managed auto-scaling; max 48 vCPUs (CCX63); no global CDN edge network",
+      "scalability_source": "https://www.hetzner.com/cloud",
+      "performance_score": 72,
+      "performance_note": "99.9% SLA for Cloud Servers; multiple datacenters per location for redundancy; no native CDN; strong bare-metal performance; low-latency EU backbone",
+      "performance_source": "https://www.hetzner.com/legal/terms-and-conditions"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed frontend/web app hosting platform. Apps must be self-hosted on VMs or containers.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No native Function-as-a-Service offering. Serverless requires self-managed solutions (e.g. OpenFaaS on Hetzner VMs).", "source": "https://www.hetzner.com/cloud" },
+      "Amazon ECS": { "coverage": "P", "equivalent": "Hetzner Cloud + Docker / Docker Compose", "note": "No managed container service. Docker runs on Cloud Servers. Community tools (Portainer, Coolify) provide partial equivalence.", "source": "https://docs.hetzner.com/cloud/" },
+      "Amazon EKS": { "coverage": "P", "equivalent": "Hetzner Cloud + k3s / kubeadm", "note": "No managed Kubernetes. k3s or kubeadm on Cloud Servers is widely used. No managed control plane.", "source": "https://community.hetzner.com/tutorials/install-kubernetes-cluster" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "Hetzner Cloud Servers (CX/CCX/CAX)", "note": "Broad VM portfolio: shared (CX), dedicated (CCX), ARM (CAX). Up to 48 vCPUs / 192 GB RAM. Competitive pricing.", "source": "https://www.hetzner.com/cloud#pricing" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch compute service. Batch workloads require self-orchestrated solutions.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS deployment platform.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "Hetzner Object Storage", "note": "S3-compatible object storage with standard S3 API. Available in Falkenstein and Helsinki. Pricing significantly lower than AWS S3.", "source": "https://www.hetzner.com/storage/object-storage" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No archival storage tier. Object Storage has a single standard tier with no lifecycle cold-storage option.", "source": "https://www.hetzner.com/storage/object-storage" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "Hetzner Cloud Volumes", "note": "SSD block volumes attachable to Cloud Servers. Up to 10 TB. CIFS/NFS can be configured manually.", "source": "https://www.hetzner.com/cloud/volumes" },
+      "AWS Backup": { "coverage": "P", "equivalent": "Hetzner Cloud Backups / Snapshots", "note": "Automated daily backups for Cloud Servers (20% surcharge). Manual snapshots available. No centralised cross-service backup management.", "source": "https://docs.hetzner.com/cloud/servers/backups-snapshots/" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed NFS/shared file system. Self-managed NFS on a VM is possible but not a managed service.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "N", "equivalent": null, "note": "No managed relational database service. Databases must be self-hosted on Cloud Servers.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed document database.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value database.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No managed Aurora-equivalent high-performance DB.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon ElastiCache": { "coverage": "N", "equivalent": null, "note": "No managed in-memory caching service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed data warehouse service.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "Hetzner Cloud Load Balancer", "note": "Managed HTTP/HTTPS load balancer with TLS termination and health checks. Supports multiple algorithms.", "source": "https://www.hetzner.com/cloud/load-balancer" },
+      "AWS Network Load Balancer": { "coverage": "P", "equivalent": "Hetzner Cloud Load Balancer (TCP)", "note": "Same Load Balancer product supports TCP mode (Layer 4). Less feature-rich than AWS NLB for UDP/TLS passthrough.", "source": "https://docs.hetzner.com/cloud/load-balancers/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "Hetzner Cloud Networks", "note": "Private networks with subnets and routing between servers. Supports /8 to /24 ranges.", "source": "https://docs.hetzner.com/cloud/networks/" },
+      "Amazon Route 53": { "coverage": "P", "equivalent": "Hetzner DNS", "note": "Basic DNS management with A, AAAA, CNAME, MX records. No health checks, latency routing, or TTL failover.", "source": "https://dns.hetzner.com/" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No native CDN service. Third-party CDNs (Cloudflare, BunnyCDN) are commonly used with Hetzner.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Direct Connect": { "coverage": "P", "equivalent": "Hetzner Colocation / Dedicated Servers", "note": "Hetzner offers colocation in its datacenters enabling private connections. No managed Direct Connect-style service.", "source": "https://www.hetzner.com/colocation" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image recognition service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed ML platform. GPU instances available for self-managed training.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed Generative AI / LLM service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL or data pipeline service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data analytics (Spark/Hadoop) cluster service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless SQL analytics service.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "Hetzner Cloud API Tokens / Project Members", "note": "Role-based access management via project membership and API tokens. Less granular than AWS IAM policies.", "source": "https://docs.hetzner.com/cloud/api/getting-started/" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed user authentication or identity pool service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No SSO or centralised identity management across accounts.", "source": "https://www.hetzner.com/cloud" },
+      "AWS KMS": { "coverage": "P", "equivalent": "Hetzner volume encryption (LUKS)", "note": "Volumes support encryption at rest. No managed key management service; keys are customer-managed at OS level.", "source": "https://docs.hetzner.com/cloud/volumes/overview/" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets management service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Certificate Manager": { "coverage": "P", "equivalent": "Let's Encrypt integration (community)", "note": "No native managed certificate service. Hetzner Load Balancers support automatic Let's Encrypt TLS certificates.", "source": "https://docs.hetzner.com/cloud/load-balancers/faq/lets-encrypt" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed threat detection service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No managed compliance or security posture service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration compliance service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Shield": { "coverage": "P", "equivalent": "Hetzner basic DDoS protection", "note": "Basic network-level DDoS protection included in all plans. No advanced application-layer DDoS mitigation.", "source": "https://www.hetzner.com/cloud" },
+      "AWS WAF": { "coverage": "N", "equivalent": null, "note": "No managed Web Application Firewall service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS CloudTrail": { "coverage": "P", "equivalent": "Hetzner Cloud Audit Log", "note": "Basic audit log of API actions available in the cloud console. Not as comprehensive as CloudTrail (no streaming, limited retention).", "source": "https://docs.hetzner.com/cloud/general/audit-log/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "Hetzner Cloud Metrics", "note": "Basic CPU, disk, and network metrics per server in the console. No log aggregation, custom metrics, dashboards, or alarms.", "source": "https://docs.hetzner.com/cloud/servers/getting-started/server-metrics/" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed notification or pub/sub service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed infrastructure operations or patch management service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "Hetzner Billing Dashboard", "note": "Billing overview and projected costs available in the Hetzner Cloud console.", "source": "https://accounts.hetzner.com/account/billing" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD build service. Hetzner VMs are commonly used as self-hosted GitHub Actions runners.", "source": "https://www.hetzner.com/cloud" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed deployment automation service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD pipeline orchestration service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon ECR": { "coverage": "N", "equivalent": null, "note": "No managed container registry. Self-hosted registries (Harbor, Gitea) are commonly used.", "source": "https://www.hetzner.com/cloud" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No native IaC service. Terraform provider for Hetzner Cloud exists (community maintained).", "source": "https://registry.terraform.io/providers/hetznercloud/hcloud/latest" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT connectivity or MQTT broker service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device management service.", "source": "https://www.hetzner.com/cloud" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "N", "equivalent": null, "note": "No managed message queue service. Self-hosted RabbitMQ or Redis queues are common alternatives.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus service.", "source": "https://www.hetzner.com/cloud" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed workflow orchestration service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed email sending service.", "source": "https://www.hetzner.com/cloud" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming service.", "source": "https://www.hetzner.com/cloud" }
+    }
+  }
+}

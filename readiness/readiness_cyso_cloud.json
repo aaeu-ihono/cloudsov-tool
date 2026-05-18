@@ -1,0 +1,394 @@
+{
+  "Cyso Cloud": {
+    "meta": {
+      "scalability_score": 28,
+      "scalability_note": "2 Dutch regions (Amsterdam AMS1, AMS2), OpenStack auto-scaling via Heat, no serverless or managed container auto-scaling",
+      "scalability_source": "https://cyso.com/cloud/",
+      "performance_score": 75,
+      "performance_note": "ISO 27001 certified, 99.9% SLA, Dutch data centers, NEN 7510 compliance, GDPR-compliant infrastructure",
+      "performance_source": "https://cyso.com/legal/sla/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed front-end hosting or mobile backend service available on Cyso Cloud",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS or serverless function platform available; Cyso Cloud is IaaS-focused with no event-driven compute offering",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime without Kubernetes; workloads require self-managed Docker on Nova instances",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EKS": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Kubernetes (OpenStack Magnum)",
+        "note": "Kubernetes available via OpenStack Magnum but limited lifecycle management, upgrade automation, and node-pool scaling compared to EKS",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Cyso Cloud Instances (OpenStack Nova)",
+        "note": "Broad VM flavours, SSD-backed storage, hourly billing, self-service provisioning via OpenStack Nova",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service; batch workloads must be orchestrated manually on VMs",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment platform; no equivalent managed runtime environment",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Cyso Cloud Object Storage (S3-compatible)",
+        "note": "S3-compatible API, multi-AZ within region, supports standard bucket operations, ACLs, and pre-signed URLs",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No cold or archival storage tier; all object storage is standard access with no tiering or lifecycle archival",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Cyso Cloud Block Storage (OpenStack Cinder)",
+        "note": "NVMe/SSD-backed persistent block volumes, detachable from instances, snapshot support via Cinder",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Volume and instance snapshots are available but there is no centralised cross-service backup management or policy scheduling",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed shared file system service; NFS must be self-hosted on instances",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Managed MySQL and PostgreSQL available as Trove-based DBaaS; less automated than RDS with limited failover and scaling options",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed MongoDB-compatible document database service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless NoSQL key-value or document store service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No high-availability distributed relational database engine equivalent",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed in-memory caching service (Redis or Memcached); must be self-hosted",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse or columnar analytics service",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Load Balancer (OpenStack Octavia)",
+        "note": "HTTP/HTTPS load balancing via OpenStack Octavia with basic routing rules; lacks advanced content-based routing and WAF integration",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Load Balancer (OpenStack Octavia — TCP mode)",
+        "note": "TCP-mode load balancing available via the same Octavia service; no dedicated ultra-low-latency NLB tier",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Cyso Cloud Virtual Network (OpenStack Neutron)",
+        "note": "Private networks, security groups, floating IPs, and router support via OpenStack Neutron",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Route 53": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud DNS (OpenStack Designate)",
+        "note": "Managed DNS with basic record management via OpenStack Designate; no health checks or latency-based routing",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service; API management must be self-hosted (e.g., Kong, NGINX)",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No CDN service; content delivery requires third-party CDN or self-managed edge caching",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private connectivity service from on-premise to Cyso Cloud data centers",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image or video analysis service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed machine learning platform for training, experimentation, or model deployment",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed generative AI or foundation model API service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL or data integration service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing service (Hadoop/Spark); must be self-hosted on VMs",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless SQL analytics service over object storage",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Cyso Cloud IAM (OpenStack Keystone)",
+        "note": "Project/domain RBAC, token-based API authentication, user and group management via OpenStack Keystone",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed identity provider or customer identity and access management (CIAM) service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No single sign-on or centralised identity federation across multiple accounts",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS KMS": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Key Management (OpenStack Barbican)",
+        "note": "Key lifecycle management via OpenStack Barbican; no dedicated HSM backing or customer-managed key policies",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets storage or automated secret rotation service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed TLS certificate provisioning or renewal service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection or continuous security monitoring service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management or compliance dashboard",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed resource configuration compliance or change tracking service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Data centre DDoS mitigation is included at the network layer; no application-layer DDoS protection or managed WAF integration",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed web application firewall service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Basic API audit logging available via OpenStack audit middleware; limited log retention, querying, and integration with SIEM tooling",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Monitoring (Gnocchi)",
+        "note": "Resource metrics collection and threshold alerts via OpenStack Gnocchi/Aodh; less integrated and feature-rich than CloudWatch",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service; alerting is limited to email thresholds in the monitoring stack",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed infrastructure operations or patch management service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": null,
+        "note": "Per-project usage and cost reporting is available directly in the Cyso Cloud portal with resource-level breakdown",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service; CI must be hosted externally (e.g., GitLab CI, Jenkins on VMs)",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline orchestration service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon ECR": {
+        "coverage": "P",
+        "equivalent": "Cyso Cloud Container Registry",
+        "note": "Basic Docker container registry available; limited vulnerability scanning and no deep integration with Kubernetes lifecycle",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No native IaC orchestration service; Terraform OpenStack provider is available as the recommended infrastructure-as-code path",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT messaging or device connectivity service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device registry, OTA update, or fleet management service",
+        "source": "https://cyso.com/cloud/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queuing service; must be self-hosted (e.g., RabbitMQ on VMs)",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event routing or serverless event bus service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration or state machine service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional or bulk email delivery service",
+        "source": "https://cyso.com/cloud/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service; stream processing must be self-hosted",
+        "source": "https://cyso.com/cloud/"
+      }
+    }
+  }
+}

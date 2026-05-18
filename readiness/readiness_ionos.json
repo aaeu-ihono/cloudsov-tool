@@ -1,0 +1,94 @@
+{
+  "IONOS": {
+    "meta": {
+      "scalability_score": 45,
+      "scalability_note": "4 EU regions (Frankfurt, Berlin, Karlsruhe, Nuremberg); basic auto-scaling for VMs and Kubernetes; no serverless compute; no global CDN; horizontal scaling limited compared to hyperscalers",
+      "scalability_source": "https://www.ionos.com/enterprise-cloud/cloud-regions",
+      "performance_score": 78,
+      "performance_note": "99.9% SLA for compute services; ISO 27001 certified German data centers; low-latency EU backbone; GDPR-compliant infrastructure by design",
+      "performance_source": "https://www.ionos.com/enterprise-cloud/cloud-sla"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed web or mobile app hosting platform. Applications must be deployed on VMs or Kubernetes.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No FaaS or serverless function service available. Workloads requiring event-driven compute must use VMs or Kubernetes Jobs.", "source": "https://www.ionos.com/enterprise-cloud/compute" },
+      "Amazon ECS": { "coverage": "N", "equivalent": null, "note": "No managed container orchestration service equivalent to ECS. Container workloads are deployed via Managed Kubernetes only.", "source": "https://www.ionos.com/enterprise-cloud/managed-kubernetes" },
+      "Amazon EKS": { "coverage": "Y", "equivalent": "IONOS Managed Kubernetes", "note": "Fully managed Kubernetes service with auto-scaling, multi-AZ support, and automated upgrades across EU regions.", "source": "https://www.ionos.com/enterprise-cloud/managed-kubernetes" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "IONOS Compute Engine", "note": "Broad VM portfolio including Flex, Cube, and GPU instances. Available across all EU regions with on-demand and reserved pricing.", "source": "https://www.ionos.com/enterprise-cloud/compute" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch job processing service. Batch workloads require manual orchestration via VMs or Kubernetes Jobs.", "source": "https://www.ionos.com/enterprise-cloud/compute" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS application deployment platform. Deployments are managed manually via VMs or Kubernetes.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "IONOS Object Storage", "note": "S3-compatible object storage available across EU regions. Supports standard S3 API, versioning, and access policies.", "source": "https://www.ionos.com/enterprise-cloud/object-storage" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No dedicated archive or cold storage tier. Long-term data retention requires standard object storage or self-managed solutions.", "source": "https://www.ionos.com/enterprise-cloud/object-storage" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "IONOS Block Storage", "note": "SSD-backed persistent block volumes, attachable to Compute Engine instances. Supports snapshots and resizing.", "source": "https://www.ionos.com/enterprise-cloud/block-storage" },
+      "AWS Backup": { "coverage": "P", "equivalent": "IONOS Snapshots", "note": "VM and volume snapshots are available but there is no centralised cross-service backup policy management equivalent to AWS Backup.", "source": "https://www.ionos.com/enterprise-cloud/block-storage" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed elastic NFS-compatible shared file system. Shared storage requires self-hosted NFS or third-party solutions.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "Y", "equivalent": "IONOS Managed Database", "note": "Fully managed PostgreSQL and MySQL with automated backups, point-in-time recovery, and high-availability failover.", "source": "https://www.ionos.com/enterprise-cloud/managed-database" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed MongoDB-compatible document database service. Self-hosting required.", "source": "https://www.ionos.com/enterprise-cloud/managed-database" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value or document database. Self-hosted alternatives such as Cassandra or DynamoDB-compatible APIs must be deployed on VMs.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database service. Self-hosted InfluxDB or TimescaleDB required.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No managed high-performance relational database engine. IONOS Managed Database covers standard PostgreSQL and MySQL only.", "source": "https://www.ionos.com/enterprise-cloud/managed-database" },
+      "Amazon ElastiCache": { "coverage": "N", "equivalent": null, "note": "No managed in-memory caching service. Redis or Memcached must be self-hosted on VMs or Kubernetes.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed cloud data warehouse service. Analytical workloads require self-hosted solutions such as ClickHouse or Redshift-compatible engines.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "Y", "equivalent": "IONOS Application Load Balancer", "note": "Managed HTTP/HTTPS load balancer with path-based and host-based routing, SSL termination, and health checks.", "source": "https://www.ionos.com/enterprise-cloud/network/application-load-balancer" },
+      "AWS Network Load Balancer": { "coverage": "P", "equivalent": "IONOS Network Load Balancer", "note": "TCP load balancing is supported. Advanced UDP routing and cross-zone features are limited compared to AWS NLB.", "source": "https://www.ionos.com/enterprise-cloud/network/network-load-balancer" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "IONOS Virtual Data Center (VDC)", "note": "Full private networking environment with subnets, routing tables, firewall rules, and VPN gateway support.", "source": "https://www.ionos.com/enterprise-cloud/network/virtual-data-center" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "IONOS DNS", "note": "Managed DNS service with support for all standard record types (A, AAAA, CNAME, MX, TXT, etc.).", "source": "https://www.ionos.com/enterprise-cloud/network/dns" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway service. API management requires self-hosted solutions such as Kong or nginx.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No global CDN service available. Content delivery requires third-party CDN providers.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Direct Connect": { "coverage": "N", "equivalent": null, "note": "No dedicated private connectivity service equivalent to Direct Connect. Private peering arrangements are handled on a case-by-case basis.", "source": "https://www.ionos.com/enterprise-cloud/network" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image/video analysis service. Self-hosted or third-party AI APIs required.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed ML platform for training or inference. Workloads must be deployed on GPU VMs or Kubernetes with self-managed ML frameworks.", "source": "https://www.ionos.com/enterprise-cloud/compute" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed generative AI or foundation model API service. Self-hosted LLM deployments on GPU instances are required.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL or data integration service. Data pipelines must be self-hosted using Apache Spark or similar frameworks.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data processing cluster service. Hadoop or Spark clusters must be self-deployed on VMs.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless interactive query service for object storage. Self-hosted Trino or Presto required.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "IONOS IAM", "note": "Role-based access control with users, groups, roles, and resource-level policies. Supports API tokens and fine-grained permissions.", "source": "https://www.ionos.com/enterprise-cloud/security/iam" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed identity and user pool service for applications. Self-hosted Keycloak or Auth0 integration required.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No SSO or centralized identity federation service. Federated access must be configured manually.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS KMS": { "coverage": "N", "equivalent": null, "note": "No managed key management service. Encryption key management requires third-party HSM integration or self-managed solutions.", "source": "https://www.ionos.com/enterprise-cloud/security" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets storage or rotation service. HashiCorp Vault or similar must be self-hosted.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Certificate Manager": { "coverage": "P", "equivalent": null, "note": "TLS certificates can be provisioned and attached via the load balancer integration; no standalone managed PKI or automated certificate lifecycle service.", "source": "https://www.ionos.com/enterprise-cloud/network/application-load-balancer" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed threat detection or intelligent security monitoring service. External SIEM solutions must be integrated.", "source": "https://www.ionos.com/enterprise-cloud/security" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No unified security posture management dashboard. Security findings must be aggregated externally.", "source": "https://www.ionos.com/enterprise-cloud/security" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration compliance and audit service. Configuration management requires external tooling.", "source": "https://www.ionos.com/enterprise-cloud/security" },
+      "AWS Shield": { "coverage": "P", "equivalent": null, "note": "Basic network-level DDoS mitigation is included in the platform. No advanced application-layer DDoS protection equivalent to AWS Shield Advanced.", "source": "https://www.ionos.com/enterprise-cloud/security/ddos-protection" },
+      "AWS WAF": { "coverage": "N", "equivalent": null, "note": "No managed web application firewall service. WAF functionality requires self-hosted solutions such as ModSecurity.", "source": "https://www.ionos.com/enterprise-cloud/security" },
+      "AWS CloudTrail": { "coverage": "P", "equivalent": null, "note": "Basic API audit logs are available in the management console. Limited log export options and retention configuration compared to CloudTrail.", "source": "https://www.ionos.com/enterprise-cloud/security/audit-logs" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "IONOS Monitoring", "note": "Basic VM and infrastructure metrics with alerting. Less integrated and with fewer data sources than CloudWatch. No log aggregation equivalent.", "source": "https://www.ionos.com/enterprise-cloud/monitoring" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed pub/sub notification service. Webhook-based alerts from monitoring are available but no full SNS equivalent.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed operations management platform for patching, inventory, or remote session management.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "IONOS Cost Management", "note": "Detailed billing dashboard with resource-level cost breakdown, usage history, and invoice management.", "source": "https://www.ionos.com/enterprise-cloud/billing" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI build service. CI/CD pipelines must use self-hosted or third-party tools such as GitLab CI or Jenkins.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed application deployment automation service.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD pipeline orchestration service.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon ECR": { "coverage": "Y", "equivalent": "IONOS Container Registry", "note": "Managed Docker/OCI-compatible container image registry. Supports private repositories and Kubernetes integration.", "source": "https://www.ionos.com/enterprise-cloud/managed-kubernetes/container-registry" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No native IaC templating service. Official IONOS Terraform provider is available for infrastructure automation.", "source": "https://www.ionos.com/enterprise-cloud/devops/terraform" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT connectivity or device gateway service. IoT broker must be self-hosted (e.g., Eclipse Mosquitto).", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device fleet management or over-the-air update service.", "source": "https://www.ionos.com/enterprise-cloud" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "N", "equivalent": null, "note": "No managed message queue service. RabbitMQ or Apache Kafka must be self-hosted on VMs or Kubernetes.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus or serverless event routing service.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed serverless workflow orchestration service. Workflow automation requires self-hosted solutions such as Apache Airflow.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed transactional email sending service. Third-party SMTP providers or self-hosted Postfix required.", "source": "https://www.ionos.com/enterprise-cloud" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming service. Self-hosted Apache Kafka or Redpanda required.", "source": "https://www.ionos.com/enterprise-cloud" }
+    }
+  }
+}

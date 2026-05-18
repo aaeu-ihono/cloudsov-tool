@@ -1,0 +1,394 @@
+{
+  "Arvato Systems": {
+    "meta": {
+      "scalability_score": 28,
+      "scalability_note": "2 German data centers (Gütersloh, Frankfurt); limited auto-scaling on own infrastructure; no serverless; hybrid focus",
+      "scalability_source": "https://www.arvato-systems.com/cloud/",
+      "performance_score": 80,
+      "performance_note": "ISO 27001, ISAE 3402 type II certified; 99.95% SLA; German data centers; enterprise-grade SAN storage",
+      "performance_source": "https://www.arvato-systems.com/compliance/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No equivalent full-stack application deployment platform offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS platform; serverless not offered on own infrastructure",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container runtime; containers on self-managed basis only",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EKS": {
+        "coverage": "P",
+        "equivalent": "Arvato Systems Managed Kubernetes",
+        "note": "K8s deployment available as managed service; limited automation compared to EKS",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Cloud VMs",
+        "note": "VMware-based virtual machines, flexible sizing",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Object Storage",
+        "note": "S3-compatible object storage, enterprise-grade",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No archival/cold storage tier offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Block Storage",
+        "note": "SAN-backed block storage, high IOPS",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Backup": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Backup as a Service",
+        "note": "Centralised backup management for VMs, databases and file systems; automated policies and offsite replication",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed elastic NFS file system offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Managed relational database (MySQL/PostgreSQL/MSSQL) available; less automated lifecycle than RDS",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed document database service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed NoSQL key-value/document database offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No Aurora-equivalent high-performance managed RDBMS offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed in-memory caching service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Load balancing available; HTTP/HTTPS; limited self-service configuration",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "TCP load balancing available; limited self-service configuration",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Private Cloud Network",
+        "note": "Isolated VLANs and MPLS-based private networking",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Route 53": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "DNS management not offered as a self-service; handled via support tickets",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No CDN service offered on own infrastructure",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "Y",
+        "equivalent": "Arvato Systems Dedicated Connectivity",
+        "note": "Dedicated MPLS lines and data center cross-connects for hybrid environments",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image/video recognition service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML platform offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model / generative AI service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL/data integration service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless interactive query service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Role-based access control via portal; coarser-grained than AWS IAM",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed customer identity and access management service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No SSO / centralized identity federation service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS KMS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed key management service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets management service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "TLS certificate management; manual or semi-automated renewal",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed configuration compliance and tracking service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Data center-level DDoS protection; no application-layer mitigation",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No web application firewall service offered",
+        "source": "https://www.arvato-systems.com/compliance/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "API/portal action audit logging; limited export and retention options",
+        "source": "https://www.arvato-systems.com/compliance/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Arvato Systems Monitoring",
+        "note": "Infrastructure metrics and alerting using Zabbix/Nagios; less integrated than CloudWatch",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed systems operations and configuration service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": null,
+        "note": "Detailed cost reporting per service available in portal",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon ECR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container registry offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "IaC via Ansible/Terraform on request; no native orchestration platform",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity platform offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device management service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event bus service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional email service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service offered",
+        "source": "https://www.arvato-systems.com/cloud/"
+      }
+    }
+  }
+}

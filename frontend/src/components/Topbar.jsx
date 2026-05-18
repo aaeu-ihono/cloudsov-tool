@@ -11,7 +11,12 @@ export default function Topbar() {
         >
           SovScore
         </NavLink>
-        {/* Future tools get added here as NavLinks */}
+        <NavLink
+          to="/readiness"
+          className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+        >
+          Readiness
+        </NavLink>
       </nav>
     </div>
   )

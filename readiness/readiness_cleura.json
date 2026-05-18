@@ -1,0 +1,94 @@
+{
+  "Cleura": {
+    "meta": {
+      "scalability_score": 40,
+      "scalability_note": "5 EU regions (Stockholm, London, Amsterdam, Frankfurt, Karlskrona), OpenStack auto-scaling via Heat, managed Kubernetes (Magnum); broader regional footprint than most EU-sovereign providers",
+      "scalability_source": "https://cleura.com/cloud-regions/",
+      "performance_score": 77,
+      "performance_note": "ISO 27001 certified, 99.9% SLA, EU-only data residency, Swedish Data Protection Act compliance, GDPR-by-design architecture",
+      "performance_source": "https://cleura.com/legal/sla/"
+    },
+    "Application": {
+      "AWS Amplify": { "coverage": "N", "equivalent": null, "note": "No managed frontend or full-stack web application hosting platform. Applications must be self-hosted on VMs or Kubernetes.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Compute": {
+      "AWS Lambda": { "coverage": "N", "equivalent": null, "note": "No Function-as-a-Service offering. Serverless compute is not available; workloads require VMs or containerised deployments.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon ECS": { "coverage": "N", "equivalent": null, "note": "No managed container runtime service without Kubernetes. Container orchestration is only accessible via the Kubernetes (Magnum) offering.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EKS": { "coverage": "P", "equivalent": "Cleura Managed Kubernetes (OpenStack Magnum)", "note": "Kubernetes clusters provisioned via OpenStack Magnum. Managed upgrades and integrated monitoring are limited compared to fully managed Kubernetes services.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EC2": { "coverage": "Y", "equivalent": "Cleura Cloud Compute (OpenStack Nova)", "note": "Flexible VM instances available across all five EU regions. Standard, compute-optimised, and memory-optimised flavors supported via OpenStack Nova.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Batch": { "coverage": "N", "equivalent": null, "note": "No managed batch compute service. Batch workloads must be self-orchestrated via VMs or Kubernetes Jobs.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Elastic Beanstalk": { "coverage": "N", "equivalent": null, "note": "No PaaS application deployment and lifecycle management platform.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Storage": {
+      "Amazon S3": { "coverage": "Y", "equivalent": "Cleura Object Storage (OpenStack Swift / S3-compatible)", "note": "Multi-region S3-compatible object storage with full S3 API support and geo-redundancy options. Available across EU regions.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon S3 Glacier": { "coverage": "N", "equivalent": null, "note": "No archival or cold-storage tier. Object Storage operates at a single standard tier with no automated lifecycle archival.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EBS": { "coverage": "Y", "equivalent": "Cleura Block Storage (OpenStack Cinder)", "note": "SSD-backed block volumes with snapshot support and cross-availability-zone replication. Managed via OpenStack Cinder.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Backup": { "coverage": "P", "equivalent": "Cleura VM and Volume Snapshots", "note": "VM and volume snapshots are available for scheduled and on-demand use. No unified cross-service backup policy engine or centralised management.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EFS": { "coverage": "N", "equivalent": null, "note": "No managed shared or distributed file system. NFS-based shared storage must be self-hosted.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Database": {
+      "Amazon RDS": { "coverage": "P", "equivalent": "Cleura Database (OpenStack Trove)", "note": "Managed MySQL and PostgreSQL via OpenStack Trove. Less mature than RDS; high-availability and multi-AZ failover options are limited.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon DocumentDB": { "coverage": "N", "equivalent": null, "note": "No managed document database service. MongoDB or equivalent must be self-hosted.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon DynamoDB": { "coverage": "N", "equivalent": null, "note": "No managed NoSQL key-value or wide-column database service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Timestream": { "coverage": "N", "equivalent": null, "note": "No managed time-series database service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Aurora": { "coverage": "N", "equivalent": null, "note": "No high-performance distributed relational database equivalent to Aurora.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon ElastiCache": { "coverage": "N", "equivalent": null, "note": "No managed in-memory caching service. Redis or Memcached must be self-hosted.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Redshift": { "coverage": "N", "equivalent": null, "note": "No managed cloud data warehouse service.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": { "coverage": "P", "equivalent": "Cleura Load Balancer (OpenStack Octavia)", "note": "HTTP/HTTPS load balancing with health checks and TLS termination via OpenStack Octavia. Less feature-rich than AWS ALB; advanced routing rules are limited.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Network Load Balancer": { "coverage": "P", "equivalent": "Cleura Load Balancer TCP mode (OpenStack Octavia)", "note": "TCP-level load balancing is available via the same Octavia product. Advanced NLB capabilities such as static IPs and protocol-level persistence are limited.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon VPC": { "coverage": "Y", "equivalent": "Cleura Virtual Private Cloud (OpenStack Neutron)", "note": "Full private networking with subnets, routing tables, security groups, and floating IPs. Managed via OpenStack Neutron.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Route 53": { "coverage": "Y", "equivalent": "Cleura DNS (OpenStack Designate)", "note": "Managed DNS service with support for all standard record types across all EU regions. Managed via OpenStack Designate.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon API Gateway": { "coverage": "N", "equivalent": null, "note": "No managed API gateway service. API management requires self-hosted solutions such as Kong or NGINX.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon CloudFront": { "coverage": "N", "equivalent": null, "note": "No global CDN service. Content delivery requires third-party CDN integration.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Direct Connect": { "coverage": "P", "equivalent": "Cleura Private Peering", "note": "Private network connectivity to Cleura data centers is available. Limited self-service provisioning; requires manual engagement with support.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": { "coverage": "N", "equivalent": null, "note": "No managed computer vision or image/video analysis service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon SageMaker": { "coverage": "N", "equivalent": null, "note": "No managed machine learning platform for model training and deployment.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Bedrock": { "coverage": "N", "equivalent": null, "note": "No managed generative AI or foundation model API service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Glue": { "coverage": "N", "equivalent": null, "note": "No managed ETL or serverless data integration service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EMR": { "coverage": "N", "equivalent": null, "note": "No managed big data processing service (Hadoop/Spark). Must be self-hosted.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Athena": { "coverage": "N", "equivalent": null, "note": "No serverless interactive query service for data in object storage.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Security": {
+      "AWS IAM": { "coverage": "Y", "equivalent": "Cleura IAM (OpenStack Keystone)", "note": "Project and domain-scoped RBAC with federated identity support and token-based API access. Managed via OpenStack Keystone.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Cognito": { "coverage": "N", "equivalent": null, "note": "No managed user identity and authentication service for applications. Requires self-hosted identity providers (e.g. Keycloak).", "source": "https://cleura.com/cloud-platform/" },
+      "AWS IAM Identity Center": { "coverage": "N", "equivalent": null, "note": "No centralised SSO or workforce identity management service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS KMS": { "coverage": "P", "equivalent": "Cleura Key Management (OpenStack Barbican)", "note": "Cryptographic key lifecycle management via OpenStack Barbican. No dedicated HSM service; hardware-backed key storage is not available as a standard offering.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Secrets Manager": { "coverage": "N", "equivalent": null, "note": "No managed secrets rotation and storage service. Requires self-hosted solutions such as HashiCorp Vault.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Certificate Manager": { "coverage": "N", "equivalent": null, "note": "No managed TLS certificate provisioning or lifecycle management service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon GuardDuty": { "coverage": "N", "equivalent": null, "note": "No managed threat detection or continuous security monitoring service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Security Hub": { "coverage": "N", "equivalent": null, "note": "No managed cloud security posture management or centralised security finding aggregation.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Config": { "coverage": "N", "equivalent": null, "note": "No managed resource configuration tracking or compliance evaluation service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Shield": { "coverage": "P", "equivalent": "Cleura Data Centre-level DDoS Protection", "note": "Network-level DDoS protection is included at the data centre perimeter. No application-layer mitigation or WAF-integrated DDoS response.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS WAF": { "coverage": "N", "equivalent": null, "note": "No managed web application firewall service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS CloudTrail": { "coverage": "P", "equivalent": "Cleura Audit Log (OpenStack)", "note": "IAM and resource API activity audit logging available via OpenStack. Log retention and export capabilities are limited.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": { "coverage": "P", "equivalent": "Cleura Monitoring (Gnocchi / Ceilometer)", "note": "Basic resource metrics collection via Gnocchi and Ceilometer. Less integrated with platform services and less feature-rich than CloudWatch.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon SNS": { "coverage": "N", "equivalent": null, "note": "No managed pub/sub or push notification service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Systems Manager": { "coverage": "N", "equivalent": null, "note": "No managed operational tooling for patching, run commands, or inventory collection.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Cost Explorer": { "coverage": "Y", "equivalent": "Cleura Usage and Cost Reporting", "note": "Per-project usage and cost reporting available in the customer console. Covers all compute, storage, and networking resources.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": { "coverage": "N", "equivalent": null, "note": "No managed CI build service. CI pipelines require self-hosted or third-party tools (e.g. GitLab CI, Jenkins).", "source": "https://cleura.com/cloud-platform/" },
+      "AWS CodeDeploy": { "coverage": "N", "equivalent": null, "note": "No managed application deployment automation service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS CodePipeline": { "coverage": "N", "equivalent": null, "note": "No managed CI/CD pipeline orchestration service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon ECR": { "coverage": "P", "equivalent": "Cleura Container Registry", "note": "Basic OCI/Docker container registry functionality available. Image vulnerability scanning and automated retention policies are limited.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS CloudFormation": { "coverage": "N", "equivalent": null, "note": "No native infrastructure-as-code service. OpenStack Heat templates provide partial IaC capability; a Terraform provider is also available.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "IoT": {
+      "AWS IoT Core": { "coverage": "N", "equivalent": null, "note": "No managed IoT connectivity or device messaging platform.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS IoT Device Management": { "coverage": "N", "equivalent": null, "note": "No managed IoT device registry or fleet management service.", "source": "https://cleura.com/cloud-platform/" }
+    },
+    "Messaging": {
+      "Amazon SQS": { "coverage": "P", "equivalent": "Cleura Message Queue (OpenStack Zaqar)", "note": "Basic managed message queue via OpenStack Zaqar. Rarely used in production environments; limited throughput and management features compared to SQS.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon EventBridge": { "coverage": "N", "equivalent": null, "note": "No managed event bus or event-driven integration service.", "source": "https://cleura.com/cloud-platform/" },
+      "AWS Step Functions": { "coverage": "N", "equivalent": null, "note": "No managed serverless workflow orchestration service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon SES": { "coverage": "N", "equivalent": null, "note": "No managed transactional or bulk email delivery service.", "source": "https://cleura.com/cloud-platform/" },
+      "Amazon Kinesis": { "coverage": "N", "equivalent": null, "note": "No managed real-time data streaming or ingestion service.", "source": "https://cleura.com/cloud-platform/" }
+    }
+  }
+}

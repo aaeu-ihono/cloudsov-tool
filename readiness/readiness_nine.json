@@ -1,0 +1,394 @@
+{
+  "Nine": {
+    "meta": {
+      "scalability_score": 25,
+      "scalability_note": "2 Swiss data centers (Zurich ZH1, ZH2); OpenStack Heat auto-scaling; no serverless FaaS",
+      "scalability_source": "https://www.nine.ch/en/solutions/cloud/",
+      "performance_score": 78,
+      "performance_note": "ISO 27001, Swiss Federal Act on Data Protection (nDSG) compliant; 99.9% SLA; Swiss data sovereignty",
+      "performance_source": "https://www.nine.ch/en/legal/sla/"
+    },
+    "Application": {
+      "AWS Amplify": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No equivalent full-stack application deployment platform offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Compute": {
+      "AWS Lambda": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No FaaS/serverless functions offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon ECS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed container service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EKS": {
+        "coverage": "P",
+        "equivalent": "Nine Managed Kubernetes",
+        "note": "Kubernetes via OpenStack Magnum; limited lifecycle management compared to EKS",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EC2": {
+        "coverage": "Y",
+        "equivalent": "Nine Cloud Instances (OpenStack Nova)",
+        "note": "Flexible VM instances, SSD-backed",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Batch": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed batch compute service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Elastic Beanstalk": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No PaaS application deployment service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Storage": {
+      "Amazon S3": {
+        "coverage": "Y",
+        "equivalent": "Nine Object Storage (S3-compatible)",
+        "note": "Multi-AZ within Swiss region, S3 API compatible",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon S3 Glacier": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No archival/cold storage tier offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EBS": {
+        "coverage": "Y",
+        "equivalent": "Nine Block Storage (OpenStack Cinder)",
+        "note": "NVMe/SSD volumes, snapshots supported",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Backup": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Instance and volume snapshots available; no centralised cross-service backup management",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EFS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed elastic NFS file system offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Database": {
+      "Amazon RDS": {
+        "coverage": "P",
+        "equivalent": "Nine DBaaS (OpenStack Trove)",
+        "note": "Managed MySQL/PostgreSQL; less automated than RDS",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon DocumentDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed document database service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon DynamoDB": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed NoSQL key-value/document database offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Timestream": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed time-series database offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Aurora": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No Aurora-equivalent high-performance managed RDBMS offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon ElastiCache": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed in-memory caching service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Redshift": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed data warehouse service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Networking": {
+      "AWS Application Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Nine Load Balancer (OpenStack Octavia)",
+        "note": "HTTP/HTTPS load balancing; basic routing rules",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Network Load Balancer": {
+        "coverage": "P",
+        "equivalent": "Nine Load Balancer (OpenStack Octavia)",
+        "note": "TCP mode via OpenStack Octavia; basic layer-4 load balancing",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon VPC": {
+        "coverage": "Y",
+        "equivalent": "Nine Virtual Network (OpenStack Neutron)",
+        "note": "Private networks, security groups, floating IPs",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Route 53": {
+        "coverage": "P",
+        "equivalent": "Nine DNS (OpenStack Designate)",
+        "note": "Basic DNS management; lacks advanced routing policies of Route 53",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon API Gateway": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed API gateway service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon CloudFront": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No CDN service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Direct Connect": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No dedicated private connectivity service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "AI/ML": {
+      "Amazon Rekognition": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed image/video recognition service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon SageMaker": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ML platform offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Bedrock": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed foundation model / generative AI service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Glue": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed ETL/data integration service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EMR": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed big data processing (Spark/Hadoop) service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Athena": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No serverless interactive query service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Security": {
+      "AWS IAM": {
+        "coverage": "Y",
+        "equivalent": "Nine IAM (OpenStack Keystone)",
+        "note": "Project/domain RBAC, token-based API access",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Cognito": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed customer identity and access management service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS IAM Identity Center": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No SSO / centralized identity federation service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS KMS": {
+        "coverage": "P",
+        "equivalent": "Nine Key Management (OpenStack Barbican)",
+        "note": "Key lifecycle management; no HSM-backed option",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Secrets Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed secrets management service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Certificate Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed TLS certificate provisioning service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon GuardDuty": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed threat detection service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Security Hub": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No centralised security posture management service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Config": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed configuration compliance and tracking service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Shield": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Data center DDoS protection; no application-layer mitigation",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS WAF": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No web application firewall service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS CloudTrail": {
+        "coverage": "P",
+        "equivalent": null,
+        "note": "Basic OpenStack API audit logging; limited retention",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Monitoring": {
+      "Amazon CloudWatch": {
+        "coverage": "P",
+        "equivalent": "Nine Monitoring",
+        "note": "Basic resource metrics and alerts; less integrated than CloudWatch",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon SNS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed pub/sub notification service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Systems Manager": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed systems operations and configuration service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Cost Explorer": {
+        "coverage": "Y",
+        "equivalent": null,
+        "note": "Per-project usage and cost reporting available in portal",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Dev/Deploy": {
+      "AWS CodeBuild": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI build service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS CodeDeploy": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed deployment automation service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS CodePipeline": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed CI/CD pipeline service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon ECR": {
+        "coverage": "P",
+        "equivalent": "Nine Container Registry",
+        "note": "Basic Docker registry; limited lifecycle management features",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS CloudFormation": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "Terraform provider available; no native IaC orchestration platform",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "IoT": {
+      "AWS IoT Core": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT connectivity platform offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS IoT Device Management": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed IoT device management service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    },
+    "Messaging": {
+      "Amazon SQS": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed message queue service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon EventBridge": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed event bus service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "AWS Step Functions": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed workflow orchestration service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon SES": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed transactional email service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      },
+      "Amazon Kinesis": {
+        "coverage": "N",
+        "equivalent": null,
+        "note": "No managed real-time data streaming service offered",
+        "source": "https://www.nine.ch/en/solutions/cloud/"
+      }
+    }
+  }
+}
