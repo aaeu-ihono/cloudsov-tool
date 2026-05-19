@@ -3,224 +3,224 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "P",
-        "source": "https://a1.com/wp-content/uploads/sites/6/2026/03/A1-Telekom-Austria-Group-Investor-Presentation-Feb-2026-1.pdf",
-        "note": "Owned by A1 Telekom Austria Group. While A1 is Austrian, its majority owner is América Móvil (Mexican), and a significant portion of shares are held by international institutional investors. Direct EU control is shared with non-EU interests."
+        "source": "https://www.a1.digital/european-cloud/",
+        "note": "Exoscale is wholly owned by A1 Digital International GmbH, a subsidiary of A1 Telekom Austria Group (listed on the Vienna Stock Exchange). América Móvil (Mexican telecommunications group) holds approximately 60% of A1 Telekom Austria as of 2024, meaning ultimate decisive authority rests partially outside the EU. The Austrian state (ÖBIB) holds approximately 28%, providing a partial EU anchor."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
         "source": "https://www.a1.digital/press/data-sovereignty-is-key/",
-        "note": "Protected by its inclusion in A1's critical infrastructure portfolio, but as a subsidiary of a publicly traded group, it remains subject to global market dynamics."
+        "note": "Exoscale's placement within A1's critical infrastructure portfolio and Austria's partial state ownership provide some de facto protection against full non-EU takeover, but no formal statutory golden share specifically covers Exoscale. The company remains subject to A1 Group corporate governance decisions."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "P",
-        "source": "https://a1.com/wp-content/uploads/sites/6/2026/03/A1-Telekom-Austria-Group-Investor-Presentation-Feb-2026-1.pdf",
-        "note": "Financed through the A1 Group, which accesses global capital markets and is majority-owned by a non-EU telecom giant."
+        "source": "https://www.marketscreener.com/quote/stock/TELEKOM-AUSTRIA-AG-6492023/news/Telekom-Austria-A1-digital-Acquires-Swiss-Cloud-Provider-Exoscale-25059573/",
+        "note": "Exoscale is funded through the A1 Telekom Austria Group, which accesses global capital markets. Since América Móvil holds ~60% of A1 Telekom Austria, a significant portion of capital flows from a non-EU source. The Austrian state (ÖBIB, ~28%) provides an EU-anchored counterweight."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Strong footprint in Switzerland, Austria, Germany, and Bulgaria. Essential infrastructure provider for EU research (CERN) and SMEs."
+        "source": "https://www.exoscale.com/datacenters/",
+        "note": "Exoscale operates cloud zones in Austria (Vienna), Germany (Frankfurt, Munich), Switzerland (Geneva, Zurich), Bulgaria (Sofia), and Croatia, creating substantial employment and infrastructure investment across multiple EU states and Switzerland. It supports critical EU institutions including CERN."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://www.a1.digital/press/data-sovereignty-is-key/",
-        "note": "Member of Gaia-X and a key advocate for 'Digital Sovereignty by Design' within the DACH region."
+        "source": "https://www.exoscale.com/blog/gaia-x/",
+        "note": "Exoscale is a member of GAIA-X and has published detailed documentation on its alignment with GAIA-X principles. The company explicitly positions itself as a 'Digital Sovereignty by Design' provider in the DACH region, offering infrastructure compliant with GDPR and NIS2."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
         "source": "https://www.exoscale.com/datacenters/",
-        "note": "Standard industry hardware dependency (Intel/AMD/NVIDIA). Withdrawal of support for firmware/microcode would eventually degrade security posture."
+        "note": "Exoscale's use of Apache CloudStack (open-source) reduces software suspension risk. However, hardware dependency on Intel/AMD processors and NVIDIA GPUs means that a sustained embargo on firmware/microcode updates would progressively degrade security posture. A1 Group's operational resilience provides additional continuity."
       }
     },
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
-        "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Incorporated in Switzerland with subsidiaries in Austria and Germany. Governed by Swiss and EU law (GDPR)."
+        "verdict": "P",
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "Exoscale's legal entity is incorporated in Switzerland (Geneva), which is not an EU member state but holds an EU adequacy decision (since 2000, reaffirmed under nFADP 2023). Its parent A1 Digital and the broader Exoscale operations in Austria and Germany are governed by EU law. Switzerland's nFADP is closely aligned with GDPR but is not formally EU law."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Exoscale explicitly guarantees no US CLOUD Act exposure. Unlike IONOS or Telekom, its parent company (A1) does not have a substantial US-based carrier operation that would trigger 'nexus' arguments."
+        "source": "https://www.exoscale.com/compliance/",
+        "note": "Exoscale explicitly guarantees freedom from the US CLOUD Act. A1 Telekom Austria Group does not operate a qualifying US electronic communications service that would create CLOUD Act nexus. The company has no Chinese corporate structure. CLOUD Act exemption is a documented feature of its compliance offering."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Data residency is strictly limited to chosen EU/CH zones. No non-EU corporate structure exists that would facilitate legal backdoors."
+        "source": "https://community.exoscale.com/platform/compliance/",
+        "note": "Data residency is contractually confined to the customer's selected zone (within Switzerland, Austria, Germany, Bulgaria, or Croatia). No non-EU or non-Swiss corporate entity exists within the Exoscale operational chain that would enable legal bypassing of Swiss or EU data protections."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "GPU offerings and certain storage components remain subject to US EAR (Export Administration Regulations) at the hardware level."
+        "source": "https://www.exoscale.com/gpu/",
+        "note": "Exoscale's core IaaS and storage services are not subject to export controls. However, GPU instances for AI workloads use NVIDIA hardware, which is subject to US Export Administration Regulations (EAR). This creates a residual hardware-level export control dependency, though it does not affect customer data itself."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Core orchestration and the Exoscale Portal are developed in Lausanne and Vienna."
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "The core Exoscale platform, portal, and orchestration layer are developed by engineering teams in Lausanne (Switzerland) and Vienna (Austria). No IP ownership is attributed to non-EU/non-Swiss entities."
       }
     },
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Supports full BYOK and high-standard KMS integrations."
+        "source": "https://community.exoscale.com/reference/api/kms/",
+        "note": "Exoscale provides a dedicated Key Management Service (KMS) enabling customers to create, control, and manage their own cryptographic keys. Object Storage supports SSE-C (Server-Side Encryption with Customer-Provided Keys) where Exoscale does not store or recover customer keys."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Certified ISO 27001/27017/27018 and BSI C5:2026. Audit logs are comprehensive and customer-accessible."
+        "source": "https://www.exoscale.com/compliance/iso27001/",
+        "note": "Exoscale holds ISO/IEC 27001:2022, ISO 27017, ISO 27018, SOC 2 Type 2, and BSI C5 Type 2 certifications. All these standards mandate comprehensive audit logging. Customers access audit logs via the Exoscale Compliance Center portal after accepting an NDA."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Standard feature of the platform's data lifecycle policy."
+        "source": "https://www.exoscale.com/compliance/",
+        "note": "GDPR-compliant data deletion with verifiable evidence is a standard platform capability. ISO 27001 and BSI C5 certifications require documented data lifecycle and destruction procedures, providing independent third-party verification of these controls."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/datacenters/",
-        "note": "All 8+ zones are strictly within Switzerland, Austria, Germany, Bulgaria, and Croatia."
+        "source": "https://community.exoscale.com/platform/dc-zones/",
+        "note": "All Exoscale zones are located within Switzerland (Geneva, Zurich), Austria (Vienna), Germany (Frankfurt, Munich), Bulgaria (Sofia), and Croatia. Switzerland holds an EU adequacy decision. All DBaaS instances are contractually hosted within the EEA or Switzerland. No third-country fallback exists."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "Exoscale offers AI-ready GPU instances, but training pipelines often run on US-origin software stacks and hardware."
+        "source": "https://www.exoscale.com/gpu/",
+        "note": "Exoscale offers GPU instances for AI workloads located within EU/Swiss data centers, ensuring data residency. However, AI training frameworks (PyTorch, TensorFlow, CUDA) are predominantly US-origin, and NVIDIA hardware accelerators are subject to US export controls, meaning the full AI stack is not exclusively EU-governed."
       }
     },
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Uses standard CloudStack APIs and S3-compatible storage, allowing for high reversibility."
+        "source": "https://community.exoscale.com/community/open-source/",
+        "note": "Exoscale is built on Apache CloudStack and offers S3-compatible object storage, standard Kubernetes (SKS), and Terraform-compatible APIs. Workloads can be migrated to other OpenStack or CloudStack-based EU providers without rewriting application code."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Staffing and operations are 100% European/Swiss."
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "Day-to-day operations, infrastructure management, and customer support are performed exclusively by engineering and operations staff in Switzerland and Austria. No operational dependency on non-EU or non-Swiss vendor support is documented."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Recruits heavily from Swiss and Austrian technical universities."
+        "source": "https://www.exoscale.com/jobs/",
+        "note": "Exoscale actively recruits from Swiss (EPFL, ETH) and Austrian technical universities. The company has maintained a specialist European cloud engineering team since its founding in 2011, with combined Swiss/Austrian expertise in cloud infrastructure."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Support engineers are located in Switzerland and Austria."
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "All customer support and technical operations are delivered from Exoscale's offices in Switzerland and Austria. There is no offshore or non-EU support routing documented."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/",
-        "note": "While based on open standards, the specific 'glue' and management layers are proprietary to Exoscale."
+        "source": "https://community.exoscale.com/",
+        "note": "Apache CloudStack core is fully open-source (Apache 2.0). However, Exoscale's management portal, specific API extensions, and operational automation represent proprietary components not available as open-source, reducing full long-term autonomy compared to pure OpenStack providers."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/datacenters/",
-        "note": "Utilizes Equinix for some facility locations (US-headquartered), although Exoscale maintains control over its own hardware and racks."
+        "source": "https://www.equinix.com/resources/case-studies/exoscale-continuous-cloud-hosting-excellence",
+        "note": "Exoscale uses Equinix data centers for several of its zones (e.g., GV2 Geneva, FR4 Frankfurt). Equinix is US-headquartered, meaning physical facility management involves a non-EU entity. Exoscale maintains ownership of and control over its own hardware and racks within those facilities."
       }
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
-        "source": "https://www.exoscale.com/",
-        "note": "Standard server hardware is non-EU origin."
+        "source": "https://www.letshosting.com/12962.html",
+        "note": "Exoscale servers use Intel Xeon processors (US-origin) for compute instances, confirmed by third-party benchmark testing. GPU instances use NVIDIA accelerators. No EU-manufactured server hardware is deployed."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "https://www.exoscale.com/",
-        "note": "Relies on proprietary firmware from US chip manufacturers."
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "All server firmware (UEFI/BIOS), CPU microcode (Intel/AMD), and GPU firmware (NVIDIA) are proprietary code originating from US manufacturers. This is a universal constraint applying to all current EU and Swiss cloud providers."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Exoscale maintains its own build pipelines and update repositories."
+        "source": "https://community.exoscale.com/community/open-source/",
+        "note": "Exoscale maintains its own software build and update pipelines operated by its Swiss and Austrian engineering teams. The company actively contributes open-source tooling built for its cloud infrastructure back to the community."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "N",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "Hardware and AI-accelerator dependency remains a foreign trace."
+        "source": "https://www.exoscale.com/gpu/",
+        "note": "Exoscale is dependent on NVIDIA GPUs for AI workloads and Intel/AMD x86 CPUs for all compute. While the software stack uses open-source components (Apache CloudStack), the hardware layer creates significant non-EU vendor dependencies."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/",
-        "note": "Auditable at the layer of operations and infrastructure, but not the silicon supply chain."
+        "source": "https://www.exoscale.com/compliance/",
+        "note": "ISO 27001, SOC 2 Type 2, and BSI C5 Type 2 attestations provide substantial transparency and third-party audit rights over Exoscale's operational supply chain. Full audit transparency into the hardware silicon manufacturing chain (Intel, AMD, NVIDIA) is not available to any cloud provider."
       }
     },
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Strong commitment to CloudStack, Terraform, and open Kubernetes (SKS)."
+        "source": "https://community.exoscale.com/platform/compliance/",
+        "note": "Exoscale exposes industry-standard APIs: Apache CloudStack native API, S3-compatible object storage, Kubernetes API (SKS), and Terraform provider support. All are based on open standards with comprehensive public documentation."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "P",
-        "source": "https://www.exoscale.com/",
-        "note": "Hybrid model: Open-source components with a proprietary control plane."
+        "source": "https://community.exoscale.com/community/open-source/",
+        "note": "Apache CloudStack (the core orchestration layer) is licensed under Apache 2.0 and is fully auditable. However, Exoscale's management console, billing system, and certain proprietary API extensions are closed-source, resulting in a hybrid open/proprietary model."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "High transparency for institutional clients."
+        "source": "https://community.exoscale.com/platform/dc-zones/",
+        "note": "Exoscale publishes detailed zone-by-zone documentation covering data center locations, network interconnections, and service architecture. The shared responsibility model documentation clearly delineates customer and provider control boundaries."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "Requires US-made GPUs for AI workloads."
+        "source": "https://www.exoscale.com/gpu/",
+        "note": "Exoscale explicitly offers GPU Cloud Computing with NVIDIA accelerators for AI/ML workloads. All compute instances rely on Intel Xeon or equivalent AMD processors. No EU-origin processor alternatives are currently available on the platform."
       }
     },
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
-        "source": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2026/C5_2026.pdf",
-        "note": "Holds ISO 27001, 27017, 27018, SOC 2 Type II, and BSI C5:2026."
+        "source": "https://www.exoscale.com/compliance/bsi-c5/",
+        "note": "Exoscale holds ISO/IEC 27001:2022 (certified since 2018), ISO 27017, ISO 27018, SOC 2 Type 2, TISAX Level 2, and BSI C5 Type 2 (obtained October 2024). The BSI C5 Type 2 is Germany's benchmark standard for cloud security and is mandatory for hosting healthcare data in Germany since July 2025."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Primary focus is on Swiss/EU highly regulated sectors (Finance/Healthcare)."
+        "source": "https://community.exoscale.com/platform/compliance/",
+        "note": "Exoscale explicitly supports GDPR, NIS2, and DORA compliance frameworks. Its shared responsibility model documentation maps Exoscale controls to ISO 27001, HDS, SOC 2, BSI C5, and NIS2 Article 21 requirements. FINMA Circular 2018/3 compliance is also documented for Swiss financial sector clients."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "SOCs are located in the DACH region."
+        "source": "https://www.exoscale.com/about-us/",
+        "note": "Security operations and incident response are managed exclusively by Exoscale's engineering and security teams in Switzerland and Austria (DACH region). No offshore or non-EU SOC functions are documented."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Robust logging and IAM features built-in."
+        "source": "https://community.exoscale.com/platform/compliance/",
+        "note": "Customers access comprehensive audit logs, IAM activity records, and compliance documentation via the Exoscale Compliance Center portal. ISO 27017 and 27018 certifications require customer-accessible access logs and accountability controls."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Strict adherence to Swiss and EU reporting laws."
+        "source": "https://www.exoscale.com/compliance/",
+        "note": "Breach notification procedures are aligned with GDPR Article 33 (72-hour notification to supervisory authority) and NIS2 reporting timelines. ISO 27001 ISMS includes documented patch management processes operated by the Swiss/Austrian engineering team."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/",
-        "note": "Facilitates third-party audits for enterprise/public sector accounts."
+        "source": "https://www.exoscale.com/compliance/",
+        "note": "Exoscale facilitates independent third-party audits for enterprise and public sector clients via the Compliance Center (NDA-gated access to audit reports). BSI C5 Type 2 and SOC 2 Type 2 attestations are the product of such independent assessments."
       }
     },
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "Equinix locations like GV2 and ZH5 are state-of-the-art with low PUE."
+        "source": "https://www.exoscale.com/sustainability/",
+        "note": "Exoscale selects data center partners based on energy efficiency and PUE ratings. Equinix facilities used by Exoscale (e.g., GV2 Geneva, ZH5 Zurich, FR4 Frankfurt) are among the most energy-efficient in Europe. Exoscale has documented energy efficiency targets as part of its ISO 50001 Energy Management System implementation."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
-        "source": "https://a1.com/wp-content/uploads/sites/6/2026/03/A1-Telekom-Austria-Group-Investor-Presentation-Feb-2026-1.pdf",
-        "note": "Aligned with A1 Group's ESG strategy for hardware recycling."
+        "source": "https://www.exoscale.com/sustainability/",
+        "note": "Exoscale maintains an average server fleet age of approximately 3 years and operates a programme to repurpose older servers for non-customer-facing workloads, extending hardware useful life. This documented circular hardware strategy reduces electronic waste."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
-        "source": "https://a1.com/wp-content/uploads/sites/6/2026/03/A1-Telekom-Austria-Group-Investor-Presentation-Feb-2026-1.pdf",
-        "note": "Sustainability metrics are published annually."
+        "source": "https://www.exoscale.com/sustainability/",
+        "note": "Exoscale has implemented an automated environmental impact calculator based on CloudAssess, aligned with ISO 14040/14044 and ADEME LCA standards, providing per-product carbon footprint data. The company supports CSRD-2025 compliance for enterprise clients requiring supply-chain emissions reporting."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
-        "source": "https://www.exoscale.com/datacenters/switzerland/",
-        "note": "100% renewable energy certificates for Swiss and Austrian locations."
+        "source": "https://www.exoscale.com/sustainability/",
+        "note": "90% of Exoscale's electricity comes from renewable sources overall; German and Swiss data centers operate on 100% renewable energy; Austrian data centers source 99% renewable energy. Croatian facilities operate at 91% renewable share."
       }
     },
-    "summary_note": "Exoscale is a top-tier choice for jurisdictional sovereignty. It is technically more 'sovereign' than IONOS because its parent company lacks a significant US carrier operation, essentially severing the CLOUD Act 'nexus.' It is also operationally cleaner than Arvato/Microsoft because it runs on its own code (CloudStack), not a US-licensed stack. However, the 'trace' remains: its majority shareholder is a non-EU telecom giant (América Móvil), and its hardware is US-origin. For 2026, it is the most practical 'Neutral Ground' (CH/EU mix) for highly sensitive data."
+    "summary_note": "Exoscale is a strong sovereignty option for DACH-region organisations seeking CLOUD Act-free infrastructure with multi-zone EU/Swiss coverage. Its most significant sovereignty differentiator is its explicit CLOUD Act exemption backed by its Swiss/Austrian legal structure and A1's lack of US carrier nexus. Its BSI C5 Type 2, ISO 27001:2022, SOC 2 Type 2, and TISAX Level 2 certifications constitute one of the most comprehensive compliance portfolios among mid-tier EU providers. The principal sovereignty constraint is structural: América Móvil (Mexico) holds approximately 60% of A1 Telekom Austria, meaning ultimate corporate control is partially non-EU — though this does not directly translate to data access risk given the legal firewalls in place. The second universal constraint is hardware-level: all compute relies on non-EU Intel/AMD silicon and NVIDIA GPUs. Switzerland's non-EU-member status requires careful treatment under EU procurement rules: Switzerland is adequate but not EU, which may be a disqualifying factor for certain public-sector frameworks requiring strict EU-member-state jurisdiction."
   }
 }

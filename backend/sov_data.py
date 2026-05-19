@@ -6,6 +6,7 @@ SOV_OBJECTIVES = {
         "name": "Strategic Sovereignty",
         "weight": 0.15,
         "default_min_seal": 3,
+        "min_seal_reason": "SEAL-3 required: EU corporate control must be genuine — decisive authority, change-of-control protection, EU financing, and operational continuity must all be demonstrable. A lower seal signals the provider could be legally compelled or acquired by non-EU actors, making it unsuitable for sensitive enterprise workloads.",
         "questions": [
             {"id": "SOV1-Q1", "text": "Are all bodies with decisive authority over this provider located within EU jurisdiction?"},
             {"id": "SOV1-Q2", "text": "Does the provider have structural or contractual assurances against non-EU change of control?"},
@@ -19,6 +20,7 @@ SOV_OBJECTIVES = {
         "name": "Legal & Jurisdictional",
         "weight": 0.10,
         "default_min_seal": 4,
+        "min_seal_reason": "SEAL-4 required: Legal jurisdiction is binary — EU law must fully apply with zero non-EU override. A single residual CLOUD Act or Chinese Cybersecurity Law channel disqualifies a provider from processing sensitive data. SEAL-4 is the only level that guarantees no compelled access path outside EU judicial authority. Any lower seal represents unacceptable legal exposure.",
         "questions": [
             {"id": "SOV2-Q1", "text": "Is the provider governed exclusively by an EU member state legal system?"},
             {"id": "SOV2-Q2", "text": "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?"},
@@ -31,6 +33,7 @@ SOV_OBJECTIVES = {
         "name": "Data & AI Sovereignty",
         "weight": 0.10,
         "default_min_seal": 3,
+        "min_seal_reason": "SEAL-3 required: Customer encryption key control, EU-only data residency, auditability, and verifiable deletion are the minimum for GDPR-compliant processing of personal or sensitive enterprise data. A lower seal leaves material data exposure risk — the customer's data could be read, retained, or transferred without their control.",
         "questions": [
             {"id": "SOV3-Q1", "text": "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?"},
             {"id": "SOV3-Q2", "text": "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?"},
@@ -43,6 +46,7 @@ SOV_OBJECTIVES = {
         "name": "Operational Sovereignty",
         "weight": 0.15,
         "default_min_seal": 2,
+        "min_seal_reason": "SEAL-2 required: Full hardware independence is not yet achievable given global supply chain realities. The minimum bar is that EU staff can manage the service day-to-day without non-EU vendor involvement. This is sufficient for enterprise procurement confidence without setting an unachievable standard given today's market.",
         "questions": [
             {"id": "SOV4-Q1", "text": "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?"},
             {"id": "SOV4-Q2", "text": "Can EU operators fully manage and maintain the service without non-EU vendor involvement?"},
@@ -56,6 +60,7 @@ SOV_OBJECTIVES = {
         "name": "Supply Chain",
         "weight": 0.20,
         "default_min_seal": 2,
+        "min_seal_reason": "SEAL-2 required: Hardware firmware sovereignty is structurally impossible today — Intel Management Engine and AMD PSP firmware are universally non-EU, creating a hard ceiling for all providers. SEAL-2 acknowledges this constraint: providers must demonstrate EU software stack control and supply chain transparency even where hardware origin cannot be EU-sourced. A lower seal indicates no meaningful sovereignty effort beyond the unavoidable hardware dependency.",
         "questions": [
             {"id": "SOV5-Q1", "text": "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?"},
             {"id": "SOV5-Q2", "text": "Is firmware and embedded code controlling hardware of EU origin?"},
@@ -68,6 +73,7 @@ SOV_OBJECTIVES = {
         "name": "Technology",
         "weight": 0.15,
         "default_min_seal": 2,
+        "min_seal_reason": "SEAL-2 required: EU HPC processors do not yet exist commercially — all providers depend on Intel or AMD CPUs. The minimum bar instead focuses on open APIs, open-source licensing, and architectural transparency, which are fully achievable regardless of chip origin and prevent proprietary lock-in beyond the unavoidable hardware layer.",
         "questions": [
             {"id": "SOV6-Q1", "text": "Does the provider use well-documented, non-proprietary APIs and open standards?"},
             {"id": "SOV6-Q2", "text": "Is the software stack available under open-source licences with audit and modification rights?"},
@@ -79,6 +85,7 @@ SOV_OBJECTIVES = {
         "name": "Security & Compliance",
         "weight": 0.10,
         "default_min_seal": 3,
+        "min_seal_reason": "SEAL-3 required: Recognised EU certifications (ISO 27001, BSI C5) and GDPR/NIS2 compliance are non-negotiable for enterprise cloud procurement. Most EU regulated sectors (finance, health, critical infrastructure) mandate this baseline. It is also independently verifiable — unlike self-assessed claims in other objectives.",
         "questions": [
             {"id": "SOV7-Q1", "text": "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?"},
             {"id": "SOV7-Q2", "text": "Is the provider fully compliant with GDPR, NIS2, and DORA?"},
@@ -92,6 +99,7 @@ SOV_OBJECTIVES = {
         "name": "Environmental",
         "weight": 0.05,
         "default_min_seal": 1,
+        "min_seal_reason": "SEAL-1 required: Environmental performance carries the lowest weight (5%) and is not a sovereignty disqualifier. The minimum bar only requires that the provider shows measurable energy efficiency or sustainability commitment. Environmental maturity is tracked for completeness and future regulatory relevance (EU Green Deal, CSRD), not as a current gate.",
         "questions": [
             {"id": "SOV8-Q1", "text": "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?"},
             {"id": "SOV8-Q2", "text": "Does the provider apply circular economy practices for hardware lifecycle?"},
@@ -121,7 +129,6 @@ DEFAULT_PROVIDERS = [
     "Elastx",
     "Arvato Systems",
     "T-Systems Open Telekom Cloud",
-    "Deutsche Telekom / Detecon",
     "Plusserver",
     "Noris Network",
     "Cleura",

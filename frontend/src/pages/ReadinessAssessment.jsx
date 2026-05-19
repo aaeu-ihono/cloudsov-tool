@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import {
   AreaChart, Area,
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
@@ -65,9 +65,14 @@ function CustomTooltip({ active, payload, label, details, categories }) {
                 {services.map(svc => {
                   const cov = (catData[svc]?.coverage ?? 'N').toLowerCase()
                   const short = svc.replace(/^(AWS |Amazon )/, '')
+                  const equiv = catData[svc]?.equivalent
+                  const equivShort = equiv ? equiv.split(/[,(]/)[0].trim().slice(0, 16) : null
                   return (
                     <span key={svc} className={`ra-tooltip-svc ra-tooltip-svc-${cov}`}>
-                      {short}
+                      {cov === 'n' ? <s>{short}</s> : short}
+                      {equivShort && cov !== 'n' && (
+                        <span className="ra-tt-equiv"> ▸ {equivShort}</span>
+                      )}
                     </span>
                   )
                 })}
@@ -156,7 +161,7 @@ function DetailPanel({ provider, dimension, details, categories }) {
 
 // ── Legend ───────────────────────────────────────────────────────────────────
 function ReadinessLegend({ categories }) {
-  const [collapsed, setCollapsed] = useState(true)
+  const [collapsed, setCollapsed] = useState(false)
   const [showServices, setShowServices] = useState(false)
   const catEntries = Object.entries(categories ?? {})
   const totalServices = catEntries.reduce((sum, [, svcs]) => sum + svcs.length, 0)
@@ -258,6 +263,7 @@ export default function ReadinessAssessment() {
   const { data, error } = useReadiness()
   const [activeProviders, setActiveProviders] = useState(null)
   const [selected, setSelected] = useState({ provider: null, dimension: null })
+  const [expandedRows, setExpandedRows] = useState(new Set())
 
   const providers = data?.providers ?? []
   const chartData = data?.chart_data ?? []
@@ -508,7 +514,10 @@ export default function ReadinessAssessment() {
    
       {/* ── Gap summary ── */}
       <div className="ra-gap-section">
-        <div className="ra-gap-title">Average Gap to AWS (across all 13 dimensions)</div>
+        <div className="ra-gap-title">
+          Average Gap to AWS (across all 13 dimensions)
+          <span className="ra-gap-hint"> · click a row to see service alternatives</span>
+        </div>
         <table className="ra-gap-table">
           <thead>
             <tr>
@@ -520,25 +529,75 @@ export default function ReadinessAssessment() {
             </tr>
           </thead>
           <tbody>
-            {gapSummary.map((row, i) => (
-              <tr key={row.name}>
-                <td className="ra-gap-rank">#{i + 1}</td>
-                <td>
-                  <span className="ra-gap-dot" style={{ background: colorFor(row.name, providers) }} />
-                  {row.name}
-                </td>
-                <td className="ra-gap-score">{row.avgScore}%</td>
-                <td className="ra-gap-val">−{row.avgGap}%</td>
-                <td className="ra-gap-bar-cell">
-                  <div className="ra-gap-bar-bg">
-                    <div
-                      className="ra-gap-bar-fill"
-                      style={{ width: `${row.avgGap}%`, background: colorFor(row.name, providers) }}
-                    />
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {gapSummary.map((row, i) => {
+              const isExpanded = expandedRows.has(row.name)
+              return (
+                <React.Fragment key={row.name}>
+                  <tr
+                    className={`ra-gap-row${isExpanded ? ' ra-gap-row-expanded' : ''}`}
+                    onClick={() => setExpandedRows(prev => {
+                      const next = new Set(prev)
+                      isExpanded ? next.delete(row.name) : next.add(row.name)
+                      return next
+                    })}
+                  >
+                    <td className="ra-gap-rank">#{i + 1}</td>
+                    <td>
+                      <span className="ra-gap-expand-icon">{isExpanded ? '▼' : '▶'}</span>
+                      <span className="ra-gap-dot" style={{ background: colorFor(row.name, providers) }} />
+                      {row.name}
+                    </td>
+                    <td className="ra-gap-score">{row.avgScore}%</td>
+                    <td className="ra-gap-val">−{row.avgGap}%</td>
+                    <td className="ra-gap-bar-cell">
+                      <div className="ra-gap-bar-bg">
+                        <div
+                          className="ra-gap-bar-fill"
+                          style={{ width: `${row.avgGap}%`, background: colorFor(row.name, providers) }}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+
+                  {isExpanded && (
+                    <tr className="ra-expand-row">
+                      <td colSpan={5} className="ra-expand-cell">
+                        <div className="ra-expand-panel">
+                          {Object.entries(categories).map(([cat, svcs]) => {
+                            const catData = details[row.name]?.[cat] ?? {}
+                            return (
+                              <div key={cat} className="ra-expand-cat">
+                                <div className="ra-expand-cat-name">{cat}</div>
+                                <div className="ra-expand-svc-list">
+                                  {svcs.map(svc => {
+                                    const d = catData[svc] ?? {}
+                                    const cov = (d.coverage ?? 'N').toLowerCase()
+                                    const short = svc.replace(/^(AWS |Amazon )/, '')
+                                    return (
+                                      <div key={svc} className={`ra-expand-svc ra-expand-svc-${cov}`}>
+                                        <span className="ra-expand-aws-name">
+                                          {cov === 'n' ? <s>{short}</s> : short}
+                                        </span>
+                                        {cov !== 'n' && d.equivalent && (
+                                          <span className="ra-expand-equiv">▸ {d.equivalent}</span>
+                                        )}
+                                        {cov === 'n' && (
+                                          <span className="ra-expand-none">No alternative</span>
+                                        )}
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
+              )
+            })}
           </tbody>
         </table>
       </div>

@@ -3,224 +3,232 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/management/",
-        "note": "Owner-managed stock corporation. Founders Ingo Kraupa, Joachim Astel, and Matthias Urlichs hold all shares. No non-EU institutional investors."
+        "source": "https://www.noris.de/en/company/about-us/",
+        "note": "noris network AG is a privately held German Aktiengesellschaft (AG) incorporated and headquartered in Nuremberg, Bavaria. All shares are exclusively held by the company's co-founders: Ingo Kraupa, Joachim Astel, and Matthias Urlichs — all German nationals resident in Germany. There are no institutional investors, no private equity involvement, and no public listing. All decisive authority rests entirely within Germany and EU jurisdiction."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
-        "note": "Private ownership by founders acts as a native structural defense against foreign acquisition."
+        "note": "As a founder-owned, unlisted private Aktiengesellschaft with shares held exclusively by the three named German founders, noris network AG has a robust structural defence against non-EU acquisition. No public market mechanism exists for a hostile takeover and no disclosed contractual obligation would compel the founders to divest to a non-EU acquirer. The company has publicly stated its intention to remain independent and founder-controlled."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
-        "note": "Grown almost exclusively through organic revenue and local German capital."
+        "note": "noris network is financed through organic revenue from its operations; it has grown almost exclusively through reinvested German commercial revenues. In the 2024 fiscal year the company generated total revenue of €165 million (up 10% year-on-year). There is no disclosed involvement of non-EU banks, private equity, or sovereign wealth funds in its capital structure."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/about-us/",
-        "note": "Employs over 600 people across 6 German locations (Nuremberg, Munich, Berlin, Hof)."
+        "source": "https://www.noris.de/en/company/locations/",
+        "note": "noris network employs over 600 staff across its German locations (Nuremberg headquarters, Munich, Hof, Ingolstadt). The company operates 10 data centres in Germany and is investing in a new 30 MW high-performance data centre in Schwalbach near Frankfurt, scheduled for commissioning in 2026. It serves over 1,300 German enterprise and public-sector customers. All revenue and value generation is concentrated within Germany and the EU."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/sustainability/",
-        "note": "Founder member and active contributor to Gaia-X and the Sovereign Cloud Stack (SCS) project."
+        "source": "https://www.noris.de/en/noris-sovereign-cloud-2/",
+        "note": "noris network is an active participant in the Sovereign Cloud Stack (SCS) project run by the Open Source Business Alliance (OSBA), via its wholly-owned subsidiary Wavecon GmbH, which operates the Wavestack public cloud on the SCS reference implementation. Wavecon is a contributing member of SCS and the CNCF. The noris Sovereign Cloud offering is built on SCS standards and aligns with GAIA-X federation services. noris also serves German public administration and KRITIS-regulated sectors."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "Heavy use of open-source OpenStack/SCS layers provides software autonomy, but physical hardware remains dependent on non-EU chipsets (Intel/AMD)."
+        "note": "noris network owns and operates its own data centres in Germany, has no non-EU parent, and uses open-source software (Sovereign Cloud Stack, OpenStack, Kubernetes) for its cloud platform — meaning vendor support withdrawal by non-EU software vendors would not immediately disable operations. However, all server hardware (Intel Xeon/AMD EPYC CPUs, NVIDIA GPUs) is sourced from non-EU vendors, creating a hardware dependency that could be constrained by US export controls or trade restrictions in an extreme geopolitical scenario."
       }
     },
+
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/service/legal-notice/",
-        "note": "Strictly governed by German Law (BGB/HGB) and the BDSG/GDPR."
+        "note": "noris network AG is incorporated under German Aktiengesellschaft law, headquartered in Nuremberg (Bavaria, Germany), and governed exclusively by German commercial law (HGB/AktG), German civil law (BGB), and German/EU data protection law (BDSG/GDPR). The company has no subsidiaries or entities incorporated outside the EU. All legal disputes are subject to German courts."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "No US parent or nexus. Infrastructure is 100% German-hosted, providing immunity from the US CLOUD Act."
+        "note": "noris network has no US parent company, no US-incorporated subsidiary, and no US operations. It therefore has no legal nexus that would make it subject to the US CLOUD Act (18 U.S.C. § 2713), which applies to providers 'subject to US jurisdiction'. Similarly, there is no nexus to Chinese Cybersecurity Law or equivalent non-EU extraterritorial legislation. All infrastructure operates in Germany under German law exclusively."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
-        "note": "Data access requires a German judicial warrant; the provider has no legal presence in jurisdictions that could bypass this."
+        "note": "Customer data held in noris network's German data centres can only be accessed pursuant to a German judicial warrant or formal mutual legal assistance treaty (MLAT) request processed through German courts. There is no US, Chinese, or other non-EU entity in the corporate group that could receive compelled access demands under foreign law. Data access requests from non-EU authorities would need to proceed through German legal channels subject to GDPR protections."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
-        "source": "Supply Chain Ledger 2026",
-        "note": "Hardware layer remains subject to global export control regimes for advanced silicon."
+        "source": "https://www.noris.de/wp-content/uploads/certifications-brochure-web.pdf",
+        "note": "noris network's services operate under German and EU law and are not subject to US EAR/ITAR restrictions as a German company with no US nexus. However, the server hardware and semiconductors (Intel, AMD, NVIDIA) used in the data centres are subject to US export control regimes at the point of manufacture and sale; any future tightening of US export controls on advanced computing hardware could constrain supply-chain access, as is the case for all European cloud providers."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
-        "note": "Core infrastructure automation and data center management stacks are developed in-house in Germany."
+        "note": "noris network's proprietary software — data centre management systems, network automation tooling, and cloud orchestration layers — is developed entirely by its German engineering staff in Nuremberg and Munich. Trademarks and IP are registered in Germany and the EU. The company has no offshore development operations. Open-source contributions are made to the Sovereign Cloud Stack and CNCF projects, which are governed under open licences without non-EU IP claims."
       }
     },
+
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "Full customer-managed encryption supported across the noris Sovereign Cloud."
+        "source": "https://www.noris.de/en/it-services/cloud-services/cloud-solutions-for-enterprise-companies/noris-sovereign-cloud/",
+        "note": "The noris Sovereign Cloud, built on the Sovereign Cloud Stack (SCS) reference implementation, supports customer-managed encryption keys as a core architectural feature. The SCS architecture allows customers to supply their own key material, and the noris managed cloud service offering explicitly supports customer-controlled encryption for regulated enterprise and public-sector workloads. Hardware Security Module (HSM) integration is available for high-assurance key storage."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Holds highest-tier certifications including ISO 27001 (BSI IT-Grundschutz) and BSI C5."
+        "source": "https://www.noris.de/en/company/certifications/",
+        "note": "noris network holds ISO/IEC 27001 certification based on BSI IT-Grundschutz (covering both the Nuremberg Zentrum and Nuremberg Süd data centres), BSI C5:2020 attestation (Type II, audit report dated June 2025), and ISAE 3402 Type II certification for its internal control system. These frameworks collectively mandate comprehensive access logging, event auditing, and audit trail retention. ISAE 3402 Type II enables customers to rely on auditor-to-auditor reporting for their own compliance obligations."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Standard compliance for KRITIS-regulated industries and German financial sectors."
+        "source": "https://www.noris.de/en/data-centers/dc-nuremberg-south/",
+        "note": "noris network's data centre operations comply with GDPR Article 17 (right to erasure) and BSI IT-Grundschutz data destruction requirements. The Nuremberg South data centre holds ISAE 3402 Type II certification with controls covering data lifecycle management. For regulated industries (KRITIS, financial sector under BAIT/ZAIT), noris provides documented cryptographic erasure and media destruction certificates on decommissioning."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/locations-and-directions/",
-        "note": "Infrastructure is located entirely in proprietary German data centers (Nuremberg, Munich, Hof)."
+        "source": "https://www.noris.de/en/company/locations/",
+        "note": "noris network operates exclusively in Germany: data centres in Nuremberg (Zentrum, Süd), Munich East, Hof, and Ingolstadt, with a new facility under construction in Schwalbach (Frankfurt area). The company has no data centres, cloud infrastructure, or operational presence outside the EU. All customer data is processed and stored in Germany, subject to German and EU data protection law. No third-country fallback or replication arrangements are in place."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "Infrastructure for training is local, but high-end GPU stacks (NVIDIA) and frameworks remain non-EU."
+        "note": "noris network provides infrastructure for AI workloads (GPU-equipped servers, Sovereign Cloud compute) but does not operate a proprietary AI model training service. Customers can deploy EU-origin models (e.g., Mistral, open-source alternatives) on the platform. However, GPU compute relies on NVIDIA hardware (US origin), and many AI frameworks (PyTorch, TensorFlow) originate outside the EU. The infrastructure is EU-sovereign, but the AI software ecosystem remains largely non-EU in origin."
       }
     },
+
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://sovereigncloudstack.org/",
-        "note": "100% based on Sovereign Cloud Stack (SCS) standards, ensuring seamless portability to other OpenStack clouds."
+        "source": "https://sovereigncloudstack.org/network/",
+        "note": "The noris Sovereign Cloud is built on the Sovereign Cloud Stack (SCS) reference implementation using standard OpenStack and Kubernetes APIs. SCS-certified clouds are designed for interoperability with all other SCS providers (plusserver, SysEleven, Wavestack/Wavecon) and any OpenStack-compatible platform. Workload migration between SCS providers requires no proprietary tooling or data format conversions, directly addressing vendor lock-in. This is a core design requirement of the SCS specification."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/management/",
-        "note": "Managed entirely by an in-house German engineering team with deep open-source expertise."
+        "note": "noris network is managed entirely by its German founding team and a German engineering staff. All cloud operations, network management, data centre operations, and customer support are delivered by employees based in Germany. The SCS open-source software stack can be maintained by EU-based engineers using publicly available documentation and community support. There is no contractual dependency on non-EU vendor professional services for day-to-day operations."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/about-us/",
-        "note": "Strong recruitment and training focus within the German 'Mittelstand' ecosystem."
+        "note": "noris network employs over 600 staff in Germany, primarily engineers and IT specialists drawn from Bavaria's strong IT talent pool (proximity to universities in Nuremberg, Munich, Erlangen). The company operates an apprenticeship programme and long-tenure technical staff. Its subsidiary Wavecon GmbH contributes engineers to the Sovereign Cloud Stack open-source community, building external-facing EU cloud expertise."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
-        "note": "24/7 technical support is provided strictly by staff on-site in Germany."
+        "note": "noris network provides 24/7 technical support delivered exclusively from its German locations (Nuremberg and Munich). On-site technical staff at data centres are German employees; remote support is provided from the Nuremberg headquarters. There are no offshore or non-EU support delivery locations. This is consistent with its positioning as a provider for KRITIS-regulated and public sector customers requiring EU-exclusive operational control."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
-        "source": "https://sovereigncloudstack.org/",
-        "note": "The core stack is 100% open-source and conforms to published SCS specifications."
+        "source": "https://docs.wavestack.cloud/",
+        "note": "The noris Sovereign Cloud is built on the Sovereign Cloud Stack, which is a fully open-source project with complete source code published at github.com/SovereignCloudStack. The SCS specification documents are publicly available and maintained by the OSBA. noris network (via Wavecon/Wavestack) publishes platform documentation at docs.wavestack.cloud. Customers and third-party EU operators can access all necessary technical knowledge to replicate, migrate, or extend the service independently."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
-        "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Noris owns and operates its own data centers, minimizing reliance on foreign facility subcontractors."
+        "verdict": "P",
+        "source": "https://www.noris.de/en/company/partners/technology-partners/",
+        "note": "noris network owns and operates its own data centres, minimising dependency on external facility operators. Key IT partners listed include NetApp (US storage systems) and Lenovo (Chinese-owned server manufacturer) — both non-EU. Network connectivity involves transit providers including non-EU operators. Server processors (Intel, AMD) and GPU accelerators (NVIDIA) are sourced from US companies. The facility and operations layer is strongly EU-based, but the hardware supply chain is predominantly non-EU governed."
       }
     },
+
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
-        "source": "Supply Chain Ledger 2026",
-        "note": "Relies on global (US/Asian) silicon and networking hardware."
+        "source": "https://www.noris.de/en/company/partners/technology-partners/",
+        "note": "noris network's server hardware is sourced from Lenovo (Chinese-owned) and other standard server vendors, with processors from Intel (US) and AMD (US). Networking equipment is sourced from Cisco (US) and Juniper (US). No EU-based server manufacturer or CPU vendor is listed among noris network's disclosed technology partners. This is an industry-wide constraint — no major EU-based server hardware manufacturer serves the general data centre market."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "Supply Chain Ledger 2026",
-        "note": "Hardware firmware remains proprietary to international vendors."
+        "source": "https://www.noris.de/en/company/partners/technology-partners/",
+        "note": "All server firmware (Intel Management Engine, AMD Platform Security Processor, baseboard management controller firmware from AMI or Phoenix Technologies) is of US origin and is not modifiable by the cloud provider or customer. No EU-origin firmware alternative exists for the x86 architecture used in production data centre infrastructure. This is an industry-universal constraint."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "Patch management and software lifecycles are managed internally by German staff."
+        "note": "noris network's cloud platform software stack — built on Sovereign Cloud Stack (SCS), OpenStack, and Kubernetes — is managed and updated by the German engineering team at noris/Wavecon. Patch management for the platform layer is performed in-house in Nuremberg. The SCS open-source project is coordinated by the OSBA (German association) and its core committers are predominantly EU-based. Configuration and packaging decisions are made exclusively by EU personnel."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
-        "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "The SCS-certified cloud is free from proprietary software lock-in, though hardware remains a 'Trace' point."
+        "source": "https://sovereigncloudstack.org/",
+        "note": "At the software and cloud platform layer, the noris Sovereign Cloud is free from proprietary vendor lock-in — the SCS stack is 100% open-source (Apache 2.0, MIT, other FLOSS licences) with no commercial software licence dependencies. However, hardware reliance on Intel, AMD, NVIDIA, Cisco, and Lenovo (all non-EU) represents a significant dependency at the infrastructure layer that cannot be resolved by software choices alone."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "High transparency for German data center ops (ISO/BSI), but limited for global chip fabrication."
+        "source": "https://www.noris.de/wp-content/uploads/certifications-brochure-web.pdf",
+        "note": "noris network provides extensive transparency for its data centre operations layer through ISO 27001 (BSI IT-Grundschutz), BSI C5 Type II, ISAE 3402 Type II, PCI DSS 4.0, and EN 50600 certifications — all of which involve independent auditor review and customer access to audit reports. For the hardware supply chain (semiconductor fabrication, firmware supply), full auditability is not available, consistent with industry norms for the global chip supply chain."
       }
     },
+
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
         "source": "https://sovereigncloudstack.org/",
-        "note": "Uses standard OpenStack and Kubernetes APIs."
+        "note": "The noris Sovereign Cloud (Wavestack) implements the full Sovereign Cloud Stack API surface, which is based on standard OpenStack APIs (Nova, Neutron, Cinder, Glance, Keystone), Kubernetes, and CNCF-standard interfaces. All APIs are open, publicly documented in the SCS specifications and upstream OpenStack/Kubernetes documentation. The SCS certification process validates API compliance, ensuring interoperability with other SCS-certified providers."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/it-services/cloud-services/",
-        "note": "The Sovereign Cloud product is 100% open-source."
+        "source": "https://docs.wavestack.cloud/",
+        "note": "The entire noris Sovereign Cloud / Wavestack platform is built on the Sovereign Cloud Stack, which is 100% open-source. All SCS components are published at github.com/SovereignCloudStack under Apache 2.0 and other FLOSS licences, providing full audit and modification rights. noris network (via Wavecon) is a listed SCS provider whose implementation is continuously tested against the published SCS compliance suite. No proprietary software licences are required for the cloud platform itself."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/data-centers/",
-        "note": "Detailed architectural documentation is standard for enterprise and KRITIS clients."
+        "note": "noris network provides detailed architectural documentation for enterprise and regulated customers as standard practice, consistent with its KRITIS and financial sector customer base. ISAE 3402 Type II attestation requires documented control descriptions covering infrastructure architecture, data flows, and dependency mapping. The SCS reference architecture is publicly documented, enabling complete independent assessment of the platform's design."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "Supply Chain Ledger 2026",
-        "note": "Trace found: Compute and GPU resources are provided by non-EU vendors."
+        "source": "https://www.noris.de/en/company/partners/technology-partners/",
+        "note": "All compute infrastructure uses Intel Xeon or AMD EPYC processors (both US companies), and GPU workloads are provided by NVIDIA accelerators (US). No EU-origin production-grade processor alternative (e.g., RISC-V or European-fabbed ARM) is deployed at noris network data centres. This is an industry-wide structural constraint for all cloud providers that rely on x86 and CUDA-based AI compute."
       }
     },
+
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Holds BSI C5 (Type II) and ISO 27001 on the basis of IT-Grundschutz."
+        "source": "https://www.noris.de/en/company/certifications/",
+        "note": "noris network holds an extensive certification portfolio: ISO/IEC 27001 (based on BSI IT-Grundschutz, covering Nuremberg Zentrum and Süd data centres), BSI C5:2020 Type II attestation (audit report dated June 2025, covering the noris Enterprise Cloud), ISAE 3402 Type II, ISO 9001, ISO 14001, ISO 50001, PCI DSS 4.0, EN 50600 (data centre infrastructure, VK4/SK4 — highest tier), TÜViT Level 4, and VdS 3406. This is one of the most comprehensive certification portfolios among German cloud providers."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Fully compliant; explicitly supports German KRITIS and FINMA requirements."
+        "source": "https://www.noris.de/en/it-service-provider-public-administration/",
+        "note": "noris network explicitly provides GDPR-compliant processing agreements and supports German public sector KRITIS requirements. It complies with the IT-Sicherheitsgesetz 2.0 (NIS2 transposition in Germany) as a digital infrastructure provider. It offers compliance documentation for ZAIT (German banking IT supervisory requirements, aligned with DORA), evidenced by its dedicated ZAIT compliance page for financial sector customers."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/management/",
-        "note": "The noris Security Operations Center is 100% German-based and managed."
+        "source": "https://www.noris.de/en/it-services/it-outsourcing/it-security-protection/",
+        "note": "noris network's Security Operations Centre (SOC) is staffed and operated exclusively from its German locations (Nuremberg). Security monitoring, incident detection, and response are delivered by German employees under German law. There are no offshore SOC operations and no non-EU parent company that could intercept or redirect security operations. This is a fully EU-jurisdictional security function."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/it-services/",
-        "note": "Offers integrated SIEM/SOC visibility for regulated customers."
+        "note": "noris network offers integrated SIEM and Security Monitoring services for enterprise customers, including visibility into security events affecting customer environments. For regulated customers (banks, KRITIS operators), noris provides dedicated log access and reporting aligned with auditor requirements. ISAE 3402 Type II reporting enables customers to incorporate noris network's security controls into their own compliance assessments without re-auditing."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Adheres to German BSI breach notification standards."
+        "source": "https://www.noris.de/en/company/certifications/",
+        "note": "noris network follows GDPR Articles 33/34 breach notification obligations and German BSI incident reporting requirements. BSI C5 and ISO 27001 (IT-Grundschutz) controls mandate documented vulnerability management and patch management processes with defined SLAs. The ISAE 3402 Type II certification attests to the operating effectiveness of these controls over the audit period, verified by an independent German auditor."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/data-centers/",
-        "note": "Standard for high-compliance KRITIS customers."
+        "source": "https://www.noris.de/en/company/certifications/",
+        "note": "noris network explicitly offers audit support as part of its compliance service, noting that the ISAE 3402 Type II certificate satisfies auditor-to-auditor communication requirements, allowing customers' own auditors to rely on noris's audited controls. Enterprise and KRITIS customers can request penetration testing of their own environments. The BSI IT-Grundschutz and C5 attestation documents are issued by accredited German audit firms and available for customer review."
       }
     },
+
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
-        "note": "Uses patented CECC cooling system; targets PUE < 1.2 at newer sites."
+        "note": "noris network targets PUE below 1.2 for its newer data centres, including the FRA1 facility under construction in Schwalbach (designed for PUE < 1.2 at full capacity). The Nuremberg facilities use Kyoto Cooling — a highly efficient adiabatic cooling system that operates without mechanical cooling systems approximately 90% of the time, delivering up to 70% energy savings on cooling versus conventional systems. noris has set a corporate climate neutrality target of 2030."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
-        "note": "Uses reprocessed hardware where possible; member of 'Climate Neutral Data Center Pact'."
+        "note": "noris network applies hardware lifecycle management practices including server reuse, component reconditioning, and certified recycling for decommissioned hardware. It is a signatory to the Climate Neutral Data Centre Pact (CNDCP), which includes circular economy commitments. ISO 14001 certification (Nuremberg and Munich East sites) requires documented environmental management including hardware waste reduction."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
         "source": "https://www.noris.de/en/company/sustainability/",
-        "note": "Transparent disclosures via annual sustainability reports."
+        "note": "noris network publishes sustainability disclosures through its corporate sustainability pages and annual reporting. The company discloses energy consumption, renewable energy sourcing, and carbon reduction targets. Its ISO 14001 and ISO 50001 certifications (held at Nuremberg and Munich East) require ongoing environmental monitoring and management review with documented KPIs."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
-        "source": "https://www.noris.de/en/company/sustainability/",
-        "note": "100% of electricity for all data centers comes from renewable sources."
+        "source": "https://blog.dracoon.com/en/dracoon-chooses-green-data-center-from-noris-network",
+        "note": "noris network supplies 100% renewable electricity across all its data centre operations in Germany, sourced via certified green energy contracts. The FRA1 facility (Schwalbach) is designed to operate on 100% renewable energy from commissioning. Customer references (e.g., DRACOON) specifically cite noris's 'green data centre' credentials as a factor in provider selection."
       }
     },
-    "summary_note": "Noris network is a 'Gold Standard' for German sovereignty. Unlike providers with US cloud partnerships, noris maintains a strictly independent path. It is legally 'clean' from the CLOUD Act (SOV-2) and foundational to the Sovereign Cloud Stack (SCS). While the hardware layer remains non-EU (SOV-5), it is the premier choice for German public authorities and KRITIS entities requiring maximum jurisdictional independence."
+
+    "summary_note": "noris network represents the highest level of jurisdictional sovereignty among German cloud providers surveyed. It is a founder-owned, privately held German AG with no non-EU ownership, no US subsidiary, and no CLOUD Act exposure — a complete contrast to providers like IONOS or T-Systems. Its sovereign cloud product (Wavestack, operated by subsidiary Wavecon GmbH) is built on the Sovereign Cloud Stack (SCS) open-source reference implementation, ensuring full software auditability and workload portability between SCS-certified providers. Its certification portfolio is exceptional: BSI C5:2020 Type II (2025), ISO 27001/IT-Grundschutz, ISAE 3402 Type II, PCI DSS 4.0, EN 50600 (Tier IV equivalent), and TÜViT Level 4 — among the highest standard combinations of any provider in this survey. The structural weaknesses are at the supply-chain layer: all hardware (Intel, AMD, NVIDIA, Lenovo) is non-EU in origin, firmware is US-controlled, and the company lacks the scale of larger EU providers for resilience across multiple EU regions. The €165M annual revenue and 10 data-centre footprint make it mid-tier in size. noris network is the reference choice for German KRITIS operators, financial institutions subject to ZAIT/BAIT, and public sector clients requiring maximum legal independence."
   }
 }

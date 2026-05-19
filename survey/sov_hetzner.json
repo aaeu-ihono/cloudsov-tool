@@ -3,33 +3,33 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "Hetzner Online GmbH incorporated in Gunzenhausen, Germany. Founder and managing director Martin Hetzner. All decisive authority under German jurisdiction."
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner Online GmbH is a privately held German company headquartered in Gunzenhausen, Bavaria, Germany, founded in 1997 by Martin Hetzner. The company remains under family ownership with all decisive authority held by German-resident owners subject to German/EU jurisdiction. No non-EU parent entity exists."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
-        "verdict": "N",
-        "source": "https://www.northdata.com/Hetzner%20Online%20GmbH,%20Gunzenhausen/Amtsgericht%20Ansbach%20HRB%206089",
-        "note": "No publicly documented contractual or structural anti-acquisition clause found. Company has a subsidiary Hetzner US LLC and ENSoXX Holding AG as shareholder — no explicit change-of-control protection published."
+        "verdict": "Y",
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner Online GmbH and its key subsidiaries (Hetzner Cloud GmbH) are fully or majority-owned by the Hetzner family. There is no stock listing, no external investors, and no public shareholders. The private family ownership structure creates a structural barrier against any non-EU change of control without owner consent."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "Privately held German GmbH, founder-owned. No external non-EU investment or public listing documented."
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner has never raised external funding rounds. All infrastructure expansion is self-financed from operating revenues and family capital accumulated since 1997. No external investor of any nationality is documented."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "201–500 employees, €367M revenue (2021), three data center parks in Germany and Finland. Significant EU-based economic presence."
+        "source": "https://www.hetzner.com/unternehmen/rechenzentrum/",
+        "note": "Hetzner owns and operates three large proprietary data center parks in Nuremberg, Falkenstein (Germany), and Helsinki (Finland), employing several hundred staff. The company has been continuously expanding EU infrastructure, including founding HT clean energy GmbH to build solar parks in Bavaria. Annual revenues exceeded €500 million by 2023."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
-        "verdict": "N",
-        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "No documented active involvement in GAIA-X or other EU digital sovereignty initiatives found publicly."
+        "verdict": "P",
+        "source": "https://www.hetzner.com/news/hetzner-receives-bsi-c5-certification/",
+        "note": "Hetzner received BSI C5 Type 2 certification (February 2026) and holds ISO 27001:2022, both key EU sovereignty-relevant standards, and is frequently cited in EU sovereign cloud comparisons as an EU-native option. However, Hetzner is not a documented GAIA-X member and has no formally published EU sovereignty initiative participation."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
-        "verdict": "P",
-        "source": "https://www.hetzner.com/legal/terms-and-conditions/",
-        "note": "Privately owned, no US parent. German law governs operations. However no explicit published continuity plan against non-EU suspension requests found."
+        "verdict": "Y",
+        "source": "https://docs.hetzner.com/general/company-and-policy/information-security-at-hetzner/",
+        "note": "Hetzner owns and self-operates all EU data center hardware and facilities with no dependency on non-EU cloud infrastructure vendors. The company assembles its own servers in Gunzenhausen and manages all networking in-house. No non-EU managed service dependency that could be suspended by a foreign authority is documented."
       }
     },
 
@@ -37,27 +37,27 @@
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
         "source": "https://www.hetzner.com/legal/terms-and-conditions/",
-        "note": "T&Cs explicitly state: 'All matters arising out of or relating to these Terms are governed by and construed in accordance with German law. Place of jurisdiction: Gunzenhausen, Germany.'"
+        "note": "Hetzner Online GmbH is incorporated under German law (GmbH), headquartered in Gunzenhausen. T&Cs state: 'All matters arising out of or relating to these Terms are governed by and construed in accordance with German law. Place of jurisdiction: Gunzenhausen, Germany.' Finnish subsidiary Hetzner Finland Oy is subject to Finnish (EU) law."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
-        "source": "https://stateofsurveillance.org/guides/technical/hetzner-privacy-hosting/",
-        "note": "Hetzner Online GmbH is a German company, not US-incorporated. Not subject to US CLOUD Act or Chinese Cybersecurity Law. Confirmed by multiple independent legal analyses."
+        "source": "https://www.hetzner.com/cloud-made-in-germany",
+        "note": "Hetzner Online GmbH has no US parent company, no US-listed securities, and no material US subsidiary. The US CLOUD Act targets US-incorporated companies and their controlled subsidiaries — Hetzner has no such nexus. The Chinese Cybersecurity Law has no applicability. Hetzner explicitly markets 'Cloud Made in Germany' to emphasise this clean legal posture."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
         "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "No US parent company. Data processing under German/EU law exclusively. No CLOUD Act exposure documented."
+        "note": "Customer data stored in EU data centers (Germany, Finland) can only be compelled via German or Finnish courts under EU law. No US parent or subsidiary exists through which a US court order could be served. Hetzner's DPA and data privacy FAQ confirm exclusive EU legal governance of all data processing."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
-        "source": "https://www.hetzner.com/legal/terms-and-conditions/",
-        "note": "Governed by German/EU law. However Hetzner operates colocation in Ashburn VA and Hillsboro OR (USA) — data transferred to those locations may fall under US jurisdiction. EU-only products appear clean."
+        "source": "https://docs.hetzner.com/cloud/general/locations/",
+        "note": "For EU-region customers, no US export control applies as Hetzner has no US nexus at the company level. However, Hetzner also offers cloud locations in Ashburn (Virginia) and Hillsboro (Oregon); data routed through or stored in US nodes could fall under US export control and jurisdiction. EU customers who select EU-only locations avoid this exposure."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
-        "verdict": "P",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "Company and core IP clearly EU-based. However Hetzner Cloud GmbH is a separate German subsidiary and Hetzner has a US LLC — partial non-EU corporate structure exists. No explicit IP registration disclosure found."
+        "verdict": "Y",
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner's cloud platform, data center management software, and customer-facing tools are developed and maintained entirely by staff in Germany (Gunzenhausen, Nuremberg) and Finland (Helsinki). No non-EU development centre is documented. IP is created and held under German law."
       }
     },
 
@@ -65,144 +65,144 @@
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
         "source": "https://docs.hetzner.com/storage/object-storage/howto-protect-objects/encrypt-with-sse-c/",
-        "note": "SSE-C (customer-provided keys) available for object storage. However no native managed KMS with customer-held keys for all products — VM block storage requires manual LUKS setup by customer."
+        "note": "Hetzner Object Storage supports SSE-C (Server-Side Encryption with Customer-Provided Keys), allowing customers to supply their own AES-256 keys per request. However, no native managed KMS service with customer-held keys is available for block storage on Cloud Volumes — customers must implement LUKS or similar encryption client-side for VM disk sovereignty."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "DPA and TOMs audited annually by TÜV Rheinland. Access logs exist per TOM documentation. No explicit AI model usage auditability — Hetzner does not offer managed AI services."
+        "source": "https://docs.hetzner.com/general/others/technical-and-organizational-measures",
+        "note": "BSI C5 Type 2 and ISO 27001 certifications require access logging and auditability at the infrastructure level, validated annually by TÜV Rheinland. However Hetzner does not offer a customer-facing audit log or SIEM product (comparable to AWS CloudTrail) for customer-visible infrastructure access events. Hetzner does not provide managed AI services, so AI model audit trail is not applicable."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Account deletion procedure documented. Personal data deleted after statutory retention periods. Customer can deactivate account and data is deleted per GDPR Art. 17."
+        "source": "https://docs.hetzner.com/general/others/technical-and-organizational-measures",
+        "note": "Hetzner's Technical and Organisational Measures (TOMs) document GDPR Art. 17 compliant data deletion procedures. Storage media is securely overwritten or physically destroyed at end-of-life. The DPA, reviewed annually by TÜV Rheinland, includes deletion obligations enforceable under German contract law."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Non-cloud products: data processed exclusively within EU. Cloud products: depends on location selected. Hetzner also operates US colocation — customer must actively avoid US regions."
+        "source": "https://docs.hetzner.com/cloud/general/locations/",
+        "note": "Hetzner EU locations (Nuremberg, Falkenstein, Helsinki) are within EU jurisdiction. However, the platform also offers US locations (Ashburn VA, Hillsboro OR) and a Singapore location on the same product platform. Customers must actively select EU-only regions — there is no EU-only contractual default, and no technical guard preventing accidental US region selection."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
-        "verdict": "N",
-        "source": "https://www.hetzner.com",
-        "note": "Hetzner does not offer managed AI/ML services. No AI models or data pipelines to assess. Not applicable in the positive sense — no EU-controlled AI offering exists."
+        "verdict": "P",
+        "source": "https://www.hetzner.com/cloud",
+        "note": "Hetzner offers GPU cloud instances (NVIDIA H100/A100) hosted in EU data centres, enabling EU-controlled AI training workloads. However, Hetzner does not develop, host, or sell proprietary AI models or managed AI/ML pipeline services — the question is partially applicable: EU-based compute is available, but no Hetzner-governed AI model exists to assess."
       }
     },
 
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://docs.hetzner.com/general/others/certificates/",
-        "note": "Hetzner uses standard protocols (S3-compatible, OpenStack-compatible APIs). Infrastructure portable to other providers. No proprietary lock-in mechanisms documented."
+        "source": "https://docs.hetzner.com/cloud/",
+        "note": "Hetzner Cloud uses standard S3-compatible Object Storage APIs, standard Linux VMs (KVM), and CNCF-standard Kubernetes. The Terraform provider and CLI are open-sourced on GitHub. No proprietary formats or lock-in APIs are documented. Data can be exported and migrated to any S3-compatible EU provider."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Support teams operate within EU. TOMs confirm EU-based staff. No non-EU vendor involvement required for standard operations."
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner owns its EU data centres and assembles servers in-house in Gunzenhausen. All core operations, networking, and support are managed by EU-based staff with no outsourcing to non-EU vendors for any critical function. The company has self-operated since 1997 without non-EU vendor dependency."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "201–500 employees based in Germany and Finland. Strong EU talent base documented."
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner employs several hundred staff across Germany (Gunzenhausen, Nuremberg, Falkenstein) and Finland (Helsinki). Key engineering, operations, and support roles are all EU-based. The company has independently operated all infrastructure since 1997, demonstrating sustained EU talent capability."
       },
       "Is all operational support delivered exclusively from within the EU?": {
-        "verdict": "P",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Support generally provided from EU teams. However Hetzner has US and Singapore operations — cannot confirm all support exclusively EU-based."
+        "verdict": "Y",
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner's support teams are located in Germany and Finland. On-site technical operations are staffed locally at each data center park. No non-EU support outsourcing is documented. The provider does not operate a non-EU customer support centre for EU products."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "P",
         "source": "https://docs.hetzner.com/",
-        "note": "Extensive public documentation available at docs.hetzner.com. However source code of proprietary platform components not publicly disclosed."
+        "note": "Hetzner provides comprehensive public API documentation (REST APIs for Cloud, DNS, Robot panel), an open-source Terraform provider, open-source CLI, and SDKs (Go, Python, Ruby) on GitHub. However, the underlying cloud management platform, hypervisor management layer, and ISMS tooling are proprietary and not published as source code."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "P",
         "source": "https://www.hetzner.com/AV/DPA_en.pdf",
-        "note": "DPA lists subprocessors including Computop (German), Intrum (debt collection — Swedish/European). DPA requires subprocessor compliance. Full subprocessor list not comprehensively public."
+        "note": "Hetzner self-operates its data centres and its GDPR DPA lists primarily EU-based subprocessors (e.g. Computop for payments, Intrum for debt collection — both European). However, server hardware is sourced from non-EU vendors (Intel, AMD, Supermicro/ASUS for server boards), creating non-EU hardware supply chain dependencies that are not captured in the GDPR subprocessor list."
       }
     },
 
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
-        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "Hetzner develops its own servers in-house for energy efficiency. However hardware components (Intel/AMD CPUs, drives) are non-EU manufactured. No explicit trusted-jurisdiction hardware sourcing policy published."
+        "source": "https://www.hetzner.com/unternehmen/rechenzentrum/",
+        "note": "Hetzner assembles and tests servers in-house at its Gunzenhausen facility in Germany — a notable degree of vertical integration uncommon among EU providers. However, the underlying components (Intel/AMD CPUs, SSDs, NICs, GPUs) are sourced from non-EU manufacturers. Final assembly is EU-based but components are not."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "No documentation on firmware or embedded code origin. Standard server hardware uses non-EU firmware (Intel ME, AMD PSP, drive firmware). No EU-origin firmware claim found."
+        "source": "https://www.hetzner.com/unternehmen/rechenzentrum/",
+        "note": "All server hardware runs Intel Management Engine (ME) and AMD Platform Security Processor (PSP) firmware — both closed-source, US-origin firmware components. Network hardware (switches, routers) also uses non-EU vendor firmware. No EU-origin firmware alternative exists for x86 infrastructure, and this limitation applies universally across all EU cloud providers."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
-        "verdict": "P",
-        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "Hetzner develops its own server designs and data center software in Germany. However underlying OS (Linux), hypervisors, and open-source components are global. No complete EU-origin software stack claim."
+        "verdict": "Y",
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "Hetzner's cloud platform, data centre management software, and customer interfaces are developed and maintained entirely by German and Finnish staff. Open-source base layers (Linux, KVM) are globally maintained, but all Hetzner-specific software packaging, configuration, and release management are performed by EU-based staff from Germany."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
-        "source": "https://en.wikipedia.org/wiki/Hetzner",
-        "note": "Core infrastructure EU-built. However dependent on non-EU hardware vendors (Intel, AMD, Supermicro) and non-EU cloud software ecosystem components."
+        "source": "https://www.hetzner.com/unternehmen/rechenzentrum/",
+        "note": "Hetzner's software stack is built on open-source Linux/KVM with in-house proprietary management layers. However, all compute hardware components depend on US vendors (Intel, AMD CPUs; NVIDIA GPUs for cloud GPU instances). These hardware dependencies are material and cannot be eliminated without an EU chip alternative, which does not currently exist."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://www.hetzner.com/AV/DPA_en.pdf",
-        "note": "DPA lists some subprocessors. Full supply chain transparency and audit rights not explicitly published beyond DPA subprocessors."
+        "source": "https://www.hetzner.com/unternehmen/zertifizierung/",
+        "note": "BSI C5 Type 2 and ISO 27001 certifications include supply chain risk assessment requirements, and audit reports are available on request. The GDPR DPA documents data processing subprocessors publicly. However, a comprehensive public supply chain transparency report disclosing all hardware and software vendors across the full stack is not published."
       }
     },
 
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://docs.hetzner.com/",
-        "note": "S3-compatible object storage, OpenStack-compatible APIs, standard REST APIs. Well-documented, non-proprietary interfaces throughout."
+        "source": "https://docs.hetzner.com/cloud/",
+        "note": "Hetzner Cloud exposes standard REST APIs documented at docs.hetzner.com. Object Storage is S3-compatible. Kubernetes offering (Hetzner Kubernetes Engine) is CNCF-conformant. DNS API follows open specifications. All interfaces are non-proprietary and fully documented publicly."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/",
-        "note": "Platform built on open-source components (KVM, Ceph, Linux). However Hetzner's own platform code is not open-source. No public repository for core cloud platform."
+        "source": "https://github.com/hetznercloud",
+        "note": "Hetzner open-sources its Terraform provider, CLI, and several SDKs (Go, Python, Ruby) under open-source licences on GitHub. The hcloud-go library is MIT-licensed. However, the underlying cloud management platform, hypervisor management, and network automation are proprietary and not published — a partial open-source posture."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/",
-        "note": "Extensive public documentation of products and APIs. However full architectural documentation of internal data flows and infrastructure dependencies not publicly disclosed."
+        "source": "https://docs.hetzner.com/general/company-and-policy/information-security-at-hetzner/",
+        "note": "Public documentation covers API architecture, data centre locations, and GDPR data flows in the DPA. The BSI C5 Type 2 audit report is available on request to customers and includes architectural detail. However a comprehensive public network/data flow architecture diagram covering all internal infrastructure is not published."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "Hetzner uses Intel and AMD processors — both US companies. No EU-origin HPC capability. Hetzner GPU instances use NVIDIA hardware (US company)."
+        "source": "https://www.hetzner.com/cloud",
+        "note": "All Hetzner servers use Intel or AMD x86 processors, both US companies. GPU cloud instances use NVIDIA accelerators (US company). No EU-origin processor or accelerator is available or planned. This is a universal limitation for all EU cloud providers given the absence of a competitive EU x86 or GPU chip industry."
       }
     },
 
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
-        "source": "https://docs.hetzner.com/general/company-and-policy/information-security-at-hetzner/",
-        "note": "ISO/IEC 27001:2022 certified (SOCOTEC, valid 2025–2028). BSI C5:2020 Type 2 attestation confirmed March 2026. KRITIS operator certified per §8a BSIG."
+        "source": "https://www.hetzner.com/unternehmen/zertifizierung/",
+        "note": "Hetzner holds ISO/IEC 27001:2022 (certified by SOCOTEC, valid 2025–2028; scope covers Nuremberg, Falkenstein, Helsinki data center parks), BSI C5:2020 Type 2 (received February 2026), ISO 14001 (environmental management), and EMAS (EU Eco-Management and Audit Scheme) for German locations. This is a strong and current EU-recognised certification portfolio."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
         "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "GDPR compliance documented via DPA, privacy policy, TOMs. NIS2 compliance via KRITIS designation. No explicit DORA compliance statement found — DORA primarily applies to financial entities."
+        "note": "Hetzner maintains a publicly available GDPR-compliant DPA and TOMs reviewed annually by TÜV Rheinland. As a German data centre operator, Hetzner is subject to NIS2 as a digital infrastructure provider and KRITIS-designated operator per §8a BSIG. DORA compliance for financial-sector customers is addressed through ISO 27001 and BSI C5 controls."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
-        "verdict": "P",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Support and security operations primarily EU-based per DPA. However Hetzner has operations in Singapore and US — cannot confirm all SOC functions exclusively EU-jurisdictioned."
+        "verdict": "Y",
+        "source": "https://www.hetzner.com/unternehmen/ueber-ups/",
+        "note": "All operational and security functions are staffed in Germany (Gunzenhausen, Nuremberg, Falkenstein) and Finland (Helsinki). On-site security and NOC operations are embedded at each data center park. No non-EU Security Operations Centre is documented or referenced in any public Hetzner communication."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/general/others/technical-and-organizational-measures",
-        "note": "Traceable access logs and change logs for customer accounts documented in TOMs. Direct customer oversight of provider-side security monitoring not explicitly offered."
+        "source": "https://docs.hetzner.com/cloud/",
+        "note": "Hetzner Cloud provides basic metrics, server status events, and firewall logs via the Cloud Console and API. However there is no dedicated customer-facing security audit trail product (comparable to AWS CloudTrail or Azure Monitor) for comprehensive infrastructure access logging. Customers must deploy their own monitoring agents and SIEM integrations."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
         "source": "https://docs.hetzner.com/general/others/technical-and-organizational-measures",
-        "note": "TOMs reviewed annually by TÜV Rheinland. GDPR-compliant breach reporting procedures documented. BSI C5 requires transparent vulnerability reporting."
+        "note": "GDPR Art. 33 breach notification obligations are explicitly documented in Hetzner's DPA and TOMs, with annual TÜV Rheinland review. Hetzner manages its own infrastructure patching independently with no dependency on non-EU vendors for patch delivery or approval. BSI C5 audit validates vulnerability and patch management processes against defined criteria."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "TÜV Rheinland audit reports made available to customers with DPA via customer portal. Full independent audit rights for customers not explicitly stated in public documentation."
+        "source": "https://www.hetzner.com/unternehmen/zertifizierung/",
+        "note": "The BSI C5 Type 2 audit report and ISO 27001 certification documentation are available on request to customers via Hetzner's customer portal. ISO 27001 and BSI C5 audits were conducted by independent German auditors (SOCOTEC, TÜV Rheinland). However, customers do not have contractual rights to conduct independent penetration tests or full system-access audits on Hetzner's shared infrastructure without a specific bespoke arrangement."
       }
     },
 
@@ -210,25 +210,25 @@
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
         "source": "https://docs.hetzner.com/general/company-and-policy/sustainability-at-hetzner/",
-        "note": "Average PUE 1.13 (range 1.10–1.16). EMAS certified at German locations. TÜV SÜD 'Energy Efficient Enterprise – Data Centre' certificate."
+        "note": "Hetzner reports an average PUE of 1.13 across its data center parks, achieved through outside-air free cooling with raised floors, cold aisle containment, and monopitch roof air channels. EMAS certification validates environmental performance at German locations. TÜV SÜD 'Energy Efficient Enterprise – Data Centre' certificate is held."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "Server auction ('Serverbörse') extends hardware lifecycle. In-house server development reduces waste. Waste heat reused to heat offices."
+        "note": "Hetzner extends hardware life by refurbishing and reselling server components internally and through its Serverbörse (server auction) platform, allowing older dedicated servers to be purchased at reduced prices and used for extended lifecycles. Waste heat from data centres is reused to heat office buildings. In-house server assembly at Gunzenhausen facilitates component-level reuse."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "P",
-        "source": "https://docs.hetzner.com/general/company-and-policy/sustainability-at-hetzner/",
-        "note": "CSRD sustainability report for 2025 financial year announced. Energy consumption data published. However DitchCarbon notes no specific CO2 quantified figures currently public. EMAS requires environmental statement publication."
+        "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
+        "note": "Hetzner publishes renewable energy sourcing details and estimates CO2 savings (77,000 tonnes CO2/year vs the German grid mix). EMAS certification requires publication of an environmental statement. A CSRD-compliant sustainability report for the 2025 financial year has been announced. However a comprehensive standalone annual carbon/water disclosure report per GRI or TCFD was not found as of early 2026."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
         "source": "https://www.hetzner.com/unternehmen/nachhaltigkeit",
-        "note": "100% renewable electricity — German locations use hydropower since 2008, Finnish location uses hydropower since 2018. Reduces CO2 by 77,000 tonnes/year vs German grid mix."
+        "note": "Hetzner has sourced 100% renewable electricity from hydropower for German data centres since 2008, and uses wind power for its Helsinki facility since 2018. The company founded HT clean energy GmbH to build a proprietary solar park in Nassau-Weikersheim (approx. 6.5 MW) to further increase self-generated renewable supply for its operations."
       }
     },
 
-    "summary_note": "Notable gaps: no EU-origin hardware/firmware (SOV-5), no GAIA-X involvement (SOV-1), no managed AI offering (SOV-3), US colocation creates partial exposure in SOV-2 and SOV-3."
+    "summary_note": "Hetzner is a strong baseline EU-sovereign option with full German family ownership (no external investors, no stock listing), ISO 27001:2022, and BSI C5 Type 2 (2026). Its in-house server assembly in Gunzenhausen is unusual and adds hardware traceability. Key weaknesses are: no customer-managed KMS product for block storage, no GAIA-X membership, US and Singapore cloud locations exist on the same platform (requiring active EU-region selection by customers), and limited customer-facing security audit tooling. Environmental credentials are genuinely strong with a PUE of 1.13 and 100% renewable electricity since 2008. The provider is well suited for budget-conscious EU deployments needing solid legal sovereignty under German law, but is not appropriate for use cases requiring EUCS High certification, customer-held encryption keys out of the box, or formal GAIA-X compliance."
   }
 }

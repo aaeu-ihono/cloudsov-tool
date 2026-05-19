@@ -4,223 +4,231 @@
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
         "source": "https://upcloud.com/about/",
-        "note": "UpCloud Oy incorporated in Helsinki, Finland (registration 2431560-5). Founder Joel Pihlajamaa (Finnish) is CTO. CEO Antti Vilpponen is Finnish. All decisive authority under Finnish/EU jurisdiction. Headquartered at Aleksanterinkatu 15b, Helsinki."
+        "note": "UpCloud Oy (Finnish business ID 2431560-5) is the parent company and controlling entity, incorporated in Helsinki, Finland (EU member state). The founder Joel Pihlajamaa and all senior leadership are Finnish nationals operating under Finnish jurisdiction. Headquartered at Aleksanterinkatu 15b, 00100 Helsinki. All decisive corporate authority is EU-based — no non-EU individual or entity exercises controlling authority."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
         "source": "https://pitchbook.com/profiles/company/95646-25",
-        "note": "Privately held — no public listing, structurally resistant to hostile acquisition. Investors include Tesi (Finnish state fund), Inventure (Finnish VC), Connected Capital (Netherlands), MaasInvest. No documented anti-acquisition clause but private status provides structural protection. No non-EU controlling investor documented."
+        "note": "UpCloud is privately held — no public listing — which provides structural resistance to hostile acquisition. Investors include Tesi (Finnish state fund), Inventure (Finnish VC), Connected Capital (Netherlands), and MaasInvest; all are EU-based. However, no publicly documented contractual anti-acquisition clause (e.g., golden share, veto rights for non-EU buyers) has been found. Private status and EU-only investor base provide de facto but not contractually guaranteed protection."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
         "source": "https://tesi.fi/en/portfolio-company/upcloud-oy/",
-        "note": "Investors: Tesi (Finnish Industry Investment — Finnish state fund), Inventure (Finnish VC), Connected Capital (Netherlands-based VC), MaasInvest. Total raised $24.2M. All documented investors are EU-based. No US institutional capital documented."
+        "note": "Total funding raised is approximately $24.3M. All documented investors are EU-based: Tesi (Finnish Industry Investment — Finnish state-owned investment company), Inventure (Finnish venture capital, invested 2016 and 2022), Connected Capital (Netherlands-based B2B software growth investor), and MaasInvest. No US institutional capital or non-EU sovereign wealth fund investment has been documented."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
         "source": "https://upcloud.com/about/",
-        "note": "Headquartered Helsinki, secondary office Hamburg (Germany). ~83–130 employees. EU-based engineering, operations, and commercial teams. 10 data centres across Europe. CNCF Silver member, active open-source community contributor."
+        "note": "Headquartered in Helsinki, Finland, with a secondary office in Hamburg, Germany. Operates 10+ data center regions across EU including Helsinki (×2), Frankfurt, Amsterdam, Warsaw, Stockholm, Copenhagen, Madrid, and Stavanger (Norway). CNCF Silver member actively contributing to EU open-source cloud ecosystem. Company has approximately 83–130 employees, predominantly EU-based."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "P",
         "source": "https://upcloud.com/solutions/european-cloud/",
-        "note": "CISPE member (Cloud Infrastructure Services Providers in Europe). Explicitly positions itself around EU data sovereignty and Schrems II compliance. No documented GAIA-X membership found. EU Access Management Policy implemented. Not a GAIA-X founding or active member per public documentation."
+        "note": "UpCloud is a member of CISPE (Cloud Infrastructure Services Providers in Europe) and achieved CISPE Code of Conduct certification in 2024. UpCloud actively advocates for EU data sovereignty and Schrems II compliance, and has implemented an EU Access Management Policy. No documented GAIA-X membership or participation has been found. CISPE membership provides EU sovereignty alignment but falls short of GAIA-X founding/active member status."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/blog/us-cloud-act-corporate-structure-matters-data-sovereignty/",
-        "note": "Finnish parent UpCloud Oy holds all customer data and controls all EU data centres. US subsidiary has no control over EU data or infrastructure. Explicitly documented: UpCloud will reject foreign governmental authority requests and direct them to Finnish authorities for mutual legal assistance."
+        "note": "Finnish parent UpCloud Oy holds all EU customer data and controls all EU data centers. UpCloud USA Inc. (US subsidiary) has no control over EU customer data or infrastructure by design and explicit published policy. UpCloud explicitly documents that it will reject any information requests from foreign governmental authorities and direct them to Finnish authorities for mutual legal assistance, maintaining operational integrity under foreign pressure."
       }
     },
+
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "UpCloud Oy registered in Finland. DPA and Terms governed by Finnish and EU law. Explicitly stated: 'As our company is registered in Finland, we comply with the privacy and data protection laws and regulations of Finland and the European Union.' All EU data centres operated exclusively by UpCloud Oy."
+        "note": "UpCloud Oy is registered in Finland (EU member state). All customer contracts, DPAs, and Terms of Service are governed by Finnish and EU law. UpCloud's published statement: 'As our company is registered in Finland, we comply with the privacy and data protection laws and regulations of Finland and the European Union.' All EU data centers are operated exclusively by UpCloud Oy under Finnish/EU law."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/blog/us-cloud-act-corporate-structure-matters-data-sovereignty/",
-        "note": "UpCloud published a detailed legal analysis confirming CLOUD Act does not apply to EU customer data. Key argument: US subsidiary (UpCloud USA Inc.) has no control over EU customer data — only the Finnish parent UpCloud Oy holds that data. CLOUD Act requires control over data, not merely corporate affiliation. No Chinese entity in structure."
+        "note": "UpCloud published a detailed legal analysis confirming the US CLOUD Act does not apply to EU customer data. The key legal argument: the CLOUD Act requires 'control' over data, not merely corporate affiliation. UpCloud USA Inc. has zero control over EU customer data held exclusively by Finnish parent UpCloud Oy. No Chinese entity exists in UpCloud's corporate structure, excluding any Chinese Cybersecurity Law exposure."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/blog/us-cloud-act-corporate-structure-matters-data-sovereignty/",
-        "note": "Explicitly documented: 'All customer account information, regardless of the selected data center, is held by the European parent company, UpCloud Oy... The U.S. subsidiary has no control over the customer account information, nor can it access any production hardware located outside the U.S.' Foreign requests redirected to Finnish mutual legal assistance channels."
+        "note": "Explicitly documented: 'All customer account information, regardless of the selected data center, is held by the European parent company, UpCloud Oy… The U.S. subsidiary has no control over the customer account information, nor can it access any production hardware located outside the U.S.' Foreign governmental requests are rejected and redirected to Finnish authorities for mutual legal assistance under established international frameworks."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "Governed exclusively by Finnish/EU law. No US nexus for EU customer data. No documented exposure to US export control regimes for EU data operations."
+        "note": "UpCloud EU operations are governed exclusively by Finnish/EU law. EU customer data remains in EU regions operated by Finnish entity UpCloud Oy. No US nexus for EU data operations exists, removing EAR/ITAR exposure for EU customer data. Underlying hardware (Intel/AMD) uses US technology but this applies universally and does not restrict operational data usage."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "P",
         "source": "https://upcloud.com/about/",
-        "note": "Core platform developed in Helsinki with Hamburg office. However UpCloud has remote employees globally ('from Seattle to Singapore') and a US subsidiary (UpCloud USA Inc.). Some IP development may occur outside EU. No explicit EU-only IP registration claim found."
+        "note": "Core platform and proprietary MaxIOPS storage technology were developed in Helsinki, Finland. Primary R&D operates from the Helsinki headquarters. However, UpCloud has a US subsidiary (UpCloud USA Inc.) and employs remote staff globally, meaning some development may occur outside the EU. No explicit EU-only IP registration claim has been published. The foundational IP is Finnish-developed but geographic exclusivity of all IP development cannot be confirmed."
       }
     },
+
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
-        "source": "https://upcloud.com/global/security-privacy/",
-        "note": "Object Storage and Block Storage encrypted at rest. However no explicit customer-managed KMS (BYOK) product documented. Standard encryption managed by UpCloud. Customers control data location and deletion but not encryption key custody."
+        "source": "https://upcloud.com/docs/products/managed-object-storage/full-encryption/",
+        "note": "UpCloud encrypts all data at rest and in transit using industry-standard protocols. Managed Object Storage supports full server-side encryption. However, no explicit customer-managed KMS (BYOK) product is documented — encryption keys are managed by UpCloud by default. Customers control data location and deletion but cannot hold exclusive cryptographic key custody. This contrasts with T Cloud Public (BYOK/HYOK) or STACKIT (customer key management)."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "Documented: privileged full OS remote access disallowed for operations team. Physical access restricted. Live server remote console access restricted. ISO 27001 ISMS covers access logging and auditability. CISPE Code of Conduct requires access transparency."
+        "note": "EU Access Management Policy ensures only EU-based employees have privileged full remote access to EU data center operating systems, and this access is logged. ISO 27001 ISMS mandates access logging and auditability controls. CISPE Code of Conduct (2024) requires data access transparency. Physical access to data centers is restricted and logged. UpCloud does not offer managed AI services, so AI model usage auditability is not applicable."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "End-of-life devices go through comprehensive data deletion process by ISO 27001 certified partners per WEEE directive, processed in Finland. Customers can delete virtual servers and data via control panel at any time. GDPR Art. 17 compliant."
+        "note": "Customers can delete virtual servers and associated data via the control panel at any time, with immediate effect. End-of-life hardware that has stored customer data is destroyed by ISO 27001-certified partners in accordance with the WEEE directive, processed in Finland. UpCloud's published security documentation confirms GDPR Art. 17 (right to erasure) compliance with documented deletion procedures."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "EU data centres operated exclusively by UpCloud Oy. Customer selects region — EU data stays in chosen EU region. However UpCloud also operates data centres in Singapore, US, and Australia. Account information stored in Finland but accessible by global support team members outside EEA. Partial — EU confinement requires customer region selection."
+        "note": "EU data centers are operated exclusively by UpCloud Oy; customer-selected EU regions (Helsinki, Frankfurt, Amsterdam, Warsaw, Stockholm, Copenhagen, Madrid, Stavanger) keep data within the EU. However, UpCloud also operates data centers in Singapore, Chicago, New York, San Jose, and Sydney — EU confinement requires active customer region selection. Account management information is accessible by global support staff, some outside the EEA."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
         "source": "https://upcloud.com/2024-year-in-review/",
-        "note": "UpCloud is an IaaS provider — no managed AI/ML services as of research date. Solita/FunctionAI partnership announced (Feb 2026) to build EU-sovereign AI platform on UpCloud. AI infrastructure available but no proprietary AI models offered. Partial — platform is EU-sovereign but no EU-governed AI model stack."
+        "note": "UpCloud is an IaaS provider and does not offer proprietary managed AI/ML services or train AI models. The platform serves as EU-sovereign AI infrastructure — the Solita/FunctionAI partnership (announced early 2026) builds an EU-sovereign AI platform on UpCloud. As an infrastructure layer provider, UpCloud enables EU-controlled AI workloads but does not itself govern AI models. Partial credit for EU-sovereign infrastructure foundation."
       }
     },
+
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
         "source": "https://upcloud.com/solutions/european-cloud/",
-        "note": "Open-source ethos explicitly stated. S3-compatible Object Storage, Managed Kubernetes (CNCF Silver member), Terraform integration, standard APIs. CISPE Code of Conduct requires portability. Customers can transfer data to another CSP or on-premise at any time per DPA."
+        "note": "UpCloud offers S3-compatible Managed Object Storage, Managed Kubernetes (CNCF Silver member), standard REST APIs, and Terraform provider support, enabling straightforward migration to other EU providers. CISPE Code of Conduct requires portability and data transfer rights. Customers can export data at any time per DPA. No proprietary lock-in mechanisms are documented."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
         "source": "https://upcloud.com/solutions/european-cloud/",
-        "note": "EU Access Management Policy implemented: only EU-based employees have privileged full remote access to operating systems within EU data centres. Finnish parent UpCloud Oy operates all EU infrastructure independently."
+        "note": "EU Access Management Policy explicitly restricts privileged full remote access to EU data center operating systems to EU-based employees only. Finnish parent UpCloud Oy operates all EU infrastructure independently with no non-EU vendor required for standard operations. Core platform software is developed in Helsinki by EU engineers."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
         "source": "https://upcloud.com/about/",
-        "note": "Headquarters in Helsinki, secondary office in Hamburg. Leadership team predominantly EU-based. Active open-source community engagement in Helsinki (9 MeetUps in 2024). Strong Finnish tech ecosystem talent base."
+        "note": "Headquarters in Helsinki, Finland with secondary office in Hamburg, Germany. Leadership team is predominantly EU-based Finnish and European nationals. Active open-source community engagement (CNCF Silver member, 9 MeetUps in Helsinki in 2024). Strong Finnish tech ecosystem — Finland consistently ranks among the top EU countries for ICT talent per DESI index."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "P",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "EU Access Management Policy ensures EU-only privileged access to EU data centres. However account information is accessible by global support and sales teams, some of whom work outside EEA. Support not exclusively EU-based."
+        "note": "EU Access Management Policy ensures EU-only privileged access to EU data center infrastructure. However, UpCloud's commercial and support teams include remote staff globally ('from Seattle to Singapore' per about page). Account information is accessible by global support and sales teams, some operating outside the EEA. Privileged infrastructure access is EU-only, but broad support operations are not exclusively EU-based."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "P",
-        "source": "https://upcloud.com/2024-year-in-review/",
-        "note": "Open-source ethos and CNCF Silver membership. However UpCloud's proprietary cloud platform source code is not publicly disclosed. Extensive public API documentation available. Terraform provider supported but platform code not open-sourced."
+        "source": "https://upcloud.com/docs/",
+        "note": "Extensive public API and product documentation is available at upcloud.com/docs, and a Terraform provider is published. UpCloud is a CNCF Silver member contributing to open-source. However, UpCloud's proprietary platform source code (including MaxIOPS storage) is not publicly disclosed. Full long-term technical autonomy would require UpCloud's cooperation as the platform core is not open-sourced."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "Explicitly stated: 'We only use our 100%-owned subsidiaries as subprocessors of the Customer Data, all of which are covered by our ISO 27001 certification.' For EU virtual servers: 'we don't use any subprocessors in the provision of the service.' Strong and clearly documented."
+        "note": "Explicitly documented: 'We only use our 100%-owned subsidiaries as subprocessors of the Customer Data, all of which are covered by our ISO 27001 certification.' For EU virtual server services: 'we don't use any subprocessors in the provision of the service.' This is among the strongest subprocessor control statements of any EU IaaS provider, eliminating third-party EU jurisdiction risk for EU workloads."
       }
     },
+
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "No EU-origin hardware manufacturing documented. Standard server hardware vendors (Intel/AMD/Supermicro — US origin). ESG report notes hardware purchases as largest carbon footprint contributor — no EU manufacturing claim made."
+        "note": "UpCloud's ESG Report 2024 identifies hardware purchases as the largest single contributor to the company's carbon footprint, referencing standard server hardware vendors. Standard server components (Intel/AMD CPUs, Supermicro servers, storage drives) are manufactured in the US, Taiwan, and Asia — not in the EU. No EU-origin hardware manufacturing program or trusted-jurisdiction sourcing policy has been documented."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "No EU-origin firmware claim. Standard Intel/AMD/Supermicro firmware of non-EU origin. No documentation of firmware sovereignty."
+        "note": "No EU-origin firmware claim exists or is plausible given UpCloud's hardware stack. Standard Intel Management Engine (ME/CSME) and AMD Platform Security Processor (PSP) firmware are US-origin. Supermicro BIOS/BMC firmware is US/Taiwan-origin. Drive and NIC firmware are similarly non-EU. This is a universal limitation shared by all European cloud providers — no EU-origin firmware at commercial cloud scale exists."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "P",
         "source": "https://upcloud.com/2024-year-in-review/",
-        "note": "Core platform developed in Helsinki. Open-source ethos with global open-source component dependencies (Kubernetes, OpenStack ecosystem). Remote employees globally. Not a fully EU-origin software stack."
+        "note": "Core platform development and R&D are based in Helsinki, Finland. Open-source components (Kubernetes, Linux kernel, storage subsystems) are globally maintained. UpCloud's proprietary MaxIOPS storage and platform management software are Finnish-developed. Remote employees globally contribute to platform maintenance, so the software update pipeline is not exclusively EU-origin. Primarily EU-architected with global open-source dependencies."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "Platform built on open standards and open-source. However hardware entirely non-EU (Intel/AMD/NVIDIA). ESG report identifies hardware purchases as main emissions source — demonstrating significant non-EU hardware dependency."
+        "note": "Platform software is built on open standards and open-source technologies (Kubernetes, standard Linux), reducing proprietary lock-in. However, hardware infrastructure is entirely dependent on non-EU vendors (Intel, AMD, Supermicro — all US or Taiwan origin), and NVIDIA GPUs are used for GPU compute workloads. ESG report identifies hardware as largest emissions and dependency source. Mixed: open software stack but non-EU hardware dependency."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "First ESG Report published 2024 with scope 1, 2, 3 emissions calculated. ISO 27001 covers supply chain security controls. Full supply chain audit rights for customers not explicitly documented publicly."
+        "note": "UpCloud published its first ESG Report in 2024, disclosing Scope 1, 2, and 3 emissions with GHG Protocol methodology, which includes supply chain emissions. ISO 27001 certification covers supply chain security controls. CISPE Code of Conduct requires documented subprocessor transparency. However, contractual audit rights for customers covering the complete hardware supply chain are not explicitly documented in public-facing materials."
       }
     },
+
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://upcloud.com/solutions/european-cloud/",
-        "note": "S3-compatible Object Storage, Managed Kubernetes (CNCF Silver), Terraform integration, open REST APIs. Explicitly states open-source ethos and standard interfaces throughout."
+        "source": "https://upcloud.com/docs/products/managed-object-storage/s3-standard-compatibility/",
+        "note": "UpCloud Managed Object Storage is fully S3-compatible, supporting all major S3 bucket and object operations. Managed Kubernetes follows CNCF standards (UpCloud is a CNCF Silver member). REST APIs are fully documented at developers.upcloud.com. Terraform provider published under open-source licence. No proprietary API lock-in is present."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "P",
         "source": "https://upcloud.com/2024-year-in-review/",
-        "note": "Open-source ethos stated and CNCF Silver member. Uses open-source components (Kubernetes etc.). However UpCloud's own proprietary platform code is not open-sourced. Partial open-source — not full stack."
+        "note": "UpCloud is a CNCF Silver member and uses open-source components throughout (Kubernetes, Linux, standard storage). Terraform provider and client SDKs are open-source. However, UpCloud's proprietary platform code (MaxIOPS storage, control plane) is not publicly disclosed under an open-source licence. Partial open-source stack — higher layers proprietary, orchestration and APIs open."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "P",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "ISO 27001 requires documented data flows. Security and privacy page documents access controls and data handling. Full internal architectural documentation not publicly disclosed."
+        "note": "Security and privacy page documents access control policies, data handling procedures, and EU Access Management Policy in detail. ISO 27001 ISMS requires documented data flow mapping for certified scope. CISPE Code of Conduct (2024) requires published data flow transparency. However, full internal architectural documentation of data flows and infrastructure dependencies is not publicly disclosed — only available to auditors via ISO 27001 audit process."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "Hardware purchases identified as largest carbon contributor in ESG report — all standard non-EU hardware (Intel/AMD). No EU-origin processor or GPU offering documented."
+        "note": "UpCloud's entire compute infrastructure relies on Intel x86 processors and AMD CPUs (both US companies) and NVIDIA GPU accelerators (US company) for GPU cloud instances. ESG report identifies hardware as the largest carbon and dependency source. No EU-origin processor or accelerator is deployed. This dependency is universal across all EU cloud providers — no EU-origin HPC silicon exists at commercial scale."
       }
     },
+
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "P",
         "source": "https://upcloud.com/compliance-and-security/",
-        "note": "ISO 27001:2022 certified (renewed 2024). CISPE Code of Conduct certified (achieved 2024). ISO 14001 aligned. PCI DSS compliant. No BSI C5 attestation documented. No ENISA EUCS certification. Solid but less comprehensive than Hetzner, STACKIT, or IONOS."
+        "note": "UpCloud holds ISO/IEC 27001:2022 certification (renewed 2024, audited annually by independent third party) and CISPE Code of Conduct certification (2024, audited annually). PCI DSS compliance and ISO 14001 alignment are also documented. However, no BSI C5 attestation (German gold standard), no ENISA EUCS certification, and no SOC 2 Type II report have been documented. Solid baseline but lighter than Hetzner, STACKIT, or T Cloud Public."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
         "source": "https://upcloud.com/global/blog/gdpr-iso-27001-cispe-guide-european-compliance/",
-        "note": "GDPR compliance fully documented. NIS2 compliance explicitly referenced in public documentation. CISPE Code of Conduct certified. DORA applicability for financial sector customers noted in documentation."
+        "note": "GDPR compliance fully documented via DPA, privacy policy, and CISPE Code of Conduct certification. NIS2 compliance referenced explicitly in public documentation aligned to Finland's transposition (Cybersecurity Act 124/2025). DORA applicability for financial sector customers is noted. CISPE Code of Conduct independently audited annually to verify compliance with GDPR, NIS2, and EU data sovereignty standards."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "P",
         "source": "https://upcloud.com/solutions/european-cloud/",
-        "note": "EU Access Management Policy: only EU-based employees have privileged full remote access to EU data centre operating systems. However global support team members outside EEA have access to account information. Full EU-only SOC not confirmed."
+        "note": "EU Access Management Policy explicitly restricts privileged remote access to EU data center operating systems to EU-based employees. Security monitoring aligned to ISO 27001 is primarily EU-operated. However, UpCloud's global support and operations teams include staff outside the EEA, and a dedicated EU-only SOC is not explicitly confirmed in public documentation. Infrastructure access is EU-controlled but full SOC exclusivity is unconfirmed."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "P",
         "source": "https://upcloud.com/global/security-privacy/",
-        "note": "ISO 27001 covers access logging. CISPE Code of Conduct requires data access transparency. Vulnerability Disclosure Program and bug bounty documented. Direct customer oversight of real-time security monitoring not explicitly offered as product feature."
+        "note": "ISO 27001 ISMS mandates access logging and auditability. CISPE Code of Conduct requires data access transparency. Vulnerability Disclosure Program and public bug bounty are documented. However, direct customer-facing security monitoring dashboards or SIEM log streaming are not explicitly offered as standard product features — unlike T Cloud Public's Cloud Trace Service. Customers have control over their own workloads but not provider-side logging."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
         "source": "https://upcloud.com/compliance-and-security/",
-        "note": "GDPR-compliant breach reporting. ISO 27001 mandates vulnerability disclosure procedures. Automated security updates for managed services documented. Whistleblowing channel available. Independent patch capability documented."
+        "note": "GDPR-compliant breach notification procedures are documented. ISO 27001 mandates vulnerability disclosure and incident management processes audited annually. UpCloud uses in-house developed software to enable faster patching and reduced attack surface. Managed services receive automated security updates. Whistleblowing channel is available. Independent patch capability for EU-operated platform is confirmed."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "P",
         "source": "https://upcloud.com/global/blog/gdpr-iso-27001-cispe-guide-european-compliance/",
-        "note": "ISO 27001 certification audited annually by third-party auditor. CISPE Code of Conduct audited annually. DPA states UpCloud must assist with audits per GDPR Art. 28. Full independent customer audit with complete system access not explicitly stated."
+        "note": "ISO 27001 is audited annually by an independent third-party auditor, with certification available for customer review. CISPE Code of Conduct is independently audited annually. DPA (GDPR Art. 28) obliges UpCloud to assist customers with audits and provide necessary compliance information. Full independent customer audit with direct system access is not explicitly contractually guaranteed in public-facing documentation."
       }
     },
+
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "P",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "ISO 14001 aligned. ESG Report 2024 published with scope 1, 2, 3 emissions. Science-based targets established aligned to 1.5°C IPCC scenario. However no specific PUE figures published publicly. Computing sustainability ranking noted very minimal data publicly available — scored 10/50."
+        "note": "UpCloud published its first ESG Report (2024) with science-based targets aligned to the IPCC 1.5°C scenario. ISO 14001 Environmental Management System in place. The Norway data center (Stavanger, opened January 2026) achieves a PUE as low as 1.2 using deep-water fjord cooling (Tier III certified). However, aggregate PUE figures across all UpCloud data centers are not publicly disclosed, and UpCloud scored low (10/50) in a 2025 computing sustainability ranking for limited public data disclosure."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "EOL devices destroyed by ISO 27001 certified partners per WEEE directive, processed in Finland. Servers/routers without customer data donated to schools and universities. Hardware lifecycle management improvement explicitly planned for 2025."
+        "note": "End-of-life hardware that has not stored customer data (servers, routers) is cleaned and donated to schools and universities. End-of-life hardware that has stored customer data undergoes comprehensive data deletion and physical destruction by ISO 27001-certified partners in accordance with the WEEE directive, entirely processed in Finland. Hardware lifecycle management improvement is explicitly a 2025 priority in the ESG report."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "P",
         "source": "https://upcloud.com/esg-report-2024/",
-        "note": "First ESG Report published 2024 covering scope 1, 2, 3 emissions per GHG Protocol. Science-based targets established. However no specific PUE, WUE, or absolute carbon figures publicly disclosed in the report. Computing ranking noted lack of specific data. Partial transparency."
+        "note": "First ESG Report published 2024 covering Scope 1, 2, and 3 GHG emissions per GHG Protocol methodology. Science-based targets established with IPCC 1.5°C ambition. Governance formalised via a Compliance Forum. However, specific absolute carbon figures, PUE values per data center, and water usage effectiveness (WUE) metrics are not publicly disclosed. Reporting is early-stage compared to Deutsche Telekom's comprehensive CSRD-compliant disclosures."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "P",
         "source": "https://upcloud.com/2024-year-in-review/",
-        "note": "70% of data centres run fully on renewable energy. 100% of offices on renewable energy. Remaining 30% of data centres use mixed sources. Target for full renewable coverage not yet achieved. Partial — not 100% renewable across all data centres."
+        "note": "70% of UpCloud's data centers run fully on renewable energy. 100% of UpCloud offices (including Singapore) run on renewable energy as of 2024. The Norway data center is powered by 100% renewable hydroelectric energy. The remaining 30% of data centers use mixed energy sources. A target date for achieving full 100% renewable coverage across all data centers has not been publicly announced."
       }
     },
-    "summary_note": "UpCloud is a strong sovereignty story — Finnish privately held parent, EU-only investors (Tesi state fund), detailed published legal analysis confirming CLOUD Act does not apply, and EU Access Management Policy ensuring only EU employees access EU infrastructure. The key differentiator vs IONOS is the explicit legal architecture: UpCloud USA Inc. has zero control over EU customer data by design and documentation, unlike IONOS Inc. which IONOS's own white paper admits creates CLOUD Act exposure. Main weaknesses: no BSI C5 certification, no customer-managed KMS, only 70% renewable energy across data centres, and ESG reporting is early-stage with limited specific metrics. Small provider (~83–130 employees) — limited service breadth compared to OVHcloud, STACKIT, or IONOS."
+
+    "summary_note": "UpCloud is a compelling EU sovereignty story: a Finnish privately held company backed exclusively by EU investors (Finnish state fund Tesi, Finnish VC Inventure, Dutch Connected Capital), with a detailed and proactive published legal analysis confirming the US CLOUD Act does not apply to EU customer data. Its EU Access Management Policy — restricting privileged EU data center access to EU employees only — is among the most explicitly documented of any EU IaaS provider. The subprocessor model is exceptionally clean: for EU virtual server services, UpCloud uses zero third-party subprocessors. Key weaknesses relative to larger EU providers are: no BSI C5 attestation (German gold standard); no customer-managed encryption key (BYOK/KMS) product; ESG reporting is early-stage (first report in 2024) with limited specific metrics; only 70% of data centers run on renewable energy; and as a smaller provider (~83–130 employees), service breadth is narrower than STACKIT, OVHcloud, or T Cloud Public. The legal sovereignty architecture (CLOUD Act analysis, Finnish jurisdiction, EU-only investors, EU-only infrastructure access) is a genuine strength that directly addresses the primary concern of EU public sector and regulated-industry customers."
   }
 }

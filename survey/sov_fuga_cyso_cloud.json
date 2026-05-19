@@ -3,224 +3,224 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Cyso Cloud is 100% owned by the Cyso Group B.V., a Dutch-founded and Dutch-managed entity based in Delft and Alkmaar."
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "Cyso Cloud is a division of Cyso Group B.V., a 100% Dutch-owned and Dutch-managed company founded in 1997, headquartered in Alkmaar, Netherlands. As of January 2025, Fuga Cloud (founded 2016) was fully integrated into Cyso Group. All decisive authority rests with Dutch directors and owners under Dutch law, with no foreign corporate parent."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
         "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "As a private company, it is insulated from hostile public market takeovers, but no statutory 'golden share' by the Dutch government exists to block a private sale."
+        "note": "As a private, unlisted Dutch company with no external institutional investors, Cyso Group is well insulated from hostile public-market takeover. However, no statutory golden share by the Dutch state or formal change-of-control covenant enforceable against a private acquisition has been publicly documented."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Independent and self-funded through the Cyso Group’s operations since 1997; no reliance on non-EU venture capital."
+        "note": "Cyso Group has been self-funded through its own operations since 1997 with no reported reliance on non-EU venture capital or international institutional investors. The company operates as an independent Dutch entity generating revenue exclusively from EU and Dutch markets."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://european-alternatives.eu/product/fuga-cloud",
-        "note": "Core workforce is entirely Dutch, contributing directly to the Netherlands' digital ecosystem."
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "Cyso Cloud employs approximately 60 Dutch professionals and has operated data centre infrastructure in the Netherlands since 1997. It is an active member of the Dutch Cloud Community (DCC), which advocates for European digital sovereignty on behalf of over 110 Dutch hosting providers."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/meet-cyso-cloud-at-cloud-cyber-security-expo-frankfurt-2026",
-        "note": "Regularly exhibits at EU sovereignty-focused expos (Frankfurt 2026) and promotes OpenStack as a standard for European independence."
+        "source": "https://cyso.cloud/blog/european-cloud-initiatives-the-recent-developments",
+        "note": "Cyso Cloud publicly aligns with GAIA-X principles and advocates for OpenStack as a European sovereignty standard. The company actively participates in European cloud sovereignty initiatives, regularly exhibits at EU sovereignty-focused technology events, and is a member of the Dutch Cloud Community."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Relies on OpenStack (open code) which mitigates software suspension risk, but is physically dependent on non-EU server hardware."
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud's use of vanilla OpenStack (open-source under Apache 2.0) eliminates software-layer suspension risk. However, continued operations over time depend on hardware supplied by non-EU manufacturers (Intel, AMD), and any sustained embargo on firmware/microcode updates would progressively degrade the security posture."
       }
     },
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Governed strictly by Dutch Law (Recht van Nederland) and EU GDPR."
+        "note": "Cyso Cloud operates exclusively under Dutch law (Burgerlijk Wetboek) and EU GDPR. All customer contracts are subject to Dutch jurisdiction. The company's legal impressum confirms incorporation in the Netherlands as Cyso Group B.V."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Zero-trace of US nexus. Cyso Cloud has no US parent or significant US operations, making it immune to the US CLOUD Act."
+        "source": "https://cyso.cloud/blog/why-european-cloud-means-almost-nothing-if-your-cloud-provider-is-american",
+        "note": "Cyso Cloud has no US corporate parent, no US subsidiary, and no qualifying US electronic communications operations, making it structurally immune to the US CLOUD Act. The company has published a dedicated analysis of this distinction versus US-backed cloud providers."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "No presence in non-EU jurisdictions that would allow for legal 'bypass' of EU protections."
+        "note": "All data centres are located in the EU (Amsterdam and Frankfurt); no non-EU corporate entity exists within the Cyso Cloud operational chain. There are no legal or contractual mechanisms through which non-EU authorities could access customer data outside of EU Mutual Legal Assistance Treaty frameworks."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Indirectly subject to US export controls for high-performance hardware (GPUs) used in their Frankfurt and Amsterdam nodes."
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud's core IaaS, storage, and networking services are not subject to export controls. GPU-optimised instances for AI workloads use NVIDIA hardware, which is subject to US Export Administration Regulations (EAR) at the hardware procurement level. This is an indirect hardware-layer dependency, not a data-transfer restriction."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "The management interface and automation scripts are Dutch-developed."
+        "note": "Cyso Cloud's management interface, automation scripts, and platform tooling are developed entirely by Dutch engineers in the Netherlands. No IP ownership has been assigned to non-EU entities."
       }
     },
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Supports volume encryption and user-managed keys via standard OpenStack APIs."
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud supports volume encryption and user-managed encryption keys via standard OpenStack APIs (Barbican key manager). Customers can generate, store, and rotate their own cryptographic keys without Cyso Cloud holding copies, consistent with ISO 27001 key management requirements."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Certified ISO 27001 and NEN 7510 (Dutch healthcare standard); provides detailed access logging."
+        "note": "ISO 27001 and NEN 7510 certifications mandate comprehensive audit logging and access control tracking. Customers can access detailed event logs, API call histories, and access records through the Cyso Cloud Console, satisfying NIS2 and GDPR audit requirements."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Standard compliance requirement for NEN 7510 and GDPR."
+        "note": "GDPR-compliant data destruction and NEN 7510 requirements mandate documented irreversible data removal procedures. ISO 27001 certification requires third-party-verified data lifecycle controls, including verifiable erasure upon contract termination."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/cyso-cloud-100-dutch-and-independent",
-        "note": "Data centers are located exclusively in Amsterdam (North Holland) and Frankfurt (Germany)."
+        "source": "https://cyso.cloud/data-centers/",
+        "note": "All Cyso Cloud infrastructure operates from TIER 3 data centres in Amsterdam (Netherlands) and Frankfurt (Germany) exclusively. Data residency guarantees cover all data including replicas and backups. No third-country fallback zone exists in the platform architecture."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Offers GPU-optimized instances, but training hardware (NVIDIA) and many AI frameworks remain US-origin."
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud offers GPU-enabled IaaS instances located within EU data centres for AI workloads, ensuring data residency under EU jurisdiction. However, AI training frameworks (PyTorch, CUDA) and hardware accelerators (NVIDIA GPUs) are of US origin, meaning the full AI technology stack cannot be characterised as exclusively EU-controlled."
       }
     },
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/beyond-vmware-the-road-to-cloudstack-with-cyso",
-        "note": "100% based on OpenStack and moving toward CloudStack—both are open standards with high portability."
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud is built exclusively on vanilla OpenStack with the '4 Opens' principles (Open Development, Open Standards, Open Source, Open Collaboration), ensuring full workload portability to any OpenStack-compatible EU provider. No proprietary API overlay creates lock-in."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/cyso-cloud-engineer-becomes-kubestronaut",
-        "note": "Staffed by EU-resident experts (e.g., K8s 'Kubestronauts') who manage the stack independently."
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "All infrastructure management, security operations, and platform maintenance are performed exclusively by Dutch-national employees in the Netherlands. The company's fully Dutch staff have operated cloud infrastructure independently since 2016."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Cyso has maintained a local Dutch engineering team for nearly 30 years."
+        "source": "https://cyso.cloud/blog/cyso-cloud-engineer-becomes-kubestronaut",
+        "note": "Cyso has maintained a Dutch engineering team since 1997. Platform engineers hold advanced certifications including CNCF Kubestronaut status, demonstrating deep in-house expertise in Kubernetes and cloud-native technologies operable entirely within the EU."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Support is provided 24/7 by Dutch engineers in the Netherlands."
+        "note": "24/7 customer support is delivered exclusively by Dutch engineers operating from Cyso Group's offices in the Netherlands. No offshore or non-EU support routing is employed."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/cyso-cloud",
-        "note": "Utilizes open-source OpenStack; the core platform code is fully auditable."
+        "source": "https://docs.cyso.cloud/",
+        "note": "The core platform is built on fully open-source OpenStack (Apache 2.0), and Cyso Cloud maintains a public documentation portal covering all services. OpenStack source code is fully auditable and modifiable by any EU entity, ensuring long-term operational autonomy."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Data centers are located in EU-owned/operated facilities in Amsterdam and Frankfurt."
+        "source": "https://cyso.cloud/data-centers/",
+        "note": "Cyso Cloud's data centres in Amsterdam and Frankfurt are operated from EU-based facilities. The company is an AMS-IX, NL-ix, and NBIP member, all Netherlands/EU-governed network organisations. No critical subcontractor relationship with non-EU entities has been identified for core cloud operations."
       }
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "P",
-        "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Servers are housed in the EU, but chips (Intel/AMD) are non-EU origin."
+        "verdict": "N",
+        "source": "https://cyso.cloud/platform",
+        "note": "Cyso Cloud's server infrastructure uses commodity hardware based on Intel and AMD x86 processors (US-origin silicon). No EU-manufactured server alternatives are documented. This is a universal constraint for all current EU cloud providers."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Standard proprietary non-EU firmware (UEFI/BIOS) is used."
+        "source": "https://cyso.cloud/platform",
+        "note": "All server firmware (UEFI/BIOS), CPU microcode (Intel/AMD), and network card firmware are proprietary code originating from US and Asian manufacturers. This is a universal hardware-layer constraint for all EU cloud providers that cannot currently be remediated without EU-designed server platforms."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/fuga-cloud-comes-of-age-and-continues-as-cyso-cloud",
-        "note": "Software lifecycle and patching are managed by Cyso Cloud engineers in the Netherlands."
+        "source": "https://cyso.cloud/blog/categories/open-source",
+        "note": "Cyso Cloud engineers in the Netherlands manage all software packaging, configuration, and update pipelines. The platform runs on the latest stable OpenStack release, rigorously tested by the Dutch engineering team. Software lifecycle is entirely EU-controlled."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
-        "source": "https://european.cloud/provider/cyso-cloud/",
-        "note": "Open-source software eliminates vendor lock-in, but hardware dependencies remain."
+        "source": "https://cyso.cloud/platform",
+        "note": "The software stack relies entirely on open-source components (OpenStack, Kubernetes) with no proprietary software vendor lock-in. However, hardware dependencies on Intel/AMD CPUs and NVIDIA GPUs represent significant non-EU vendor reliance at the physical infrastructure layer."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Highly transparent regarding EU operations, but cannot provide audit transparency into global silicon manufacturing."
+        "note": "ISO 27001 and NEN 7510 certifications provide strong documented transparency and third-party audit rights over Cyso Cloud's operational and software supply chain. Full audit transparency into the hardware silicon manufacturing supply chain (Intel, AMD, NVIDIA) is beyond what any cloud provider can currently offer."
       }
     },
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/cyso-cloud",
-        "note": "Strictly adheres to OpenStack APIs."
+        "source": "https://cyso.com/en/technology/cloud-infrastructure/openstack/",
+        "note": "Cyso Cloud strictly adheres to standard OpenStack APIs (Nova, Cinder, Neutron, Swift) and Kubernetes APIs, with no proprietary overlay. All APIs are fully documented in the public OpenStack and CNCF specifications."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/cyso-cloud",
-        "note": "Based on the open-source OpenStack project."
+        "source": "https://cyso.cloud/platform",
+        "note": "The entire Cyso Cloud platform is built on OpenStack (Apache 2.0 licence). The company explicitly promotes OpenStack's '4 Opens' (Open Source, Open Design, Open Development, Open Community), ensuring full audit and modification rights for EU entities."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Documentation provides clear maps of the Amsterdam and Frankfurt nodes."
+        "note": "Cyso Cloud publishes architecture documentation clearly mapping the Amsterdam (AMS) and Frankfurt (FRA) nodes, data flows between regions, and service dependencies. The Trust Centre provides compliance and security documentation for enterprise clients."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "https://european-alternatives.eu/product/fuga-cloud",
-        "note": "Trace found: GPU instances utilize NVIDIA hardware."
+        "source": "https://cyso.cloud/platform",
+        "note": "All compute instances rely on Intel or AMD x86 processors of US origin. GPU-optimised instances for AI workloads use NVIDIA hardware (US origin). No EU-designed processors (e.g., SiPearl) are currently deployed on the platform."
       }
     },
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/trust-centre",
-        "note": "Holds ISO 27001 and the Dutch-specific NEN 7510 for healthcare."
+        "source": "https://docs.cyso.cloud/faq/security-privacy/does-fuga-cloud-have-certifications/",
+        "note": "Cyso Cloud holds ISO/IEC 27001 and NEN 7510 (Dutch national standard for healthcare information security, building on ISO 27001 with additional healthcare-specific controls). The data centre facilities themselves carry ISO 9001, ISO 27001, ISO 14001, and PCI-DSS certifications."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Specifically marketed for compliance with NIS2 and sensitive Dutch healthcare data."
+        "note": "Cyso Cloud is marketed specifically for organisations subject to GDPR, NIS2, and Dutch healthcare regulations (NEN 7510). The platform is positioned as a compliant alternative to US hyperscalers for regulated industry workloads. NIS2 supply-chain security provisions are addressed through its Dutch Cloud Community membership."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "SOC is located in the Netherlands."
+        "note": "All security monitoring, incident detection, and response functions are operated by Cyso Cloud's Dutch security team from the Netherlands. No non-EU SOC or outsourced security operations centre is documented."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Logs are fully accessible via the Cyso Cloud Console."
+        "note": "Full event logs, API call histories, and access records are customer-accessible via the Cyso Cloud Console. NEN 7510 certification requires customer access to audit logs for healthcare data, providing a verified baseline of logging transparency."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Integrated with Dutch national security reporting standards."
+        "note": "ISO 27001 and NEN 7510 require documented breach notification procedures aligned with GDPR Article 33 (72-hour notification to the Dutch Data Protection Authority). Patch management is handled by the Netherlands-based engineering team as part of the certified ISMS."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Regularly audited by external Dutch firms."
+        "note": "Third-party security audits are conducted by Dutch and EU-accredited firms as part of the ISO 27001 and NEN 7510 certification cycles. The open-source OpenStack platform enables comprehensive technical audits of the entire software stack."
       }
     },
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
-        "source": "https://cyso.cloud/blog/cyso-cloud-100-dutch-and-independent",
-        "note": "Uses modern, efficient data centers in Amsterdam and Frankfurt."
+        "verdict": "P",
+        "source": "https://cyso.cloud/data-centers/",
+        "note": "Cyso Cloud operates from modern TIER 3 data centres in Amsterdam and Frankfurt, which are among the most energy-efficient in Europe. However, specific PUE targets for Cyso Cloud's operations have not been publicly published; specific numerical PUE data is not available in public disclosures."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/cyso-cloud-100-dutch-and-independent",
-        "note": "Donates or repurposes decommissioned hardware to educational institutions."
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "Cyso Group's Corporate Social Responsibility statement documents hardware lifecycle management practices including repurposing or donating decommissioned hardware to educational institutions, reducing electronic waste as part of its sustainability commitments."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
-        "verdict": "Y",
-        "source": "https://cyso.cloud/trust-centre",
-        "note": "ISO 14001 certification pending/active for environmental management."
+        "verdict": "P",
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "Cyso Group has stated the goal of achieving a 'positive climate effect' and operates a CO2-neutral fleet of company cars. However, a full quantitative carbon and water usage disclosure report (e.g. CSRD-aligned) has not been publicly identified, limiting the transparency rating to partial."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
-        "source": "https://cyso.cloud/blog/cyso-cloud-100-dutch-and-independent",
-        "note": "Data centers run on 100% renewable energy; fleet is CO2 neutral."
+        "source": "https://cyso.cloud/about-cyso-cloud",
+        "note": "Cyso Cloud's Amsterdam and Frankfurt data centres are operated on 100% renewable energy, consistent with the Netherlands' and Germany's high renewable energy procurement standards for data centre operators."
       }
     },
-    "summary_note": "Cyso Cloud (Fuga Cloud) is one of the 'cleanest' sovereignty options in 2026 for Dutch-centric or DACH-regulated companies. It passes the 'Zero-Trace' test for SOV-2 (Jurisdiction) because it has no US subsidiary or parent, effectively severing the CLOUD Act link. It is technically more sovereign than IONOS or Telekom due to this lack of US 'nexus.' However, it remains an 'N' for Supply Chain and Technology because of its reliance on NVIDIA and Intel hardware. For organizations handling sensitive healthcare data (NEN 7510), it is a superior choice to global hyperscalers."
+    "summary_note": "Cyso Cloud (formerly Fuga Cloud) is one of the strongest sovereignty candidates among smaller EU IaaS providers, particularly for Dutch and DACH-regulated organisations. Its 100% Dutch ownership with no foreign investors, absence of any US corporate nexus, and reliance on vanilla OpenStack make it structurally immune to CLOUD Act compelled disclosure — a decisive advantage over IONOS, Deutsche Telekom, and other providers with US-parent linkages. The NEN 7510 certification makes it the preferred compliant option for Dutch healthcare workloads specifically. The primary sovereignty gaps are the same as all EU providers: non-EU silicon (Intel/AMD CPUs, NVIDIA GPUs) for hardware, non-EU firmware, and limited quantitative environmental disclosures. For organisations requiring strict EU-member-state jurisdiction with maximum CLOUD Act immunity and open-source portability, Cyso Cloud represents an excellent choice, albeit at smaller scale than hyperscalers."
   }
 }

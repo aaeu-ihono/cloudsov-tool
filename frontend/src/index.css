@@ -234,3 +234,32 @@ tr.seal-subrow td { border-bottom: 2px solid #64748b !important; }
 .ra-legend-svc-list { display: flex; flex-wrap: wrap; gap: 3px; }
 .ra-legend-svc { font-size: 0.62rem; color: #4b6080; background: #f0f2f6; padding: 1px 6px; border-radius: 3px; border: 1px solid #e5e7eb; }
 .ra-legend-svc-globe { color: #6b7280; background: #f9fafb; border-style: dashed; }
+
+/* SOV objective min-seal reason icon */
+.sov-reason-icon { display: inline-flex; align-items: center; justify-content: center; margin-left: 5px; font-size: 0.7rem; color: #6b7280; cursor: default; line-height: 1; }
+.sov-reason-icon:hover { color: #2d5a8e; }
+
+/* Tooltip service pill — equivalent name */
+.ra-tt-equiv { font-size: 0.52rem; opacity: 0.82; font-weight: 400; }
+
+/* Gap table — clickable rows */
+.ra-gap-hint { font-size: 0.68rem; font-weight: 400; color: #9ca3af; margin-left: 6px; }
+.ra-gap-row { cursor: pointer; }
+.ra-gap-row:hover td { background: #eef1f6 !important; }
+.ra-gap-row-expanded td { background: #f0f2f6 !important; }
+.ra-gap-expand-icon { display: inline-block; width: 14px; font-size: 0.6rem; color: #9ca3af; }
+
+/* Expanded service breakdown row */
+.ra-expand-row td { padding: 0 !important; border-bottom: 2px solid #c8d0de; }
+.ra-expand-cell { background: #fafbfc; }
+.ra-expand-panel { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; padding: 12px 16px; background: #e5e7eb; }
+.ra-expand-cat { background: #fff; padding: 10px 12px; }
+.ra-expand-cat-name { font-size: 0.65rem; font-weight: 700; color: #1e3a5f; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 7px; padding-bottom: 4px; border-bottom: 1px solid #e5e7eb; }
+.ra-expand-svc-list { display: flex; flex-direction: column; gap: 3px; }
+.ra-expand-svc { display: flex; align-items: baseline; gap: 4px; font-size: 0.68rem; padding: 2px 0; }
+.ra-expand-svc-y .ra-expand-aws-name { color: #15803d; font-weight: 500; }
+.ra-expand-svc-p .ra-expand-aws-name { color: #a16207; font-weight: 500; }
+.ra-expand-svc-n .ra-expand-aws-name { color: #b91c1c; }
+.ra-expand-svc-n s { text-decoration-color: #b91c1c; }
+.ra-expand-equiv { font-size: 0.62rem; color: #4b6080; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ra-expand-none { font-size: 0.6rem; color: #9ca3af; font-style: italic; }

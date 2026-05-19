@@ -3,33 +3,33 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://corporate.ovhcloud.com/en/company/governance/",
-        "note": "OVH Groupe SA incorporated in France (Roubaix). Board of 11 directors under French AFEP-MEDEF governance code. All decisive authority under French jurisdiction."
+        "source": "https://corporate.ovhcloud.com/en/investor-relations/regulated-information/",
+        "note": "OVH Groupe SA is incorporated in France (Roubaix) and listed on Euronext Paris. The Klaba family (Octave Klaba, Polish-French founder) holds ~81% of capital and ~81.6% of voting rights following the October 2024 share buyback. Board operates under French AFEP-MEDEF governance code. All decisive authority rests under French law and EU jurisdiction. Gridscale GmbH is incorporated in Cologne, Germany, also under EU jurisdiction."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
-        "source": "https://pestel-analysis.com/blogs/owners/ovhcloud",
-        "note": "Klaba family holds ~68–81% after 2024 buyback — strong founder control. Listed on Euronext Paris. However publicly traded with ~30–40% institutional free float including global funds. No explicit anti-acquisition clause found; loyalty shares provide partial protection."
+        "source": "https://corporate.ovhcloud.com/en/investor-relations/opra/",
+        "note": "The Klaba family increased its stake from 68% to ~81% via a €350M buyback in October 2024, substantially reducing the free float to ~17%. Double voting rights apply to shares registered for over two years, further cementing family control. However, OVHcloud is publicly traded on Euronext Paris with no publicly documented explicit anti-acquisition clause or golden share mechanism — the protection derives from family concentration alone, not a structural contractual safeguard."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "P",
-        "source": "https://portersfiveforce.com/blogs/owners/ovhcloud",
-        "note": "Originally EU-financed. However in 2016 KKR (US) and TowerBrook (US/UK) took minority stakes. Klaba family retains control but non-EU private equity was involved in financing rounds."
+        "source": "https://silbadeepdives.substack.com/p/ovh-ovhcloud-europes-cloud-sovereignty",
+        "note": "OVHcloud was originally EU-funded and family-owned. However, in 2016 KKR (US private equity) and TowerBrook Capital (US/UK) took minority stakes totalling ~30%, representing material non-EU investment in OVHcloud's financing history. Post-buyback, institutional free float includes BlackRock (US, 5.09% as of 2023) and Norges Bank (Norway, 3.01% as of 2024). EU-majority ownership is maintained but non-EU financing contribution is documented."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://pitchbook.com/profiles/company/102462-31",
-        "note": "3,000 employees, €993M FY2024 revenue, 30+ data centres, servers manufactured in France and Canada. Significant EU-based economic presence."
+        "source": "https://corporate.ovhcloud.com/en/newsroom/news/ovhcloud-summit-2024/",
+        "note": "OVHcloud reported €993M revenue in FY2024 (first year to approach €1B), employs ~3,000 people predominantly in France and other EU countries, operates 30+ data centres across Europe, and manufactures servers in-house at its Roubaix and Croix facilities in northern France. A new Italian region was announced for 2025. Significant and sustained EU economic contribution documented."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "Founding member of GAIA-X and CISPE. Explicitly stated on France data centre page: 'We are a founding member of Gaia-X and the Open Invention Network (OIN).'"
+        "source": "https://www.ovhcloud.com/en/about-us/sovereign-cloud/",
+        "note": "OVHcloud is a founding member of GAIA-X and CISPE (Cloud Infrastructure Services Providers in Europe). The company holds services certified at GAIA-X label Level 3 (highest compliance tier). OVHcloud has an explicit sovereignty positioning page ('Trusted Sovereign Cloud') and advocates actively for EU digital sovereignty at policy level. Octave Klaba is among the most prominent European cloud sovereignty voices."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
         "source": "https://blog.ovhcloud.com/cloud-data-act/",
-        "note": "OVHcloud states European entities fall under exclusive EU jurisdiction with no dependency on non-EU law. However has US, Canadian, Singapore subsidiaries — Canadian court ruling 2024 demonstrated cross-border legal vulnerability."
+        "note": "OVHcloud states that its European entities operate independently of non-EU law, with no US parent and in-house manufactured servers reducing hardware vendor dependency. However, the September 2024 Ontario court ruling demonstrated that OVHcloud's Canadian subsidiary was successfully used as a legal vector to compel access to data stored in France — a real-world precedent for cross-border operational disruption. SecNumCloud-qualified services offer stronger resilience guarantees."
       }
     },
 
@@ -37,139 +37,139 @@
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "P",
         "source": "https://blog.ovhcloud.com/cloud-data-act/",
-        "note": "OVH Groupe SA governed by French law. However OVHcloud operates a US entity (OVHcloud US, Reston VA) and a Canadian subsidiary — both subject to their respective national legal systems."
+        "note": "OVH Groupe SA and all European entities are governed by French law. However OVHcloud maintains an active US subsidiary ('OVHcloud US', Reston VA) and a Canadian subsidiary (OVHcloud Inc.), each governed by their respective national legal systems. The group structure is multi-jurisdictional. EU customers on EU-region services use French-law contracts, but the corporate group is not exclusively EU-governed."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "P",
         "source": "https://us.ovhcloud.com/legal/faqs/cloud-act/",
-        "note": "OVHcloud's EU blog states 'we are CLOUD Act free' for European entities. However OVHcloud US explicitly acknowledges CLOUD Act applicability: 'Under the CLOUD Act, that could include data stored outside of the United States.' US subsidiary creates residual exposure."
+        "note": "OVHcloud's published CLOUD Act FAQ explicitly states: 'Under the CLOUD Act, that could include data stored outside of the United States' — acknowledging that OVHcloud US is subject to US CLOUD Act. The European entities assert freedom from CLOUD Act, but the US subsidiary creates a residual group-level exposure. French loi de blocage provides some counter-protection. No Chinese Cybersecurity Law exposure identified."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "N",
-        "source": "https://cms-lawnow.com/en/ealerts/2026/02/white-paper-demystifying-the-debate-on-the-us-cloud-act-vs-european-uk-data-sovereignty-in-the-context-of-cloud-services",
-        "note": "September 2024: Ontario Court of Justice ordered OVHcloud to produce data stored in France, UK, and Australia to Canadian RCMP. OVHcloud's loi de blocage argument was rejected. Demonstrates that non-EU authority channels exist and have been successfully exercised."
+        "source": "https://www.heise.de/en/news/Canadian-Court-OVHcloud-from-France-must-hand-over-user-data-11092029.html",
+        "note": "In September 2024, the Ontario Court of Justice (Canada) ordered OVHcloud to produce customer data stored in France, the UK, and Australia to the Canadian RCMP. OVHcloud's argument that French law (loi de blocage) prevented disclosure was rejected. The ruling — currently under appeal — establishes a documented, judicially confirmed channel through which a non-EU authority successfully compelled access to EU-stored data via OVHcloud's Canadian commercial presence."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/about-us/data-sovereignty/",
-        "note": "EU entities claim immunity from non-EU export controls. However the Canadian court ruling and US subsidiary complicate this. No clean export control exemption found for all OVHcloud entities."
+        "note": "EU-region services are not subject to US export controls (EAR/ITAR) and OVHcloud asserts EU-only governance for European customers. However, the US subsidiary and the Canadian court ruling introduce complexity: the corporate structure means OVHcloud is not fully free from non-EU regulatory reach across all its entities. Customers selecting EU-only regions and contracting with the French SAS entity have the strongest protection."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "P",
-        "source": "https://corporate.ovhcloud.com/en/company/history/",
-        "note": "Core IP and server manufacturing in France. However OVHcloud is publicly listed (Euronext Paris) with global institutional shareholders and has US/Canadian entities. No explicit EU-only IP registration claim found."
+        "source": "https://blog.ovhcloud.com/the-ovhcloud-strategy-to-promote-and-protect-innovation/",
+        "note": "OVHcloud has registered 50+ patent families, primarily covering hardware innovations (server cooling, rack design) and software patents — filed and developed in France, making the core IP EU-origin. However, OVHcloud is a member of the Open Invention Network (US-based) and its platform relies on global open-source software (Linux, OpenStack) with distributed authorship. No explicit claim that all IP is exclusively EU-registered. US subsidiary also develops software."
       }
     },
 
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
-        "source": "https://www.ovhcloud.com/en/enterprise/products/hosted-private-cloud/secnumcloud-qualified/",
-        "note": "SecNumCloud-qualified services offer customer-managed encryption and zero-trust access. Standard Public Cloud services do not explicitly advertise customer-managed KMS. Partial — depends on product tier."
+        "source": "https://www.ovhcloud.com/en/identity-security-operations/key-management-service/",
+        "note": "OVHcloud launched its Key Management Service (KMS) offering two modes: OVHcloud Managed Keys (OMK, one-click encryption) and Customer Managed Keys (CMK), where the customer imports their own key material (BYOK) and controls the full key lifecycle (rotation, revocation). CMK is accessible via REST and KMIP APIs. SecNumCloud-qualified services include integrated key management. The KMS was in GA by 2024 but FIPS 140-2 certification was still pending — rated P because CMK is available but the offering is not yet fully certified across all products."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
-        "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/about-us/environmental-impact-tracker/",
-        "note": "OVHcloud commits to no access to customer data except when requested by customer or required for support. Audit logs available. SecNumCloud tier provides enhanced access auditability with dedicated tooling."
+        "verdict": "P",
+        "source": "https://www.ovhcloud.com/en/compliance/",
+        "note": "OVHcloud's ISSP (Information System Security Policy) commits to no unauthorised access to customer data. Customer access logs are available via the control panel. SecNumCloud-qualified tier provides enhanced access logging and audit trail tooling. However, full real-time auditability of AI model invocations and inference pipelines is not explicitly documented for standard Public Cloud products. Rated P due to tier-dependency."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
         "source": "https://www.ovhcloud.com/en-gb/personal-data-protection/gdpr/",
-        "note": "GDPR-compliant data deletion documented. Customer data deleted on termination. GDPR Art. 17 right to erasure implemented."
+        "note": "OVHcloud documents GDPR Art. 17 (right to erasure) compliance with defined data deletion procedures on service termination. ISO 27001 and SecNumCloud certifications require verifiable data disposal processes. HDS certification requires documented and audited data deletion for health data hosting."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/about-us/data-sovereignty/",
-        "note": "OVHcloud offers EU-only processing option for customers who require it. However operates data centres in US, Canada, Singapore, Australia — non-EU storage is available and default for non-EU customers. EU confinement requires explicit customer selection."
+        "note": "OVHcloud offers an explicit EU data residency option and European customers can contractually confine data to EU regions. However, OVHcloud operates data centres in the US (Hillsboro, OR; Vint Hill, VA), Canada (Beauharnois, QC), Singapore, and Sydney — non-EU storage is a default option for non-EU customers and is available globally. EU confinement requires active customer selection, not a structural default for all customers."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/public-cloud/ai-machine-learning/",
-        "note": "OVHcloud offers AI/ML services including managed AI training and inference. Services hosted in EU data centres. However underlying GPU hardware (NVIDIA) and some AI frameworks are non-EU. Partial EU control."
+        "note": "OVHcloud offers AI Training and AI Deploy services hosted in EU data centres, offering sovereignty over where inference and training runs. The infrastructure is EU-based. However, the underlying GPU hardware is NVIDIA (US), and many AI models offered are open-source models (Llama, Mistral) trained by non-EU parties. OVHcloud does not develop or own its own foundation models. Partial EU control over compute infrastructure, but not over model development."
       }
     },
 
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "OpenStack-based Public Cloud, S3-compatible object storage, open standards throughout. Founding member of Open Invention Network. Explicitly committed to reversibility and portability."
+        "source": "https://www.ovhcloud.com/en/about-us/data-sovereignty/",
+        "note": "OVHcloud's Public Cloud is built on OpenStack (open-source), with S3-compatible object storage and managed Kubernetes service. OVHcloud explicitly commits to data portability and charges no egress fees, meaning migration to alternative EU providers is financially and technically unobstructed. As a founding member of the Open Invention Network and CISPE, interoperability is a stated principle."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/enterprise/products/hosted-private-cloud/secnumcloud-qualified/",
-        "note": "SecNumCloud services operated exclusively by EU staff. Standard services: OVHcloud has US, Canadian, and other non-EU operational teams. Full EU-only management only available on SecNumCloud tier."
+        "note": "SecNumCloud-qualified services are operated exclusively by EU-based personnel with no non-EU vendor access. Standard services: OVHcloud operates teams globally including US and Canadian offices — non-EU staff may be involved in support or operations. Full EU-only management is explicitly guaranteed only at the SecNumCloud tier, not as a universal platform default."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://pitchbook.com/profiles/company/102462-31",
-        "note": "3,000 employees predominantly EU-based. French engineering teams design and manufacture servers in Roubaix. Strong EU talent pool documented."
+        "source": "https://corporate.ovhcloud.com/en/newsroom/news/ovhcloud-summit-2024/",
+        "note": "OVHcloud employs ~3,000 people, the majority in France (Roubaix HQ, Paris, Strasbourg, Bordeaux) and other EU countries. The company designs and manufactures its own servers in Roubaix and Croix, France — requiring and sustaining a specialised EU engineering workforce with no equivalent elsewhere. Strong documented EU talent pool."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/enterprise/products/hosted-private-cloud/secnumcloud-qualified/",
-        "note": "SecNumCloud: operated exclusively by EU personnel. Standard services: global support teams including US and Canada. EU-only support not guaranteed on standard products."
+        "note": "SecNumCloud product: support delivered exclusively by EU personnel (explicit contractual requirement). Standard OVHcloud: global support including US and Canadian teams. EU-only support is not the universal default — standard products use a global support model."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "OpenStack open-source. Extensive public documentation. API documentation published. Source code of OpenStack components publicly available under Apache 2.0 licence."
+        "source": "https://help.ovhcloud.com/csm/en-documentation-manage-operate-kms",
+        "note": "OVHcloud's platform is built on OpenStack (Apache 2.0 licence, publicly auditable), with comprehensive public API documentation at help.ovhcloud.com and docs.ovhcloud.com. Source code for OpenStack and Kubernetes components is publicly available. OVHcloud's proprietary orchestration layer is not open-sourced, but the core infrastructure APIs and open-source stack support long-term operational autonomy."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "P",
         "source": "https://us.ovhcloud.com/legal/data-processing-agreement/",
-        "note": "DPA references subprocessors and SCCs for third-country transfers. Full subprocessor list not comprehensively public. Some non-EU subprocessors acknowledged (e.g. CCPA compliance indicates US data processing)."
+        "note": "OVHcloud's DPA references subprocessors and includes SCCs for third-country transfers, implying some non-EU subprocessors exist. OVHcloud's servers are manufactured in-house in France, reducing critical supply chain non-EU exposure significantly. However NVIDIA (US), VMware/Broadcom (US), and other non-EU technology vendors remain critical dependencies. Full subprocessor list not comprehensively public."
       }
     },
 
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "Y",
-        "source": "https://us.ovhcloud.com/about/green-tech/",
-        "note": "OVHcloud designs and manufactures servers in-house at Roubaix, France and Canada. 'OVHcloud, from the outset, has applied circular economy principles to its entire value chain, producing eco-friendly servers, manufactured in our plants in France and Canada.'"
+        "source": "https://corporate.ovhcloud.com/en/sustainability/supply-chain/",
+        "note": "OVHcloud is unique among European cloud providers in designing and manufacturing its own servers in-house. Primary European manufacturing is at Croix (near Roubaix), France, with a second plant in Beauharnois, Canada for North American markets. The French facility covers chassis fabrication, server assembly, cooling system integration, and rack construction — providing a level of hardware supply chain control unmatched by any other EU cloud provider."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
         "source": "https://corporate.ovhcloud.com/en/sustainability/environment/",
-        "note": "Servers manufactured in France, but underlying chips (Intel, AMD, NVIDIA) and their firmware are US-origin. No EU-origin firmware claim found. Standard industry non-EU firmware applies."
+        "note": "Although OVHcloud designs and assembles its own server chassis and cooling systems in France, the underlying processor chips are Intel and AMD (both US companies), and their associated firmware — Intel Management Engine (ME) and AMD Platform Security Processor (PSP) — is US-origin and cannot be substituted. NVIDIA GPU firmware is also US-origin. No EU-origin chip or firmware capability exists for OVHcloud or any EU cloud provider."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "P",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "OpenStack (open-source, global community), Kubernetes, proprietary OVHcloud orchestration software. Core platform software partially EU-developed, partially global open-source. No complete EU-origin software stack."
+        "source": "https://www.ovhcloud.com/en/about-us/data-sovereignty/",
+        "note": "OVHcloud's platform orchestration, IAM, billing, and automation software is developed by its French engineering teams. The cloud stack is built on OpenStack (global open-source community) and Kubernetes — both developed internationally. Core EU-developed proprietary layers exist alongside significant global open-source dependencies. Not a purely EU-origin software stack."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
-        "source": "https://corporate.ovhcloud.com/en/sustainability/environment/",
-        "note": "OVHcloud controls server manufacturing and data centre design. However dependent on non-EU chip vendors (Intel, AMD, NVIDIA) and VMware (US) for Hosted Private Cloud. Material non-EU proprietary dependencies exist."
+        "source": "https://corporate.ovhcloud.com/en/sustainability/supply-chain/",
+        "note": "OVHcloud's server manufacturing and data centre design is EU-controlled, a substantial differentiator. However critical dependencies on non-EU vendors remain: Intel and AMD for processors, NVIDIA for GPUs, and VMware/Broadcom (US) for the Hosted Private Cloud product line. The combination of in-house manufacturing and non-EU chip dependency yields a partial score."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://us.ovhcloud.com/legal/data-processing-agreement/",
-        "note": "DPA documents some subprocessors. Annual sustainability report published with supply chain references. Full sub-supplier audit rights for customers not explicitly documented."
+        "source": "https://corporate.ovhcloud.com/en/sustainability/supply-chain/",
+        "note": "OVHcloud publishes an annual sustainability report referencing its supply chain practices and circular economy approach. The supply chain page describes server manufacturing lifecycle. However, full tier-2 and tier-3 supplier audit rights for customers are not explicitly documented in public contractual terms. More transparent than most EU providers due to in-house manufacturing, but not fully auditable."
       }
     },
 
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "OpenStack APIs, S3-compatible object storage, Kubernetes, open standards throughout. Explicitly states: 'We provide solutions with open-source licences (OpenStack, Managed Kubernetes Service) or at market standards.'"
+        "source": "https://www.ovhcloud.com/en/about-us/data-sovereignty/",
+        "note": "OVHcloud's Public Cloud uses OpenStack APIs (compute, storage, networking), S3-compatible Object Storage, and Kubernetes-native APIs — all non-proprietary, open standards. Extensive API documentation is published at api.ovhcloud.com. OVHcloud is a founding GAIA-X member, committing to interoperability as a core design principle."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "P",
-        "source": "https://www.ovhcloud.com/en/datacenter/europe/france/",
-        "note": "Core infrastructure built on open-source (OpenStack, Kubernetes). However OVHcloud's own orchestration, billing, and management tools are proprietary. Partial open-source — not the full stack."
+        "source": "https://www.ovhcloud.com/en/about-us/patent-pledge/",
+        "note": "The core cloud infrastructure is built on OpenStack (Apache 2.0) and Kubernetes (Apache 2.0), both publicly auditable open-source projects. OVHcloud has a 'Patent Pledge' committing not to enforce its software patents against open-source projects. However, OVHcloud's own orchestration, billing, IAM, and management plane code is proprietary and not publicly available — the full platform stack is not open-sourced."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/compliance/",
-        "note": "Compliance documentation, ISSP framework, and API documentation published. Full internal architectural documentation and data flow diagrams not publicly available."
+        "note": "OVHcloud publishes its ISSP (Information System Security Policy), compliance certifications, and product documentation. SecNumCloud-qualified products include documented architecture under ANSSI standards. Full internal data flow diagrams and infrastructure dependency maps are not publicly disclosed for standard products — partial architectural transparency."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
         "source": "https://corporate.ovhcloud.com/en/sustainability/environment/",
-        "note": "OVHcloud uses Intel, AMD and NVIDIA GPUs — all US companies. No EU-origin processor or accelerator offering. VMware (US) used for Hosted Private Cloud."
+        "note": "OVHcloud offers GPU instances and AI services powered by NVIDIA GPUs (A100, H100 — US company). All general-purpose compute uses Intel or AMD processors (both US). No EU-origin processor, GPU, or accelerator is available or used. This is an industry-wide constraint — no commercially viable EU-manufactured processor exists for cloud-scale deployment."
       }
     },
 
@@ -177,32 +177,32 @@
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
         "source": "https://www.ovhcloud.com/en/compliance/",
-        "note": "ISO 27001 (since 2012), ISO 27017, ISO 27018, ISO 27701, HDS, SecNumCloud (ANSSI), BSI KRITIS registered, PCI DSS, SOC 1 & 2 Type 2, ENS Spain. Comprehensive EU and international certification portfolio."
+        "note": "OVHcloud holds: ISO/IEC 27001 (since 2012, extended to all cloud solutions in 2023/2024), ISO 27017 (cloud security), ISO 27018 (personal data in cloud), ISO 27701 (privacy management), ISO 50001 (energy), HDS v2.0 (French health data hosting), SecNumCloud 3.2 qualification for Private Cloud and Bare Metal Pod (ANSSI, granted March 2025), PCI DSS, SOC 1 & 2 Type 2, ENS Spain, and AGID Italy. BSI C5 compliance roadmap in progress for German region. Comprehensive and class-leading EU certification portfolio."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
         "source": "https://www.ovhcloud.com/en-gb/personal-data-protection/gdpr/",
-        "note": "GDPR compliance documented. CISPE code of conduct signatory. EBA Outsourcing Guidelines compliance for financial services. NIS2 applicable as major cloud provider."
+        "note": "GDPR compliance is extensively documented including DPA, sub-processor list, privacy policy, and CISPE Code of Conduct signatory status. NIS2 applies to OVHcloud as a major cloud infrastructure provider. DORA compliance is documented for financial sector customers, and OVHcloud's SecNumCloud ANSSI certification explicitly supports DORA and PCI DSS compliance frameworks."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/enterprise/products/hosted-private-cloud/secnumcloud-qualified/",
-        "note": "SecNumCloud services: operated 24/7 exclusively by EU-based personnel. Standard services: global operations including US and Canadian teams. EU-only SOC not guaranteed on standard tier."
+        "note": "SecNumCloud-qualified services: operated 24/7 exclusively by French/EU-based personnel with EU-only access controls (contractually enforced). Standard services: OVHcloud operates globally with US and Canadian teams who may perform security monitoring. EU-only SOC operations are not universally guaranteed on standard products — only on the SecNumCloud tier."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/compliance/",
-        "note": "ISSP framework published. Customers can request access to certifications and audit reports. Direct customer oversight of real-time security monitoring not explicitly offered on standard products."
+        "note": "OVHcloud provides customers with access to logs via the OVHcloud control panel and API. SOC 2 Type 2 reports and ISO 27001 audit summaries are available under NDA to enterprise customers. SecNumCloud tier provides enhanced audit evidence and access logging. Real-time direct customer visibility into provider-side security monitoring is not universally offered on standard products."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
-        "source": "https://www.ovhcloud.com/en/compliance/",
-        "note": "GDPR-compliant breach notification procedures. ISO 27001 requires vulnerability disclosure. SecNumCloud requires transparent reporting. Independent patch management capability documented via in-house server manufacturing."
+        "source": "https://corporate.ovhcloud.com/en/newsroom/news/secnumcloud-qualification-bare-metal-pod/",
+        "note": "GDPR-compliant breach notification procedures are documented and enforced. ISO 27001 and SecNumCloud require formal vulnerability management and transparent patch processes. OVHcloud's in-house server manufacturing gives it direct control over hardware-level patching without third-party intermediaries — a genuine operational resilience advantage. ANSSI's SecNumCloud qualification audits these processes independently."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "P",
         "source": "https://www.ovhcloud.com/en/compliance/",
-        "note": "Customers can request access to certifications and reports under certain conditions. Full independent audit access with complete system access not explicitly guaranteed for all customers."
+        "note": "Customers and their auditors can access SOC reports, ISO 27001 certificates, and SecNumCloud ANSSI qualification documentation. ANSSI performs independent audits as part of SecNumCloud qualification. Full penetration testing and system-level access audits by customers are not universally available on all products — enterprise and SecNumCloud tiers provide the most audit access."
       }
     },
 
@@ -210,25 +210,25 @@
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
         "source": "https://corporate.ovhcloud.com/en/sustainability/environment/",
-        "note": "PUE measured and audited over 12 months across 88% of owned data centres. ISO 50001 certified. European Code of Conduct for Energy Efficiency in Data Centres participant. Targets: 73.4% GHG reduction Scopes 1&2 by 2030."
+        "note": "OVHcloud measures PUE across 88%+ of owned data centres (range: 1.10–1.30). ISO 50001 energy management certification is held. OVHcloud participates in the EU Code of Conduct for Energy Efficiency in Data Centres. Published science-based targets include 73.4% absolute reduction in Scope 1+2 GHG emissions by FY2030 vs 2019 baseline. Water cooling technology (proprietary, 100+ cooling patents) achieves PUE improvements by reducing cooling energy consumption."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://us.ovhcloud.com/about/green-tech/",
-        "note": "Circular economy principles applied since company founding. Servers designed for component recycling and refurbishment. 'Eco' server range built on recycled hardware. Zero waste to landfill target by 2025."
+        "note": "OVHcloud has applied circular economy principles since its founding. Servers are designed at component level for disassembly, repair, and reuse. An 'Eco' server product line uses refurbished hardware. OVHcloud targets 100% component refurbishment/recycling with a zero waste to landfill goal. In-house manufacturing enables direct control over the full hardware lifecycle from raw material to decommission."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
         "source": "https://www.ovhcloud.com/en/about-us/environmental-impact-tracker/",
-        "note": "Carbon footprint published since 2017. Environmental Impact Tracker tool available to customers via control panel and API. Life Cycle Analysis methodology. GHG Protocol compliant. ISO 30134 standards followed."
+        "note": "OVHcloud provides an Environmental Impact Tracker tool available to all customers via the control panel and API, showing real-time estimated carbon and energy usage per service. The company publishes an annual sustainability report following GHG Protocol methodology, Life Cycle Analysis (LCA) approach, and ISO 30134 data centre energy standards. Carbon footprint reporting has been continuous since 2017."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "P",
         "source": "https://corporate.ovhcloud.com/en/sustainability/environment/",
-        "note": "Committed to increasing renewable/low-carbon energy mix. Uses nuclear and hydroelectricity. Target was 100% renewable by 2025 — not yet achieved globally. EU data centres predominantly renewable but not 100% confirmed globally."
+        "note": "OVHcloud targets a renewable/low-carbon energy mix including nuclear and hydroelectricity. The Renewable Energy Factor (REF) reported is ~77%, with a target to increase this. OVHcloud has not yet reached 100% renewable energy globally — EU data centres are predominantly renewable but the global fleet (Canada, US, Singapore) uses mixed energy. The 2025 global net zero target for Scopes 1+2 was announced but not yet confirmed as achieved."
       }
     },
 
-    "summary_note": "The September 2024 Canadian court ruling is the most significant sovereignty risk — a non-EU authority successfully compelled data access through OVHcloud's Canadian subsidiary for data stored in France. This directly undermines SOV-2-Q3 and is documented evidence, not theoretical risk. CLOUD Act exposure exists via OVHcloud US entity. SOV-1-Q3: KKR (US) and TowerBrook (US/UK) were minority investors — weakens the EU-financing claim. SecNumCloud tier addresses many weaknesses but standard products do not."
+    "summary_note": "OVHcloud is France's most advanced sovereign cloud provider and holds the strongest EU certification portfolio of any provider in this survey, including SecNumCloud 3.2 qualification (ANSSI) for Private Cloud and Bare Metal Pod granted March 2025. Its unique advantage is in-house server manufacturing at Croix, France — no other EU cloud provider designs and assembles its own hardware at this scale, which significantly improves SOV-5 supply chain scores. The most critical sovereignty weakness is the September 2024 Ontario Court of Justice ruling, which provides documented judicial confirmation that a non-EU authority (Canada) successfully compelled access to OVHcloud data stored in France via its Canadian subsidiary — a real-world precedent that directly undermines SOV-2-Q3. The US subsidiary (OVHcloud US) further creates CLOUD Act group-level residual exposure. For customers requiring the highest sovereignty level, OVHcloud's SecNumCloud-qualified tier addresses most weaknesses. Standard products carry meaningful jurisdictional risks due to the multi-national corporate structure."
   }
 }

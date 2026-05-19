@@ -3,224 +3,224 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://tracxn.com/d/companies/elastx/__l6I_zjYX4SZGIdaDsGnEKZLAgv3tL94dTbqKGOVqOjg",
-        "note": "Elastx is an independent, unfunded Swedish company based in Stockholm. Decisive authority remains entirely with its Swedish founders and board."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx AB is a privately held Swedish company incorporated and headquartered in Stockholm, Sweden. Sobro (a Swedish investment firm) is its only known external investor. All decision-making authority rests entirely with its Swedish founders and board under Swedish law."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
-        "source": "https://elastx.se/en/overview",
-        "note": "Being a private, unfunded entity provides high organic resistance to foreign takeover, though no formal 'state-level' golden share is documented."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Being a small, private, Swedish-owned company with no publicly traded shares provides high organic resistance to foreign takeover, but no formal statutory 'golden share' or change-of-control clause enforceable by the Swedish state has been publicly documented."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "Y",
-        "source": "https://tracxn.com/d/companies/elastx/__l6I_zjYX4SZGIdaDsGnEKZLAgv3tL94dTbqKGOVqOjg",
-        "note": "As an unfunded/bootstrapped company, it relies on its own revenue generated within the Swedish/EU market."
+        "source": "https://www.sobro.se/en/company/elastx/",
+        "note": "Elastx operates as a bootstrapped entity generating revenue primarily within Sweden and Europe. Its sole known external investor, Sobro, is a Swedish investment firm; there is no evidence of non-EU venture capital or institutional funding."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Focused exclusively on the Swedish market with a local workforce of Swedish citizens subject to annual background checks."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "All operations, engineering, and support roles are located in Stockholm, Sweden, contributing directly to the Swedish and EU digital economy. Elastx operates three production data centers in the Stockholm metropolitan area."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/elastx",
-        "note": "A vocal advocate for Swedish digital sovereignty and a member of the OpenInfra Foundation, aligning with Gaia-X principles."
+        "source": "https://openinfra.org/a/members/profile/3/elastx-ab",
+        "note": "Elastx is a registered Supporting Organization in the OpenInfra Foundation (the steward of OpenStack), demonstrating active alignment with open-infrastructure sovereignty principles. The company publicly advocates for Swedish and EU digital sovereignty."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
-        "source": "https://elastx.se/en/overview",
-        "note": "Better than proprietary peers due to OpenStack usage, but remains physically dependent on non-EU hardware manufacturers for replacement parts."
+        "source": "https://elastx.se/en/openstack",
+        "note": "Elastx uses a 'vanilla' OpenStack stack with no proprietary vendor layer, significantly reducing software-side suspension risk. However, continued secure operation would degrade over time if firmware or microcode updates from US-origin chipmakers (Intel, AMD, NVIDIA) were withheld."
       }
     },
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "100% Swedish entity. All business information and customer data are handled under Swedish and EU legislation."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx AB is incorporated in Sweden (EU member state) and operates exclusively under Swedish and EU law. All customer contracts are subject to Swedish jurisdiction."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Elastx has no US nexus or parent company, making it immune to the US CLOUD Act—a key differentiator from Deutsche Telekom or IONOS."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx has no US parent company, no US subsidiary, and no qualifying US business operations, making it structurally immune to US CLOUD Act jurisdiction. There is no Chinese corporate nexus. This is a key differentiator versus providers with US-listed parent companies."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "All data centers are in Sweden; all staff are Swedish citizens. There are no technical or legal backdoors to non-EU entities."
+        "source": "https://elastx.se/en/privacy-policy",
+        "note": "All three data centers are located within Sweden; all staff are Swedish nationals subject to Swedish law. The privacy policy confirms no data sharing with non-EU entities absent a specific EU-compliant legal basis."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
-        "source": "https://elastx.se/en/overview",
-        "note": "While data is safe, the high-performance GPUs (NVIDIA) offered for their AI platform are subject to US export control regulations."
+        "source": "https://elastx.se/en/openstack",
+        "note": "Data processing and storage are fully EU-based and not subject to export controls. However, Elastx offers GPU instances using NVIDIA hardware, which remains subject to US Export Administration Regulations (EAR), creating a residual hardware-level dependency."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Management platform and automation layers are developed in-house in Stockholm."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx's management platform, automation tooling, and operational scripts are developed entirely in-house by its Stockholm-based engineering team. No IP is registered outside Sweden or the EU."
       }
     },
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Offers full disk encryption and a dedicated HSM (Hardware Security Module) cluster for secret management via Barbican."
+        "source": "https://docs.elastx.cloud/docs/openstack-iaas/overview/",
+        "note": "Elastx implements full disk encryption at rest for all storage layers (ephemeral, volume, and object storage). OpenStack Barbican is available as a key management service, enabling customer-managed encryption keys and HSM integration."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "ISO 27001, 27017, and 27018 certified; provides high-resolution audit logs for compliant workloads."
+        "source": "https://elastx.se/en/information-security-policy",
+        "note": "Elastx holds ISO/IEC 27001:2022, ISO 27017, and ISO 27018 certifications, all of which require comprehensive audit logging and access control documentation. High-resolution platform logs are available to customers."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Strict GDPR-compliant decommissioning protocols are in place."
+        "source": "https://elastx.se/en/privacy-policy",
+        "note": "GDPR-compliant data deletion procedures are contractually guaranteed. The ISO 27001 ISMS requires documented data destruction processes and verifiable evidence of erasure upon contract termination."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "All three Availability Zones are located within 20km of each other in Sweden."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "All three Availability Zones (STO1, STO2, STO3) are located within the Stockholm metropolitan area, Sweden. Elastx explicitly guarantees that customer data never leaves Swedish territory."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
-        "source": "https://elastx.se/en/overview",
-        "note": "Offers an AI platform with Swedish sovereignty, but the training hardware (GPUs) and many software frameworks (e.g. PyTorch) are US-origin."
+        "source": "https://elastx.se/en/openstack",
+        "note": "Elastx provides GPU-enabled IaaS instances for AI workloads within Sweden, ensuring data residency under EU jurisdiction. However, AI training frameworks (e.g. PyTorch, CUDA) and hardware accelerators (NVIDIA) are of US origin, meaning the full AI stack is not exclusively EU-controlled."
       }
     },
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/elastx",
-        "note": "Built on OpenStack IaaS and Kubernetes CaaS, ensuring industry-standard portability."
+        "source": "https://www.openstack.org/marketplace/public-clouds/elastx-ab/openstack-iaas",
+        "note": "Elastx is an OpenStack Powered cloud certified by the OpenInfra Foundation, using vanilla OpenStack APIs and Kubernetes CaaS with no proprietary overlay. Workloads can be migrated to any other OpenStack-compatible provider without rewriting application logic."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Operations are 100% handled by Swedish staff in Sweden."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "All operations, system administration, and 24/7 support are performed exclusively by Swedish-citizen staff in Stockholm. No operational dependency on non-EU vendors is present for day-to-day management."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Deep local expertise in open-source cloud orchestration."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx has built a specialist in-house Swedish engineering team with deep OpenStack expertise since 2012. The company actively contributes to and hosts OpenStack community events in Sweden."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Support is delivered by Swedish citizens subject to annual security vetting."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Support is delivered entirely by Swedish nationals operating from Stockholm. The company's documented practice of annual security vetting for its workforce further reinforces operational sovereignty."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/elastx",
-        "note": "The core OpenStack code is open-source; Elastx-specific automation is documented for the customer."
+        "source": "https://docs.elastx.cloud/docs/openstack-iaas/",
+        "note": "Core platform source code is fully open-source under Apache 2.0 via the OpenStack project. Elastx maintains its own public documentation portal (docs.elastx.cloud) covering all IaaS services."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "P",
-        "source": "https://www.digitalrealty.com/partners/partner-directory/elastx",
-        "note": "Uses Digital Realty (US-headquartered) for some physical data center space in Stockholm, though Elastx operates the logic and security."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Elastx's primary data center facilities are in Sweden. However, hardware vendors (Intel, AMD, NVIDIA) and some colocation infrastructure involve non-EU entities. Digital Realty (US-headquartered REIT) reportedly provides colocation space for some Stockholm nodes, though Elastx controls its own equipment."
       }
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
-        "source": "https://elastx.se/en/overview",
-        "note": "Relies on non-EU commodity server hardware and NVIDIA GPUs."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Server hardware (compute, storage, networking) is procured from non-EU manufacturers. Elastx has a listed Intel partner relationship, confirming reliance on US-origin silicon. No EU-manufactured server alternatives are used."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "https://elastx.se/en/overview",
-        "note": "Uses standard proprietary US/Asian firmware for server components."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Server firmware (UEFI/BIOS), CPU microcode (Intel/AMD), and GPU firmware (NVIDIA) are all proprietary code originating from US manufacturers. This is a universal constraint for all current EU cloud providers."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Manages their own software builds and repositories from Sweden."
+        "source": "https://docs.elastx.cloud/docs/openstack-iaas/",
+        "note": "Elastx manages its own software build, packaging, and update pipelines entirely from Sweden. The company is listed as an OpenStack operator on the OpenInfra Foundation's marketplace, confirming EU-based orchestration of the software stack."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "N",
-        "source": "https://elastx.se/en/overview",
-        "note": "Technologically dependent on US-origin silicon (Intel/NVIDIA)."
+        "source": "https://www.intel.com/content/www/us/en/partner/showcase/storefront/a5S3b0000002jpFEAQ/elastx-ab.html",
+        "note": "Elastx is a listed Intel partner, confirming dependency on US-origin x86 processors. NVIDIA GPUs are also offered for AI workloads. These non-EU hardware dependencies represent the primary sovereignty gap."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://elastx.se/en/overview",
-        "note": "Transparency is high for the Swedish operations, but drops off at the hardware component layer."
+        "source": "https://elastx.se/en/information-security-policy",
+        "note": "ISO 27001 certification requires documented supplier management controls, providing transparency for the operational supply chain. Full audit transparency into the hardware silicon manufacturing supply chain (Intel, AMD, NVIDIA) is not achievable by any European provider."
       }
     },
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/elastx",
-        "note": "Strict adherence to OpenStack and Kubernetes APIs."
+        "source": "https://www.openstack.org/marketplace/public-clouds/elastx-ab/openstack-iaas",
+        "note": "Elastx is officially OpenStack Powered certified by the OpenInfra Foundation and uses exclusively standard OpenStack and Kubernetes APIs. No proprietary API layer exists over the open-source stack."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "Y",
-        "source": "https://openinfra.org/a/members/profile/2/elastx",
-        "note": "Utilizes the OpenStack project core."
+        "source": "https://openinfra.org/a/members/profile/3/elastx-ab",
+        "note": "The entire platform is built on Apache 2.0-licensed OpenStack components. As a Supporting Organization of the OpenInfra Foundation, Elastx uses and contributes to the open-source upstream, with full audit and modification rights."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Provides clear documentation on data flow between its three Swedish Availability Zones."
+        "source": "https://docs.elastx.cloud/docs/openstack-iaas/overview/",
+        "note": "Elastx publishes detailed architecture documentation including data flow between its three Stockholm Availability Zones (STO1, STO2, STO3) and network topology on its public documentation site."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "https://elastx.se/en/overview",
-        "note": "Trace found: The AI platform explicitly relies on NVIDIA GPUs."
+        "source": "https://elastx.se/en/openstack",
+        "note": "Elastx explicitly offers GPU-accelerated instances using NVIDIA hardware for AI and HPC workloads. All x86 compute nodes rely on Intel or AMD processors. No EU-origin processor alternatives (e.g. SiPearl) are currently offered."
       }
     },
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Holds ISO 27001, 27017, 27018, and 14001."
+        "source": "https://elastx.se/en/information-security-policy",
+        "note": "Elastx holds ISO/IEC 27001:2022, ISO/IEC 27017, ISO/IEC 27018 (cloud-specific and PII protection), and ISO 14001 (environmental management). These are verified by accredited third-party auditors."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "A primary choice for Swedish healthcare and fintech due to strict NIS2/GDPR alignment."
+        "source": "https://elastx.se/en/news/the-swedish-cloud-provider-everything-you-need-for-secure-cloud-operations",
+        "note": "Elastx is documented as a preferred cloud provider for Swedish healthcare and fintech sectors requiring strict NIS2 and GDPR compliance. Its ISO 27001 ISMS provides the documented control framework required under NIS2 Article 21."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Security is managed locally by vetted Swedish nationals."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Security monitoring and incident response are performed exclusively by Swedish-citizen staff in Stockholm, Sweden. No non-EU SOC or outsourced security operations are in place."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Direct access to platform logs and threat protection metrics."
+        "source": "https://elastx.se/en/security",
+        "note": "Elastx provides customers with direct access to OpenStack Keystone audit logs, Nova compute event logs, and threat protection metrics through the OpenStack Dashboard and API. ISO 27018 certification mandates customer-accessible access logs."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Fully integrated into the Swedish cybersecurity reporting framework."
+        "source": "https://elastx.se/en/information-security-policy",
+        "note": "ISO 27001 ISMS includes documented breach notification procedures aligned with GDPR Article 33 (72-hour notification) and NIS2 reporting requirements. Patch management is performed by the Stockholm-based engineering team."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Regularly audited by third-party Swedish security firms."
+        "source": "https://elastx.se/en/information-security-policy",
+        "note": "Elastx facilitates third-party security audits by Swedish and EU-accredited firms as part of its ISO 27001 certification cycle. The open-source nature of the platform stack enables comprehensive technical review."
       }
     },
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Data centers are Tier 3 and optimized for energy efficiency."
+        "source": "https://european.cloud/provider/elastx/",
+        "note": "Elastx operates three data centers in the Stockholm area, all powered by 100% renewable green electricity. The ISO 14001 certification requires documented energy efficiency targets and continual improvement in environmental performance."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Maintains a focus on sustainable IT infrastructure and renewable energy."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "Sustainability is a stated core company value at Elastx. The company practices responsible hardware lifecycle management aligned with its ISO 14001 Environmental Management System, though specific public data on hardware repurposing rates is limited."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Sustainability is a core company value; ISO 14001 certified."
+        "source": "https://elastx.se/en/about-elastx",
+        "note": "ISO 14001 certification requires public environmental performance reporting. Elastx communicates its renewable energy use and environmental commitments, though a detailed standalone CSRD-aligned carbon report has not been publicly identified."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
-        "source": "https://elastx.se/en/overview",
-        "note": "Operates entirely on renewable energy."
+        "source": "https://european.cloud/provider/elastx/",
+        "note": "All three Elastx data centers (STO1, STO2, STO3) in the Stockholm area are powered exclusively by renewable electricity, consistent with Sweden's predominantly hydropower-based energy grid."
       }
     },
-    "summary_note": "Elastx is perhaps the 'purest' European sovereign provider in this list for legal purposes. Unlike IONOS or Telekom, it has NO US entity and NO non-EU funding (Unfunded/Bootstrapped), which essentially eliminates the risk of extraterritorial legal reach (CLOUD Act). It is a 'Y' in almost every operational and legal category. However, in your 'Zero-Trace' audit, it remains an 'N' for Supply Chain and Technology because, like all current EU providers, it cannot function without US-origin silicon (NVIDIA/Intel). For a customer whose primary threat model is US legal overreach, Elastx is a top-tier choice."
+    "summary_note": "Elastx is among the strongest sovereignty options in the EU cloud market for organisations whose primary threat model is non-EU legal overreach. As an independent, bootstrapped Swedish company with no US parent, no US subsidiary, and no non-EU institutional investors, it is structurally immune to the US CLOUD Act — a distinction it shares with very few providers. Its 'vanilla' OpenStack architecture with no proprietary overlay maximises portability and technical auditability. The platform is certified to ISO 27001:2022, 27017, 27018, and 14001, and operates three Stockholm-area data centres on 100% renewable energy. The primary sovereignty gaps are universal hardware-level constraints: all compute infrastructure relies on non-EU silicon (Intel/AMD CPUs, NVIDIA GPUs), and colocation arrangements may involve US-headquartered real estate operators. For EU public sector or regulated-industry workloads where CLOUD Act immunity is a hard requirement, Elastx represents a top-tier choice."
   }
 }

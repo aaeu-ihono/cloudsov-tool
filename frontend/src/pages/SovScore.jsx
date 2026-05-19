@@ -215,6 +215,16 @@ export default function SovScore() {
                           <option key={i} value={i}>SEAL-{i}</option>
                         ))}
                       </select>
+                      {sov.min_seal_reason && (
+                        <span
+                          className="sov-reason-icon"
+                          onMouseEnter={e => showPopover({
+                            question: `${sovId}: ${sov.name} — why SEAL-${minSeals[sovId] ?? sov.default_min_seal} minimum?`,
+                            note: sov.min_seal_reason,
+                          }, e)}
+                          onMouseLeave={hidePopover}
+                        >ⓘ</span>
+                      )}
                     </div>
                   </th>
                 )

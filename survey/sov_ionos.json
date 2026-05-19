@@ -3,33 +3,33 @@
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
         "verdict": "P",
-        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/ionos-group-se-plans-initial-public-offering-in-the-first-quarter-of-2023.html",
-        "note": "IONOS Group SE headquartered in Germany and majority-owned by United Internet AG (~63.84%). However, public listing on Frankfurt Stock Exchange introduces non-EU institutional shareholders and dispersed ownership, reducing absolute control certainty."
+        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/united-internet-and-warburg-pincus-announce-price-range-and-offer-structure-for-initial-public-offering-of-ionos-group-se.html",
+        "note": "IONOS Group SE is headquartered in Montabaur, Germany, and majority-controlled (63.8%) by United Internet AG, itself majority-held by founder Ralph Dommermuth (>50% voting shares). However, Warburg Pincus (US private equity) held 21.2% at IPO (February 2023), and a 15% public float introduces dispersed, potentially non-EU institutional shareholders. IONOS Inc. (Philadelphia, PA) is a wholly owned US operational subsidiary, creating a secondary locus of authority outside the EU."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "N",
-        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/ionos-group-se-plans-initial-public-offering-in-the-first-quarter-of-2023.html",
-        "note": "Publicly listed company with free float. No documented anti-acquisition structural protections against foreign (non-EU) accumulation of shares."
+        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/united-internet-and-warburg-pincus-announce-price-range-and-offer-structure-for-initial-public-offering-of-ionos-group-se.html",
+        "note": "IONOS Group SE is a publicly listed company on the Frankfurt Stock Exchange with a free-float component. No documented golden-share mechanism, EU-only acquisition restriction, or contractual anti-takeover protection against non-EU accumulation of shares has been publicly disclosed. The public float, combined with Warburg Pincus's remaining stake, means a hostile non-EU change of control cannot be structurally excluded."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "P",
-        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/ionos-group-se-plans-initial-public-offering-in-the-first-quarter-of-2023.html",
-        "note": "Majority German ownership via United Internet, but IPO involved US investment banks and prior US private equity involvement (Warburg Pincus)."
+        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/united-internet-and-warburg-pincus-announce-price-range-and-ai-structure-for-initial-public-offering-of-ionos-group-se.html",
+        "note": "United Internet AG (German, MDAX-listed) provides the dominant funding as 63.8% majority shareholder, and Ralph Dommermuth (German founder) holds majority voting control of United Internet. However, the IPO involved US investment banks acting as joint bookrunners and Warburg Pincus (US PE) as a significant pre-IPO backer, introducing non-EU capital at the ownership level."
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
-        "source": "https://www.ionos.com/about",
-        "note": "Large EU-based workforce (~4,200 employees) and major operations headquartered in Germany with strong European market presence."
+        "source": "https://www.ionos-group.com/investor-relations/newsroom/new-cloud-data-centre-in-frankfurt-ionos-sets-an-example-for-digital-sovereignty-in-europe.html",
+        "note": "IONOS employs approximately 4,200 staff across EU operations, primarily in Germany (Montabaur, Karlsruhe, Berlin). IONOS opened a new 8,000 sqm cloud data centre in Frankfurt in 2025 and was selected for the German government's govdigital sovereign cloud programme (July 2024). It is the first German cloud provider to hold both BSI C5 and BSI IT-Grundschutz certifications."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
         "verdict": "Y",
-        "source": "https://cloud.ionos.de/zertifikate",
-        "note": "Participates in GAIA-X and IPCEI-CIS EU cloud sovereignty initiatives."
+        "source": "https://www.ionos-group.com/investor-relations/publications/announcements/sovereign-cloud-for-the-public-sector-ionos-available-via-govdigital.html",
+        "note": "IONOS is a GAIA-X member and participates in the IPCEI-CIS cloud sovereignty initiative. In July 2024, IONOS was selected for the govdigital cooperative (German public IT service providers), making its sovereign cloud available to German federal and state administrations via partner BTC AG. It holds BSI C5 Type I attestation (November 2023) covering Compute Engine, Cloud Cubes, and S3 Object Storage."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "No non-EU parent, but US subsidiary (IONOS Inc.) introduces partial legal exposure and dependency risk."
+        "note": "IONOS operates its EU cloud regions from proprietary German data centres (Karlsruhe, Frankfurt, Berlin) using an OpenStack-based platform, which reduces dependency on any single non-EU vendor. However, the existence of IONOS Inc. (US subsidiary, Philadelphia HQ) creates a legal channel through which US authorities could issue orders affecting the group. Hardware infrastructure relies on Intel, AMD, and Supermicro — all non-EU vendors — which would constrain full operational independence if US export controls were applied."
       }
     },
 
@@ -37,139 +37,139 @@
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "P",
         "source": "https://report.united-internet.de/annual-report/2024/management-report/group-and-company-profile/business-model.html",
-        "note": "German parent entity governed by EU law, but group includes US and UK subsidiaries subject to non-EU jurisdictions."
+        "note": "IONOS Group SE is incorporated as a Societas Europaea (SE) under German and EU company law, with headquarters in Montabaur, Rhineland-Palatinate. Governance of the EU cloud entity is exclusively under German law (BGB, BDSG) and EU GDPR. However, the group includes IONOS Inc. (Delaware/Pennsylvania), subject to US corporate and data access law, and UK operations subject to post-Brexit UK law, meaning the corporate group as a whole is not exclusively EU-governed."
       },
       "Is the provider free from non-EU laws with extraterritorial reach (e.g. US CLOUD Act, Chinese Cybersecurity Law)?": {
         "verdict": "N",
-        "source": "https://evessio.s3.amazonaws.com/customer/.../Cloud_Act_white_paper_EN.pdf",
-        "note": "IONOS white paper confirms US CLOUD Act applicability via IONOS Inc., meaning US legal reach exists."
+        "source": "https://ce1.uicdn.net/shopsfar/pdf/ionos-white-paper-cloud-act-en.pdf",
+        "note": "IONOS's own published CLOUD Act white paper explicitly acknowledges that IONOS Inc. (US subsidiary) creates exposure to the US CLOUD Act. The white paper states that only providers with both headquarters and data centres exclusively in the EU offer maximum protection, and that encryption alone is not a sufficient countermeasure. This is self-published evidence of confirmed CLOUD Act applicability within the IONOS group."
       },
       "Are there no legal, contractual, or technical channels through which non-EU authorities could compel access to customer data?": {
         "verdict": "N",
-        "source": "https://evessio.s3.amazonaws.com/customer/.../Cloud_Act_white_paper_EN.pdf",
-        "note": "IONOS Inc. (US subsidiary) provides legal access channel for US authorities under CLOUD Act."
+        "source": "https://ce1.uicdn.net/shopsfar/pdf/ionos-white-paper-cloud-act-en.pdf",
+        "note": "IONOS Inc. (Philadelphia, PA) is a US-incorporated and US-headquartered subsidiary of United Internet AG. As a US company, it is subject to CLOUD Act demands from US law enforcement, which can compel disclosure of data held by the corporate group regardless of where the data physically resides. IONOS's own white paper confirms this exposure and acknowledges it cannot be fully mitigated by contractual means alone."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
         "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "EU core compliant, but US subsidiary introduces partial exposure to US export control regimes."
+        "note": "IONOS's EU-based cloud services do not rely on US-controlled encryption software or technology that would trigger EAR (Export Administration Regulations) restrictions on the service itself. However, the group's US subsidiary and its use of Intel, AMD, and NVIDIA hardware means that advanced compute resources remain subject to US export control rules, which could constrain supply if geopolitical conditions change."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "P",
-        "source": "https://www.ionos.com/about",
-        "note": "Core development in Germany, but US entity (IONOS Inc.) contributes to IP and infrastructure history."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "Core software development — including the IONOS Cloud platform, API layers, and management tooling — is conducted primarily in Germany (Karlsruhe engineering hub and Montabaur HQ). IONOS holds trademarks registered at the EUIPO and DPMA under German law. However, IONOS Inc. in the US contributes to the group's IP base, and historical IP created during the 1&1 era in the US is not exclusively EU-registered."
       }
     },
 
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "Encryption and region selection available, but no fully documented BYOK/KMS sovereignty model."
+        "source": "https://docs.ionos.com/cloud/backup-and-storage/ionos-object-storage/concepts/key-management",
+        "note": "IONOS Object Storage supports Server-Side Encryption with customer-provided keys (SSE-C) using AES-256, available via API. This gives customers control over the encryption key material for object storage. However, SSE-C is not available through the IONOS web console (DCD), and there is no general-purpose dedicated Key Management Service (KMS) or BYOK integration across the full platform (compute, block storage, databases) comparable to AWS KMS or Azure Key Vault."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
         "verdict": "Y",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "BSI C5 and ISO 27001 frameworks ensure full access logging and auditability."
+        "source": "https://cloud.ionos.de/zertifikate",
+        "note": "IONOS holds BSI C5:2020 Type I attestation (November 2023) and ISO/IEC 27001 certification, both of which mandate comprehensive access logging, event auditing, and audit trail retention. The C5 framework specifically requires providers to log all access to customer data and make logs available for customer review. IONOS Cloud provides activity logs via the API and DCD console for compute and storage operations."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
         "verdict": "Y",
         "source": "https://cloud.ionos.com/protection",
-        "note": "GDPR-compliant deletion with certified procedures under BSI C5 controls."
+        "note": "IONOS operates under GDPR Article 17 (right to erasure) and documents its data deletion procedures as part of its Data Processing Agreement (DPA). BSI C5 controls require documented and verifiable data destruction procedures. IONOS confirms cryptographic erasure for decommissioned storage media in accordance with BSI IT-Grundschutz guidelines."
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "EU regions available, but US and UK data centres exist — requires explicit customer selection."
+        "source": "https://cloud.ionos.com/data-centers",
+        "note": "IONOS Cloud offers EU-only data centre regions (Germany — Frankfurt, Karlsruhe, Berlin; France — Paris; Spain — Madrid) and allows customers to select EU-exclusive data residency. However, IONOS also operates US data centres (Newark NJ, Las Vegas NV, Lenexa KS) and UK data centres, meaning the platform is not exclusively EU. Customers who select EU regions benefit from data confinement, but the default configuration must be actively set; it is not enforced platform-wide."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
         "verdict": "P",
-        "source": "https://grokipedia.com/page/Ionos",
-        "note": "EU AI initiatives exist, but AI stack relies heavily on non-EU infrastructure (e.g., NVIDIA)."
+        "source": "https://nextcloud.com/blog/ionos-and-nextcloud-together-for-more-data-sovereignty/",
+        "note": "IONOS has partnered with Nextcloud and Stackable (EU open-source data platform) for AI-assisted workloads, and its Managed Stackable platform is built on EU open-source components. However, GPU compute infrastructure relies on NVIDIA hardware (US), and no proprietary EU-developed AI model training pipeline is confirmed. IONOS does not operate a publicly documented EU-exclusive large-language model service; AI workloads on its platform depend on customer-selected models which may include non-EU origin."
       }
     },
 
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "OpenStack-based platform with S3-compatible APIs ensures portability."
+        "source": "https://docs.ionos.com/cloud/data-export/eu-data-act",
+        "note": "IONOS Cloud is built on OpenStack and offers S3-compatible object storage, standard Kubernetes, and REST APIs, enabling workload portability to other OpenStack-based EU providers (OVHcloud, STACKIT, plusserver). IONOS publishes EU Data Act-compliant data export documentation, providing step-by-step instructions and API-based export for all major services. Egress charges are disclosed and IONOS has committed to eliminating them from January 2027 per EU Data Act requirements."
       },
       "Can EU operators fully manage and maintain the service without non-EU vendor involvement?": {
         "verdict": "P",
         "source": "https://report.united-internet.de/annual-report/2024/management-report/group-and-company-profile/business-model.html",
-        "note": "EU core operations exist, but US subsidiary introduces partial dependency."
+        "note": "EU cloud regions (DE, FR, ES) can be managed entirely through EU-based staff and tooling. The OpenStack platform is managed from German engineering teams. However, the corporate group's structure includes IONOS Inc. (US), which handles US-region operations and shared group-level infrastructure functions. Dependency on non-EU hardware vendors (Intel, AMD, NVIDIA, Supermicro) means that full independence without non-EU vendor involvement is not achievable at the infrastructure layer."
       },
       "Does an EU-based talent pool exist to operate and sustain the service independently?": {
         "verdict": "Y",
-        "source": "https://www.ionos.com/about",
-        "note": "Large German engineering base with thousands of EU-based employees."
+        "source": "https://www.ionos-group.com/investor-relations/newsroom/new-cloud-data-centre-in-frankfurt-ionos-sets-an-example-for-digital-sovereignty-in-europe.html",
+        "note": "IONOS employs approximately 4,200 people in EU operations, with major engineering hubs in Karlsruhe (cloud platform R&D) and Montabaur (HQ and operations). Germany's deep talent pool in systems engineering and cloud infrastructure supports sustainable independent operation. IONOS was ranked in the IDC MarketScape: European Public Cloud IaaS 2024 as a Major Player, reflecting EU-capable operational depth."
       },
       "Is all operational support delivered exclusively from within the EU?": {
         "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "EU support exists, but US operations handled via IONOS Inc."
+        "note": "EU-region cloud support is primarily staffed from German and European locations. IONOS provides 24/7 technical support with EU-based teams for its Cloud customers. However, IONOS Inc. (US) handles North American customer support independently, and there are shared group-level functions (IT operations, security) that may involve transatlantic coordination, preventing a definitive assertion of exclusive EU-only support delivery."
       },
       "Is full technical documentation and source code available for long-term autonomy?": {
         "verdict": "Y",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "Open APIs and OpenStack foundation ensure strong documentation availability."
+        "source": "https://docs.ionos.com/cloud/",
+        "note": "IONOS publishes comprehensive API documentation, developer guides, and product specifications at docs.ionos.com. The platform is built on OpenStack (Apache 2.0 licence) and standard Kubernetes, both of which are fully open-source with public repositories. IONOS contributes to Nextcloud open-source development and the Stackable open-source data platform. Sufficient public documentation exists for a competent EU operator to migrate workloads without long-term dependency on IONOS vendor support."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
         "verdict": "P",
-        "source": "https://report.united-internet.de/annual-report/2024/management-report/group-and-company-profile/business-model.html",
-        "note": "Includes US-based subsidiaries and infrastructure dependencies."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "Key physical infrastructure suppliers include Intel (US), AMD (US), Supermicro (US/Taiwan), and NVIDIA (US) — all non-EU. Equinix (US) provides colocation capacity at the Frankfurt campus. Network transit involves non-EU backbone providers. IONOS's own data centres in Germany provide direct control over the facility layer, but hardware and semiconductor supply chains are predominantly non-EU governed."
       }
     },
 
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
-        "source": "https://www.ionos.com/environment",
-        "note": "EU data centres exist, but hardware is primarily non-EU manufactured (Intel/AMD/Supermicro)."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "IONOS data centres are primarily located in Germany with some EU-region partner facilities. However, server hardware is sourced from Supermicro (US/Taiwan), Dell (US), and HPE (US) — none of which manufacture in the EU. Processors are Intel (US) or AMD (US). IONOS reports procurement management under ISO 14001 and sustainability criteria but does not specify EU-origin hardware procurement as a purchasing requirement."
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
-        "source": "https://www.ionos.com/environment",
-        "note": "Standard Intel/AMD firmware used."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "All server firmware (Intel ME/AMT, AMD PSP, BMC firmware from AMI or Phoenix Technologies) is of US origin and is not modifiable by the cloud provider. No EU-origin firmware alternative exists for x86 infrastructure. This is an industry-wide constraint affecting all non-ARM providers, not unique to IONOS."
       },
       "Is the software stack architected, packaged, and updated from within the EU?": {
         "verdict": "P",
         "source": "https://cloud.ionos.de/zertifikate",
-        "note": "Core platform EU-based but includes non-EU dependencies."
+        "note": "The IONOS Cloud platform (OpenStack orchestration, Kubernetes, S3-compatible storage) is architected and maintained by German engineering teams in Karlsruhe. Patch management for the platform layer is performed from EU locations. However, the underlying Linux distributions (Red Hat, Ubuntu), container runtimes, and dependencies originate from US companies whose release pipelines are outside EU control."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
         "verdict": "P",
-        "source": "https://report.united-internet.de/annual-report/2024/management-report/business-model.html",
-        "note": "Uses NVIDIA, Intel, AMD and US subsidiaries."
+        "source": "https://cloud.ionos.com/protection",
+        "note": "IONOS uses open-source OpenStack and Kubernetes as its cloud foundation, reducing proprietary lock-in at the platform layer. S3-compatible APIs enable portability. However, significant reliance exists on Intel/AMD (processors), NVIDIA (GPUs for AI workloads), and Equinix (Frankfurt colocation) — all non-EU vendors. IONOS Inc. (US) dependency is a further structural non-EU reliance point."
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
-        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Sustainability_Report_2024.pdf",
-        "note": "Partial transparency via reports, but full supply chain auditability not fully public."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "IONOS publishes an annual Sustainability Report (2024) disclosing key environmental and procurement KPIs. BSI C5 Type I and ISO 27001 audits cover the service layer, with results published as attestation documents. However, full supply chain auditability (covering hardware ODMs, silicon fabrication, and firmware provenance) is not publicly disclosed, consistent with industry norms."
       }
     },
 
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "OpenStack-based APIs and S3-compatible services."
+        "source": "https://api.ionos.com/docs/",
+        "note": "IONOS Cloud exposes OpenStack-compatible APIs for compute (Nova, Neutron, Glance), S3-compatible APIs for object storage, and standard Kubernetes APIs for container orchestration. All APIs are publicly documented at api.ionos.com and docs.ionos.com. IONOS also participates in the EU Data Act interoperability framework and publishes data export interfaces for every product, enabling migration without proprietary tooling."
       },
       "Is the software stack available under open-source licences with audit and modification rights?": {
         "verdict": "P",
-        "source": "https://cloud.ionos.de/zertifikate",
-        "note": "Core OpenStack is open-source but management layer is proprietary."
+        "source": "https://cloud.ionos.co.uk/solutions/managed-stackable",
+        "note": "The foundational infrastructure layer (OpenStack, Kubernetes, Ceph) is fully open-source under Apache 2.0 and other FLOSS licences, allowing audit and modification. IONOS's Managed Stackable platform is open-source. However, the management control plane, billing systems, DCD web console, and operational tooling are proprietary IONOS software not available for external audit or modification."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
         "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "Public API docs exist but full architecture not fully disclosed."
+        "note": "IONOS publishes product architecture documentation, API specifications, and data processing flow descriptions sufficient for standard enterprise evaluation. The BSI C5 attestation report and ISO 27001 certification summaries are publicly available. However, internal network topology, full sub-processor lists, and detailed data flow diagrams for all services are not comprehensively published, as is consistent with most cloud providers."
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
-        "source": "https://grokipedia.com/page/Ionos",
-        "note": "Uses Intel/AMD/NVIDIA infrastructure (US-based technology stack)."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "All compute infrastructure uses Intel Xeon or AMD EPYC processors (both US companies), and GPU workloads rely on NVIDIA accelerators (US). No EU-origin processor alternative (e.g., RISC-V or EU-fabbed ARM) is deployed at scale. This is an industry-wide constraint with no near-term EU alternative for production-grade x86 compute."
       }
     },
 
@@ -177,58 +177,58 @@
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
         "source": "https://cloud.ionos.de/zertifikate",
-        "note": "BSI C5, ISO 27001, ISO 14001, SOC 2 certifications."
+        "note": "IONOS holds BSI C5:2020 Type I attestation (issued November 2023, covering Compute Engine, Cloud Cubes, S3 Object Storage), ISO/IEC 27001 certification, BSI IT-Grundschutz certification (September 2022 — first German cloud provider to hold both), ISO 14001 (environmental management, 100% coverage 2024), and ISO 50001 (energy management). PCI DSS compliance is also maintained for payment processing workloads."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
         "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
-        "note": "GDPR and EU regulatory compliance documented."
+        "note": "IONOS provides standard GDPR-compliant Data Processing Agreements (DPAs) with all customers, supports data subject rights (Articles 15-22), and restricts data transfers to the EU. IONOS is subject to NIS2 as a digital infrastructure provider and publishes incident response procedures accordingly. IONOS Cloud is positioned as a compliant infrastructure provider for DORA-regulated financial entities."
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "EU SOC exists, but US subsidiary introduces parallel US operations."
+        "note": "IONOS operates a Security Operations Centre (SOC) from its German locations, staffed by EU-based security personnel. EU-region cloud environments are monitored from this EU SOC. However, IONOS Inc. (US subsidiary) maintains its own security operations for US-region infrastructure, and group-level security governance may involve transatlantic coordination, preventing a definitive claim of exclusively EU-based SOC operations for the full group."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
         "verdict": "P",
-        "source": "https://cloud.ionos.com/protection",
-        "note": "Logging available but not full SOC transparency."
+        "source": "https://docs.ionos.com/cloud/security/report-security-event/malfunctions-and-incidents",
+        "note": "IONOS Cloud provides activity logging via API and DCD console, enabling customers to monitor resource provisioning and access events. BSI C5 controls mandate audit log availability to customers. However, IONOS does not offer a native SIEM integration or dedicated customer-facing security dashboard comparable to AWS Security Hub or Azure Sentinel, meaning full real-time security monitoring requires third-party tooling."
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
         "source": "https://cloud.ionos.de/zertifikate",
-        "note": "BSI C5 and ISO 27001 enforce breach notification and patch management."
+        "note": "IONOS follows GDPR Article 33/34 breach notification obligations (72-hour notification to supervisory authority for data breaches affecting personal data). BSI C5 controls mandate documented patch management processes with defined SLAs. IONOS's IT-Grundschutz certification requires documented vulnerability management, patching schedules, and incident response procedures independently verified by the BSI auditor."
       },
       "Can EU entities perform independent security audits with full system access?": {
         "verdict": "Y",
         "source": "https://cloud.ionos.de/zertifikate",
-        "note": "TÜV Nord audits and BSI reports available."
+        "note": "IONOS undergoes annual third-party audits by accredited German audit firms (TÜV Nord has been involved in BSI certifications). The BSI IT-Grundschutz and C5 attestation documents are issued by accredited audit bodies and made publicly available. Enterprise customers can request penetration testing of their own environments and review sub-processor lists. IONOS cooperates with BSI as the competent national authority for cloud security assessments."
       }
     },
 
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
-        "source": "https://ionos.blog/ionos-erreicht-iso-14001-zertifizierung/",
-        "note": "ISO 14001 and ISO 50001 certified infrastructure with efficiency KPIs."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "IONOS reports a weighted average PUE of 1.39 across its data centres in 2024, with continuous improvement targets. ISO 14001 (environmental management) and ISO 50001 (energy management) are maintained at 100% coverage across all owned data centres as of 2024. IONOS has set a 2030 Climate Strategy targeting a 55% reduction in data centre carbon emissions from the 2019 baseline."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
         "source": "https://www.ionos.com/environment",
-        "note": "Hardware recycling and CO2 reduction programs documented."
+        "note": "IONOS documents hardware lifecycle management including server refurbishment, reuse programmes, and responsible recycling. The 2024 Sustainability Report discloses hardware reuse rates and decommissioning processes. IONOS targets extended server lifespans to reduce e-waste, consistent with its ISO 14001 environmental management framework."
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "Y",
-        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Sustainability_Report_2024.pdf",
-        "note": "Annual sustainability reporting with emissions data."
+        "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
+        "note": "IONOS publishes a full annual Sustainability Report (2024 edition available) disclosing Scope 1, 2, and partial Scope 3 GHG emissions, carbon intensity (0.13 t CO2 per €1M revenue in 2024), Water Usage Effectiveness (WUE 0.003), and Carbon Usage Effectiveness (CUE 0.003). Reporting follows GRI standards and is independently reviewed."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",
         "source": "https://www.ionos.com/environment",
-        "note": "100% renewable electricity for data centres in key regions."
+        "note": "IONOS achieved 99.3% renewable electricity consumption in 2024, sourced via Power Purchase Agreements (PPAs) and green energy certificates. Proprietary data centres in Germany and other EU locations operate on 100% renewable electricity. IONOS's 2030 Climate Strategy includes on-site renewable generation (solar PV) at 50% of owned data centres."
       }
     },
 
-    "summary_note": "SOV2-Q2 and SOV2-Q3 are both N — this is the most damaging finding. IONOS's own published white paper explicitly confirms CLOUD Act exposure through IONOS Inc. (Philadelphia), and states that encryption is ineffective as a protective measure. This is self-incriminating evidence directly from IONOS's own legal analysis. Warburg Pincus (US PE) was a 24.9% pre-IPO shareholder — now in public float but introduces non-EU capital history. IONOS Inc. (US subsidiary) is the central sovereignty problem — it creates genuine CLOUD Act exposure unlike Hetzner, STACKIT, or Scaleway which have no US entities. Strong on certifications — first German provider with both BSI C5 and IT-Grundschutz. Strong on environmental — ISO 14001, ISO 50001, 100% renewable, published sustainability reports."
+    "summary_note": "IONOS is a strong German cloud provider with genuine EU operational depth — the first German provider to hold both BSI C5 and IT-Grundschutz certifications, active in govdigital and GAIA-X, and a committed investor in EU cloud infrastructure. However, the decisive sovereignty weakness is the confirmed US CLOUD Act exposure through IONOS Inc. (Philadelphia, PA), which IONOS itself acknowledges in its published CLOUD Act white paper. This makes SOV-2 Q2 and Q3 both N — the most material disqualifier for high-sensitivity public sector workloads. United Internet's 63.8% majority ownership is EU-controlled (Ralph Dommermuth, German founder), but the Warburg Pincus (US PE) stake and public float introduce non-EU capital. Compared to fully independent German providers (noris network, Hetzner), IONOS carries a structural jurisdictional risk at the group level that cannot be mitigated contractually. Environmental performance is strong: 99.3% renewable energy (2024), published Sustainability Report, ISO 14001/50001 at 100% coverage, PUE 1.39."
   }
 }
