@@ -1,0 +1,49 @@
+\documentclass{report}
+% \documentclass[twoside]{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage[hidelinks]{hyperref}
+
+% \newgeometry{
+    % top=0.75in,
+    % bottom=0.75in,
+    % outer=0.75in,
+    % inner=1.5in
+% }
+
+\begin{document}
+
+\input{titlepage}
+
+\input{Abstract}
+
+\input{Dedication}
+
+\input{Acknowledgement}
+
+\tableofcontents
+\listoffigures
+
+\include{chapters/chapter1-Introduction}
+\include{chapters/chapter2-Fundamentals}
+\include{chapters/chapter3-state-of-the-art}
+\include{chapters/chapter4-Methodology}
+\include{chapters/chapter5-Provider-Landscape-and-Compliance-Analysis}
+\include{chapters/chapter6-Technical-Benchmarking}
+\include{chapters/chapter7-Deployment-experiment}
+\include{chapters/chapter8-Discussion}
+\include{chapters/chapter9-Conclusion}
+
+\appendix 
+\include{appendices/AppendixA}
+\include{appendices/AppendixB}
+\include{appendices/AppendixC}
+\include{appendices/AppendixD}
+\include{appendices/AppendixE}
+
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}

@@ -51,6 +51,8 @@ export default function SovScore() {
   const [popover, setPopover] = useState({ content: null, pos: null })
   // legend open/closed
   const [legendOpen, setLegendOpen] = useState(true)
+  // score column sort
+  const [sortOrder, setSortOrder] = useState(null) // null | 'desc' | 'asc'
 
   // Initialise state once both fetches resolve
   useEffect(() => {
@@ -114,6 +116,10 @@ export default function SovScore() {
     setAnswers(prev => ({ ...prev, [name]: {} }))
   }, [])
 
+  const handleSortScore = useCallback(() => {
+    setSortOrder(prev => prev === null ? 'desc' : prev === 'desc' ? 'asc' : null)
+  }, [])
+
   const handleResetAll = useCallback(() => {
     if (!window.confirm('Reset all answers and providers to initial state?')) return
     if (!framework || !initialProviders) return
@@ -157,6 +163,15 @@ export default function SovScore() {
   const objectives = framework.objectives
   const sealDescs = framework.seal_descriptions
   const sovIds = Object.keys(objectives)
+
+  // Sorted display list (original order preserved in providerList state)
+  const displayList = sortOrder === null
+    ? providerList
+    : [...providerList].sort((a, b) => {
+        const sa = results[a]?._score ?? -1
+        const sb = results[b]?._score ?? -1
+        return sortOrder === 'desc' ? sb - sa : sa - sb
+      })
 
   // Flatten all questions in order for column rendering
   const allQuestions = sovIds.flatMap(sovId =>
@@ -229,7 +244,17 @@ export default function SovScore() {
                   </th>
                 )
               })}
-              <th className="th-score" rowSpan={2}>Score</th>
+              <th
+                className={`th-score th-score-sort${sortOrder ? ' th-score-active' : ''}`}
+                rowSpan={2}
+                onClick={handleSortScore}
+                title="Click to sort by score"
+              >
+                Score
+                <span className="score-sort-icon">
+                  {sortOrder === 'desc' ? ' ↓' : sortOrder === 'asc' ? ' ↑' : ' ↕'}
+                </span>
+              </th>
             </tr>
 
             {/* Row 2: Q column headers */}
@@ -248,7 +273,7 @@ export default function SovScore() {
           </thead>
 
           <tbody>
-            {providerList.map(provider => {
+            {displayList.map(provider => {
               const pAnswers = answers[provider] ?? {}
               const pEvidence = evidence[provider] ?? {}
               const pResults = results[provider] ?? {}

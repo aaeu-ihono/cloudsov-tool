@@ -10,9 +10,8 @@ import { useReadiness } from '../hooks/useReadiness'
 // ── Colour palette ──────────────────────────────────────────────────────────
 const PROVIDER_COLORS = {
   AWS:      '#FF9900',
-  // Hetzner:  '#E53935',
-  // OVHcloud: '#1565C0',
-  // STACKIT:  '#1A237E',
+  'T-Systems OTC':  '#E53935',
+  STACKIT:  '#1A237E',
   // Scaleway: '#7B1FA2',
 }
 const FALLBACK_COLORS = [
@@ -21,6 +20,7 @@ const FALLBACK_COLORS = [
   '#D81B60','#546E7A','#5E35B1', '#000000',
 ]
 function colorFor(name, allProviders) {
+  // alert(allProviders)
   if (PROVIDER_COLORS[name]) return PROVIDER_COLORS[name]
   const extra = allProviders.filter(p => !PROVIDER_COLORS[p])
   return FALLBACK_COLORS[extra.indexOf(name) % FALLBACK_COLORS.length]
