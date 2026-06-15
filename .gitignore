@@ -4,15 +4,15 @@
 /venv/
 .claude
 
-# LaTeX auxiliary files
-overleaf_latex/*.aux
-overleaf_latex/*.log
-overleaf_latex/*.synctex.gz
-overleaf_latex/*.toc
-overleaf_latex/*.lof
-overleaf_latex/*.lot
-overleaf_latex/*.out
-overleaf_latex/*.bbl
-overleaf_latex/*.blg
-overleaf_latex/*.fls
-overleaf_latex/*.fdb_latexmk
+# LaTeX auxiliary files (all subdirectories)
+overleaf_latex/**/*.aux
+overleaf_latex/**/*.log
+overleaf_latex/**/*.synctex.gz
+overleaf_latex/**/*.toc
+overleaf_latex/**/*.lof
+overleaf_latex/**/*.lot
+overleaf_latex/**/*.out
+overleaf_latex/**/*.bbl
+overleaf_latex/**/*.blg
+overleaf_latex/**/*.fls
+overleaf_latex/**/*.fdb_latexmk

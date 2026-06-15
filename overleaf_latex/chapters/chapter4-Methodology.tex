@@ -1,26 +1,448 @@
 \chapter{Methodology}
+\label{ch:methodology}
 
 \section{Research Design and Overall Approach}
-...
+\label{sec:research_design}
 
-\section{Europeanness Scoring Framework}
-...
+This thesis adopts a constructive research design, combining framework-driven assessment with empirical tool development. Rather than observing cloud sovereignty as a static phenomenon, the research operationalises it through two complementary instruments that can be applied, reproduced, and extended by practitioners. The first instrument — the Sovereignty Scoring Framework (SovScore) — measures the degree of digital sovereignty a cloud provider offers to EU customers. The second — the Cloud Readiness Assessment — measures how prepared each provider is to substitute AWS-equivalent managed services for a European enterprise workload. Both instruments are grounded in publicly available regulatory documents and evaluated against a curated set of 17 European cloud providers.
 
+The two experiments are described in detail in Sections~\ref{sec:sovscore_methodology} and~\ref{sec:readiness_methodology} respectively.
+
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Sovereignty Scoring Framework (SovScore)}
+\label{sec:sovscore_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Theoretical Basis and Framework Selection}
+
+Cloud computing has historically been evaluated along performance, reliability, and cost dimensions~\cite{armbrust2010view, NIST_SP800145_2011}. The policy dimension — concerning legal jurisdiction, data control, and strategic independence from non-EU actors — has remained largely qualitative and inconsistently defined across the literature. This experiment addresses that gap by grounding the sovereignty assessment in the most authoritative publicly available specification for EU cloud governance: the European Commission Directorate-General for Digital Services \textit{Cloud Sovereignty Framework v1.2.1}, published in October~2025~\cite{EC_DIGIT_CloudSovereignty_2025}.
+
+The decision to adopt the EC~DG~DIGIT framework over alternative sovereign cloud criteria%
+\footnote{Alternative frameworks considered include the ENISA EUCS certification scheme~\cite{ENISA_EUCS_2023} and the GAIA-X Trust Framework~\cite{GAIAX_Architecture_2023}. The EC~DG~DIGIT document was preferred because it provides explicit, question-level evaluation criteria that map directly to measurable provider attributes, rather than certification labels that presuppose a third-party audit process.}
+was motivated by three factors. First, it is produced by the Commission body responsible for EU digital policy, giving it direct regulatory standing. Second, it decomposes sovereignty into eight thematic objectives with explicit sub-criteria and a five-level maturity scale. Third, it is technology-neutral and provider-agnostic, making it applicable across the heterogeneous landscape of European cloud providers without presupposing any particular architectural pattern.
+
+\subsection{SOV Objectives and Weighting Scheme}
+\label{subsec:sov_objectives}
+
+The framework defines eight \textit{SOV objectives}, each representing a distinct dimension of digital sovereignty. Each objective is assigned a percentage weight reflecting its relative importance to overall sovereignty, as specified in the EC~DG~DIGIT framework. These weights sum to 100\% and are held constant across all provider assessments to ensure comparability.
+
+Tables~\ref{tab:sov_objectives_a} and~\ref{tab:sov_objectives_b} list the eight objectives together with their weights, minimum SEAL thresholds, and evaluation questions.
+
+% ── SOV-1 to SOV-4 ───────────────────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\caption{SOV objectives SOV-1 to SOV-4: weights, min.\ SEAL thresholds, and evaluation questions}
+\label{tab:sov_objectives_a}
+\begin{tabularx}{\linewidth}{|c|X|X|X|X|}
+\hline
+ &
+\textbf{SOV-1}\newline Strategic Sovereignty\newline \textit{15\% · min~SEAL-3} &
+\textbf{SOV-2}\newline Legal \& Jurisdictional\newline \textit{10\% · min~SEAL-4} &
+\textbf{SOV-3}\newline Data \& AI Sovereignty\newline \textit{10\% · min~SEAL-3} &
+\textbf{SOV-4}\newline Operational Sovereignty\newline \textit{15\% · min~SEAL-2} \\
+\hline\hline
+Q1 &
+Decisive authority bodies within EU? &
+Governed exclusively by EU member law? &
+Customer-managed encryption keys (CMEK)? &
+Workload portability without vendor lock-in? \\
+\hline
+Q2 &
+Structural protection against non-EU takeover? &
+Free from CLOUD Act and extraterritorial laws? &
+Full auditability of data and AI access? &
+EU-managed operations, no non-EU vendor dependency? \\
+\hline
+Q3 &
+Primarily EU-sourced financing? &
+No channel for non-EU compelled data access? &
+Verifiable irreversible data deletion? &
+EU-based talent pool for operations? \\
+\hline
+Q4 &
+Significant EU investment and job creation? &
+Free from non-EU export control regimes? &
+Data storage and processing EU-only? &
+All operational support from within EU? \\
+\hline
+Q5 &
+Active in GAIA-X and EU sovereignty initiatives? &
+IP registered and developed within EU? &
+AI models trained under EU control? &
+Technical documentation and source code available? \\
+\hline
+Q6 &
+Operational continuity if non-EU support withdrawn? &
+--- &
+--- &
+All critical suppliers under EU jurisdiction? \\
+\hline
+\end{tabularx}
+\end{table}
+
+% ── SOV-5 to SOV-8 ───────────────────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\caption{SOV objectives SOV-5 to SOV-8: weights, min.\ SEAL thresholds, and evaluation questions}
+\label{tab:sov_objectives_b}
+\begin{tabularx}{\linewidth}{|c|X|X|X|X|}
+\hline
+ &
+\textbf{SOV-5}\newline Supply Chain\newline \textit{20\% · min~SEAL-2} &
+\textbf{SOV-6}\newline Technology\newline \textit{15\% · min~SEAL-2} &
+\textbf{SOV-7}\newline Security \& Compliance\newline \textit{10\% · min~SEAL-3} &
+\textbf{SOV-8}\newline Environmental\newline \textit{5\% · min~SEAL-1} \\
+\hline\hline
+Q1 &
+Hardware manufactured in EU or trusted jurisdictions? &
+Non-proprietary APIs and open standards? &
+Recognised EU certifications (ISO~27001, BSI~C5)? &
+Energy-efficient infrastructure with low PUE? \\
+\hline
+Q2 &
+Firmware of EU origin? &
+Open-source licensed software stack? &
+Compliant with GDPR, NIS2, and DORA? &
+Circular economy practices for hardware? \\
+\hline
+Q3 &
+Software stack architected and updated within EU? &
+Full architectural transparency? &
+All SOCs operating under EU jurisdiction? &
+Transparent carbon and water disclosure? \\
+\hline
+Q4 &
+No significant reliance on non-EU vendors? &
+Free from non-EU HPC or processor dependency? &
+Customer oversight of security monitoring? &
+Renewable or low-carbon energy sourcing? \\
+\hline
+Q5 &
+Full supply chain transparency and audit rights? &
+--- &
+EU-compliant breach reporting and patch management? &
+--- \\
+\hline
+Q6 &
+--- &
+--- &
+Independent EU security audit rights? &
+--- \\
+\hline
+\end{tabularx}
+\end{table}
+
+The weights reflect the prioritisation established by the EC~DG~DIGIT framework. Supply Chain (SOV-5, 20\%) carries the highest weight, recognising that hardware and software dependencies represent the most structurally embedded sovereignty risk. Strategic Sovereignty (SOV-1) and Operational Sovereignty (SOV-4) jointly account for 30\%, reflecting the importance of EU-controlled governance and operational independence. Environmental performance (SOV-8, 5\%) carries the lowest weight, as it is not a sovereignty disqualifier under current EU regulation, though it is tracked for alignment with the EU Green Deal and the Corporate Sustainability Reporting Directive~(CSRD).
+
+\subsection{Evidence Collection: The Y/P/N Verdict Protocol}
+\label{subsec:ypn_verdicts}
+
+For each of the 41 questions across the eight SOV objectives, a verdict is assigned per provider based on publicly available evidence. Three verdict values are used:
+
+\begin{itemize}
+  \item \textbf{Y (Yes)} — the provider fully and verifiably meets the criterion.
+  \item \textbf{P (Partial)} — the provider partially meets the criterion, with documented limitations or caveats.
+  \item \textbf{N (No)} — the provider does not meet the criterion, or no credible evidence of compliance was found.
+\end{itemize}
+
+Evidence sources include official provider documentation, annual reports, third-party certification records, press releases, and publicly disclosed regulatory filings. Each verdict is accompanied by a source URL and an explanatory note stored in a structured JSON survey file per provider. The evidence collection process was conducted systematically across all 17 providers using the same set of 41 questions, ensuring comparability.
+
+Where a criterion cannot be assessed from public information alone, the conservative verdict~N is applied, consistent with the principle that sovereignty claims must be affirmatively demonstrable rather than assumed by default.%
+\footnote{This is particularly relevant for SOV-5 (Supply Chain), where hardware firmware provenance is rarely disclosed publicly. Intel Management Engine and AMD PSP firmware, present in virtually all commercial x86 servers, are of non-EU origin, creating a structural ceiling that applies uniformly across all providers assessed.}
+
+\subsection{SEAL Level Computation}
+\label{subsec:seal_computation}
+
+Each verdict is converted to a numeric score (Y~=~2, P~=~1, N~=~0). The raw score for a provider on a given SOV objective is the sum of its verdict scores across that objective's questions. This is mapped to a \textit{Sovereignty Assurance Level} (SEAL) on a five-point scale (0--4) using the thresholds defined in Table~\ref{tab:seal_levels}.
+
+\begin{table}[htbp]
+\centering
+\caption{SEAL level thresholds and descriptions}
+\label{tab:seal_levels}
+\begin{tabular}{clp{9cm}}
+\toprule
+\textbf{SEAL} & \textbf{Name} & \textbf{Description} \\
+\midrule
+0 & No Sovereignty          & Service under exclusive control of non-EU third parties. \\
+1 & Jurisdictional Sovereignty & EU law formally applies with limited practical enforceability. \\
+2 & Data Sovereignty        & EU law applicable and enforceable; material non-EU dependencies remain. \\
+3 & Digital Resilience      & EU law enforceable; EU actors exercise meaningful but not full influence. \\
+4 & Full Digital Sovereignty & Technology and operations under complete EU control; no critical non-EU dependencies. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The mapping from raw score to SEAL level uses fixed percentage thresholds applied to the maximum achievable score for each objective:
+
+\begin{equation}
+  \text{SEAL}_i =
+  \begin{cases}
+    0 & \text{if } p_i \leq 0.20 \\
+    1 & \text{if } 0.20 < p_i \leq 0.40 \\
+    2 & \text{if } 0.40 < p_i \leq 0.60 \\
+    3 & \text{if } 0.60 < p_i \leq 0.80 \\
+    4 & \text{if } p_i > 0.80
+  \end{cases}
+  \quad \text{where} \quad p_i = \frac{\text{score}_i}{\text{max\_score}_i}
+  \label{eq:seal_mapping}
+\end{equation}
+
+The overall \textit{sovereignty score} for a provider is then computed as a weighted sum of normalised SEAL levels across all eight objectives:
+
+\begin{equation}
+  S_{\text{sov}} = \sum_{i=1}^{8} \frac{\text{SEAL}_i}{4} \times w_i \times 100 \quad (\%)
+  \label{eq:sovscore}
+\end{equation}
+
+where $w_i$ is the weight of objective~$i$ (as listed in Table~\ref{tab:sov_objectives}) and dividing by~4 normalises each SEAL to the $[0,1]$ interval. The resulting score $S_{\text{sov}}$ lies in the range $[0, 100]$\%, where 100\% corresponds to a hypothetical provider achieving SEAL-4 on all eight objectives.
+
+\subsection{Minimum SEAL Thresholds and Pass/Fail Determination}
+\label{subsec:min_seal}
+
+A sovereignty score alone does not determine whether a provider is fit for use in a regulated enterprise context. Each SOV objective carries a minimum acceptable SEAL level (see Table~\ref{tab:sov_objectives}), below which the provider is considered non-compliant on that objective regardless of its scores on other objectives. A provider \textit{passes} the assessment only if it meets or exceeds the minimum SEAL threshold on every objective simultaneously.
+
+The minimum thresholds were set based on the regulatory environment applicable to enterprise cloud procurement in the EU. For instance, SOV-2 (Legal \& Jurisdictional) requires a minimum of SEAL-4, reflecting the binary nature of legal jurisdiction: a single residual channel through which a non-EU authority could compel data disclosure — such as the US CLOUD Act%
+\footnote{The Clarifying Lawful Overseas Use of Data (CLOUD) Act (2018) allows US law enforcement to compel US-headquartered companies to produce data stored outside the United States, irrespective of the storage location. Its incompatibility with GDPR was confirmed by the CJEU in \textit{Schrems~II}~\cite{SchremsII_2020}.}
+or the Chinese Cybersecurity Law — disqualifies a provider from processing personal data under GDPR~\cite{GDPR2016}. SOV-5 (Supply Chain) is set at SEAL-2, acknowledging the structural impossibility of full hardware sovereignty given the global x86 supply chain.
+
+\subsection{Provider Coverage and Tool Implementation}
+\label{subsec:sovscore_implementation}
+
+The assessment was applied to 17 European cloud providers selected on the basis of EU headquarters, commercial availability, and relevance to enterprise workloads. For each provider, a structured JSON survey file was compiled containing the 41 verdicts with associated source URLs and explanatory notes.
+
+The scoring framework was implemented as an interactive web application (SovScore) built with React~19 and FastAPI, allowing real-time exploration of results, adjustment of minimum SEAL thresholds, and comparison across providers. The application computes $S_{\text{sov}}$ from equation~(\ref{eq:sovscore}) in the browser on every state change, with all verdict data served statically from the JSON survey files.
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: SovScore web interface showing the full provider $\times$ question grid,
+    SEAL chips per SOV objective, and the Score column with sort order applied.
+    Capture with all 17 providers visible and at least one provider highlighted in red (failing).]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{SovScore web interface: provider assessment grid with SEAL levels and overall sovereignty scores.}
+  \label{fig:sovscore_ui}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Hover tooltip on a SOV objective header (e.g.\ SOV-2 Legal \&
+    Jurisdictional), showing the \textcircled{i} popover with the min-SEAL justification text.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Min-SEAL justification tooltip on the SovScore grid header.}
+  \label{fig:sovscore_tooltip}
+\end{figure}
+
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Cloud Readiness Assessment Design}
+\label{sec:readiness_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Rationale and Baseline Selection}
+\label{subsec:readiness_rationale}
+
+Sovereignty scoring measures whether a provider is legally and structurally safe to use under EU jurisdiction. It does not, however, measure whether a provider can actually replace the managed services that an enterprise already depends on. A cloud provider may achieve a high sovereignty score while lacking several services critical to a given workload, creating significant migration friction. The Cloud Readiness Assessment addresses this complementary question.
+
+Amazon Web Services was selected as the 100\% capability baseline for three reasons. First, AWS holds the largest share of the global enterprise cloud market and is the de facto incumbent for the majority of European enterprises currently operating in a hyperscaler environment~\cite{armbrust2010view}. Second, AWS offers the most comprehensive publicly documented managed service portfolio, providing a stable reference taxonomy. Third, the use case driving this research — evaluating migration feasibility for Alps Alpine, an automotive components manufacturer operating on AWS — makes AWS the natural ``as-is'' baseline from which a transition to a European provider would depart.
+
+The assessment is not a judgment on AWS's technical quality; rather, it uses AWS's service portfolio as a reference map of enterprise cloud capability requirements against which European alternatives are measured.
+
+\subsection{Service Taxonomy: 11 Categories and 60 Services}
+\label{subsec:service_taxonomy}
+
+Sixty AWS managed services were selected as the evaluation rubric, organised into 11 functional categories. The selection was guided by two criteria: (1) services identified as required in the Alps Alpine IT infrastructure review, and (2) services appearing consistently in enterprise cloud reference architectures across the industry, as evidenced by the AWS Well-Architected Framework~\cite{AWS_WellArchitected_2023} and confirmed by enterprise adoption data in the Flexera State of the Cloud Report~\cite{Flexera_CloudReport_2024}. Services meeting both criteria are classified as \textit{required}; services meeting only the second are included as \textit{industry-standard additions} and are annotated accordingly in the tool.
+
+Table~\ref{tab:readiness_services} lists all 60 services across the 13 assessment dimensions.
+Services marked $^{\dagger}$ are industry-standard inclusions not specifically identified as
+required by Alps Alpine but included to ensure full coverage of enterprise cloud reference
+architectures~\cite{AWS_WellArchitected_2023, Flexera_CloudReport_2024}.
+
+\begin{table}[htbp]
+\centering
+\caption{All 60 AWS services assessed across 13 readiness dimensions%
+  \quad{\normalfont($^{\dagger}$ = industry-standard; not specifically required by Alps Alpine)}}
+\label{tab:readiness_services}
+\resizebox{\linewidth}{!}{%
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{1.6\linewidth}{XXXXXXX}
+\toprule
+\textbf{Scalability}        & \textbf{Performance}       & \textbf{Application (1)} &
+\textbf{Compute (6)}        & \textbf{Storage (5)}       & \textbf{Database (7)}    &
+\textbf{Networking (7)} \\
+\midrule
+\textit{Pre-assessed}       & \textit{Pre-assessed}      & Amplify                  &
+Lambda                      & S3                         & RDS                      &
+App.\ Load Balancer \\
+                            &                            &                          &
+ECS                         & S3 Glacier                 & DocumentDB               &
+Net.\ Load Balancer \\
+                            &                            &                          &
+EKS                         & EBS                        & DynamoDB                 &
+VPC \\
+                            &                            &                          &
+EC2                         & Backup                     & Timestream               &
+Route~53 \\
+                            &                            &                          &
+Batch                       & EFS$^{\dagger}$            & Aurora$^{\dagger}$       &
+API Gateway \\
+                            &                            &                          &
+Elastic Beanstalk$^{\dagger}$ &                          & ElastiCache$^{\dagger}$  &
+CloudFront$^{\dagger}$ \\
+                            &                            &                          &
+                            &                            & Redshift$^{\dagger}$     &
+Direct Connect$^{\dagger}$ \\
+\midrule
+\textbf{AI/ML (6)}          & \textbf{Security (12)}     & \textbf{Monitoring (4)}  &
+\textbf{Dev/Deploy (5)}     & \textbf{IoT (2)}           & \textbf{Messaging (5)}   &
+\\
+\midrule
+Rekognition                 & IAM                        & CloudWatch               &
+CodeBuild                   & IoT Core                   & SQS                      & \\
+SageMaker                   & Cognito                    & SNS                      &
+CodeDeploy                  & IoT Device Mgmt.           & EventBridge              & \\
+Bedrock                     & IAM Identity Center        & Systems Manager          &
+CodePipeline                &                            & Step Functions           & \\
+Glue                        & KMS                        & Cost Explorer            &
+ECR                         &                            & SES                      & \\
+EMR                         & Secrets Manager            &                          &
+CloudFormation$^{\dagger}$  &                            & Kinesis$^{\dagger}$      & \\
+Athena                      & Certificate Manager        &                          &
+                            &                            &                          & \\
+                            & GuardDuty                  &                          &
+                            &                            &                          & \\
+                            & Security Hub               &                          &
+                            &                            &                          & \\
+                            & Config                     &                          &
+                            &                            &                          & \\
+                            & Shield                     &                          &
+                            &                            &                          & \\
+                            & WAF                        &                          &
+                            &                            &                          & \\
+                            & CloudTrail$^{\dagger}$     &                          &
+                            &                            &                          & \\
+\bottomrule
+\end{tabularx}
+}% end resizebox
+\end{table}
+
+\subsection{Coverage Scoring Protocol}
+\label{subsec:coverage_scoring}
+
+For each of the 60 services, every EU provider under assessment receives a \textit{coverage verdict} indicating whether a functionally equivalent managed service exists in their portfolio:
+
+\begin{itemize}
+  \item \textbf{Y (Full)} — a managed equivalent service exists with comparable functionality and general availability status.
+  \item \textbf{P (Partial)} — an equivalent exists but is in beta, feature-limited, or requires a workaround that increases operational overhead.
+  \item \textbf{N (None)} — no managed equivalent is available; self-hosting on IaaS would be required, introducing additional operational burden.
+\end{itemize}
+
+This three-level coverage scheme was deliberately aligned with the Y/P/N verdict protocol used in the SovScore experiment, allowing a consistent scoring scale across both instruments. Where a partial equivalent exists, the EU service name or approach is recorded alongside the verdict to provide actionable migration guidance.
+
+\subsection{Dimension Score Computation}
+\label{subsec:dimension_score}
+
+Coverage verdicts are converted to points (Y~=~2, P~=~1, N~=~0). The score for a provider on a given feature dimension $d$ is:
+
+\begin{equation}
+  R_d = \frac{\displaystyle\sum_{s \in d} \text{cov}(s)}{2 \times |d|} \times 100 \quad (\%)
+  \label{eq:readiness_dim}
+\end{equation}
+
+where $|d|$ is the number of services in dimension~$d$ and $\text{cov}(s) \in \{0, 1, 2\}$ is the coverage point value for service~$s$. A score of 100\% indicates full managed-service parity with AWS on that dimension; 0\% indicates no managed equivalents exist and all services would require self-hosting.
+
+Scalability and Performance are assessed separately as pre-scored dimensions (0--100) derived from published regional availability, auto-scaling capability documentation, and official SLA commitments, rather than from service-level verdicts.
+
+The average readiness score across all 13 dimensions is used to rank providers and compute the \textit{average gap to AWS} as:
+
+\begin{equation}
+  \text{Gap} = \frac{1}{13} \sum_{d=1}^{13} \bigl(100 - R_d\bigr) \quad (\text{percentage points})
+  \label{eq:readiness_gap}
+\end{equation}
+
+A smaller gap indicates higher overall feature parity with AWS and therefore lower expected migration friction.
+
+\subsection{Tool Implementation and Visualisation}
+\label{subsec:readiness_implementation}
+
+The Cloud Readiness Assessment was implemented as the second module of the CloudSov web application, co-located with the SovScore tool. The frontend presents three complementary views of the assessment data:
+
+\begin{enumerate}
+  \item A \textbf{radar chart} showing each provider's coverage profile across all 13 dimensions simultaneously, with the AWS reference polygon as the outer boundary.
+  \item An \textbf{area chart} showing dimension-by-dimension coverage with per-provider lines, enabling identification of specific capability gaps. Hovering over a data point reveals the coverage verdict for each service in that dimension.
+  \item A \textbf{ranked gap table} listing providers by average gap to AWS, with expandable rows showing per-category service alternatives (EU equivalent name, or ``No alternative'' for N verdicts).
+\end{enumerate}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Cloud Readiness Assessment page showing the radar chart (left)
+    and dimension breakdown area chart (right) with at least 4 providers visible, including AWS.
+    Capture with the provider toggle buttons visible at the top.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Cloud Readiness Assessment: coverage profile radar (left) and dimension breakdown area chart (right).}
+  \label{fig:readiness_charts}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Gap summary table with one provider row expanded,
+    showing the per-category service grid with EU alternative names and ``No alternative'' labels.
+    Capture a provider that has a mix of Y, P, and N verdicts (e.g.\ Hetzner or Scaleway).]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Gap summary table with an expanded provider row showing per-service EU alternatives.}
+  \label{fig:readiness_gap_table}
+\end{figure}
+
+The two visualisations are designed to serve complementary analytical purposes: the radar chart gives an immediate gestalt impression of a provider's overall readiness profile relative to AWS, while the area chart and gap table support drill-down analysis at the dimension and service level. Clicking any data point in the area chart pins a detailed service table below the chart, listing AWS service name, coverage verdict, EU equivalent, and source reference for every service in that dimension.
+
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Benchmark Pipeline Design}
+\label{sec:benchmark_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
 ...
 
-\section{Benchmark Pipeline Design}
-...
 \subsection{Compute (sysbench)}
 \subsection{Storage (fio)}
 \subsection{Network (iperf3)}
 \subsection{AI/ML Inference (Odin)}
 
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Cost Evaluation Methodology (TCO)}
+\label{sec:tco_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
 ...
 
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Deployment Experiment Design (Phase 3)}
+\label{sec:deployment_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
 ...
 
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Evaluation Criteria and Metrics Summary}
+\label{sec:evaluation_criteria}
+% ─────────────────────────────────────────────────────────────────────────────
+
 ...
