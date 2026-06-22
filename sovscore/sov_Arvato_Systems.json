@@ -32,7 +32,6 @@
         "note": "Arvato Systems operates its own BSI C5 Type 2-certified Virtual Private Cloud (VPC) from German data centres, providing genuine operational independence for that product. However, for its flagship Delos Cloud (Microsoft Azure) and AWS-based managed services — which represent the majority of its cloud revenues — withdrawal of US vendor support would materially impair service delivery, as the underlying platform technology is non-EU proprietary."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "Arvato Systems develops its own platforms (green.screen ESG reporting, OpsWatch monitoring, VPC management layer) from German development centres — this IP is created and registered in Germany. However, as a systems integrator whose primary cloud offerings are built on Microsoft Azure, AWS, and SAP, a substantial portion of the delivered technology IP originates from non-EU companies."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -73,9 +71,9 @@
         "note": "Arvato Systems' own VPC holds BSI C5 Type 2 certification (December 2025), which requires comprehensive access logging and auditability. For Delos Cloud and AWS/Microsoft-based services, audit logging capabilities depend on the underlying hyperscaler platform. Specific AI model usage auditability is not explicitly documented as a standard Arvato Systems offering."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.arvato-systems.com/more/about-arvato-systems/memberships-and-certifications",
-        "note": "Arvato Systems holds ISO 27001:2022 certification, which requires documented data disposal procedures aligned with GDPR Art. 17 right to erasure. BSI C5 Type 2 attestation for the VPC includes data lifecycle management requirements including secure and verifiable deletion processes."
+        "note": "Arvato Systems holds ISO 27001:2022 certification, which requires documented data disposal procedures aligned with GDPR Art. 17 right to erasure. BSI C5 Type 2 attestation for the VPC includes data lifecycle management requirements including secure and verifiable deletion processes. [Adjudicated Y→P: ISO 27001 and BSI C5 Type 2 mandate documented deletion procedures, but no explicit certificate of destruction available as a standard customer deliverable is confirmed in the source material, which only reaches rubric P.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "Arvato Systems publishes guidance on 'sovereign AI' and discusses EU-controlled open-source model options (e.g., Meta Llama hosted locally in EU). However, Arvato Systems is primarily an integrator and does not develop its own AI foundation models. AI pipelines deployed for customers may use US-origin models (Azure OpenAI, AWS Bedrock) depending on customer requirements. EU-sovereign AI is offered as an option, not a universal default."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "P",
@@ -121,7 +118,6 @@
         "note": "Arvato Systems' critical technology partners explicitly include Amazon Web Services (US-headquartered) and Microsoft (US-headquartered), both subject to US jurisdiction. These are named strategic partners at the core of its two flagship sovereignty offerings (AWS European Sovereign Cloud launch partner; Delos Cloud operator on Azure). This is the most material non-EU critical supplier dependency in the assessment."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "BSI C5 Type 2 attestation for Arvato Systems' own VPC (December 2025) includes supply chain transparency requirements for its subcontractors. For Delos Cloud and AWS-based services, supply chain transparency is limited by the extent to which Microsoft and Amazon disclose their own supply chain details — customers cannot audit the hyperscaler supply chain independently."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "P",
@@ -172,7 +167,6 @@
         "note": "No EU-origin processor or GPU accelerator deployment is documented. Server infrastructure uses Intel and AMD CPUs (both US-origin). AI workloads on AWS and Azure rely on NVIDIA GPUs (US-origin). No EU-developed HPC processor alternative is deployed. This is a universal limitation shared by all EU cloud providers."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -205,7 +199,6 @@
         "note": "BSI C5 Type 2 audit by HLB Stückmann (December 2025) demonstrates openness to rigorous independent third-party audits. ISO 27001 requires annual external surveillance audits. Contracts for German public administration mandate audit rights. For the VPC and Arvato-operated infrastructure, independent EU-entity audits with full access are structurally supported."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "P",
@@ -228,7 +221,6 @@
         "note": "Since the beginning of 2024, Arvato purchases electricity exclusively from renewable sources (solar, wind, hydro) for all its sites worldwide, including Arvato Systems' German data centres. The company prefers direct Power Purchase Agreements over Renewable Energy Certificates. This is a group-wide, publicly stated commitment."
       }
     },
-
     "summary_note": "Arvato Systems is a credible German IT services company with strong EU jurisdictional foundations — 100% Bertelsmann/Mohn-family/foundation ownership, German law incorporation, ~3,400 EU-based staff, and a robust certification portfolio including BSI C5 Type 2 for its own VPC (December 2025), ISO 27001:2022, and ISO/IEC 22237. Its role as operator of the Delos Cloud for German public administration demonstrates genuine sovereignty engagement at the government level. However, as a systems integrator, Arvato Systems' primary revenue-generating cloud offerings are built on Microsoft Azure (Delos Cloud) and AWS (European Sovereign Cloud), creating clear non-EU technology and legal dependencies throughout its supply chain and software stack. The provider is best characterised as a 'sovereign integrator': it contributes EU-governed operational management and compliance wrappers around US hyperscaler infrastructure. Organisations requiring full independence from non-EU technology should note the material Microsoft and AWS dependencies. Organisations seeking compliant, German-operated managed services with strong BSI C5 and GDPR guarantees will find Arvato Systems a credible choice."
   }
 }

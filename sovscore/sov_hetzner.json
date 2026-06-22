@@ -32,7 +32,6 @@
         "note": "Hetzner owns and self-operates all EU data center hardware and facilities with no dependency on non-EU cloud infrastructure vendors. The company assembles its own servers in Gunzenhausen and manages all networking in-house. No non-EU managed service dependency that could be suspended by a foreign authority is documented."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "Hetzner's cloud platform, data center management software, and customer-facing tools are developed and maintained entirely by staff in Germany (Gunzenhausen, Nuremberg) and Finland (Helsinki). No non-EU development centre is documented. IP is created and held under German law."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -88,7 +86,6 @@
         "note": "Hetzner offers GPU cloud instances (NVIDIA H100/A100) hosted in EU data centres, enabling EU-controlled AI training workloads. However, Hetzner does not develop, host, or sell proprietary AI models or managed AI/ML pipeline services — the question is partially applicable: EU-based compute is available, but no Hetzner-governed AI model exists to assess."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Hetzner self-operates its data centres and its GDPR DPA lists primarily EU-based subprocessors (e.g. Computop for payments, Intrum for debt collection — both European). However, server hardware is sourced from non-EU vendors (Intel, AMD, Supermicro/ASUS for server boards), creating non-EU hardware supply chain dependencies that are not captured in the GDPR subprocessor list."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "BSI C5 Type 2 and ISO 27001 certifications include supply chain risk assessment requirements, and audit reports are available on request. The GDPR DPA documents data processing subprocessors publicly. However, a comprehensive public supply chain transparency report disclosing all hardware and software vendors across the full stack is not published."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,7 +167,6 @@
         "note": "All Hetzner servers use Intel or AMD x86 processors, both US companies. GPU cloud instances use NVIDIA accelerators (US company). No EU-origin processor or accelerator is available or planned. This is a universal limitation for all EU cloud providers given the absence of a competitive EU x86 or GPU chip industry."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -180,9 +174,9 @@
         "note": "Hetzner holds ISO/IEC 27001:2022 (certified by SOCOTEC, valid 2025–2028; scope covers Nuremberg, Falkenstein, Helsinki data center parks), BSI C5:2020 Type 2 (received February 2026), ISO 14001 (environmental management), and EMAS (EU Eco-Management and Audit Scheme) for German locations. This is a strong and current EU-recognised certification portfolio."
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://docs.hetzner.com/general/general-terms-and-conditions/data-privacy-faq/",
-        "note": "Hetzner maintains a publicly available GDPR-compliant DPA and TOMs reviewed annually by TÜV Rheinland. As a German data centre operator, Hetzner is subject to NIS2 as a digital infrastructure provider and KRITIS-designated operator per §8a BSIG. DORA compliance for financial-sector customers is addressed through ISO 27001 and BSI C5 controls."
+        "note": "Hetzner maintains a publicly available GDPR-compliant DPA and TOMs reviewed annually by TÜV Rheinland. As a German data centre operator, Hetzner is subject to NIS2 as a digital infrastructure provider and KRITIS-designated operator per §8a BSIG. DORA compliance for financial-sector customers is addressed through ISO 27001 and BSI C5 controls. [Adjudicated Y→P: GDPR DPA reviewed annually by TÜV Rheinland and NIS2/KRITIS designation are well documented, but DORA compliance is addressed only indirectly through ISO 27001 and BSI C5 controls without a dedicated DORA compliance statement or Financial Addendum — P under the rubric.]"
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
@@ -205,7 +199,6 @@
         "note": "The BSI C5 Type 2 audit report and ISO 27001 certification documentation are available on request to customers via Hetzner's customer portal. ISO 27001 and BSI C5 audits were conducted by independent German auditors (SOCOTEC, TÜV Rheinland). However, customers do not have contractual rights to conduct independent penetration tests or full system-access audits on Hetzner's shared infrastructure without a specific bespoke arrangement."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "Hetzner has sourced 100% renewable electricity from hydropower for German data centres since 2008, and uses wind power for its Helsinki facility since 2018. The company founded HT clean energy GmbH to build a proprietary solar park in Nassau-Weikersheim (approx. 6.5 MW) to further increase self-generated renewable supply for its operations."
       }
     },
-
     "summary_note": "Hetzner is a strong baseline EU-sovereign option with full German family ownership (no external investors, no stock listing), ISO 27001:2022, and BSI C5 Type 2 (2026). Its in-house server assembly in Gunzenhausen is unusual and adds hardware traceability. Key weaknesses are: no customer-managed KMS product for block storage, no GAIA-X membership, US and Singapore cloud locations exist on the same platform (requiring active EU-region selection by customers), and limited customer-facing security audit tooling. Environmental credentials are genuinely strong with a PUE of 1.13 and 100% renewable electricity since 2008. The provider is well suited for budget-conscious EU deployments needing solid legal sovereignty under German law, but is not appropriate for use cases requiring EUCS High certification, customer-held encryption keys out of the box, or formal GAIA-X compliance."
   }
 }

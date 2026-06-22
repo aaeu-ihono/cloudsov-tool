@@ -32,7 +32,6 @@
         "note": "OTC's core cloud OS is Huawei FusionSphere — a proprietary Huawei-maintained platform. If Huawei withdrew software support (e.g., due to US Entity List restrictions analogous to the 2019 actions, or Chinese government directives), T-Systems would have no certified EU-origin replacement for the OTC management plane. Unlike T Cloud Public, OTC has no dual-vendor OS strategy. This represents an unresolved single-point-of-failure dependency on a non-EU entity, making full operational sustainability under vendor withdrawal implausible without a complete platform migration."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "OTC was co-developed between T-Systems and Huawei, with Huawei providing the core cloud OS (FusionSphere), hardware stack, and significant engineering contribution to the initial platform build. Huawei FusionSphere is developed, registered, and owned by Huawei Technologies Co. Ltd. in China. The OpenStack community components are globally developed under Apache 2.0. Only T-Systems orchestration layers and customer-facing portals were EU-developed. The foundational platform IP is predominantly non-EU in origin."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "OTC's AI Foundation Services operate in Telekom data centres within the EU under GDPR and EU legal governance — inference and training run in EU jurisdiction. However, the pre-trained models offered (Meta Llama 3.3, Mistral, DeepSeek R1) were developed by non-EU entities (US, French, and Chinese origins respectively). OTC's ModelArts ML platform is Huawei-origin software. Hosting and inference governance is EU-based, but upstream AI model and platform provenance is mixed and not exclusively EU-controlled."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Huawei Technologies Co. Ltd. (China) is the critical primary supplier for OTC, providing both the cloud OS (FusionSphere) and server/networking hardware. Intel Corporation (USA) provides server processors and NVIDIA (USA) supplies GPU accelerators. None of these critical suppliers are EU-based or EU-governed. This is the core structural issue that drove Deutsche Telekom to build T Cloud Public with an explicitly different supply chain strategy — OTC itself has no equivalent diversification programme."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "N",
@@ -149,7 +145,6 @@
         "note": "OTC holds BSI C5 Type 2 attestation, SOC 1/2/3, and ISO 27001/27018/27701 certifications, which involve independent third-party audits of T-Systems' security controls and supplier management processes. Customers can download audit reports via self-service in the OTC portal. However, Huawei FusionSphere source code and internal supply chain documentation (Huawei's own chip sourcing, firmware provenance, tier-2 suppliers) are not disclosed. BSI C5 does not require full transparency into Huawei's supplier chain — audit rights cover T-Systems' controls but not the foundational Huawei layer."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,7 +167,6 @@
         "note": "OTC depends entirely on Intel x86 processors (US) for server compute and NVIDIA GPU accelerators (US) for AI/HPC workloads. Huawei server hardware (Chinese) hosts these US-origin processors. No EU-manufactured processor or GPU is deployed. This is a universal structural constraint shared across all major EU cloud providers — no EU-origin server-grade processor or GPU silicon exists at commercial cloud scale."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "OTC undergoes annual BSI C5 Type 2 audits by external German/EU auditors and SOC 2 Type II attestation. Customers can commission penetration tests within defined rules of engagement. Regulated customers can negotiate direct audit rights under the KRITIS framework. However, full independent audit access to Huawei FusionSphere source code, firmware, and internal control-plane architecture is not available — even to T-Systems itself — preventing comprehensive independent security audit of the entire technology stack."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.open-telekom-cloud.com/en/benefits/sustainability",
-        "note": "The Biere data centre (primary OTC site) achieves a published PUE of approximately 1.3 — 30% more energy-efficient than comparable data centres — updated quarterly on OTC's sustainability page. OTC participates in the Climate Neutral Data Centre Pact and Biere received the European Code of Conduct Award from the European Commission. T-Systems and Fraunhofer IFF are researching a net-zero, off-grid data centre concept at Biere."
+        "note": "The Biere data centre (primary OTC site) achieves a published PUE of approximately 1.3 — 30% more energy-efficient than comparable data centres — updated quarterly on OTC's sustainability page. OTC participates in the Climate Neutral Data Centre Pact and Biere received the European Code of Conduct Award from the European Commission. T-Systems and Fraunhofer IFF are researching a net-zero, off-grid data centre concept at Biere. [Adjudicated Y→P: Biere PUE is published quarterly at approximately 1.3 — above the rubric's ≤1.2 Y threshold — and while the EC Code of Conduct Award provides external validation, the PUE value itself places this in the P band.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "Deutsche Telekom achieved group-wide climate neutrality for Scope 1 and 2 emissions, sourcing 100% renewable electricity group-wide since 2021 via power purchase agreements (PPAs), direct procurement, and guarantees of origin. OTC data centres in Biere and Magdeburg are powered by 100% certified renewable electricity. Deutsche Telekom holds SBTi-approved net-zero targets and is a Climate Neutral Data Centre Pact signatory."
       }
     },
-
     "summary_note": "T-Systems Open Telekom Cloud (OTC) is Deutsche Telekom's original public cloud platform, launched in 2016 in direct partnership with Huawei Technologies using Huawei FusionSphere as the core cloud operating system. Its sovereignty profile reflects this heritage: strong in legal jurisdiction and EU corporate governance, but materially compromised at the infrastructure and technology layers by a structural and unresolved dependency on Huawei, a Chinese company subject to China's National Intelligence Law (2017). OTC earns genuine high marks for German/EU legal governance (no US CLOUD Act exposure), EU data residency (Biere and Magdeburg data centres exclusively), a comprehensive certification stack (BSI C5 Type 2, ISO 27001/27018/27701, SOC 1/2/3 Type II, TISAX, EU COC), OpenStack-based workload portability, renewable energy (100% green power, PUE ~1.3), and GAIA-X founding membership. Customer-managed encryption via KMS (BYOK) is also a genuine strength.\n\nHowever, OTC's critical sovereignty deficits originate from the Huawei FusionSphere dependency. The core cloud OS, server hardware, firmware, and third-level support all involve Huawei — a Chinese-controlled vendor whose obligations under China's National Intelligence Law cannot be contractually overridden by T-Systems. The proprietary FusionSphere layer cannot be independently audited at source-code level even by T-Systems, and without Huawei software support OTC cannot be maintained as a platform. There is no dual-vendor OS strategy for OTC and no active remediation programme: Deutsche Telekom's response to this problem is T Cloud Public, a separately built platform, not an OTC upgrade. Key distinctions from T Cloud Public: SOV-1 Q1 receives P (not Y) because Huawei has decisive technical authority over the platform OS; SOV-4 Q2 receives N (not P) because OTC cannot be maintained without Huawei third-level involvement, with no EU alternative planned; SOV-5 Q3 receives P (not N) because T-Systems EU staff review and apply all updates from EU, even though the FusionSphere OS is packaged by Huawei; SOV-7 Q5 receives P because FusionSphere patches originate from Huawei, introducing a non-EU element into patch management.\n\nOTC and T Cloud Public share the same physical data centres (Biere, Magdeburg), environmental practices, and Deutsche Telekom SOC infrastructure, which explains why their SOV-3 (data residency), SOV-7 (security certifications), and SOV-8 (environmental) verdicts are comparable despite architectural divergence. Deutsche Telekom's explicit strategy is to migrate OTC customers to T Cloud Public and allow OTC to diminish in strategic importance — OTC's sovereignty profile is therefore frozen at its current state while T Cloud Public's is actively improving."
   }
 }

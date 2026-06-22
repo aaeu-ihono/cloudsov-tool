@@ -22,9 +22,9 @@
         "note": "Cyso Cloud employs approximately 60 Dutch professionals and has operated data centre infrastructure in the Netherlands since 1997. It is an active member of the Dutch Cloud Community (DCC), which advocates for European digital sovereignty on behalf of over 110 Dutch hosting providers."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cyso.cloud/blog/european-cloud-initiatives-the-recent-developments",
-        "note": "Cyso Cloud publicly aligns with GAIA-X principles and advocates for OpenStack as a European sovereignty standard. The company actively participates in European cloud sovereignty initiatives, regularly exhibits at EU sovereignty-focused technology events, and is a member of the Dutch Cloud Community."
+        "note": "Cyso Cloud publicly aligns with GAIA-X principles and advocates for OpenStack as a European sovereignty standard. The company actively participates in European cloud sovereignty initiatives, regularly exhibits at EU sovereignty-focused technology events, and is a member of the Dutch Cloud Community. [Adjudicated Y→P: The note confirms only that Cyso Cloud 'publicly aligns with GAIA-X principles' and is a Dutch Cloud Community member — neither constitutes documented formal GAIA-X membership, EUCS qualification, or IPCEI-CIS participation; P applies for EU sovereignty positioning without confirmed formal initiative membership.]"
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
@@ -71,9 +71,9 @@
         "note": "ISO 27001 and NEN 7510 certifications mandate comprehensive audit logging and access control tracking. Customers can access detailed event logs, API call histories, and access records through the Cyso Cloud Console, satisfying NIS2 and GDPR audit requirements."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "GDPR-compliant data destruction and NEN 7510 requirements mandate documented irreversible data removal procedures. ISO 27001 certification requires third-party-verified data lifecycle controls, including verifiable erasure upon contract termination."
+        "note": "GDPR-compliant data destruction and NEN 7510 requirements mandate documented irreversible data removal procedures. ISO 27001 certification requires third-party-verified data lifecycle controls, including verifiable erasure upon contract termination. [Adjudicated Y→P: GDPR-compliant destruction and NEN 7510 requirements mandate third-party-verified data lifecycle controls with 'verifiable erasure upon contract termination', but no explicit customer-facing certificate of destruction is confirmed as a standard deliverable.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -113,16 +113,16 @@
         "note": "The core platform is built on fully open-source OpenStack (Apache 2.0), and Cyso Cloud maintains a public documentation portal covering all services. OpenStack source code is fully auditable and modifiable by any EU entity, ensuring long-term operational autonomy."
       },
       "Are all critical suppliers and subcontractors located within and governed by EU jurisdiction?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cyso.cloud/data-centers/",
-        "note": "Cyso Cloud's data centres in Amsterdam and Frankfurt are operated from EU-based facilities. The company is an AMS-IX, NL-ix, and NBIP member, all Netherlands/EU-governed network organisations. No critical subcontractor relationship with non-EU entities has been identified for core cloud operations."
+        "note": "Cyso Cloud's data centres in Amsterdam and Frankfurt are operated from EU-based facilities. The company is an AMS-IX, NL-ix, and NBIP member, all Netherlands/EU-governed network organisations. No critical subcontractor relationship with non-EU entities has been identified for core cloud operations. [Adjudicated Y→P: No critical non-EU subcontractor has been identified for core cloud operations, but absence of evidence is not a documented Y; all EU cloud providers use Intel/AMD hardware (universal non-EU constraint) and the rubric P definition explicitly covers 'primarily EU supply chain for software and operations, but hardware from non-EU vendors' — applying global rule (doubt between Y and P → use P) warrants downgrade to P.]"
       }
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://cyso.cloud/platform",
-        "note": "Cyso Cloud's server infrastructure uses commodity hardware based on Intel and AMD x86 processors (US-origin silicon). No EU-manufactured server alternatives are documented. This is a universal constraint for all current EU cloud providers."
+        "note": "Cyso Cloud's server infrastructure uses commodity hardware based on Intel and AMD x86 processors (US-origin silicon). No EU-manufactured server alternatives are documented. This is a universal constraint for all current EU cloud providers. [Adjudicated N→P: The note confirms commodity Intel and AMD x86 hardware — standard US-origin silicon with no Chinese manufacturer dependency; the rubric requires Huawei or Lenovo involvement for N; western OEM hardware is correctly P.]"
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
@@ -169,14 +169,14 @@
     },
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://docs.cyso.cloud/faq/security-privacy/does-fuga-cloud-have-certifications/",
-        "note": "Cyso Cloud holds ISO/IEC 27001 and NEN 7510 (Dutch national standard for healthcare information security, building on ISO 27001 with additional healthcare-specific controls). The data centre facilities themselves carry ISO 9001, ISO 27001, ISO 14001, and PCI-DSS certifications."
+        "note": "Cyso Cloud holds ISO/IEC 27001 and NEN 7510 (Dutch national standard for healthcare information security, building on ISO 27001 with additional healthcare-specific controls). The data centre facilities themselves carry ISO 9001, ISO 27001, ISO 14001, and PCI-DSS certifications. [Adjudicated Y→P: Holds ISO 27001 and NEN 7510 (Dutch national healthcare security standard); NEN 7510 qualifies as 'other national-level cloud security certification' under the rubric, mapping to P — BSI C5 Type 2 or EUCS High would be required for Y.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cyso.cloud/trust-centre",
-        "note": "Cyso Cloud is marketed specifically for organisations subject to GDPR, NIS2, and Dutch healthcare regulations (NEN 7510). The platform is positioned as a compliant alternative to US hyperscalers for regulated industry workloads. NIS2 supply-chain security provisions are addressed through its Dutch Cloud Community membership."
+        "note": "Cyso Cloud is marketed specifically for organisations subject to GDPR, NIS2, and Dutch healthcare regulations (NEN 7510). The platform is positioned as a compliant alternative to US hyperscalers for regulated industry workloads. NIS2 supply-chain security provisions are addressed through its Dutch Cloud Community membership. [Adjudicated Y→P: GDPR and NIS2 are explicitly documented; DORA is not separately documented in the note — the rubric requires all three to be explicitly documented for Y, so P is appropriate under the doubt rule.]"
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
@@ -206,9 +206,9 @@
         "note": "Cyso Cloud operates from modern TIER 3 data centres in Amsterdam and Frankfurt, which are among the most energy-efficient in Europe. However, specific PUE targets for Cyso Cloud's operations have not been publicly published; specific numerical PUE data is not available in public disclosures."
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cyso.cloud/about-cyso-cloud",
-        "note": "Cyso Group's Corporate Social Responsibility statement documents hardware lifecycle management practices including repurposing or donating decommissioned hardware to educational institutions, reducing electronic waste as part of its sustainability commitments."
+        "note": "Cyso Group's Corporate Social Responsibility statement documents hardware lifecycle management practices including repurposing or donating decommissioned hardware to educational institutions, reducing electronic waste as part of its sustainability commitments. [Adjudicated Y→P: Donating decommissioned hardware to educational institutions is one documented proactive practice, but a second distinct practice (e.g., waste heat reuse, component-level refurbishment) is not documented in the note.]"
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
         "verdict": "P",

@@ -32,7 +32,6 @@
         "note": "Nine manages its own infrastructure and software operations from Zurich, with no documented dependency on non-EU cloud providers for its core managed hosting and Kubernetes services. However, hardware firmware (Intel/AMD) and physical hardware supply chains remain dependent on US-origin vendors, limiting full autonomy if non-EU hardware support were withdrawn."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "N",
@@ -60,7 +59,6 @@
         "note": "Nine's software products — including Nine Kubernetes Engine (NKE) and the Deploio platform — are developed entirely in Zurich, Switzerland, and the company holds the Swiss Made Software label. IP is registered under Swiss law, which provides comparable protection to EU IP law. Partial score reflects non-EU (but equivalent) jurisdiction."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -68,14 +66,14 @@
         "note": "Nine implements Data Encryption at Rest (DARE) using AES-256 on all managed server volumes. Managed Kubernetes (NKE) documentation indicates support for integration with external secret management tools and customer-managed encryption keys for Kubernetes workloads. A fully documented standalone customer-managed KMS product for all service tiers is not explicitly published in public product documentation."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://nine.ch/products/security/",
-        "note": "Nine is ISO 27001 and ISO 9001 certified, with access control and audit logging requirements mandated under the ISMS. Managed Kubernetes customers receive access to monitoring and logging stacks (Prometheus/Grafana/Loki). Security operations include documented access controls and audit trails consistent with ISO 27001 requirements."
+        "note": "Nine is ISO 27001 and ISO 9001 certified, with access control and audit logging requirements mandated under the ISMS. Managed Kubernetes customers receive access to monitoring and logging stacks (Prometheus/Grafana/Loki). Security operations include documented access controls and audit trails consistent with ISO 27001 requirements. [Adjudicated Y→P: ISO 27001 and ISO 9001 mandate access control and audit logging, but the only customer-facing tooling mentioned (Prometheus/Grafana/Loki) is infrastructure metrics and log aggregation — not an access audit trail recording 'who accessed what data'; rubric Y requires a dedicated audit trail product.]"
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://nine.ch/en/privacy-policy/",
-        "note": "Nine's privacy policy and nFADP-compliant Data Processing Agreement (DPA, automatically included in GTC since September 2023) document data deletion obligations consistent with GDPR Article 17. ISO 27001 certification mandates documented data disposal and destruction procedures."
+        "note": "Nine's privacy policy and nFADP-compliant Data Processing Agreement (DPA, automatically included in GTC since September 2023) document data deletion obligations consistent with GDPR Article 17. ISO 27001 certification mandates documented data disposal and destruction procedures. [Adjudicated Y→P: nFADP-compliant DPA and ISO 27001-mandated documented data disposal procedures are confirmed, but no explicit certificate of destruction issued to the customer as a standard deliverable is confirmed.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
@@ -88,7 +86,6 @@
         "note": "Nine does not operate a dedicated AI platform or offer AI model hosting as a core service. Customers can deploy AI workloads on Nine's Kubernetes infrastructure within Switzerland. No Nine-developed AI models or AI-specific governance framework was found in public documentation. Partial score as AI hosting capability exists under Swiss governance but no AI model development is documented."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Nine's own infrastructure uses colocation facilities in Zurich (colozueri and e-shelter/Equinix ZH), which are Switzerland-based. However, colocation partners may involve non-EU ownership (Equinix is a US company). Additionally, Nine offers Managed GKE using Google Cloud infrastructure. Full subprocessor disclosure with jurisdiction details is not comprehensively published."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "Nine's ISO 27001 certification covers supplier management requirements and provides a framework for supply chain accountability. High transparency for Nine's own facilities and platform operations is documented. Detailed sub-supplier and hardware supply chain audit rights beyond the data centre level are not comprehensively published in public documentation."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,12 +167,11 @@
         "note": "Nine's compute infrastructure uses Intel and AMD processors — both US companies. No EU-origin processor offering is documented. GPU or AI accelerator instances are not a core Nine product offering, but underlying compute remains dependent on non-EU silicon. This limitation applies universally to all current cloud providers."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.nine.ch/en/blog/information-security-at-nine-ch-now-iso27001-certified",
-        "note": "Nine Internet Solutions AG is ISO/IEC 27001 and ISO 9001 certified, with the ISO 27001 certification covering information security management. Nine also offers an optional 'Cert+' tier running servers in ISO 27001 certified data centres compliant with FINMA Circular 2008/7 (Swiss financial regulator outsourcing standards). No BSI C5 or ENISA EUCS certification documented."
+        "note": "Nine Internet Solutions AG is ISO/IEC 27001 and ISO 9001 certified, with the ISO 27001 certification covering information security management. Nine also offers an optional 'Cert+' tier running servers in ISO 27001 certified data centres compliant with FINMA Circular 2008/7 (Swiss financial regulator outsourcing standards). No BSI C5 or ENISA EUCS certification documented. [Adjudicated Y→P: Holds ISO 27001 and ISO 9001; no BSI C5 (any type) and no EUCS documented — ISO 27001 alone maps to P under the rubric.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "P",
@@ -205,12 +199,11 @@
         "note": "Nine supports enterprise-level third-party security audits for regulated customers (including FINMA-regulated financial institutions under the Cert+ tier). ISO 27001 certification requires periodic independent audits. The company's small size and in-house infrastructure model make audit access more direct than with large hyperscalers."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://european.cloud/provider/nine/",
-        "note": "Nine's data centres are located at colozueri and e-shelter Zurich facilities, which are among Switzerland's most energy-efficient facilities. Swiss data centres average PUE of 1.3, significantly better than the European average of 1.8. Nine operates on 100% green electricity per published statements. Specific PUE figures for Nine's deployment are not independently published."
+        "note": "Nine's data centres are located at colozueri and e-shelter Zurich facilities, which are among Switzerland's most energy-efficient facilities. Swiss data centres average PUE of 1.3, significantly better than the European average of 1.8. Nine operates on 100% green electricity per published statements. Specific PUE figures for Nine's deployment are not independently published. [Adjudicated Y→P: Note explicitly states 'specific PUE figures for Nine's deployment are not independently published'; Swiss DC industry average of 1.3 is not Nine's own measured data, and no EMAS-equivalent verification for Nine's operations has been identified.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "P",
@@ -228,7 +221,6 @@
         "note": "Nine's data centres are powered by 100% green electricity, consistent with Switzerland's predominantly renewable (hydroelectric) national energy mix. Swiss electricity is approximately 60% hydroelectric and 35% nuclear, with the remainder from other renewable sources. Nine explicitly states 100% renewable energy for its Zurich infrastructure."
       }
     },
-
     "summary_note": "Nine Internet Solutions AG is a boutique Swiss managed hosting and Kubernetes provider with strong sovereignty credentials within its core 'Nine Infrastructure' footprint. Its strengths are: ~40-person Swiss-owned team with no non-EU parent, strict data residency in two Zurich data centres, ISO 27001 certification, FINMA-compliant 'Cert+' tier, 100% open-source Kubernetes stack with zero lock-in, and 100% renewable energy. The primary limitations are: Switzerland is not an EU member state (N on SOV-2 Q1, P on several other questions), the Managed GKE product introduces a significant Google Cloud non-EU dependency undermining sovereignty for those workloads, limited publicly documented environmental disclosures, no BSI C5 or ENISA EUCS certification, and very limited AI/advanced compute offerings. For organisations requiring strict Swiss data residency with no US cloud dependency, Nine's native infrastructure tier is a strong choice; the Managed GKE tier does not satisfy sovereignty requirements."
   }
 }

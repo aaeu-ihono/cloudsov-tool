@@ -12,9 +12,9 @@
         "note": "plusserver GmbH operates under German corporate law and focuses on KRITIS-adjacent critical infrastructure, which provides some regulatory constraint on acquisition. However, as a private equity portfolio company, it has been and may again be sold — BC Partners was reported seeking a sale in 2024. No formal statutory golden-share or contractual block against non-EU acquisition is publicly documented."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.bcpartners.com/news/bc-partners-to-acquire-plusserver-market-leader-in-the-managed-hosting-segment-in-germany/",
-        "note": "plusserver is financed by BC Partners, a European private equity firm headquartered in Luxembourg (EU) and London. The acquisition and ongoing financing are structured through European private equity capital. No US or non-EU primary financier is documented. Day-to-day operations are funded through German revenues."
+        "note": "plusserver is financed by BC Partners, a European private equity firm headquartered in Luxembourg (EU) and London. The acquisition and ongoing financing are structured through European private equity capital. No US or non-EU primary financier is documented. Day-to-day operations are funded through German revenues. [Adjudicated Y→P: BC Partners is dual-headquartered Luxembourg/London and raises its funds from global institutional limited partners (including US, Asian, and other non-EU institutions); the note's Y is based on BC Partners' EU incorporation but does not account for the global LP capital base that funds the acquisition, making P more accurate.]"
       },
       "Does the provider demonstrate significant investment, job creation, and value generation within the EU?": {
         "verdict": "Y",
@@ -32,7 +32,6 @@
         "note": "pluscloud open is built on open-source OpenStack/SCS, with all operations in Germany and no US parent company, providing high resilience against non-EU interference. However, pluscloud VMware (an alternative product tier) depends on Broadcom/VMware (US company) for licensing and support, creating a dependency that could not be resolved if Broadcom withdrew support — limiting full operational autonomy."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "plusserver's proprietary management platform, pluscloud open, and associated tooling are developed entirely by German engineering teams in Germany. IP is created and registered under German law. Contributions to the open-source Sovereign Cloud Stack are also managed under German/EU OSB Alliance governance."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -73,9 +71,9 @@
         "note": "BSI C5 Type II attestation (covering the period January–December 2024) and ISO 27001 certification both require comprehensive access logging, audit trails, and accountability documentation. plusserver provides SIEM and logging dashboards to customers through its managed security offerings. BSI C5 is the most rigorous cloud security attestation available in Germany and mandates detailed auditability."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.plusserver.com/en/company/certificates-and-attestations/",
-        "note": "GDPR Article 17 right to erasure is implemented and documented in plusserver's data protection documentation. BSI C5 Type II attestation covers data deletion and media disposal procedures. ISO 27001 certification mandates documented data destruction standards consistent with German BSI guidelines."
+        "note": "GDPR Article 17 right to erasure is implemented and documented in plusserver's data protection documentation. BSI C5 Type II attestation covers data deletion and media disposal procedures. ISO 27001 certification mandates documented data destruction standards consistent with German BSI guidelines. [Adjudicated Y→P: BSI C5 Type II attestation covers data deletion and media disposal procedures, but no explicit certificate of destruction offered to the customer as a standard deliverable is confirmed in the source note; certifications mandate procedures but not customer-facing destruction certificates.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "plusserver provides infrastructure for AI workloads hosted within its German data centres. Sovereign AI inference can be run on pluscloud open using open-source models. However AI training hardware (NVIDIA GPUs) is US-origin and AI models deployed by customers may include non-EU developed models. No plusserver-proprietary AI model was documented. Partial score for EU-hosted but partially non-EU dependent AI infrastructure."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,12 +118,11 @@
         "note": "plusserver owns and operates its own data centres in Germany. Core open-source software components (Linux, OpenStack, Kubernetes) are governed by international open-source foundations. Hardware is procured from non-EU vendors (Intel, AMD, Dell, HPE). pluscloud VMware depends on Broadcom (US). A comprehensive public subprocessor list with full jurisdiction details is not published."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.plusserver.com/en/company/data-centers/",
-        "note": "plusserver's data centres use standard x86 server hardware from global vendors (Dell, HPE, Intel, AMD) — all manufactured outside the EU, primarily in Asia and the US. No EU-manufactured server hardware offering is documented. This limitation is universal across all cloud providers currently operating at scale."
+        "note": "plusserver's data centres use standard x86 server hardware from global vendors (Dell, HPE, Intel, AMD) — all manufactured outside the EU, primarily in Asia and the US. No EU-manufactured server hardware offering is documented. This limitation is universal across all cloud providers currently operating at scale. [Adjudicated N→P: The note confirms Dell, HPE, Intel, AMD hardware — all western OEM vendors; no Chinese manufacturer (Huawei, Lenovo) dependency is documented; the rubric reserves N for Chinese-manufactured hardware with no diversification — P is the correct verdict for standard western OEM hardware.]"
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
@@ -149,7 +145,6 @@
         "note": "BSI C5 Type II attestation includes supply chain transparency requirements and independently validates security controls. plusserver publishes its certification portfolio publicly. However, a comprehensive public register of all hardware suppliers, sub-processors, and supply chain audit rights beyond what BSI C5 requires is not comprehensively published."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -162,9 +157,9 @@
         "note": "pluscloud open is built on SCS, OpenStack (Apache 2.0), and Kubernetes (Apache 2.0) — fully open-source with complete audit and modification rights. However, pluscloud VMware is built on Broadcom VMware which is proprietary, closed-source software with no audit or modification rights. Partial score reflects the dual-product portfolio."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.plusserver.com/en/company/data-centers/",
-        "note": "plusserver publishes data centre locations, network topology, and architecture documentation. BSI C5 Type II attestation requires architectural transparency as part of the audit scope. The SCS open-source project publishes full reference architecture. Enterprise customers receive detailed architecture documentation for compliance purposes."
+        "note": "plusserver publishes data centre locations, network topology, and architecture documentation. BSI C5 Type II attestation requires architectural transparency as part of the audit scope. The SCS open-source project publishes full reference architecture. Enterprise customers receive detailed architecture documentation for compliance purposes. [Adjudicated Y→P: BSI C5 Type II is available on request (not fully public), and SCS reference architecture is a generic template rather than plusserver-specific dependency mapping; detailed architecture documentation for enterprise customers is customer-specific, not public; Y rubric requires comprehensive public disclosure beyond certification reports, so applying global doubt rule (Y→P).]"
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
@@ -172,7 +167,6 @@
         "note": "plusserver's compute platforms use Intel and AMD processors (both US companies). GPU instances for AI workloads use NVIDIA hardware (US company). No EU-origin processor or GPU accelerator offering is available — this limitation applies universally to all current cloud providers at commercial scale."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "BSI C5 Type II attestation is conducted by independent German audit firms and covers the full cloud service scope. plusserver supports customer-requested security audits, penetration testing, and compliance assessments. BSI C5 Type II reports are available on request. The company explicitly markets its German certifications as enabling independent customer audit rights."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.plusserver.com/en/perspektiven/nachhaltige-it",
-        "note": "plusserver operates modern data centres with published sustainability commitments including energy efficiency measures (cold and hot aisle containment, free cooling, optimal supply air temperature, continuous monitoring). An earlier plusserver data centre was publicised as achieving 66% energy savings. DIN EN 16247-1 energy audit certification and a published environmental policy document the commitment. Specific PUE values per site are not prominently published."
+        "note": "plusserver operates modern data centres with published sustainability commitments including energy efficiency measures (cold and hot aisle containment, free cooling, optimal supply air temperature, continuous monitoring). An earlier plusserver data centre was publicised as achieving 66% energy savings. DIN EN 16247-1 energy audit certification and a published environmental policy document the commitment. Specific PUE values per site are not prominently published. [Adjudicated Y→P: Sustainability page documents energy efficiency measures and 66% energy savings claim, but the note itself states 'specific PUE values per site are not prominently published'; DIN EN 16247-1 energy audit is not EMAS-equivalent verification.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "plusserver uses 100% certified renewable electricity across all four German data centre sites. The company states this renewable electricity commitment saves approximately 8,000 tonnes of CO2 annually. All data centres in Hamburg, Cologne, and Düsseldorf operate on renewable energy supply contracts."
       }
     },
-
     "summary_note": "plusserver is one of Germany's strongest sovereignty-focused cloud providers and occupies a unique position as a founding contributor to the Sovereign Cloud Stack (SCS) open-source project and GAIA-X. Its pluscloud open tier (SCS/OpenStack) is genuinely sovereign: German-owned infrastructure, BSI C5 Type II attested, GDPR-compliant, open-source, SCS-interoperable, and 100% renewable energy powered. Key strengths: BSI C5 Type II + ISO 27001 + PCI-DSS v4.0 certification portfolio, GAIA-X founding membership, SCS open-source leadership, exclusively German data centres, and a ~400-person German engineering team. The main weakness is the dual-product portfolio: pluscloud VMware introduces a critical dependency on Broadcom (US), which cannot be operated independently if US vendor support is withdrawn, and which is closed-source proprietary software. For full sovereignty, customers should use pluscloud open exclusively. The private equity ownership (BC Partners, seeking sale in 2024) introduces some change-of-control uncertainty that differentiates plusserver from structurally independent providers like STACKIT or Infomaniak. Supply chain hardware (Intel/AMD/NVIDIA) limitations are universal across the industry."
   }
 }

@@ -32,7 +32,6 @@
         "note": "No US parent or non-EU legal dependency. STACKIT explicitly documents it operates 'without any US legal or technical dependency.' Infrastructure is 100% owned and operated by Schwarz Group in Germany and Austria. The Lübbenau campus adds further capacity independence. KRITIS designation under §8a BSIG means the German state treats STACKIT as critical national infrastructure, reinforcing resilience obligations. OpenStack-based stack is self-operated; no non-EU vendor support required for core operations. BSI partnership (March 2025) includes development of air-gapped 'STACKIT Distributed Cloud' for Secret-level workloads."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "Explicitly documented: 'The development of our cloud takes place exclusively in Germany.' All proprietary management layer, tooling (CLI, Terraform provider, SDKs), and platform customisations developed by Schwarz Digits engineering teams in Neckarsulm, Germany. STACKIT CLI, Terraform provider, and SDKs (Python, Go) open-sourced on GitHub under EU-controlled repositories. IP created under German law and registered accordingly."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
@@ -73,9 +71,9 @@
         "note": "Full transparency over who stores, views, processes, and deletes data is a documented core sovereignty commitment: 'You have full transparency and sovereignty over who stores, views, processes and deletes data and when.' BSI C5 Type 2 audit (August 2024) requires auditable access logs and trail management. ISO 27001 ISMS mandates access monitoring. Aleph Alpha PHARIA AI-as-a-Service on STACKIT provides EU-controlled AI model auditing."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://stackit.com/en/why-stackit/benefits/data-sovereignty",
-        "note": "GDPR Article 17 right to erasure explicitly implemented. Data sovereignty commitment includes customer-controlled deletion. GDPR-compliant data removal procedures documented. ISAE 3402 Type 1 audit covers data lifecycle management controls. TÜViT Trusted Site Infrastructure certification covers physical data centre security and decommissioning."
+        "note": "GDPR Article 17 right to erasure explicitly implemented. Data sovereignty commitment includes customer-controlled deletion. GDPR-compliant data removal procedures documented. ISAE 3402 Type 1 audit covers data lifecycle management controls. TÜViT Trusted Site Infrastructure certification covers physical data centre security and decommissioning. [Adjudicated Y→P: GDPR Art.17 and customer-controlled deletion are documented sovereignty commitments, and ISAE 3402 Type 1 and TÜViT cover decommissioning controls, but ISAE 3402 Type 1 (not Type 2) provides weaker independent auditor assurance and no explicit customer-facing certificate of destruction is confirmed as a standard deliverable.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "STACKIT's sovereign AI offering was built on Aleph Alpha (German company), available as PHARIA AI-as-a-Service on STACKIT. However, in April 2026 Cohere (Canadian company) announced a merger/acquisition of Aleph Alpha, with Schwarz Group investing €500M in the combined entity and committing STACKIT as the hosting platform. The combined entity is majority-controlled outside the EU (~90% Cohere shareholders), though all inference and training for European public-sector clients is contractually committed to remain within the STACKIT sovereign perimeter under EU-resident operational control. Verdict downgraded to P because the model development governance is no longer purely EU-controlled post-merger, even though all STACKIT-hosted AI workloads remain on EU infrastructure."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Core infrastructure is wholly owned and operated in-house within the EU. However, documented non-EU supplier relationships exist: (1) VERITAS (US-owned, now Cohesity): STACKIT is an official certified backup target in VERITAS NetBackup — a US software dependency for enterprise backup workflows; (2) XM Cyber (Israeli company acquired by Schwarz Group for $700M in 2021): a Schwarz Digits subsidiary providing cybersecurity tools, with Israeli operational heritage; (3) AMD/Intel: hardware and processor suppliers are US-domiciled. BSI C5 Type 2 audit covers supply chain transparency requirements but the full subprocessor list is not comprehensively published for customer review."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "BSI C5 Type 2 audit (August 2024) covers supply chain transparency requirements across 17 thematic areas with 120+ security measures tested independently. The full C5 audit report is available on request. ISO 27001, ISAE 3402, and ISAE 3000 (SOC 2) Type 1 certifications supplement this. However, a publicly accessible, comprehensive subprocessor and sub-supplier list with customer audit rights extending to the hardware level has not been published. Customer-facing supply chain transparency is partial compared to full contractual audit rights across the entire chain."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,7 +167,6 @@
         "note": "STACKIT Confidential Server is explicitly secured with AMD SEV (Secure Encrypted Virtualisation) — AMD is a US company. Standard compute instances use Intel and/or AMD x86 processors — both US-domiciled. The Lübbenau campus plans for up to 100,000 GPUs, which will be NVIDIA (US) or AMD (US) accelerators. No EU-origin processor or GPU offering exists in STACKIT's current or planned product line. This is a universal limitation across EU cloud providers given the absence of a competitive EU x86/GPU chip ecosystem."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -190,9 +184,9 @@
         "note": "All operations exclusively in Germany and Austria. German-speaking support and security teams. No non-EU security operations centres documented. KRITIS designation confirms German regulatory oversight of all security operations. BSI strategic cooperation (March 2025) includes 'regular secondments and technical exchange formats' covering 'monitoring, cloud forensics, and approval processes for the processing of classified information' — all within German/EU jurisdiction. CrowdStrike Falcon integration (March 2026) is a technology partnership; security operations management remains EU-based."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://stackit.com/en/learn/knowledge/cloud/sustainability",
-        "note": "STACKIT provides customers with monitoring and reporting tools to track energy consumption and CO2 emissions, and more broadly, cloud resource usage. BSI C5 Type 2 audit requires auditable customer-accessible access logs. Confidential Computing option (STACKIT Confidential Server with AMD SEV, and Constellation integration via Edgeless Systems) provides hardware-level isolation and attestation reports for customers. Customer security monitoring capabilities documented in BSI C5 report available on request."
+        "note": "STACKIT provides customers with monitoring and reporting tools to track energy consumption and CO2 emissions, and more broadly, cloud resource usage. BSI C5 Type 2 audit requires auditable customer-accessible access logs. Confidential Computing option (STACKIT Confidential Server with AMD SEV, and Constellation integration via Edgeless Systems) provides hardware-level isolation and attestation reports for customers. Customer security monitoring capabilities documented in BSI C5 report available on request. [Adjudicated Y→P: BSI C5 Type 2 requires auditable customer-accessible access logs and Confidential Computing attestation reports are available, but the note primarily describes energy/resource monitoring rather than a dedicated real-time security audit log product — under the rubric's standard, P is more defensible.]"
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "Explicitly documented: 'A detailed audit report of the BSI exists for the certificate. The report can be made available on request.' Independent external auditors conduct testing at 6–12 month intervals across 17 thematic areas. BSI C5 Type 2 is itself a third-party independent audit. ISO 27001, ISAE 3402, and ISAE 3000 audits add further independent review layers. The BSI–Schwarz Digits strategic partnership (March 2025) includes government-level technical audit access for developing classified cloud solutions, confirming willingness to grant sovereign-level audit access."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://stackit.com/en/learn/knowledge/cloud/sustainability",
-        "note": "PUE values published per data centre site: Ostermiething DC10 (Austria) PUE 1.1 — achieved via river-water cooling year-round, hot water cooling, and waste heat recovery; awarded ÖGNI Gold Certificate (Austrian Sustainable Building Council). Germany sites: DC01 Neckarsulm PUE ~1.5, DC08 Ellhofen PUE ~1.3. Lübbenau campus uses Direct Liquid Cooling (DLC) with high-temperature waste heat fed into district heating. ISO 50001:2018 energy management certification held. Automated load balancing to minimise electricity consumption."
+        "note": "PUE values published per data centre site: Ostermiething DC10 (Austria) PUE 1.1 — achieved via river-water cooling year-round, hot water cooling, and waste heat recovery; awarded ÖGNI Gold Certificate (Austrian Sustainable Building Council). Germany sites: DC01 Neckarsulm PUE ~1.5, DC08 Ellhofen PUE ~1.3. Lübbenau campus uses Direct Liquid Cooling (DLC) with high-temperature waste heat fed into district heating. ISO 50001:2018 energy management certification held. Automated load balancing to minimise electricity consumption. [Adjudicated Y→P: Ostermiething PUE 1.1 meets the ≤1.2 threshold but DC01 Neckarsulm PUE ~1.5 and DC08 PUE ~1.3 do not; partial coverage across the fleet places this in the P band per the rubric's partial-coverage criterion.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "P",
@@ -228,7 +221,6 @@
         "note": "STACKIT explicitly documents: 'STACKIT operates its cloud platform in energy-efficient data centers with renewable energy.' Ostermiething DC10 is powered by renewable energy sources and holds the ÖGNI Gold Certificate for resource-saving operations. Lübbenau campus waste heat is fed into the district heating network of regional energy supplier Süll. Schwarz Group Net Zero 2050 commitment covers the full group including Schwarz Digits/STACKIT. ISO 50001 certification confirms systematic energy management targeting renewable sources."
       }
     },
-
     "summary_note": "STACKIT is the highest-scoring provider in the CloudSov framework by a significant margin. Its structural sovereignty advantages are exceptional: 100% privately held by a German family business with no external investors, no public listing, no US parent, explicit no-IPO policy, and contractual change-of-control clauses in government contracts (Dutch government framework, 2026). The €11 billion private investment in EU infrastructure — the largest in Schwarz Group history — and KRITIS critical infrastructure designation make it structurally the least acquisition-vulnerable and most resilient EU-controlled cloud provider assessed. Third-party validation is strong: BSI C5 Type 2 (August 2024), BSI strategic cooperation for German federal government classified workloads (March 2025), and EU Commission Cloud III selection at SEAL-3 level (April 2026, €180 million tender). The KMS product (HSM-backed, FIPS 140-2 Level 3, BYOK, available in both EU01 and EU02 regions) upgrades the customer key management position to Y. The principal weaknesses are structural and shared across the EU cloud market: (1) Intel/AMD processors and AMD SEV firmware are unavoidably non-EU (N on SOV-5 Q2, N on SOV-6 Q4); (2) The Aleph Alpha/Cohere merger (April 2026), with Schwarz investing €500M and STACKIT as designated hosting platform, introduces a non-EU corporate control dimension to the AI offering — all EU inference stays on STACKIT but the model governance is now majority Cohere/Canadian-controlled (P on SOV-3 Q5); (3) XM Cyber (Israeli Schwarz Digits subsidiary) and VERITAS (US backup partner) represent non-EU supply chain touchpoints (P on SOV-4 Q6, SOV-5 Q4); (4) Environmental disclosure at the STACKIT provider level lacks comprehensive quantified public reporting (P on SOV-8 Q3). Overall: approximately 33 Y, 6 P, 2 N across 41 questions."
   }
 }

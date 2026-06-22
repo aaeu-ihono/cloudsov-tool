@@ -32,7 +32,6 @@
         "note": "Infomaniak designs, develops, and fully manages its own infrastructure and software stack in-house in Geneva with no dependency on US or non-EU vendors for operational continuity. All physical infrastructure is owned in Switzerland. No foreign government legal dependency exists that could compel operational suspension."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "N",
@@ -60,7 +59,6 @@
         "note": "Infomaniak holds the 'Swiss Made Software' label; all software development and IP creation occurs exclusively in Geneva, Switzerland. IP is registered and developed under Swiss law — fully equivalent protection to EU IP law — but Switzerland is not an EU member state. Partial score for non-EU but equivalent jurisdiction."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -73,9 +71,9 @@
         "note": "ISO/IEC 27001:2022 certification (since June 2018) mandates documented access control, audit logging, and incident response. Infomaniak provides access logs and monitoring dashboards for customers. Full AI model access auditability as a separately documented feature is not detailed in publicly available product documentation."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.infomaniak.com/en/legal/general-data-protection-regulation",
-        "note": "Infomaniak complies with GDPR Article 17 right to erasure and the nFADP equivalent. Data deletion procedures are documented in the GDPR compliance and privacy pages. ISO 27001 certification mandates documented data disposal procedures. SwissTransfer offers automatic deletion with configurable expiry."
+        "note": "Infomaniak complies with GDPR Article 17 right to erasure and the nFADP equivalent. Data deletion procedures are documented in the GDPR compliance and privacy pages. ISO 27001 certification mandates documented data disposal procedures. SwissTransfer offers automatic deletion with configurable expiry. [Adjudicated Y→P: GDPR Art.17 and nFADP compliance with ISO 27001-mandated data disposal procedures are documented, but no explicit certificate of destruction issued to the customer as a standard deliverable is confirmed in the source note.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
@@ -88,7 +86,6 @@
         "note": "Infomaniak launched Euria, a sovereign Swiss AI assistant developed and hosted entirely in Switzerland using open-source models (Mistral, Llama) executed on Swiss infrastructure. AI governance is Swiss, not EU, and hardware (NVIDIA GPUs) is US-origin. Partial score: genuinely independent of US/Chinese AI governance but Switzerland is not an EU member state."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Core infrastructure is designed and operated entirely in-house in Switzerland, minimising subcontractor exposure. Server hardware relies on Intel and AMD (US-origin), and networking equipment includes non-EU vendors. ISO 27001 certification covers supplier management. A comprehensive public subprocessor list with jurisdiction details is not prominently published."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "ISO/IEC 27001:2022 certification covers supplier relationship management and requires documented supplier assessment. Certification documents are publicly accessible. However, a comprehensive public supply chain audit rights document or detailed sub-supplier transparency register is not available on the public website."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,12 +167,11 @@
         "note": "Infomaniak's compute nodes use Intel and AMD processors (both US companies). The Euria AI platform uses NVIDIA GPU accelerators (also US company). No EU-origin processor or accelerator offering exists — this limitation applies universally to all current cloud providers."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.infomaniak.com/en/certifications",
-        "note": "Infomaniak holds ISO/IEC 27001:2022 (since June 2018, independently audited by APL Datacenter), ISO 14001:2015, ISO 50001:2018, and ISO 9001. B Corp certification awarded in 2025. No BSI C5 or ENISA EUCS certification documented — these schemes are Germany/EU-specific and not yet open to Swiss providers."
+        "note": "Infomaniak holds ISO/IEC 27001:2022 (since June 2018, independently audited by APL Datacenter), ISO 14001:2015, ISO 50001:2018, and ISO 9001. B Corp certification awarded in 2025. No BSI C5 or ENISA EUCS certification documented — these schemes are Germany/EU-specific and not yet open to Swiss providers. [Adjudicated Y→P: Holds ISO 27001:2022 (independently audited by APL Datacenter) but no BSI C5 (which is not open to Swiss providers) and no EUCS — ISO 27001 alone maps to P under the rubric.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "P",
@@ -190,9 +184,9 @@
         "note": "All security monitoring and operations are conducted from Infomaniak's Geneva, Switzerland facilities only. No non-European SOC exists. Switzerland is not in the EU but provides equivalent rule-of-law and data protection guarantees. Partial score reflects non-EU but European jurisdiction of all security operations."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.infomaniak.com/en/trust-center",
-        "note": "Infomaniak provides customers with monitoring dashboards, access logs, and security event visibility through the Infomaniak Manager portal. ISO 27001 certification requires customer-accessible security monitoring. The Trust Centre documents the security monitoring and logging framework in place."
+        "note": "Infomaniak provides customers with monitoring dashboards, access logs, and security event visibility through the Infomaniak Manager portal. ISO 27001 certification requires customer-accessible security monitoring. The Trust Centre documents the security monitoring and logging framework in place. [Adjudicated Y→P: Infomaniak Manager portal provides monitoring dashboards, access logs, and security event visibility, but the note is vague on whether this constitutes a dedicated real-time security audit log product comparable to CloudTrail — applying the doubt rule, P is more defensible.]"
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
@@ -205,7 +199,6 @@
         "note": "Infomaniak's ISO 27001, ISO 14001, and ISO 50001 certifications are independently audited by APL Datacenter. The company supports customer-led security assessments and third-party penetration testing. Independent security audits are a standard part of the ISO 27001 compliance programme."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "Infomaniak operates all data centres on 100% certified renewable electricity (primarily Swiss hydroelectric power). The D4 facility opened in 2024/2025 is described as Switzerland's first 100% renewable underground data centre with full thermal energy recovery. ISO 50001 certified for energy management."
       }
     },
-
     "summary_note": "Infomaniak is a compelling European sovereign cloud provider with genuinely outstanding credentials in employee ownership, environmental performance, and operational independence. Key strengths: 100% employee-owned (strongest structural protection against non-EU acquisition), PUE of 1.06 with 100% renewables and pioneering heat recovery, ISO 27001/14001/50001 certified, in-house infrastructure fully owned in Switzerland, and no US or non-EU legal exposure whatsoever. The primary and unavoidable limitation is that Switzerland is not an EU member state: this forces N or P verdicts on SOV-2 Q1 (EU legal system) and SOV-7 Q2 (NIS2/DORA formal scope), and converts several other strong Y answers to P. These are structural to the Swiss domicile, not operational deficiencies. For EU institutions specifically requiring EU-jurisdiction guarantees, Infomaniak offers GDPR-adequate Swiss law but cannot deliver formal EU-jurisdiction compliance. Across environmental and operational independence dimensions, Infomaniak outperforms most EU-domiciled providers in this study."
   }
 }

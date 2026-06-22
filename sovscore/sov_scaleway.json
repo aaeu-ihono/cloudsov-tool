@@ -32,7 +32,6 @@
         "note": "Scaleway has no US parent company, no US subsidiary, and explicitly states in its AI service documentation that its services are not subject to extraterritorial laws including the US CLOUD Act. The cloud platform is based on OpenStack and Kubernetes — fully open-source software that can be operated and maintained independently. Scaleway also manufactures proprietary ARM-based servers near Laval (Mayenne, France) providing partial hardware independence from non-EU vendors. NVIDIA GPU hardware dependency remains for AI workloads."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -50,9 +49,9 @@
         "note": "With no US entity in the corporate group, requests from US or other non-EU authorities for access to Scaleway customer data must proceed via formal EU legal channels (GDPR Article 48, MLAT treaties processed through French courts). French law requires judicial authorisation for data access and provides GDPR Article 44-49 protections against third-country transfer. Scaleway's privacy policy confirms that it will only respond to legally binding demands compliant with French and EU law."
       },
       "Is the provider free from international export control regimes restricting data usage or transfer?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.scaleway.com/en/public-sector-solutions/",
-        "note": "Scaleway SAS has no US nexus and its cloud services are not subject to US Export Administration Regulations (EAR) or ITAR. The company does not provide US-origin controlled technology services. For hardware, Scaleway designs and manufactures proprietary ARM-based servers in France, reducing — though not eliminating — reliance on US-export-controlled semiconductor supply chains. NVIDIA GPUs used for AI remain subject to US export controls at the point of procurement."
+        "note": "Scaleway SAS has no US nexus and its cloud services are not subject to US Export Administration Regulations (EAR) or ITAR. The company does not provide US-origin controlled technology services. For hardware, Scaleway designs and manufactures proprietary ARM-based servers in France, reducing — though not eliminating — reliance on US-export-controlled semiconductor supply chains. NVIDIA GPUs used for AI remain subject to US export controls at the point of procurement. [Adjudicated Y→P: The note itself explicitly acknowledges 'NVIDIA GPUs used for AI remain subject to US export controls at the point of procurement,' which is the same hardware-level EAR dependency that warrants P for other providers; while Scaleway's proprietary ARM/RISC-V server designs differentiate it for standard compute, the documented NVIDIA GPU dependency and global rule 1 (doubt Y/P -> P) support downgrading to P for consistency with the rubric.]"
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
         "verdict": "P",
@@ -60,7 +59,6 @@
         "note": "Scaleway's core platform software, proprietary management systems, and ARM server designs are developed by French engineering teams in Paris. Scaleway launched the first RISC-V cloud servers (Elastic Metal RV1) in February 2024, using a proprietary server design developed in France. IP for the platform and hardware designs is registered under French/EU law. However, Scaleway's data centres in Amsterdam and Warsaw involve leased or locally licensed infrastructure and some dependency on external software stacks whose IP resides outside the EU."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
@@ -83,12 +81,11 @@
         "note": "All Scaleway data centres are located within the European Union: Paris (France), Amsterdam (Netherlands), and Warsaw (Poland). Scaleway has no data centres or cloud infrastructure outside the EU. Customer data is processed and stored exclusively within EU jurisdictions with no third-country fallback or cross-border replication to non-EU locations. This is a defining feature of Scaleway's sovereignty positioning and was a key criterion for the French Health Data Hub migration from Azure."
       },
       "Are AI models and data pipelines developed, trained, and governed exclusively under EU control?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.mobileeurope.co.uk/iliads-scaleway-advances-plans-as-giant-killers-with-european-cloud-tie-ups/",
-        "note": "Scaleway's Generative APIs and managed AI inference platform prioritise EU-origin models, led by Mistral AI (French, Paris) — in which Iliad/Xavier Niel is a key investor. Scaleway also partners with GENCI (French supercomputing consortium) and CNRS for AI compute. Xavier Niel founded Kyutai, a European open-source AI research lab. Scaleway was selected as an EC Cloud III provider partly for its AI sovereignty credentials. AI infrastructure runs in Scaleway's EU data centres; NVIDIA H100 GPU hardware dependency remains a non-EU supply-chain element."
+        "note": "Scaleway's Generative APIs and managed AI inference platform prioritise EU-origin models, led by Mistral AI (French, Paris) — in which Iliad/Xavier Niel is a key investor. Scaleway also partners with GENCI (French supercomputing consortium) and CNRS for AI compute. Xavier Niel founded Kyutai, a European open-source AI research lab. Scaleway was selected as an EC Cloud III provider partly for its AI sovereignty credentials. AI infrastructure runs in Scaleway's EU data centres; NVIDIA H100 GPU hardware dependency remains a non-EU supply-chain element. [Adjudicated Y→P: Scaleway prioritises EU-origin models (Mistral AI, French) and has Kyutai/GENCI partnerships, but Mistral is not Scaleway-developed and Mistral has received non-EU VC investment; 'exclusively EU control' over model development governance cannot be confirmed; doubt between Y and P resolves to P per global rule 1.]"
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Scaleway owns and operates its Paris data centres and manages Amsterdam and Warsaw facilities under its own control. It designs its own ARM-based servers (manufactured near Laval, France) — a significant EU supply-chain differentiator. However, NVIDIA (US) provides GPU accelerators for AI compute, Intel (US) and AMD (US) provide x86 processors, and certain facility services in the Netherlands and Poland involve local EU subcontractors that may in turn depend on non-EU supply chains."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "Scaleway publishes an annual CSR Impact Report (2024 edition available) with comprehensive ESG disclosures developed with IJO consultancy based on ADEME (French government) Product Category Rules for data centres. Environmental supply-chain transparency is strong. The European Commission Cloud III selection process assessed Scaleway's supply-chain sovereignty and awarded SEAL-3 status. However, full hardware supply-chain auditability (including semiconductor fabrication and firmware provenance) is not publicly disclosed for all components."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,17 +167,16 @@
         "note": "While Scaleway is an industry leader in pursuing EU hardware independence — designing its own ARM servers in France and launching the world's first RISC-V cloud servers (2024) — the RISC-V offering (EM-RV1) is experimental/early-access and represents a tiny fraction of capacity. The vast majority of Scaleway's compute fleet uses Intel Xeon and AMD EPYC processors (US), and AI workloads depend on NVIDIA H100/A100 GPUs (US). Full independence from non-EU HPC processors does not yet exist at production scale."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.scaleway.com/en/security-and-resilience/",
-        "note": "Scaleway holds ISO/IEC 27001:2022 certification (broad scope, with Object Storage certified Q4 2024), HDS certification (Hébergeur de Données de Santé — French health data hosting, July 2024 under the toughened 2024 framework), ISO 14001 (environmental management), and EcoVadis Gold rating for ESG. Scaleway has passed the ANSSI SecNumCloud J0 qualification milestone (targeting completion 2025). The SecNumCloud qualification, when achieved, will be the highest EU cloud security standard. BSI C5 is not held (Scaleway is not a BSI-jurisdiction provider)."
+        "note": "Scaleway holds ISO/IEC 27001:2022 certification (broad scope, with Object Storage certified Q4 2024), HDS certification (Hébergeur de Données de Santé — French health data hosting, July 2024 under the toughened 2024 framework), ISO 14001 (environmental management), and EcoVadis Gold rating for ESG. Scaleway has passed the ANSSI SecNumCloud J0 qualification milestone (targeting completion 2025). The SecNumCloud qualification, when achieved, will be the highest EU cloud security standard. BSI C5 is not held (Scaleway is not a BSI-jurisdiction provider). [Adjudicated Y→P: Holds ISO 27001:2022 and HDS (French health data hosting); the SecNumCloud qualification milestone passed is J0 only — not a full ANSSI SecNumCloud qualification — so this maps to ISO 27001 plus a national health data certification, which is P under the rubric.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.scaleway.com/en/public-sector-solutions/",
-        "note": "Scaleway provides standard GDPR-compliant Data Processing Agreements with all customers and processes personal data exclusively in EU jurisdictions. Scaleway is subject to NIS2 as an EU digital infrastructure provider (French transposition) and documents its incident response and business continuity procedures accordingly. France's selection of Scaleway as the host for the National Health Data Hub (replacing Microsoft Azure in 2026) reflects regulatory validation of its GDPR compliance posture."
+        "note": "Scaleway provides standard GDPR-compliant Data Processing Agreements with all customers and processes personal data exclusively in EU jurisdictions. Scaleway is subject to NIS2 as an EU digital infrastructure provider (French transposition) and documents its incident response and business continuity procedures accordingly. France's selection of Scaleway as the host for the National Health Data Hub (replacing Microsoft Azure in 2026) reflects regulatory validation of its GDPR compliance posture. [Adjudicated Y→P: GDPR DPA and NIS2 (as a French digital infrastructure operator) are well documented; DORA is not explicitly addressed in the note beyond general incident response procedures — under the rubric's requirement for all three to be explicitly documented, P is appropriate.]"
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "Scaleway undergoes annual ISO 27001 certification audits by accredited bodies and the HDS audit by COFRAC-accredited auditors; these reports are available to customers via the Trust Center. Enterprise customers and regulated entities can request penetration testing of their own environments. The ANSSI SecNumCloud qualification process (in progress) involves the most rigorous independent security assessment available in France. However, Scaleway does not offer customers unrestricted full-system access for independent audits of the platform itself, which is standard practice across the cloud industry."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.scaleway.com/en/environmental-leadership/",
-        "note": "Scaleway achieved an average fleet PUE of 1.37 in 2024, well below the industry average of 1.55. For AI cluster infrastructure, PUE is as low as 1.25. Scaleway has set targets of PUE below 1.15 for all new data centres built after 2018, and below 1.3 for legacy sites. PUE data is published in real-time for customers via Scaleway's Environmental Footprint Calculator. The 2024 CSR Impact Report documents full energy efficiency KPIs developed in collaboration with IJO and ADEME methodology."
+        "note": "Scaleway achieved an average fleet PUE of 1.37 in 2024, well below the industry average of 1.55. For AI cluster infrastructure, PUE is as low as 1.25. Scaleway has set targets of PUE below 1.15 for all new data centres built after 2018, and below 1.3 for legacy sites. PUE data is published in real-time for customers via Scaleway's Environmental Footprint Calculator. The 2024 CSR Impact Report documents full energy efficiency KPIs developed in collaboration with IJO and ADEME methodology. [Adjudicated Y→P: Fleet average PUE is 1.37 (>1.2) and even AI cluster PUE is 1.25 (>1.2); new DC target of <1.15 is aspirational but existing measured fleet data exceeds the ≤1.2 Y threshold.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "Scaleway has sourced 100% of its operational electricity from renewable energy since 2017, primarily hydropower (France's predominantly hydro-based electricity grid) supplemented by renewable energy certificates. All Paris data centres, the Amsterdam AMS1 and AMS2 facilities, and the Warsaw WAW1 and WAW2 locations operate on 100% renewable electricity. Scaleway has Science Based Targets initiative (SBTi) aligned carbon reduction commitments disclosed in its Impact Report."
       }
     },
-
     "summary_note": "Scaleway is the highest-scoring provider on EU sovereignty criteria in this survey. As a French SAS wholly owned by Xavier Niel via NJJ Holding (private, no public float since 2021), it has clean legal independence from all non-EU extraterritorial law: no US parent, no CLOUD Act exposure, confirmed in published documentation and validated by France's decision to migrate its National Health Data Hub from Microsoft Azure to Scaleway (2026). The European Commission's selection of Scaleway for the Cloud III DPS at SEAL-3 (Digital Resilience) is the strongest external validation of its sovereignty posture. Scaleway is uniquely differentiated on supply-chain sovereignty by manufacturing its own ARM servers in France and launching the world's first RISC-V cloud servers (2024). It offers a full KMS/BYOK service — rare among European providers — enabling genuine customer cryptographic control. Environmental performance is exceptional: 100% renewable energy since 2017, PUE 1.37 average, WUE near zero, 15,000 servers reconditioned annually, annual Impact Report with ADEME-certified methodology, and real-time customer footprint calculator. Key limitations: BSI C5 not held (French provider, ANSSI/SecNumCloud is the relevant standard, in progress); proprietary control plane is not open-source; NVIDIA GPU dependency for AI workloads remains a non-EU supply-chain constraint; HPC processors are Intel/AMD (N on SOV-6 Q4 as for all providers). The financing of the 2021 Iliad privatisation involved non-EU banks (JPMorgan, BNP bridge loans), a minor SOV-1 note that does not affect ownership or control."
   }
 }

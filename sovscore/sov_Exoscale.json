@@ -2,9 +2,9 @@
   "Exoscale": {
     "SOV-1: Strategic Sovereignty": {
       "Are all bodies with decisive authority over this provider located within EU jurisdiction?": {
-        "verdict": "P",
+        "verdict": "N",
         "source": "https://www.a1.digital/european-cloud/",
-        "note": "Exoscale is wholly owned by A1 Digital International GmbH, a subsidiary of A1 Telekom Austria Group (listed on the Vienna Stock Exchange). América Móvil (Mexican telecommunications group) holds approximately 60% of A1 Telekom Austria as of 2024, meaning ultimate decisive authority rests partially outside the EU. The Austrian state (ÖBIB) holds approximately 28%, providing a partial EU anchor."
+        "note": "Exoscale is wholly owned by A1 Digital International GmbH, a subsidiary of A1 Telekom Austria Group (listed on the Vienna Stock Exchange). América Móvil (Mexican telecommunications group) holds approximately 60% of A1 Telekom Austria as of 2024, meaning ultimate decisive authority rests partially outside the EU. The Austrian state (ÖBIB) holds approximately 28%, providing a partial EU anchor. [Adjudicated P→N: América Móvil (Mexico) holds approximately 60% of A1 Telekom Austria, the ultimate parent of Exoscale, constituting majority ownership by a non-EU entity and meeting the rubric threshold for N; the Austrian state's ~28% stake is insufficient to offset majority non-EU control.]"
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
         "verdict": "P",
@@ -54,9 +54,9 @@
         "note": "Exoscale's core IaaS and storage services are not subject to export controls. However, GPU instances for AI workloads use NVIDIA hardware, which is subject to US Export Administration Regulations (EAR). This creates a residual hardware-level export control dependency, though it does not affect customer data itself."
       },
       "Is the provider's intellectual property created, registered, and developed exclusively within the EU?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/about-us/",
-        "note": "The core Exoscale platform, portal, and orchestration layer are developed by engineering teams in Lausanne (Switzerland) and Vienna (Austria). No IP ownership is attributed to non-EU/non-Swiss entities."
+        "note": "The core Exoscale platform, portal, and orchestration layer are developed by engineering teams in Lausanne (Switzerland) and Vienna (Austria). No IP ownership is attributed to non-EU/non-Swiss entities. [Adjudicated Y→P: Exoscale's core platform is developed by engineering teams in Lausanne (Switzerland, not an EU member state) and Vienna (Austria, EU); as a Swiss-incorporated company the IP is registered under Swiss law (non-EU); the rubric Y criterion requires EU-based staff and EU-registered IP, and the Swiss-based development and registration means this cannot meet Y; applying global rule 1 (doubt Y/P -> P) yields P, consistent with Infomaniak and nine which also received P for Swiss-jurisdiction IP.]"
       }
     },
     "SOV-3: Data & AI Sovereignty": {
@@ -66,14 +66,14 @@
         "note": "Exoscale provides a dedicated Key Management Service (KMS) enabling customers to create, control, and manage their own cryptographic keys. Object Storage supports SSE-C (Server-Side Encryption with Customer-Provided Keys) where Exoscale does not store or recover customer keys."
       },
       "Does the provider offer full auditability of when, where, and by whom data is accessed, including AI model usage?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/compliance/iso27001/",
-        "note": "Exoscale holds ISO/IEC 27001:2022, ISO 27017, ISO 27018, SOC 2 Type 2, and BSI C5 Type 2 certifications. All these standards mandate comprehensive audit logging. Customers access audit logs via the Exoscale Compliance Center portal after accepting an NDA."
+        "note": "Exoscale holds ISO/IEC 27001:2022, ISO 27017, ISO 27018, SOC 2 Type 2, and BSI C5 Type 2 certifications. All these standards mandate comprehensive audit logging. Customers access audit logs via the Exoscale Compliance Center portal after accepting an NDA. [Adjudicated Y→P: Audit logs are accessible only via the Compliance Center portal after executing an NDA, which is a gated compliance report mechanism rather than a real-time self-service audit trail comparable to CloudTrail; rubric Y requires customer-visible real-time access, so P is correct.]"
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/compliance/",
-        "note": "GDPR-compliant data deletion with verifiable evidence is a standard platform capability. ISO 27001 and BSI C5 certifications require documented data lifecycle and destruction procedures, providing independent third-party verification of these controls."
+        "note": "GDPR-compliant data deletion with verifiable evidence is a standard platform capability. ISO 27001 and BSI C5 certifications require documented data lifecycle and destruction procedures, providing independent third-party verification of these controls. [Adjudicated Y→P: The note asserts 'verifiable evidence is a standard platform capability' but does not confirm a certificate of destruction is issued to the customer as a standard deliverable; ISO 27001 and BSI C5 mandate documented procedures but not explicit customer-facing destruction certificates.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -120,9 +120,9 @@
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.letshosting.com/12962.html",
-        "note": "Exoscale servers use Intel Xeon processors (US-origin) for compute instances, confirmed by third-party benchmark testing. GPU instances use NVIDIA accelerators. No EU-manufactured server hardware is deployed."
+        "note": "Exoscale servers use Intel Xeon processors (US-origin) for compute instances, confirmed by third-party benchmark testing. GPU instances use NVIDIA accelerators. No EU-manufactured server hardware is deployed. [Adjudicated N→P: The note confirms Intel/AMD CPUs and NVIDIA GPUs — standard US/Taiwanese OEM hardware with no Chinese manufacturer dependency; the rubric reserves N for Chinese-manufactured hardware (Huawei, Lenovo) with no diversification, so P is the correct verdict here.]"
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
@@ -135,9 +135,9 @@
         "note": "Exoscale maintains its own software build and update pipelines operated by its Swiss and Austrian engineering teams. The company actively contributes open-source tooling built for its cloud infrastructure back to the community."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.exoscale.com/gpu/",
-        "note": "Exoscale is dependent on NVIDIA GPUs for AI workloads and Intel/AMD x86 CPUs for all compute. While the software stack uses open-source components (Apache CloudStack), the hardware layer creates significant non-EU vendor dependencies."
+        "note": "Exoscale is dependent on NVIDIA GPUs for AI workloads and Intel/AMD x86 CPUs for all compute. While the software stack uses open-source components (Apache CloudStack), the hardware layer creates significant non-EU vendor dependencies. [Adjudicated N→P: The note documents Intel/AMD/NVIDIA hardware dependencies but the software stack uses Apache CloudStack (open-source, no proprietary non-EU software dependency); the rubric assigns N only where both hardware AND a critical proprietary software dependency on a non-EU vendor exist, which is not the case here — P is correct.]"
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
@@ -157,9 +157,9 @@
         "note": "Apache CloudStack (the core orchestration layer) is licensed under Apache 2.0 and is fully auditable. However, Exoscale's management console, billing system, and certain proprietary API extensions are closed-source, resulting in a hybrid open/proprietary model."
       },
       "Does the provider offer full architectural transparency including data flows and dependencies?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://community.exoscale.com/platform/dc-zones/",
-        "note": "Exoscale publishes detailed zone-by-zone documentation covering data center locations, network interconnections, and service architecture. The shared responsibility model documentation clearly delineates customer and provider control boundaries."
+        "note": "Exoscale publishes detailed zone-by-zone documentation covering data center locations, network interconnections, and service architecture. The shared responsibility model documentation clearly delineates customer and provider control boundaries. [Adjudicated Y→P: Note cites zone-by-zone DC location/network interconnection documentation and a shared responsibility model, but does not evidence comprehensive public data flow diagrams or a full infrastructure dependency map as required by the Y rubric; applying global doubt rule (Y→P).]"
       },
       "Is the provider free from dependency on non-EU high-performance computing (processors, accelerators)?": {
         "verdict": "N",
@@ -194,31 +194,31 @@
         "note": "Breach notification procedures are aligned with GDPR Article 33 (72-hour notification to supervisory authority) and NIS2 reporting timelines. ISO 27001 ISMS includes documented patch management processes operated by the Swiss/Austrian engineering team."
       },
       "Can EU entities perform independent security audits with full system access?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/compliance/",
-        "note": "Exoscale facilitates independent third-party audits for enterprise and public sector clients via the Compliance Center (NDA-gated access to audit reports). BSI C5 Type 2 and SOC 2 Type 2 attestations are the product of such independent assessments."
+        "note": "Exoscale facilitates independent third-party audits for enterprise and public sector clients via the Compliance Center (NDA-gated access to audit reports). BSI C5 Type 2 and SOC 2 Type 2 attestations are the product of such independent assessments. [Adjudicated Y→P: BSI C5 Type 2 and SOC 2 Type 2 audit reports are available via Compliance Center, but a contractual right for customer-commissioned penetration tests on dedicated infrastructure is not explicitly documented, limiting this to P under the rubric.]"
       }
     },
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/sustainability/",
-        "note": "Exoscale selects data center partners based on energy efficiency and PUE ratings. Equinix facilities used by Exoscale (e.g., GV2 Geneva, ZH5 Zurich, FR4 Frankfurt) are among the most energy-efficient in Europe. Exoscale has documented energy efficiency targets as part of its ISO 50001 Energy Management System implementation."
+        "note": "Exoscale selects data center partners based on energy efficiency and PUE ratings. Equinix facilities used by Exoscale (e.g., GV2 Geneva, ZH5 Zurich, FR4 Frankfurt) are among the most energy-efficient in Europe. Exoscale has documented energy efficiency targets as part of its ISO 50001 Energy Management System implementation. [Adjudicated Y→P: PUE data cited belongs to Equinix host facilities, not Exoscale's own published measurements; ISO 50001 is claimed for co-located infrastructure but Exoscale has no independently published measured PUE meeting the ≤1.2 + EMAS/equivalent threshold.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/sustainability/",
-        "note": "Exoscale maintains an average server fleet age of approximately 3 years and operates a programme to repurpose older servers for non-customer-facing workloads, extending hardware useful life. This documented circular hardware strategy reduces electronic waste."
+        "note": "Exoscale maintains an average server fleet age of approximately 3 years and operates a programme to repurpose older servers for non-customer-facing workloads, extending hardware useful life. This documented circular hardware strategy reduces electronic waste. [Adjudicated Y→P: Only one documented practice identified (repurposing older servers for non-customer workloads); the rubric requires at least two actively documented circular economy practices for Y.]"
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/sustainability/",
-        "note": "Exoscale has implemented an automated environmental impact calculator based on CloudAssess, aligned with ISO 14040/14044 and ADEME LCA standards, providing per-product carbon footprint data. The company supports CSRD-2025 compliance for enterprise clients requiring supply-chain emissions reporting."
+        "note": "Exoscale has implemented an automated environmental impact calculator based on CloudAssess, aligned with ISO 14040/14044 and ADEME LCA standards, providing per-product carbon footprint data. The company supports CSRD-2025 compliance for enterprise clients requiring supply-chain emissions reporting. [Adjudicated Y→P: The CloudAssess-based carbon calculator is a useful tool but does not constitute an annual CSRD/GRI/TCFD-standard report with quantified absolute carbon figures AND water usage data published regularly.]"
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.exoscale.com/sustainability/",
-        "note": "90% of Exoscale's electricity comes from renewable sources overall; German and Swiss data centers operate on 100% renewable energy; Austrian data centers source 99% renewable energy. Croatian facilities operate at 91% renewable share."
+        "note": "90% of Exoscale's electricity comes from renewable sources overall; German and Swiss data centers operate on 100% renewable energy; Austrian data centers source 99% renewable energy. Croatian facilities operate at 91% renewable share. [Adjudicated Y→P: Croatia facilities at only 91% renewable and the overall fleet is 90% renewable; 100% coverage across all EU DC locations is not achieved, placing this in the partial (50-99%) bracket.]"
       }
     },
     "summary_note": "Exoscale is a strong sovereignty option for DACH-region organisations seeking CLOUD Act-free infrastructure with multi-zone EU/Swiss coverage. Its most significant sovereignty differentiator is its explicit CLOUD Act exemption backed by its Swiss/Austrian legal structure and A1's lack of US carrier nexus. Its BSI C5 Type 2, ISO 27001:2022, SOC 2 Type 2, and TISAX Level 2 certifications constitute one of the most comprehensive compliance portfolios among mid-tier EU providers. The principal sovereignty constraint is structural: América Móvil (Mexico) holds approximately 60% of A1 Telekom Austria, meaning ultimate corporate control is partially non-EU — though this does not directly translate to data access risk given the legal firewalls in place. The second universal constraint is hardware-level: all compute relies on non-EU Intel/AMD silicon and NVIDIA GPUs. Switzerland's non-EU-member status requires careful treatment under EU procurement rules: Switzerland is adequate but not EU, which may be a disqualifying factor for certain public-sector frameworks requiring strict EU-member-state jurisdiction."

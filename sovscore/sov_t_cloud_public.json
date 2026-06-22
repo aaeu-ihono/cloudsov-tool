@@ -32,7 +32,6 @@
         "note": "T-Systems operates T Cloud Public independently from Huawei with zero Huawei system access during production. T-Systems EU staff exclusively handle all operations, installation, commissioning, and maintenance. The platform is OpenStack Powered (OpenInfra Foundation certified), meaning EU engineers can operate the API layer independently. However, the core cloud OS is Huawei FusionSphere: if Huawei withdrew software support or firmware updates, long-term operational continuity for the existing stack would be at risk. The dual-vendor hardware strategy and Industrial AI Cloud (Huawei-free) represent mitigation steps but do not yet fully resolve the cloud OS dependency."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "The core cloud OS powering T Cloud Public is Huawei OpenStack Distribution (FusionSphere) — proprietary Huawei IP developed and registered in China. T-Systems licenses or contracts access to it under terms not publicly disclosed. The OpenStack base (Apache 2.0) is community-governed by OpenInfra Foundation (US-origin). T-Systems contributes EU-authored open-source tooling (github.com/opentelekomcloud) and retains operational know-how, but the foundational cloud OS IP is Chinese-origin and is not EU-created or EU-registered."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "T Cloud Public's ModelArts AI/ML platform is Huawei-origin technology developed in China, and the pre-configured models (ResNet50, Faster-RCNN, VGG-16) are open-source architectures not EU-developed. However, inference and training workloads run exclusively in EU data centres under T-Systems' operational governance and GDPR jurisdiction — T-Systems EU staff control the pipeline execution environment. This is consistent with how other EU providers are assessed: hosting and governing AI inference in EU while using non-EU upstream model software constitutes a partial (P), not a full failure (N). A full N would require no EU governance over the AI execution environment whatsoever."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Critical non-EU suppliers: Huawei (China) — FusionSphere cloud OS and some server hardware; NVIDIA (USA) — all GPU accelerators for AI/HPC workloads; Intel (USA) — Xeon CPUs in x86 servers. Hardware is manufactured in China (Huawei servers) and assembled with US-origin silicon. The dual-vendor hardware strategy is adding western server OEMs but no EU-origin server manufacturer has been confirmed by name. Huawei remains the most critical non-EU supplier as the cloud OS vendor."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "BSI C5 Type 2, SOC 1/2/3 Type II, and ISO 27001 audits provide third-party attestation of supply chain controls at the operational level. T-Systems states independent third parties can verify code at any time for the OpenStack layer. SOC reports are available on request for regulated customers. However, Huawei FusionSphere source code cannot be audited by customers or third parties, hardware firmware cannot be independently inspected, and the full terms of T-Systems' Huawei contractual relationship are not publicly disclosed."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,7 +167,6 @@
         "note": "T Cloud Public's AI and HPC infrastructure depends entirely on NVIDIA GPUs (US): the Industrial AI Cloud runs on 10,000 NVIDIA Blackwell GPUs, and the T Cloud Public roadmap includes H100 and A40 GPU flavours in H2 2026. All server CPUs are Intel Xeon (US). No EU-origin processors (e.g., SiPearl Rhea) or EU-origin accelerators are deployed. This is a universal EU cloud sovereignty gap shared across all major EU cloud providers — no EU-origin server-grade processor or GPU silicon exists at commercial cloud scale."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "BSI C5 Type 2, SOC 1/2/3 Type II, and ISO 27001 reports are produced by independent third-party auditors (DEKRA, ISAE-accredited firms) and available on request. T-Systems states independent third parties can verify OpenStack-layer code at any time. GovTech Deutschland framework (May 2026) implies federal-level procurement scrutiny. However, full independent audit of Huawei FusionSphere internals — source code, firmware, and internal control plane — is not available to customers or auditors, limiting the scope of any independent security audit to the T-Systems-controlled layers."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.t-cloud-public.com/en/blog/cloud-computing/data-center-biere",
-        "note": "Biere (Germany) data centre PUE is published as approximately 1.28 — 30% more energy-efficient than comparable data centres of its scale. Netherlands data centres: Aalsmeer 1.46, Almere 1.40. T-Systems received the European Code of Conduct Award for energy efficiency (among 120 evaluated companies). T-Systems and Fraunhofer IFF are jointly researching a net-zero, fully off-grid data centre at Biere using photovoltaics, wind, advanced cooling, and heat recovery. PUE values are published quarterly."
+        "note": "Biere (Germany) data centre PUE is published as approximately 1.28 — 30% more energy-efficient than comparable data centres of its scale. Netherlands data centres: Aalsmeer 1.46, Almere 1.40. T-Systems received the European Code of Conduct Award for energy efficiency (among 120 evaluated companies). T-Systems and Fraunhofer IFF are jointly researching a net-zero, fully off-grid data centre at Biere using photovoltaics, wind, advanced cooling, and heat recovery. PUE values are published quarterly. [Adjudicated Y→P: Published PUE values are Biere ~1.28, Aalsmeer 1.46, Almere 1.40 — all above the ≤1.2 Y threshold; EC Code of Conduct Award is significant external validation but does not override the PUE measurement criterion.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
@@ -228,7 +221,6 @@
         "note": "Deutsche Telekom has sourced 100% renewable electricity group-wide since 2021, via PPAs (36.4% group-wide), direct procurement, and guarantees of origin. T Cloud Public's data centres in Biere, Magdeburg, Aalsmeer, and Almere all operate on 100% certified renewable electricity. ISO 14001 (environmental management) and ISO 50001 (energy management) certifications are held. Carbon-neutral in own operations (Scope 1+2) targeted for 2025, net-zero Scope 1-3 by 2040 per SBTi."
       }
     },
-
     "summary_note": "T Cloud Public (rebranded from Open Telekom Cloud in January 2026) is Deutsche Telekom/T-Systems' sovereign public cloud platform, operating exclusively in EU data centres (Biere and Magdeburg, Germany; Aalsmeer and Almere, Netherlands). Its sovereignty profile is strong on legal jurisdiction, operational independence, security certifications, and environmental credentials — but carries a well-documented and structurally unresolved dependency on Huawei (China) for its core cloud operating system (Huawei FusionSphere/Huawei OpenStack Distribution) and partially for server hardware. This creates the central sovereignty tension: T-Systems operates the platform independently with no Huawei system access enforced contractually and procedurally, yet cannot fully audit or sustain the underlying cloud OS without Huawei's continued software support.\n\nKey corrections applied after cross-provider consistency review: (1) SOV-1 Q2 receives P (not Y) — no formal golden share or change-of-control covenant exists, only state ownership-based deterrence; consistent with how other providers are scored. (2) SOV-2 Q5 receives N (not P) — Huawei FusionSphere IP is Chinese-origin, a genuine distinction from EU-native clouds (Hetzner, STACKIT) that build on open-source Linux/KVM. (3) SOV-3 Q5 receives P (not Y) — the original Y incorrectly attributed the Industrial AI Cloud to T Cloud Public; corrected to P (not N) because EU inference governance exists and is consistent with how other providers hosting non-EU AI model software are assessed. (4) SOV-4 Q1 remains Y — T Cloud Public is OpenStack Powered, same basis as other EU providers; PaaS lock-in exists but does not override IaaS portability at this question's scope. (5) SOV-4 Q6 receives N (not P) — Huawei as cloud OS vendor is an additional critical non-EU software dependency beyond the standard Intel/NVIDIA hardware that all EU providers share (P-level); the OS-layer dependency is qualitatively more fundamental. (6) SOV-5 Q4 receives N (not P) — FusionSphere constitutes significant reliance on a non-EU proprietary technology at the platform level, distinct from hardware. (7) SOV-6 Q1 remains Y — OpenStack Powered certification at the IaaS layer is the applicable standard, consistent with other EU providers. (8) SOV-7 Q1 note corrected: EU Cloud Code of Conduct was Level 2, not Level 3. (9) T-Systems North America Inc. and Deutsche Telekom's ownership of T-Mobile US create a potential US nexus noted in SOV-2 Q2.\n\nOn the positive side, T Cloud Public holds the most comprehensive EU certification portfolio of any EU public cloud provider (BSI C5 Type 2, ISO 27001/17/18/27701, SOC 1/2/3 Type II, TISAX Level 3), was approved for German federal procurement through GovTech Deutschland (May 2026), offers genuine BYOK+HYOK encryption, operates 100% renewable electricity, and achieves a best-in-class PUE of 1.28 (Biere). The operational model — T-Systems-only EU staff, zero Huawei production access, Huawei video-conference consultation only — is a genuine and enforced design principle. Deutsche Telekom's dual-vendor hardware strategy and the separately launched Industrial AI Cloud (NVIDIA DGX-based, Huawei-free) represent the trajectory toward a fully sovereign technology stack, but as of mid-2026, the Huawei FusionSphere cloud OS dependency remains the defining unresolved sovereignty gap for T Cloud Public."
   }
 }

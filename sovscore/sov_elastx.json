@@ -22,9 +22,9 @@
         "note": "All operations, engineering, and support roles are located in Stockholm, Sweden, contributing directly to the Swedish and EU digital economy. Elastx operates three production data centers in the Stockholm metropolitan area."
       },
       "Is the provider actively involved in EU sovereignty initiatives (e.g. GAIA-X) and consistent with EU digital sovereignty objectives?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://openinfra.org/a/members/profile/3/elastx-ab",
-        "note": "Elastx is a registered Supporting Organization in the OpenInfra Foundation (the steward of OpenStack), demonstrating active alignment with open-infrastructure sovereignty principles. The company publicly advocates for Swedish and EU digital sovereignty."
+        "note": "Elastx is a registered Supporting Organization in the OpenInfra Foundation (the steward of OpenStack), demonstrating active alignment with open-infrastructure sovereignty principles. The company publicly advocates for Swedish and EU digital sovereignty. [Adjudicated Y→P: OpenInfra Foundation Supporting Organization status is a global open-source membership, not a documented GAIA-X membership, EUCS qualification, or IPCEI-CIS participation; the rubric's EU sovereignty initiative criteria are not met, and P applies for EU sovereignty positioning without formal EU initiative membership.]"
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
         "verdict": "P",
@@ -71,9 +71,9 @@
         "note": "Elastx holds ISO/IEC 27001:2022, ISO 27017, and ISO 27018 certifications, all of which require comprehensive audit logging and access control documentation. High-resolution platform logs are available to customers."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/privacy-policy",
-        "note": "GDPR-compliant data deletion procedures are contractually guaranteed. The ISO 27001 ISMS requires documented data destruction processes and verifiable evidence of erasure upon contract termination."
+        "note": "GDPR-compliant data deletion procedures are contractually guaranteed. The ISO 27001 ISMS requires documented data destruction processes and verifiable evidence of erasure upon contract termination. [Adjudicated Y→P: GDPR-compliant deletion and ISO 27001 mandating 'verifiable evidence of erasure upon contract termination' are documented contractually, but no customer-issued certificate of destruction as an explicit standard deliverable is confirmed; meets only rubric P.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -120,9 +120,9 @@
     },
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://elastx.se/en/about-elastx",
-        "note": "Server hardware (compute, storage, networking) is procured from non-EU manufacturers. Elastx has a listed Intel partner relationship, confirming reliance on US-origin silicon. No EU-manufactured server alternatives are used."
+        "note": "Server hardware (compute, storage, networking) is procured from non-EU manufacturers. Elastx has a listed Intel partner relationship, confirming reliance on US-origin silicon. No EU-manufactured server alternatives are used. [Adjudicated N→P: The note confirms Intel partnership and US-origin silicon; no Chinese manufacturer dependency is documented; the rubric's N requires Huawei or Lenovo servers with no diversification — standard Intel/AMD hardware qualifies as P.]"
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
@@ -135,9 +135,9 @@
         "note": "Elastx manages its own software build, packaging, and update pipelines entirely from Sweden. The company is listed as an OpenStack operator on the OpenInfra Foundation's marketplace, confirming EU-based orchestration of the software stack."
       },
       "Is the provider free from significant reliance on non-EU vendors or proprietary technologies?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.intel.com/content/www/us/en/partner/showcase/storefront/a5S3b0000002jpFEAQ/elastx-ab.html",
-        "note": "Elastx is a listed Intel partner, confirming dependency on US-origin x86 processors. NVIDIA GPUs are also offered for AI workloads. These non-EU hardware dependencies represent the primary sovereignty gap."
+        "note": "Elastx is a listed Intel partner, confirming dependency on US-origin x86 processors. NVIDIA GPUs are also offered for AI workloads. These non-EU hardware dependencies represent the primary sovereignty gap. [Adjudicated N→P: The note documents Intel/AMD/NVIDIA hardware dependencies, but the software stack uses open-source components with no critical proprietary non-EU software dependency identified; the rubric assigns N only where both hardware AND proprietary software non-EU dependency coexist — P is the correct verdict.]"
       },
       "Does the provider offer full transparency and audit rights across its entire supply chain?": {
         "verdict": "P",
@@ -169,14 +169,14 @@
     },
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/information-security-policy",
-        "note": "Elastx holds ISO/IEC 27001:2022, ISO/IEC 27017, ISO/IEC 27018 (cloud-specific and PII protection), and ISO 14001 (environmental management). These are verified by accredited third-party auditors."
+        "note": "Elastx holds ISO/IEC 27001:2022, ISO/IEC 27017, ISO/IEC 27018 (cloud-specific and PII protection), and ISO 14001 (environmental management). These are verified by accredited third-party auditors. [Adjudicated Y→P: Holds ISO 27001, ISO 27017, ISO 27018, and ISO 14001, but no BSI C5 (any type) and no ENISA EUCS — ISO 27001 plus cloud-specific ISO extensions maps to P under the rubric.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/news/the-swedish-cloud-provider-everything-you-need-for-secure-cloud-operations",
-        "note": "Elastx is documented as a preferred cloud provider for Swedish healthcare and fintech sectors requiring strict NIS2 and GDPR compliance. Its ISO 27001 ISMS provides the documented control framework required under NIS2 Article 21."
+        "note": "Elastx is documented as a preferred cloud provider for Swedish healthcare and fintech sectors requiring strict NIS2 and GDPR compliance. Its ISO 27001 ISMS provides the documented control framework required under NIS2 Article 21. [Adjudicated Y→P: ISO 27001 provides an indirect NIS2 control framework and GDPR compliance is documented, but DORA is not mentioned and NIS2 compliance is inferred rather than explicitly stated — P is appropriate under the rubric.]"
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
@@ -184,9 +184,9 @@
         "note": "Security monitoring and incident response are performed exclusively by Swedish-citizen staff in Stockholm, Sweden. No non-EU SOC or outsourced security operations are in place."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/security",
-        "note": "Elastx provides customers with direct access to OpenStack Keystone audit logs, Nova compute event logs, and threat protection metrics through the OpenStack Dashboard and API. ISO 27018 certification mandates customer-accessible access logs."
+        "note": "Elastx provides customers with direct access to OpenStack Keystone audit logs, Nova compute event logs, and threat protection metrics through the OpenStack Dashboard and API. ISO 27018 certification mandates customer-accessible access logs. [Adjudicated Y→P: OpenStack Keystone and Nova event logs are accessible via the Dashboard and API, but this is the standard OpenStack management interface rather than a dedicated security audit log product; ISO 27018 mandates access log availability but does not constitute a SIEM product.]"
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
@@ -201,19 +201,19 @@
     },
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://european.cloud/provider/elastx/",
-        "note": "Elastx operates three data centers in the Stockholm area, all powered by 100% renewable green electricity. The ISO 14001 certification requires documented energy efficiency targets and continual improvement in environmental performance."
+        "note": "Elastx operates three data centers in the Stockholm area, all powered by 100% renewable green electricity. The ISO 14001 certification requires documented energy efficiency targets and continual improvement in environmental performance. [Adjudicated Y→P: No specific PUE figures are published for Elastx's Stockholm data centres; ISO 14001 is an environmental management standard that does not substitute for published measured PUE data verified by EMAS or equivalent.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/about-elastx",
-        "note": "Sustainability is a stated core company value at Elastx. The company practices responsible hardware lifecycle management aligned with its ISO 14001 Environmental Management System, though specific public data on hardware repurposing rates is limited."
+        "note": "Sustainability is a stated core company value at Elastx. The company practices responsible hardware lifecycle management aligned with its ISO 14001 Environmental Management System, though specific public data on hardware repurposing rates is limited. [Adjudicated Y→P: Note acknowledges 'specific public data on hardware repurposing rates is limited'; ISO 14001 alignment alone does not constitute two actively documented circular economy practices under the rubric.]"
       },
       "Does the provider publish transparent carbon and water usage disclosures?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://elastx.se/en/about-elastx",
-        "note": "ISO 14001 certification requires public environmental performance reporting. Elastx communicates its renewable energy use and environmental commitments, though a detailed standalone CSRD-aligned carbon report has not been publicly identified."
+        "note": "ISO 14001 certification requires public environmental performance reporting. Elastx communicates its renewable energy use and environmental commitments, though a detailed standalone CSRD-aligned carbon report has not been publicly identified. [Adjudicated Y→P: Note explicitly states 'a detailed standalone CSRD-aligned carbon report has not been publicly identified'; ISO 14001 certification does not require a CSRD/GRI/TCFD-standard annual report with carbon AND water figures.]"
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
         "verdict": "Y",

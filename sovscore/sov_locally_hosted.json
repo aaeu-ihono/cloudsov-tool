@@ -32,7 +32,6 @@
         "note": "No cloud provider can be suspended by non-EU authority. However critical software licenses (Windows Server, VMware/Broadcom, Oracle) and hardware support contracts are with non-EU vendors. If those vendors withdrew support under legal compulsion, continued operations would require migration to open-source alternatives — feasible with planning but not immediate."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "The enterprise's own application and configuration IP is EU-owned and developed. However the underlying infrastructure IP — server firmware (Intel, AMD), hypervisor (VMware/Broadcom), and OS (Microsoft Windows Server) — is typically non-EU. A fully open-source stack (Linux, KVM) reduces but does not eliminate this exposure."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "If AI is deployed locally (e.g. Ollama, vLLM with open-weight models on-premise GPU servers) governance is entirely EU-controlled. However most enterprises also use SaaS AI tools (Microsoft Copilot, OpenAI API, Google Vertex) that route data to non-EU infrastructure, creating mixed AI sovereignty. Verdict assumes a typical enterprise scenario without fully local AI."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "P",
@@ -121,12 +118,11 @@
         "note": "Critical hardware suppliers (Dell US, HP Inc. US, Lenovo China, Supermicro US) and software suppliers (Microsoft US, VMware/Broadcom US, Intel US, AMD US) are predominantly non-EU. This is an inherent structural limitation of the current global technology supply chain affecting all on-premise deployments equally."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.statista.com/statistics/1268394/server-vendor-market-share-worldwide/",
-        "note": "Enterprise server hardware is dominated by non-EU manufacturers: Dell (US), HP (US), Lenovo (China), Supermicro (US). No major EU-origin server OEM exists for standard x86 infrastructure. Some EU assembly occurs (e.g. Dell in Limerick, Ireland) but core components and IP originate from non-EU countries."
+        "note": "Enterprise server hardware is dominated by non-EU manufacturers: Dell (US), HP (US), Lenovo (China), Supermicro (US). No major EU-origin server OEM exists for standard x86 infrastructure. Some EU assembly occurs (e.g. Dell in Limerick, Ireland) but core components and IP originate from non-EU countries. [Adjudicated N→P: The note describes a mix of Dell (US), HP (US), Lenovo (China), and Supermicro (US) vendors as representative of the market; self-hosted scenarios typically procure from multiple vendors without exclusive Huawei/Lenovo dependency, and the note explicitly notes some EU assembly occurs (Dell Limerick); a blanket N is too strong for a scenario where western OEM selection is available — P is more appropriate and the note does not document a structural Chinese-only hardware gap.]"
       },
       "Is firmware and embedded code controlling hardware of EU origin?": {
         "verdict": "N",
@@ -149,7 +145,6 @@
         "note": "The organisation has direct visibility into its own procurement and configuration. However hardware vendor supply chains (chip fabs, component sourcing, firmware build processes) are opaque and not auditable by the enterprise. Independent security audits of on-premise infrastructure are fully possible and under the enterprise's direct control."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "P",
@@ -172,7 +167,6 @@
         "note": "All standard enterprise compute relies on Intel or AMD x86 processors (both US) and NVIDIA/AMD GPUs for ML/AI workloads (both US). No EU-origin processor is commercially available for enterprise server deployment. The EuroHPC Joint Undertaking is developing EU HPC chips but these are not yet available for standard enterprise on-premise use."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
         "verdict": "N",
@@ -205,7 +199,6 @@
         "note": "Full physical and logical access to on-premise infrastructure enables comprehensive independent security audits without restriction. EU regulatory authorities (BSI, ANSSI, national supervisory bodies) can conduct on-site audits. Penetration testing, source code review, and architecture assessment can all be performed with complete access — no vendor permission required."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
         "verdict": "N",
@@ -228,7 +221,6 @@
         "note": "Renewable energy sourcing depends entirely on the organisation's energy procurement strategy and its national grid carbon intensity. EU member states vary significantly in renewable mix. Organisations can purchase renewable energy certificates (RECs/GOs) or sign Power Purchase Agreements independently of their hosting model — no inherent advantage or disadvantage versus cloud."
       }
     },
-
     "summary_note": "Local (on-premise) hosting at an EU enterprise office represents the highest possible data-location sovereignty and legal jurisdiction clarity: no third-party cloud provider, no CLOUD Act exposure, no risk of a provider being acquired by a non-EU entity, and complete cryptographic key control. The enterprise retains full physical and logical control over its data and infrastructure. However this model scores poorly on supply chain and environmental dimensions — standard enterprise hardware (Dell, HP, Lenovo, Intel, AMD) is entirely non-EU in origin and firmware, and office server rooms operate far less efficiently than modern data centres (PUE 1.5–2.5 vs 1.1–1.4). Operational sovereignty is also partial: critical software dependencies (Windows Server, VMware, Oracle) and hardware support contracts remain with non-EU vendors, meaning true independence requires deliberate migration to an open-source stack. The on-premise model trades cloud-provider risk for vendor dependency risk and operational overhead. For EU enterprises prioritising data location control, absence of third-party access channels, and legal sovereignty, local hosting is the strongest option in this survey. For scalability, feature richness, energy efficiency, and cost predictability, it is the weakest."
   }
 }

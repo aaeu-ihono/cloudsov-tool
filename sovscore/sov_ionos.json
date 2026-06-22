@@ -32,7 +32,6 @@
         "note": "IONOS operates its EU cloud regions from proprietary German data centres (Karlsruhe, Frankfurt, Berlin) using an OpenStack-based platform, which reduces dependency on any single non-EU vendor. However, the existence of IONOS Inc. (US subsidiary, Philadelphia HQ) creates a legal channel through which US authorities could issue orders affecting the group. Hardware infrastructure relies on Intel, AMD, and Supermicro — all non-EU vendors — which would constrain full operational independence if US export controls were applied."
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "P",
@@ -60,7 +59,6 @@
         "note": "Core software development — including the IONOS Cloud platform, API layers, and management tooling — is conducted primarily in Germany (Karlsruhe engineering hub and Montabaur HQ). IONOS holds trademarks registered at the EUIPO and DPMA under German law. However, IONOS Inc. in the US contributes to the group's IP base, and historical IP created during the 1&1 era in the US is not exclusively EU-registered."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -73,9 +71,9 @@
         "note": "IONOS holds BSI C5:2020 Type I attestation (November 2023) and ISO/IEC 27001 certification, both of which mandate comprehensive access logging, event auditing, and audit trail retention. The C5 framework specifically requires providers to log all access to customer data and make logs available for customer review. IONOS Cloud provides activity logs via the API and DCD console for compute and storage operations."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cloud.ionos.com/protection",
-        "note": "IONOS operates under GDPR Article 17 (right to erasure) and documents its data deletion procedures as part of its Data Processing Agreement (DPA). BSI C5 controls require documented and verifiable data destruction procedures. IONOS confirms cryptographic erasure for decommissioned storage media in accordance with BSI IT-Grundschutz guidelines."
+        "note": "IONOS operates under GDPR Article 17 (right to erasure) and documents its data deletion procedures as part of its Data Processing Agreement (DPA). BSI C5 controls require documented and verifiable data destruction procedures. IONOS confirms cryptographic erasure for decommissioned storage media in accordance with BSI IT-Grundschutz guidelines. [Adjudicated Y→P: BSI C5 (Type I, not Type II) and ISO 27001 mandate deletion procedures, and BSI IT-Grundschutz cryptographic erasure for decommissioned media is confirmed, but no explicit customer-facing certificate of destruction as standard deliverable is mentioned; BSI C5 Type I lacks the independent auditor sign-off of Type II needed for rubric Y.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "P",
@@ -88,7 +86,6 @@
         "note": "IONOS has partnered with Nextcloud and Stackable (EU open-source data platform) for AI-assisted workloads, and its Managed Stackable platform is built on EU open-source components. However, GPU compute infrastructure relies on NVIDIA hardware (US), and no proprietary EU-developed AI model training pipeline is confirmed. IONOS does not operate a publicly documented EU-exclusive large-language model service; AI workloads on its platform depend on customer-selected models which may include non-EU origin."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Key physical infrastructure suppliers include Intel (US), AMD (US), Supermicro (US/Taiwan), and NVIDIA (US) — all non-EU. Equinix (US) provides colocation capacity at the Frankfurt campus. Network transit involves non-EU backbone providers. IONOS's own data centres in Germany provide direct control over the facility layer, but hardware and semiconductor supply chains are predominantly non-EU governed."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "IONOS publishes an annual Sustainability Report (2024) disclosing key environmental and procurement KPIs. BSI C5 Type I and ISO 27001 audits cover the service layer, with results published as attestation documents. However, full supply chain auditability (covering hardware ODMs, silicon fabrication, and firmware provenance) is not publicly disclosed, consistent with industry norms."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,12 +167,11 @@
         "note": "All compute infrastructure uses Intel Xeon or AMD EPYC processors (both US companies), and GPU workloads rely on NVIDIA accelerators (US). No EU-origin processor alternative (e.g., RISC-V or EU-fabbed ARM) is deployed at scale. This is an industry-wide constraint with no near-term EU alternative for production-grade x86 compute."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cloud.ionos.de/zertifikate",
-        "note": "IONOS holds BSI C5:2020 Type I attestation (issued November 2023, covering Compute Engine, Cloud Cubes, S3 Object Storage), ISO/IEC 27001 certification, BSI IT-Grundschutz certification (September 2022 — first German cloud provider to hold both), ISO 14001 (environmental management, 100% coverage 2024), and ISO 50001 (energy management). PCI DSS compliance is also maintained for payment processing workloads."
+        "note": "IONOS holds BSI C5:2020 Type I attestation (issued November 2023, covering Compute Engine, Cloud Cubes, S3 Object Storage), ISO/IEC 27001 certification, BSI IT-Grundschutz certification (September 2022 — first German cloud provider to hold both), ISO 14001 (environmental management, 100% coverage 2024), and ISO 50001 (energy management). PCI DSS compliance is also maintained for payment processing workloads. [Adjudicated Y→P: Holds ISO 27001, BSI IT-Grundschutz, and BSI C5 Type I (self-assessment, issued November 2023) — the rubric maps BSI C5 Type 1 (not independently audited Type 2) to P; Y requires BSI C5 Type 2.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "IONOS undergoes annual third-party audits by accredited German audit firms (TÜV Nord has been involved in BSI certifications). The BSI IT-Grundschutz and C5 attestation documents are issued by accredited audit bodies and made publicly available. Enterprise customers can request penetration testing of their own environments and review sub-processor lists. IONOS cooperates with BSI as the competent national authority for cloud security assessments."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Group_SE_Sustainability_Report_2024.pdf",
-        "note": "IONOS reports a weighted average PUE of 1.39 across its data centres in 2024, with continuous improvement targets. ISO 14001 (environmental management) and ISO 50001 (energy management) are maintained at 100% coverage across all owned data centres as of 2024. IONOS has set a 2030 Climate Strategy targeting a 55% reduction in data centre carbon emissions from the 2019 baseline."
+        "note": "IONOS reports a weighted average PUE of 1.39 across its data centres in 2024, with continuous improvement targets. ISO 14001 (environmental management) and ISO 50001 (energy management) are maintained at 100% coverage across all owned data centres as of 2024. IONOS has set a 2030 Climate Strategy targeting a 55% reduction in data centre carbon emissions from the 2019 baseline. [Adjudicated Y→P: Weighted average PUE of 1.39 is published (measured) and ISO 14001/50001 are maintained, but PUE >1.2 places this in the P band per the rubric regardless of the quality of the measurement programme.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "Y",
@@ -223,12 +216,11 @@
         "note": "IONOS publishes a full annual Sustainability Report (2024 edition available) disclosing Scope 1, 2, and partial Scope 3 GHG emissions, carbon intensity (0.13 t CO2 per €1M revenue in 2024), Water Usage Effectiveness (WUE 0.003), and Carbon Usage Effectiveness (CUE 0.003). Reporting follows GRI standards and is independently reviewed."
       },
       "Does the provider source renewable or low-carbon energy for its operations?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://www.ionos.com/environment",
-        "note": "IONOS achieved 99.3% renewable electricity consumption in 2024, sourced via Power Purchase Agreements (PPAs) and green energy certificates. Proprietary data centres in Germany and other EU locations operate on 100% renewable electricity. IONOS's 2030 Climate Strategy includes on-site renewable generation (solar PV) at 50% of owned data centres."
+        "note": "IONOS achieved 99.3% renewable electricity consumption in 2024, sourced via Power Purchase Agreements (PPAs) and green energy certificates. Proprietary data centres in Germany and other EU locations operate on 100% renewable electricity. IONOS's 2030 Climate Strategy includes on-site renewable generation (solar PV) at 50% of owned data centres. [Adjudicated Y→P: Fleet-wide renewable consumption was 99.3% in 2024 — not 100%; the Y threshold requires documented 100% renewable covering all EU DC locations, so the 0.7% shortfall places this in the partial bracket.]"
       }
     },
-
     "summary_note": "IONOS is a strong German cloud provider with genuine EU operational depth — the first German provider to hold both BSI C5 and IT-Grundschutz certifications, active in govdigital and GAIA-X, and a committed investor in EU cloud infrastructure. However, the decisive sovereignty weakness is the confirmed US CLOUD Act exposure through IONOS Inc. (Philadelphia, PA), which IONOS itself acknowledges in its published CLOUD Act white paper. This makes SOV-2 Q2 and Q3 both N — the most material disqualifier for high-sensitivity public sector workloads. United Internet's 63.8% majority ownership is EU-controlled (Ralph Dommermuth, German founder), but the Warburg Pincus (US PE) stake and public float introduce non-EU capital. Compared to fully independent German providers (noris network, Hetzner), IONOS carries a structural jurisdictional risk at the group level that cannot be mitigated contractually. Environmental performance is strong: 99.3% renewable energy (2024), published Sustainability Report, ISO 14001/50001 at 100% coverage, PUE 1.39."
   }
 }

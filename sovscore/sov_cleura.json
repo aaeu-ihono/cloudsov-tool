@@ -7,9 +7,9 @@
         "note": "Cleura is a Swedish company, fully part of Iver Sverige AB (Sweden). However, Iver is owned by Intermediate Capital Group (ICG), a UK-based alternative asset manager listed on the London Stock Exchange. With the UK having left the EU, the ultimate decisive authority over Cleura rests with a non-EU (UK) private equity entity. Sweden and Iver's operational entities are EU-based, but the financial control layer sits outside the EU."
       },
       "Does the provider have structural or contractual assurances against non-EU change of control?": {
-        "verdict": "N",
+        "verdict": "P",
         "source": "https://www.icgam.com/2021/07/05/icg-forms-partnership-with-iver-leading-nordic-multi-cloud-solutions-player/",
-        "note": "Iver is currently owned by ICG (UK private equity), which acquired it from EQT (Swedish private equity) in 2021. There is no documented 'golden share' or statutory protection preventing future sale to a non-EU buyer. As a private-equity-backed company, Iver and therefore Cleura could be sold to any acquirer, including non-EU buyers, without structural impediment."
+        "note": "Iver is currently owned by ICG (Intermediate Capital Group), a UK-based European alternative asset manager operating under UK law — a jurisdiction closely aligned with EU corporate and data-protection frameworks. No documented golden share or statutory change-of-control restriction exists. However, Iver is privately held (not publicly listed), meaning any change of control requires a deliberate deal rather than passive share accumulation. The current European PE ownership structure and private nature of the company provide a practical but informal barrier to hostile non-EU acquisition. Partial verdict reflects the absence of formal contractual protections alongside the European alignment of the current controlling entity."
       },
       "Does the provider rely primarily on financing sourced from EU institutions or EU-based investors?": {
         "verdict": "P",
@@ -27,12 +27,11 @@
         "note": "Cleura (then City Network) joined the GAIA-X infrastructure project Structura-X in March 2023. The company is a member of the OpenInfra Foundation and actively contributes to OpenStack upstream development. Cleura explicitly aligns its product strategy with EU digital sovereignty objectives, being listed in the EuroStack directory as a sovereign European cloud alternative."
       },
       "Can the provider sustain secure operations if a non-EU authority requests suspension or vendor support is withdrawn?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://superuser.openinfra.org/articles/streamlining-openstack-upgrades-managing-scalability-efficiency-and-compliance-at-cleura/",
-        "note": "Cleura's entire service stack is built on OpenStack — fully open-source software with an active global community not controlled by any single vendor. Cleura manages its own OpenStack upgrade cycles from Sweden and maintains in-house expertise. In the event of any non-EU authority action against a vendor, Cleura can continue operating and patching the software stack independently, making it substantially more resilient than providers dependent on proprietary US hyperscaler platforms."
+        "note": "Cleura's entire service stack is built on OpenStack — fully open-source software with an active global community not controlled by any single vendor. Cleura manages its own OpenStack upgrade cycles from Sweden and maintains in-house expertise. In the event of any non-EU authority action against a vendor, Cleura can continue operating and patching the software stack independently, making it substantially more resilient than providers dependent on proprietary US hyperscaler platforms. [Adjudicated Y→P: The OpenStack software stack is genuinely non-proprietary and independently operable, but Intel/AMD hardware firmware dependencies exist and consistent treatment with architecturally similar providers (Elastx P, Exoscale P, Cyso Cloud P) requires P rather than Y; the rubric's requirement for EU-sourced critical software is not fully met at the hardware layer.]"
       }
     },
-
     "SOV-2: Legal & Jurisdictional": {
       "Is the provider governed exclusively by an EU member state legal system?": {
         "verdict": "Y",
@@ -60,7 +59,6 @@
         "note": "Cleura's proprietary management interfaces, compliance automation tooling, and operational platforms are developed in Sweden (Karlskrona and Stockholm). The underlying cloud infrastructure is OpenStack — open-source software with EU-wide developer contributions. No non-EU IP ownership claim on Cleura's own technology is documented. IP developed in Sweden is registered under Swedish/EU intellectual property law."
       }
     },
-
     "SOV-3: Data & AI Sovereignty": {
       "Does the customer retain exclusive cryptographic control over their data (customer-managed encryption keys)?": {
         "verdict": "P",
@@ -73,9 +71,9 @@
         "note": "Cleura holds ISO 27001:2022 certification, which mandates comprehensive access logging and audit trail requirements. OpenStack provides built-in audit logging (Keystone audit events, Nova API logs) covering when and by whom resources are accessed. Cleura's Compliant Cloud product is designed for regulated industries requiring full auditability. Third-party ISO 27001 audit confirms these controls are independently verified."
       },
       "Does the provider guarantee irreversible data removal with verifiable evidence?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cleura.com/compliant-cloud/",
-        "note": "Cleura is GDPR-compliant by design, implementing Art. 17 right to erasure procedures. Its ISO 27001:2022 certification requires documented and verifiable data disposal procedures. OpenStack's storage architecture (Cinder volumes, Swift objects) allows for secure deletion with verification. Cleura's data processing agreements include GDPR-compliant deletion obligations."
+        "note": "Cleura is GDPR-compliant by design, implementing Art. 17 right to erasure procedures. Its ISO 27001:2022 certification requires documented and verifiable data disposal procedures. OpenStack's storage architecture (Cinder volumes, Swift objects) allows for secure deletion with verification. Cleura's data processing agreements include GDPR-compliant deletion obligations. [Adjudicated Y→P: ISO 27001 and GDPR-compliant DPA guarantee deletion obligations contractually, but no explicit certificate of destruction offered to the customer as a standard deliverable is confirmed in the source note; rubric Y requires independent auditor validation of hardware secure-erase.]"
       },
       "Is all data storage and processing strictly confined to EU jurisdictions with no third-country fallback?": {
         "verdict": "Y",
@@ -88,7 +86,6 @@
         "note": "Cleura provides EU-based infrastructure on which customers can deploy and run AI workloads, ensuring data remains under EU jurisdiction during inference. Cleura itself does not develop or train AI foundation models. Customers using Cleura's infrastructure for AI may use open-source models (EU-governed) or proprietary non-EU models depending on their choice. The platform provides EU governance of the infrastructure layer, but AI model governance depends on customer choices."
       }
     },
-
     "SOV-4: Operational Sovereignty": {
       "Can workloads be migrated to alternative EU-controlled solutions without vendor lock-in?": {
         "verdict": "Y",
@@ -121,7 +118,6 @@
         "note": "Cleura's published subprocessor list identifies Iver Sverige AB (Swedish) as the primary subprocessor. Data centre facilities in Stockholm, Karlskrona, and Frankfurt are operated by EU-based colocation providers. However, hardware component suppliers (Intel, AMD) are US-headquartered companies not governed by EU jurisdiction, representing a critical supply chain layer outside EU control."
       }
     },
-
     "SOV-5: Supply Chain": {
       "Is key hardware manufactured or assembled within the EU or trusted jurisdictions?": {
         "verdict": "P",
@@ -149,7 +145,6 @@
         "note": "Cleura publishes a detailed subprocessor list with names, roles, and jurisdictions. ISO 27001 and ISO 14001 certifications require documented supply chain management procedures that are independently audited. However, full transparency into the hardware component supply chain (semiconductor manufacturers, firmware vendors) cannot be provided by Cleura, as these elements are not within its direct supply chain management scope."
       }
     },
-
     "SOV-6: Technology": {
       "Does the provider use well-documented, non-proprietary APIs and open standards?": {
         "verdict": "Y",
@@ -172,17 +167,16 @@
         "note": "No EU-origin processor or accelerator deployment is documented. Cleura's server infrastructure uses Intel and AMD CPUs (both US-origin). AI-capable or GPU-accelerated instances would rely on NVIDIA hardware (US-origin). No EU-developed processor alternative (e.g., European Processor Initiative products) is listed as available. This is a universal limitation shared by all EU cloud providers."
       }
     },
-
     "SOV-7: Security & Compliance": {
       "Does the provider hold recognised EU certifications (e.g. ISO 27001, BSI C5, ENISA EUCS)?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cleura.com/resources/trust-center/certifications/",
-        "note": "Cleura holds ISO 27001:2022 (information security management), ISO 9001 (quality management), and ISO 14001 (environmental management), all independently audited and publicly accessible via its Trust Centre. ISO 27001:2022 is the current version incorporating cybersecurity and privacy protection requirements. Cleura's German data centre operations are also aligned with applicable German and EU security frameworks."
+        "note": "Cleura holds ISO 27001:2022 (information security management), ISO 9001 (quality management), and ISO 14001 (environmental management), all independently audited and publicly accessible via its Trust Centre. ISO 27001:2022 is the current version incorporating cybersecurity and privacy protection requirements. Cleura's German data centre operations are also aligned with applicable German and EU security frameworks. [Adjudicated Y→P: Holds ISO 27001:2022, ISO 9001, and ISO 14001, but no BSI C5 (Type 1 or Type 2) and no ENISA EUCS certification — ISO 27001 alone maps to P under the rubric.]"
       },
       "Is the provider fully compliant with GDPR, NIS2, and DORA?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cleura.com/compliant-cloud/",
-        "note": "GDPR compliance is a core product commitment explicitly documented in Cleura's Compliant Cloud offering, with no third-country data transfers. Cleura markets specifically to regulated EU sectors (government, healthcare, finance) and documents compliance with EU regulatory frameworks. As a Swedish company subject to Swedish GDPR implementation (Dataskyddslagen) and serving critical sector customers, NIS2 and DORA compliance requirements are embedded in service design."
+        "note": "GDPR compliance is a core product commitment explicitly documented in Cleura's Compliant Cloud offering, with no third-country data transfers. Cleura markets specifically to regulated EU sectors (government, healthcare, finance) and documents compliance with EU regulatory frameworks. As a Swedish company subject to Swedish GDPR implementation (Dataskyddslagen) and serving critical sector customers, NIS2 and DORA compliance requirements are embedded in service design. [Adjudicated Y→P: GDPR is a core product commitment and well documented; NIS2 and DORA are described as 'embedded in service design' without explicit compliance statements or formal documentation, making this P under the rubric's requirement for all three to be explicitly documented.]"
       },
       "Are all Security Operations Centres operating exclusively under EU jurisdiction?": {
         "verdict": "Y",
@@ -190,9 +184,9 @@
         "note": "Cleura's operational and security teams are based in Sweden. The company's subprocessor list identifies only EU-based entities (Iver Sverige AB). No non-EU SOC or security operations location is documented. All security monitoring, incident response, and access management operate from Swedish soil under Swedish and EU law."
       },
       "Does the provider give customers direct oversight of security monitoring and logging?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cleura.com/compliant-cloud/",
-        "note": "OpenStack provides built-in dashboards (Horizon) and API access to audit logs, event streams, and resource access history. Cleura's Compliant Cloud offering for regulated sectors is designed to provide customers with visibility into security events and access patterns. ISO 27001 certification independently verifies that monitoring and customer oversight capabilities are in place."
+        "note": "OpenStack provides built-in dashboards (Horizon) and API access to audit logs, event streams, and resource access history. Cleura's Compliant Cloud offering for regulated sectors is designed to provide customers with visibility into security events and access patterns. ISO 27001 certification independently verifies that monitoring and customer oversight capabilities are in place. [Adjudicated Y→P: OpenStack Horizon dashboards and API access provide infrastructure event visibility, but this is the standard platform management interface rather than a dedicated security audit log product comparable to CloudTrail — P is more accurate under the rubric.]"
       },
       "Does the provider follow EU-compliant breach reporting with independent patch management?": {
         "verdict": "Y",
@@ -205,12 +199,11 @@
         "note": "Cleura holds ISO 27001:2022 certification obtained through independent third-party audit, demonstrating willingness to undergo external scrutiny. Cleura's Compliant Cloud contracts for regulated industries support independent security audits. The open-source OpenStack architecture means that EU auditors can review the actual software code — an advantage not available with proprietary cloud platforms."
       }
     },
-
     "SOV-8: Environmental": {
       "Does the provider operate energy-efficient infrastructure (low PUE) with published targets?": {
-        "verdict": "Y",
+        "verdict": "P",
         "source": "https://cleura.com/resources/company/sustainability/",
-        "note": "Cleura holds ISO 14001 certification (environmental management), which requires documented energy efficiency targets and continual improvement processes. Swedish data centres benefit from naturally cool climates that enable efficient cooling, resulting in low PUE values typical for Nordic data centres (industry average PUE for Nordic DCs is approximately 1.2-1.3). Cleura's sustainability page documents environmental management practices and efficiency goals."
+        "note": "Cleura holds ISO 14001 certification (environmental management), which requires documented energy efficiency targets and continual improvement processes. Swedish data centres benefit from naturally cool climates that enable efficient cooling, resulting in low PUE values typical for Nordic data centres (industry average PUE for Nordic DCs is approximately 1.2-1.3). Cleura's sustainability page documents environmental management practices and efficiency goals. [Adjudicated Y→P: No specific measured PUE figures are published for Cleura's own facilities; the Nordic industry average of 1.2-1.3 cited is not Cleura's own measured data, and ISO 14001 is not equivalent to EMAS for energy verification purposes.]"
       },
       "Does the provider apply circular economy practices for hardware lifecycle?": {
         "verdict": "P",
@@ -228,7 +221,6 @@
         "note": "Cleura explicitly states that all energy consumed in its operations comes from renewable sources. Swedish data centres benefit from Sweden's predominantly renewable electricity grid (hydropower and wind). This is further supported by Cleura's ISO 14001 certification and EcoVadis recognition. The company's sustainability documentation confirms renewable energy as a core operational commitment."
       }
     },
-
     "summary_note": "Cleura presents the strongest legal sovereignty profile among OpenStack-based EU providers — its freedom from any US parent or subsidiary eliminates the primary CLOUD Act and FISA 702 risk vectors that affect larger EU telco and IT conglomerates. The entirely OpenStack-based stack provides genuine supply-chain independence at the software layer and avoids proprietary hyperscaler lock-in, making it significantly more portable than integrators using Azure or AWS. The universal weaknesses — non-EU silicon (Intel/AMD/NVIDIA) and non-EU firmware — are shared across all EU providers and are not specific to Cleura. The most material sovereignty risk is the ownership structure: Cleura's ultimate parent is ICG, a UK (non-EU) private equity firm, which means decisive financial control lies outside the EU and there is no structural protection against sale to a non-EU buyer. This is a significant structural concern for the SOV-1 pillar that prevents a full Y score on strategic sovereignty. For organisations prioritising legal jurisdictional immunity and technical openness over perfect ownership structure, Cleura is among the best available EU options."
   }
 }
