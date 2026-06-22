@@ -34,6 +34,7 @@ table.grid th, table.grid td { border: 1px solid #e5e7eb; }
 .th-provider { background: #f0f2f6; padding: 6px 8px; font-size: 0.72rem; color: #374151; text-align: left; white-space: nowrap; width: 90px; min-width: 90px; max-width: 90px; position: sticky; left: 0; z-index: 10; vertical-align: bottom; border-right: 2px solid #64748b !important; }
 .td-provider { background: #f9fafb; padding: 4px 8px; white-space: nowrap; position: sticky; left: 0; z-index: 5; width: 90px; min-width: 90px; max-width: 90px; vertical-align: middle; border-right: 2px solid #64748b !important; }
 .provider-name { font-size: 0.78rem; font-weight: 600; color: #1a1a2e; display: inline-block; width: 100%; white-space: normal; overflow-wrap: break-word; word-break: break-word; text-decoration: underline; }
+.provider-flag { width: 1.1em; height: 0.8em; margin-right: 4px; vertical-align: middle; display: inline-block; border-radius: 2px; }
 .remove-btn { cursor: pointer;  }
 .remove-btn:hover { color: #ef4444; }
 

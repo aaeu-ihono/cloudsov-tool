@@ -17,7 +17,7 @@ from readiness_loader import load_readiness
 # Paths
 # ---------------------------------------------------------------------------
 BASE_DIR = Path(__file__).parent.parent          # /cloudsov
-SURVEY_DIR = BASE_DIR / "survey"
+SURVEY_DIR = BASE_DIR / "sovscore"
 READINESS_DIR = BASE_DIR / "readiness"
 
 

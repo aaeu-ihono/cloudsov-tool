@@ -55,7 +55,7 @@ def load_readiness(readiness_dir: str | Path) -> dict[str, dict]:
 
     for f in sorted(path.glob("readiness_*.json")):
         try:
-            with open(f, encoding="utf-8") as fp:
+            with open(f, encoding="utf-8-sig") as fp:
                 raw = json.load(fp)
             parsed = _parse_provider(raw)
             loaded[parsed["name"]] = parsed

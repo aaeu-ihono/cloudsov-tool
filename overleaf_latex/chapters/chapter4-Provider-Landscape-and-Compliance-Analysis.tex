@@ -1,0 +1,224 @@
+\chapter{Provider Selection and Compliance Analysis}
+\label{ch:provider_selection}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Selection Criteria}
+\label{sec:selection_criteria}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The 18 European cloud providers studied in this thesis were selected according to a set of criteria designed to ensure that each provider represents a genuinely sovereign European cloud option that can be assessed consistently against the EC~DG~DIGIT Cloud Sovereignty Framework~v1.2.1~\cite{EC_DIGIT_CloudSovereignty_2025} and the 60-service Cloud Readiness Assessment (see Chapter~5). The criteria are as follows.
+
+\begin{enumerate}
+  \item \textbf{European legal domicile.} The provider must be headquartered and legally registered in a European Union or European Economic Area (EEA) member state. This criterion reflects the jurisdictional foundation of digital sovereignty: legal recourse, data-protection obligations, and government-access demands are all governed by the law of the country in which the provider is incorporated.
+
+  \item \textbf{Commercial cloud service offering.} The provider must offer publicly available commercial cloud services at a minimum of the Infrastructure-as-a-Service (IaaS) or Platform-as-a-Service (PaaS) tier. Providers offering only managed hosting, colocation, or pure Software-as-a-Service products without an underlying programmable infrastructure layer were excluded, as the readiness assessment is structured around service-level parity with AWS.
+
+  \item \textbf{Documented service catalogue.} The provider must maintain a publicly accessible service catalogue sufficient to determine which of the 60 assessed service categories are available. Providers for which no structured catalogue could be identified in English or in a machine-translatable form were excluded to preserve assessment consistency.
+
+  \item \textbf{European data centre operations.} All data processing and storage must be operated from data centres physically located in Europe. Providers that route or replicate data to non-European facilities as a default were excluded.
+
+  \item \textbf{Operational independence from US hyperscalers.} The provider must be independently operated and must not function as a white-label resale or thin wrapper around an AWS, Azure, or Google Cloud back-end. Resellers and managed-service partners of US hyperscalers were excluded because their sovereignty profile is entirely dependent on the underlying hyperscaler's terms, and assessing them separately would be redundant.
+
+  \item \textbf{Sufficient public documentation.} The provider must have published enough technical and governance documentation to allow the EC~DG~DIGIT framework questions to be answered reliably from open sources. This criterion operationalises transparency as a precondition for sovereignty: a provider that does not disclose its data-handling practices cannot credibly claim a high sovereignty posture.
+\end{enumerate}
+
+Amazon Web Services (AWS) is included separately as the universal readiness baseline, not as a selected EU provider. Its role in the assessment framework is described in Section~\ref{sec:aws_baseline}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Provider Profiles by Country}
+\label{sec:provider_profiles}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The 18 selected providers span six countries. The following subsections group them geographically and provide a brief profile of each provider's founding, ownership, data centre geography, primary service tier, and rationale for inclusion.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{Germany}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{Hetzner}
+
+Founded in 1997 and headquartered in Gunzenhausen, Bavaria, Hetzner Online GmbH is a family-owned German company that has grown into one of Europe's largest independent data centre operators~\cite{Hetzner_About}. Its primary data centre campuses are located in Nuremberg, Falkenstein, and Helsinki, with additional infrastructure in Ashburn (US) for non-EU markets. Hetzner's core offering is bare-metal dedicated servers and cloud virtual machines (IaaS), complemented by storage boxes and load balancers. Its European data residency is guaranteed by contract, and its independence from any US parent company eliminates the CLOUD~Act exposure that affects hyperscaler subsidiaries. Hetzner was selected for this study because of its large and growing European user base, its highly competitive pricing, and its status as a reference point for cost-conscious EU sovereignty.
+
+\subsubsection{IONOS}
+
+Originally founded in 1988 as 1\&1~Internet, IONOS was rebranded as a standalone cloud brand in 2018~\cite{IONOS_About}. It is owned by United Internet~AG, a Frankfurt Stock Exchange-listed German holding company, and is headquartered in Montabaur, Germany. IONOS operates data centres across Germany, Spain, the United Kingdom, and the United States, with its European offering centred on IaaS compute, managed virtual private servers, object storage, and a range of website and e-commerce tools. As one of the largest European hosting and cloud incumbents by revenue and customer count, IONOS was selected to represent the established German IaaS market and to test whether scale translates into a broader managed-service catalogue comparable to US hyperscalers.
+
+\subsubsection{STACKIT}
+
+STACKIT was launched in 2021 as the enterprise cloud brand of Schwarz~IT, the technology arm of the Schwarz~Group — the parent company of the Lidl and Kaufland retail chains and one of the largest private companies in Europe~\cite{STACKIT_About}. STACKIT is headquartered in Heilbronn, Germany, and operates its infrastructure exclusively from German and European data centres. Its offering targets enterprise and regulated-sector customers with IaaS compute, managed Kubernetes, object storage, and data analytics services, all backed by the financial resources of the Schwarz~Group. STACKIT was selected as a notable new entrant that brings significant European industrial capital into the cloud market and represents the emerging category of retail-conglomerate-owned sovereign clouds.
+
+\subsubsection{T-Systems Open Telekom Cloud}
+
+The Open Telekom Cloud (OTC) is the public cloud offering of T-Systems International~GmbH, the enterprise ICT subsidiary of Deutsche Telekom~AG~\cite{OTC_About}. Launched approximately in 2016 and operated from data centres in Biere and Magdeburg (Saxony-Anhalt, Germany), OTC is built on Huawei FusionSphere — Huawei's proprietary OpenStack distribution — and offers a broad IaaS and PaaS catalogue including compute, storage, networking, database services, and container management. It holds a BSI~C5 attestation, making it one of the most compliance-certified European cloud offerings available, and is widely used for German federal and state government workloads. OTC was selected for the depth of its compliance documentation and its relevance to public-sector sovereignty procurement decisions.
+
+\subsubsection{Arvato Systems}
+
+Arvato~Systems is the information technology subsidiary of Bertelsmann~SE~\&~Co.~KGaA, the Gütersloh-based German media and services conglomerate~\cite{Arvato_About}. Rather than operating a self-branded public cloud infrastructure platform, Arvato~Systems delivers managed cloud, hybrid infrastructure, and B2B~IT services primarily to enterprise clients in media, healthcare, and logistics. Its European data centres support GDPR-compliant processing under German and EU law. Arvato~Systems was selected as a representative of large enterprise managed-cloud providers that are deeply embedded in German industry but do not have a fully self-built hyperscaler-equivalent infrastructure, thereby testing how managed-service specialists score in the readiness assessment.
+
+\subsubsection{Noris Network}
+
+Founded in 1993 and headquartered in Nuremberg, Germany, Noris~Network~AG specialises in high-security data centre infrastructure and managed cloud services for regulated industries~\cite{NorisNetwork_About}. The company operates its own data centres in Nuremberg, certified to ISO~27001, and offers managed hosting, private cloud, and hybrid connectivity solutions. Its customer base is concentrated in finance, healthcare, and critical infrastructure sectors, where compliance and physical control of infrastructure are paramount. Noris~Network was selected as a mid-size German provider whose strong compliance posture and sector-specific expertise represent an important segment of the European sovereign cloud market that sits between hyperscalers and commodity hosting.
+
+\subsubsection{PlusServer}
+
+PlusServer~GmbH is a Cologne-based cloud and hosting provider that forms part of the Ioniq~Group~\cite{PlusServer_About}. Its service portfolio covers sovereign cloud (built on VMware and Sovereign Cloud Stack), dedicated servers, co-location, and managed services. PlusServer holds a BSI~C5 attestation and explicitly markets its offering to regulated industries in Germany and the broader EU, positioning data residency and operational transparency as core differentiators. It was selected for this study because of its explicit EU sovereignty positioning and its BSI~C5 certification, which provides an independently verified compliance baseline that is directly relevant to the framework's legal-control criteria.
+
+\subsubsection{T Cloud Public}
+
+T Cloud Public is Deutsche Telekom's purpose-built sovereign cloud platform, developed in parallel to the Open Telekom Cloud (OTC) as a direct strategic response to concerns about Huawei technology dependency~\cite{OTC_About}. Whereas OTC was co-developed with Huawei Technologies using Huawei FusionSphere as the core cloud operating system from 2016 onwards, T Cloud Public is designed from the outset as Deutsche Telekom's sovereign-first response to the governance concerns surrounding OTC: it is operated exclusively by T-Systems EU engineers with Huawei prohibited from the production environment, is OpenStack-powered, and is approved for use by the German federal administration under the GovTech framework agreement for cloud and AI services~\cite{Kramer_PersonalComm_2026}. Critically, both OTC and T Cloud Public continue to run on Huawei FusionSphere as their core cloud operating system — a dependency T-Systems acknowledges publicly — meaning T-Systems cannot independently maintain or update the foundational OS layer without Huawei's continued software support. Both platforms operate from the same twin data centres in Biere and Magdeburg (Saxony-Anhalt, Germany), hold BSI~C5~Type~2 attestation and ISO~27001 certification, and are managed exclusively by T-Systems EU-resident staff. T Cloud Public was included as a separate assessment target — alongside OTC — to capture Deutsche Telekom's evolving sovereignty trajectory: OTC represents the legacy Huawei-dependent platform, while T Cloud Public represents the active sovereign remediation. This intra-provider comparison is itself a finding of the study and is discussed in Chapter~8.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{France}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{OVHcloud}
+
+OVHcloud was founded in 1999 in Roubaix, France, by Octave Klaba, and completed an initial public offering on Euronext Paris in October~2021~\cite{OVHcloud_IPO}. It is Europe's largest cloud provider measured by bare-metal server count and total data centre capacity, operating more than 40 data centres across Europe, North America, and Asia-Pacific, with the majority of its infrastructure anchored in France, Germany, and the United Kingdom. Its service catalogue spans bare-metal servers, public cloud IaaS, hosted private cloud (VMware), and a growing set of managed PaaS services. OVHcloud was selected as the pre-eminent European alternative to US hyperscalers: its scale, geographic reach, and investment in a broad managed-service portfolio make it the strongest single test case for whether a European provider can approach hyperscaler-level readiness.
+
+\subsubsection{Scaleway}
+
+Scaleway was founded in 1999 as Online.net and rebranded under the Scaleway name in 2015~\cite{Scaleway_About}. It is a wholly owned subsidiary of Iliad~Group, the French telecommunications company known for its Free brand. Headquartered in Paris, Scaleway operates data centres in Paris, Amsterdam, and Warsaw, and powers its infrastructure with renewable energy. Its offering is developer-focused and spans bare-metal instances, managed Kubernetes, serverless functions, object storage, and a growing portfolio of managed databases and networking services. Scaleway was selected as a French-origin IaaS provider with a maturing managed-service catalogue and a strong sustainability profile, representing the developer-community segment of the European cloud market.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{Sweden}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{Cleura}
+
+Cleura was founded in 2009 under the name Citycloud and rebranded as Cleura in 2022~\cite{Cleura_About}. Headquartered in Gothenburg, Sweden, it is an OpenStack-native public cloud provider that emphasises data sovereignty, operational transparency, and operator accountability. Its infrastructure is located in Swedish data centres, and it offers compute, block and object storage, networking, and managed Kubernetes. Cleura distinguishes itself through its commitment to open-source infrastructure, customer data isolation, and clear contractual guarantees against third-party government access. It was selected as the Scandinavian OpenStack representative in this study and as a provider whose explicit data-sovereignty commitments can be directly mapped to the EC~DG~DIGIT framework criteria.
+
+\subsubsection{Elastx}
+
+Elastx was founded in 2013 and is headquartered in Gothenburg, Sweden~\cite{Elastx_About}. It is an independent Swedish IaaS provider whose platform is built on OpenStack and powered entirely by renewable energy sourced from Nordic hydropower and wind. Its data centres are located in Sweden, and its service catalogue covers compute instances, block storage, object storage, and managed container services. As a smaller, bootstrapped provider, Elastx prioritises environmental sustainability, technical transparency, and a customer-first operational model. It was selected to represent the smaller-scale, sustainability-oriented segment of EU-native cloud providers and to test whether operational scale is a binding constraint on readiness and sovereignty scoring.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{Switzerland}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{Exoscale}
+
+Exoscale was founded in 2012 in Lausanne, Switzerland, and is currently operated by A1~Digital International, a subsidiary of the A1~Telekom Austria~Group~\cite{Exoscale_About}. Its data centres are located in Switzerland, Germany, Austria, and Bulgaria, giving it one of the broader multi-country footprints among mid-size European providers while maintaining governance under Swiss law. Its service catalogue focuses on IaaS compute, block and object storage, DNS, managed databases, and managed Kubernetes. Switzerland's bilateral agreements with the EU and its robust Federal Act on Data Protection provide a distinct but closely aligned legal environment. Exoscale was selected for its multi-country EU footprint, its telecom-group ownership model, and the opportunity to examine how Swiss legal jurisdiction interacts with the EU sovereignty criteria.
+
+\subsubsection{Infomaniak}
+
+Founded in 1994 in Geneva, Switzerland, Infomaniak is an independent, employee-owned company with a long-standing privacy-first positioning~\cite{Infomaniak_About}. It operates carbon-neutral data centres in Switzerland and complies with the Swiss Federal Act on Data Protection (nFADP), which shares substantive principles with the GDPR. Its service portfolio spans web hosting, cloud servers, managed email and collaboration tools, and streaming infrastructure. Infomaniak has publicly committed to never transferring customer data to third countries without explicit consent and to resisting any extraterritorial data-access demands. It was selected as a long-standing, ethically oriented European provider that demonstrates how a small independent company can maintain a strong sovereignty posture through governance commitments rather than sheer infrastructure scale.
+
+\subsubsection{Nine}
+
+Nine was founded in 2006 in Zurich, Switzerland, and operates as an independent Swiss hosting and cloud provider offering high-performance infrastructure and managed services~\cite{Nine_About}. Its data centres are located in Switzerland, and its service offering covers managed virtual machines, managed Kubernetes, databases, and professional-services engagements. Nine targets technology companies and digital agencies that require reliable, low-latency Swiss infrastructure with hands-on support. It was selected as a representative of the Swiss SME cloud segment, illustrating how specialised providers with a focused service catalogue position themselves within the broader European sovereign cloud ecosystem.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{The Netherlands}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{Fuga Cloud (Cyso Group)}
+
+Fuga~Cloud is an OpenStack-based public cloud platform operated by Cyso~Group, an Amsterdam-based Dutch IT services company~\cite{FugaCloud_About}. Its infrastructure is located in Amsterdam, and its service catalogue covers compute, block and object storage, networking, and managed Kubernetes, with a community-oriented developer experience and transparent, usage-based pricing. Fuga~Cloud maintains all data within the Netherlands and does not transfer data to non-EU jurisdictions. It was selected as the Dutch representative in this study and as an example of a community-oriented OpenStack provider whose governance model and geographic focus align closely with the framework's operational-sovereignty criteria.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{Finland}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{UpCloud}
+
+UpCloud was founded in 2011 in Helsinki, Finland, and operates as a privately held Finnish cloud provider~\cite{UpCloud_About}. It is known for its MaxIOPS block storage architecture, which delivers high and consistent I/O performance, and for its low-latency European infrastructure. Its data centres span Helsinki, Frankfurt, Amsterdam, London, and Singapore, with the European nodes forming the primary customer-facing infrastructure. UpCloud offers IaaS compute, block and object storage, managed databases, managed Kubernetes, and networking services. It was selected for its performance-first positioning, its Nordic sovereignty context, and its status as a privately held Finnish company entirely independent of non-European ownership or investment.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{On-Premises Reference}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsubsection{Locally Hosted Infrastructure}
+
+The locally hosted infrastructure profile represents a self-operated on-premises or private data centre deployment — an organisation's own servers, networking, and storage managed by its own staff in facilities it physically controls. While not a commercial cloud provider, it is included in the study as a sovereignty reference point. It defines the theoretical ceiling for operational sovereignty: the organisation retains full physical control of hardware, full control of the software stack, and is exposed to no third-party terms of service, data-access agreements, or extraterritorial legal instruments that could compromise data confidentiality or availability. All commercial providers are necessarily compared against this ceiling, and the gap between a provider's sovereignty score and the locally hosted baseline quantifies the sovereignty trade-off that accompanies the adoption of any third-party cloud service.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Intra-Provider Comparison: OTC and T Cloud Public}
+\label{sec:otc_tcp_comparison}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Two of the eighteen assessment targets — T-Systems Open Telekom Cloud (OTC) and T Cloud Public — share the same corporate parent (Deutsche Telekom~AG / T-Systems International~GmbH), the same physical data centres, and the same underlying cloud software stack. Their joint inclusion in this study is deliberate: they constitute a controlled intra-provider pair that isolates the effect of governance posture from technical capability, which is one of the central analytical claims of this thesis. Table~\ref{tab:otc_tcp_comparison} summarises their structural relationship.
+
+\begin{table}[htbp]
+\centering
+\caption{Structural comparison of T-Systems OTC and T Cloud Public}
+\label{tab:otc_tcp_comparison}
+\begin{tabularx}{\linewidth}{lXX}
+\toprule
+\textbf{Dimension} & \textbf{T-Systems OTC} & \textbf{T Cloud Public} \\
+\midrule
+Physical infrastructure   & Biere and Magdeburg data centres (Germany) & Same Biere and Magdeburg data centres \\
+Cloud engine              & Huawei FusionSphere (OpenStack distribution) & Same Huawei FusionSphere \\
+Service catalogue         & FunctionGraph, CCE, ECS, OBS, EVS, DCS\ldots & Same service names and catalogue \\
+Portal / URL              & open-telekom-cloud.com & public.t-cloud.com \\
+Account and contract      & Separate commercial product & Separate commercial product \\
+Launch and positioning    & 2016 — general-purpose public cloud & 2023 — sovereign-positioned, GovTech-approved \\
+Readiness (scalability)   & 72\% & 74\% \\
+Readiness (performance)   & 87\% & 87\% \\
+Sovereignty score         & 56.1\% & 67.1\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The two products are commercially distinct — a customer holding an OTC account does not automatically have access to T Cloud Public, and their contractual terms, support tiers, and pricing structures differ. Yet because they share the same Huawei FusionSphere cloud operating system, the same data centre facilities, and the same service catalogue (FunctionGraph for serverless, Cloud Container Engine for Kubernetes, Elastic Cloud Server for compute, Object Storage Service for blob storage, and so on), their readiness scores are nearly identical. The marginal gap in scalability (72 vs 74) is attributable to T Cloud Public's additional Netherlands capacity and its GovTech-approved infrastructure designation, not to any difference in deployed services.
+
+Despite this technical parity, the sovereignty scores diverge by 11 percentage points (56.1\% for OTC; 67.1\% for T Cloud Public). The differences are not artefacts of inconsistent scoring; they reflect deliberate governance choices that T-Systems made when designing T Cloud Public as a sovereign-first product in 2023, distinct from the 2016 architecture decisions that shaped OTC. The principal divergences across the EC~DG~DIGIT framework objectives are as follows.
+
+\textbf{SOV-1 (Strategic Sovereignty):} OTC scores 50\% against T Cloud Public's 83\%. Three questions drive the gap. On decisive authority (Q1), OTC receives \textit{Partial} because Huawei FusionSphere gives a Chinese-controlled entity technical authority over OTC's platform OS, whereas T Cloud Public receives \textit{Yes} because T-Systems operates the platform entirely independently and Huawei has zero production system access. On EU financing (Q3), T Cloud Public receives \textit{Yes} owing to IPCEI-CIS public co-financing and KfW as the primary shareholder; OTC receives \textit{Partial} because its financing is not tied to EU sovereign investment instruments. On EU sovereignty-initiative engagement (Q5), T Cloud Public receives \textit{Yes} by virtue of its May 2026 GovTech Deutschland procurement approval for German federal administration; OTC receives \textit{Partial} because, despite Deutsche Telekom's GAIA-X founding membership, OTC was co-developed with Huawei and was never designed to meet EU sovereign cloud criteria.
+
+\textbf{SOV-2 (Legal and Jurisdictional):} OTC scores 40\% against T Cloud Public's 50\%. The gap is attributable to Q3 (non-EU data-access channels), where OTC receives \textit{No}: Huawei engineers participate in OTC's third-level support escalations and the Huawei FusionSphere layer cannot be verified as free of capabilities invocable under China's National Intelligence Law. T Cloud Public receives \textit{Partial} on the same question because, while the same theoretical Huawei supply-chain risk applies, T-Systems enforces a zero-access policy for Huawei personnel in production and documents this as a formal operational control.
+
+\textbf{SOV-4 (Operational Sovereignty):} OTC scores 50\% against T Cloud Public's 67\%. On full EU-operator management (Q2), OTC receives \textit{No}: Huawei engineers participate in OTC third-level support via video conference with no formally documented zero-access constraint, and OTC has no alternative OS strategy if Huawei withdraws software support. T Cloud Public receives \textit{Partial}: the same FusionSphere OS dependency exists, but Huawei consultation is explicitly zero-access and video-only, constituting a materially stronger procedural control. On EU-exclusive support delivery (Q4), OTC receives \textit{Partial} and T Cloud Public receives \textit{Yes}, reflecting the same distinction: T Cloud Public's operational model formally bars any non-EU support routing at all levels.
+
+\textbf{SOV-5 (Supply Chain):} OTC scores 20\% against T Cloud Public's 30\%. The sole difference is hardware manufacturing (Q1): T Cloud Public receives \textit{Partial} because its dual-vendor hardware strategy has qualified western server chassis (Intel Xeon 6900 CPUs in non-Huawei enclosures for c9 instances, NVIDIA DGX for the Industrial AI Cloud), representing a concrete trajectory toward trusted-jurisdiction hardware. OTC receives \textit{No} because no equivalent diversification programme exists and Deutsche Telekom's stated strategy is to migrate OTC customers to T Cloud Public rather than remediate OTC's supply chain.
+
+\textbf{SOV-8 (Environmental):} OTC scores 88\% against T Cloud Public's 100\%. The difference is limited to Q3 (carbon and water disclosures): T Cloud Public receives \textit{Yes} because Deutsche Telekom's 2024 Corporate Responsibility Report (externally assured, CSRD-compliant) includes per-data-centre PUE figures and full Scope 1--3 GHG disclosures; OTC receives \textit{Partial} because OTC-specific Water Usage Effectiveness metrics are not published at the product level.
+
+The pattern across these divergences confirms that T Cloud Public's sovereignty advantage over OTC is entirely governance-procedural. No new hardware was installed, no new software was deployed, and no new data centres were built to achieve the 11-point score improvement. The gain came exclusively from formalised access controls, documented review processes, EU-exclusive support policies, EU sovereign investment participation, and government procurement approval — decisions made at the product governance layer. This finding is developed further in the discussion in Chapter~8, where it is used to substantiate the thesis argument that \emph{cloud sovereignty is an outcome of governance posture, not infrastructure capability}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{AWS as Reference Baseline}
+\label{sec:aws_baseline}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Amazon Web Services (AWS) was included in this study not as a selected European provider but as the universal readiness baseline against which all other providers are evaluated. Launched in 2006 and consistently ranked as the global cloud market leader~\cite{Flexera_CloudReport_2024}, AWS offers the most comprehensive commercially available cloud service catalogue, spanning compute, storage, networking, security, managed databases, AI and machine learning, developer tooling, analytics, and IoT services. This breadth makes it the natural reference for the Cloud Readiness Assessment described in Chapter~5. In that assessment, AWS is assigned a readiness score of 100\%, representing full coverage of all 60 evaluated service categories. Each European provider is then scored relative to this benchmark, and the resulting percentage reflects how completely it could substitute for AWS in a typical enterprise workload. The AWS baseline does not imply that AWS is a recommended or sovereignty-compatible choice for EU organisations; on the contrary, its jurisdictional exposure under the CLOUD~Act and FISA~Section~702 is precisely the driver of the sovereignty deficit that this thesis measures.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Summary}
+\label{sec:provider_summary}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Table~\ref{tab:provider_summary} provides a consolidated overview of all 18 providers, including their country of registration, founding year, ownership structure, and primary cloud service tier.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of selected EU cloud providers}
+\label{tab:provider_summary}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+\textbf{Provider} & \textbf{Country} & \textbf{Founded} & \textbf{Parent / Ownership} & \textbf{Cloud Tier} \\
+\midrule
+Hetzner                        & Germany         & 1997 & Independent (family-owned)                  & IaaS \\
+IONOS                          & Germany         & 1988 & United Internet AG                          & IaaS/PaaS \\
+STACKIT                        & Germany         & 2021 & Schwarz Group                               & IaaS/PaaS \\
+T-Systems Open Telekom Cloud   & Germany         & 2016 & Deutsche Telekom AG / T-Systems             & IaaS/PaaS \\
+T Cloud Public                 & Germany         & 2023 & Deutsche Telekom AG / T-Systems             & IaaS/PaaS \\
+Arvato Systems                 & Germany         & 1961 & Bertelsmann SE \& Co. KGaA                  & Managed \\
+Noris Network                  & Germany         & 1993 & Independent                                 & Managed \\
+PlusServer                     & Germany         & 1999 & Ioniq Group                                 & IaaS/PaaS \\
+OVHcloud                       & France          & 1999 & Independent (publicly listed, Klaba family) & IaaS/PaaS \\
+Scaleway                       & France          & 1999 & Iliad Group                                 & IaaS/PaaS \\
+Cleura                         & Sweden          & 2009 & Independent                                 & IaaS \\
+Elastx                         & Sweden          & 2013 & Independent                                 & IaaS \\
+Exoscale                       & Switzerland     & 2012 & A1 Telekom Austria Group                    & IaaS/PaaS \\
+Infomaniak                     & Switzerland     & 1994 & Independent (employee-owned)                & IaaS/PaaS \\
+Nine                           & Switzerland     & 2006 & Independent                                 & Managed \\
+Fuga Cloud (Cyso Group)        & Netherlands     & 2013 & Cyso Group (independent)                    & IaaS \\
+UpCloud                        & Finland         & 2011 & Independent                                 & IaaS/PaaS \\
+Locally Hosted Infrastructure  & N/A             & N/A  & Organisation-owned                          & On-Prem \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+The selection spans six countries — Germany, France, Sweden, Switzerland, the Netherlands, and Finland — and encompasses a diverse range of ownership models, including family-owned independents, publicly listed technology companies, telecom-group subsidiaries, and conglomerate-backed new entrants. Notably, two of the 18 entries — T-Systems~OTC and T Cloud Public — represent different platforms from the same corporate parent (Deutsche Telekom / T-Systems), included separately to capture the provider's active sovereignty transition: OTC is the legacy Huawei-dependent platform, while T Cloud Public is its purpose-built sovereign successor. This intra-provider pair is itself an analytical finding, demonstrating that a single organisation can occupy meaningfully different positions on the sovereignty–readiness frontier depending on which platform generation is assessed. The inclusion of locally hosted infrastructure as an eighteenth data point anchors both the sovereignty ceiling and the readiness floor, providing a complete reference span against which all commercial providers can be positioned.

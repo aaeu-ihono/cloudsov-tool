@@ -1,14 +1,252 @@
 \chapter{Discussion}
+\label{ch:discussion}
 
-\section{Answering the Research Questions}
-...
-\section{Performance vs. Sovereignty Trade-offs}
-...
+This chapter synthesises the findings from the two experiments — the Sovereignty Scoring Framework (SovScore) and the Cloud Readiness Assessment — and situates them within the broader context of EU cloud policy, enterprise procurement, and the evolving geopolitics of cloud infrastructure. Section~\ref{sec:rq_responses} answers the three research questions directly. Section~\ref{sec:sov_readiness_tradeoff} develops the sovereignty–readiness trade-off as a structural insight. Section~\ref{sec:huawei_problem} examines the Huawei dependency in T-Systems as the most nuanced finding of the study. Section~\ref{sec:timeline_investment} analyses the role of cloud maturity and capital investment in explaining the readiness gap. Section~\ref{sec:structural_constraints} discusses the SOV-5 and SOV-6 structural constraints that represent a practical ceiling for all providers. Section~\ref{sec:vendor_lockin} addresses vendor lock-in implications. Section~\ref{sec:enterprise_recommendations} offers actionable recommendations for EU enterprises. Section~\ref{sec:limitations} closes with a candid account of the study's limitations.
+
+% =============================================================================
+\section{Research Question Responses}
+\label{sec:rq_responses}
+% =============================================================================
+
+\subsection{RQ1: Can EU cloud providers satisfy the EC DG DIGIT Cloud Sovereignty Framework requirements?}
+
+The short answer is: partially, and in a stratified way. All 18 evaluated providers satisfy at least some of the eight sovereignty objectives defined in the EC DG DIGIT Cloud Sovereignty Framework v1.2.1~\cite{EC_DIGIT_CloudSovereignty_2025}. However, no provider achieves a SEAL-4 maturity level across all eight objectives simultaneously. The most consistently satisfied objectives are SOV-3 (data residency and GDPR alignment), SOV-7 (incident response and audit), and SOV-8 (contractual transparency), reflecting the comparatively mature state of EU data-protection compliance following the GDPR~\cite{GDPR2016} and the Schrems~II ruling~\cite{SchremsII_2020}, which created strong regulatory incentives for providers to formalise these commitments. BSI C5, ISO~27001, and SOC~2 certifications — held by most providers in the study — directly support these objectives.
+
+The most persistently failed or partially satisfied objectives are SOV-5 (hardware and firmware sovereignty) and SOV-6 (freedom from non-EU high-performance computing dependencies). These are not failures of governance or legal structure; they are structural constraints imposed by the global hardware supply chain (see Section~\ref{sec:structural_constraints}). Even the highest-performing providers cannot satisfy SOV-5 Q2 (firmware of EU origin) or SOV-6 Q4 (HPC silicon from EU/trusted sources) because no commercially viable European alternative to Intel, AMD, or NVIDIA processors and their associated firmware exists at scale.
+
+SOV-2 (freedom from non-EU extraterritorial law) presents a more nuanced picture. Providers with a clean EU-only corporate structure — such as Infomaniak (Swiss law), Cleura (Swedish law), and Elastx (Swedish law) — score fully on this objective. Providers with partial dependencies on non-EU parent companies, hardware vendors, or technology suppliers receive partial verdicts. T-Systems OTC receives multiple partial verdicts under SOV-2 due to its Huawei technology dependency, discussed at length in Section~\ref{sec:huawei_problem}.
+
+The conclusion for RQ1 is that the EC DG DIGIT framework identifies real and meaningful distinctions between EU cloud providers, but it also exposes two categories of constraint: those that are addressable through governance and investment decisions (corporate structure, supply-chain diversification), and those that require systemic, industry-level or policy-level solutions (EU semiconductor independence, open-source firmware ecosystems).
+
+\subsection{RQ2: How does the readiness of EU providers compare to AWS?}
+
+A significant, stratified gap exists between EU providers and AWS across all 13 dimensions of the Cloud Readiness Assessment. AWS, used as the 100\% baseline, holds advantages that span three distinct categories.
+
+\textbf{Universal gaps} — services for which no EU provider offers even a partial equivalent — include Amazon Bedrock (managed generative-AI API), Amazon Aurora (fully managed relational database with multi-master replication), AWS Step Functions (managed workflow orchestration), and several specialised ML services. These represent categories in which AWS has made sustained platform-level investments over multiple years and where the service is architecturally integrated into the broader AWS ecosystem in ways that cannot be replicated by simply deploying an open-source alternative.
+
+\textbf{Near-universal gaps} — services for which only one or two providers offer partial equivalents — include Amazon DynamoDB (serverless NoSQL at scale), Amazon Cognito (customer identity and access management), and AWS IAM Identity Center (enterprise single sign-on). The handful of providers offering partial equivalents typically do so through managed deployments of open-source products (e.g., Keycloak for CIAM) rather than purpose-built managed services, meaning operational maturity and SLA parity remain open questions.
+
+\textbf{Stratified gaps} — services where the best EU providers approach AWS coverage but the field is wide — are most visible in core IaaS (compute, object storage, VPC networking) and basic PaaS (managed Kubernetes, managed PostgreSQL). Here, T-Systems OTC, OVHcloud, and IONOS come within 10–20 percentage points of AWS.
+
+At the provider level, T-Systems OTC achieves the highest EU readiness scores: scalability 72/100 and performance 87/100, which makes it the closest EU analogue to AWS in terms of managed-service breadth. OVHcloud follows (scalability 68, performance 83). At the other end, STACKIT (scalability 32, performance 80) and Hetzner (scalability 35, performance 72) reflect younger or more IaaS-focused portfolios.
+
+The conclusion for RQ2 is that EU providers are not uniformly lagging. The best EU providers cover the overwhelming majority of commodity cloud needs for a typical enterprise. The gap becomes decisive precisely in the areas of AI/ML, serverless, and native orchestration — services that represent the fastest-growing share of enterprise cloud spending~\cite{Flexera_CloudReport_2024}.
+
+\subsection{RQ3: What is the trade-off between sovereignty and readiness?}
+
+The trade-off is real but not absolute. Contrary to the naive expectation that the most sovereign provider would simply be the least capable, the data reveal a more structured relationship: providers that maximise sovereignty through corporate simplicity, EU-only supply chains, and avoidance of non-EU technology tend to score well on most sovereignty objectives and poorly on readiness dimensions that require sustained capital investment in proprietary managed services. Conversely, providers that have built the broadest managed-service portfolios — T-Systems OTC, OVHcloud — have done so partly by incorporating non-EU components (Huawei infrastructure in OTC's case, US hyperscaler-origin software stacks in others) that introduce sovereignty compromises.
+
+The trade-off is best understood as a \emph{frontier}, not a binary. Section~\ref{sec:sov_readiness_tradeoff} develops this further. The practical implication for RQ3 is that no single EU provider currently sits at the Pareto frontier of both maximum sovereignty and maximum readiness, and that the policy objective of a ``European cloud'' that equals AWS on capability while exceeding it on sovereignty is an aspiration requiring both sustained investment and structural supply-chain change that is not achievable within the horizon of this study.
+
+% =============================================================================
+\section{The Sovereignty--Readiness Trade-off}
+\label{sec:sov_readiness_tradeoff}
+% =============================================================================
+
+The most durable conceptual contribution of this study is the articulation of what might be termed the \emph{sovereignty--readiness frontier} — an implicit Pareto curve on which each provider occupies a position that reflects the choices it has made in balancing regulatory compliance, corporate structure, and managed-service investment.
+
+Figure~\ref{fig:sov_readiness_frontier} illustrates this frontier conceptually. At one extreme sits locally hosted infrastructure: maximum sovereignty (no external dependencies, no extraterritorial exposure, no non-EU hardware procurement beyond the structural HW constraints discussed in Section~\ref{sec:structural_constraints}) and minimum readiness (no managed databases, no AI/ML APIs, no serverless, no CDN). At the other extreme sits AWS: maximum readiness (the reference baseline of 100\% for every dimension) and minimum sovereignty from the EU perspective, given its exposure to the US CLOUD Act~\cite{SchremsII_2020}, the absence of EU-headquartered governance, and the full weight of US export-control jurisdiction.
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.88\linewidth}\centering\vspace{4cm}
+    \textit{[Conceptual diagram: Sovereignty--Readiness frontier. X-axis: Readiness score (0--100). Y-axis: SovScore (0--100). Points: AWS (bottom-right), Locally Hosted (top-left), OVHcloud (upper-centre-right), T-Systems OTC (centre-right, lower than OVHcloud on Y), Hetzner (upper-centre-left), Elastx/Infomaniak (upper-left), STACKIT (centre-left). Dashed Pareto frontier curve connecting locally hosted to OVHcloud.]}
+  \vspace{4cm}\end{minipage}}
+  \caption{Conceptual sovereignty--readiness frontier. Each provider occupies a position reflecting its trade-off between managed-service breadth (readiness) and freedom from non-EU dependencies (sovereignty). No provider currently sits at the ideal upper-right corner.}
+  \label{fig:sov_readiness_frontier}
+\end{figure}
+
+Several observations follow from locating providers on this frontier.
+
+\textbf{Smaller, purer EU providers cluster toward the sovereignty pole.} Infomaniak, Elastx, and Cleura have simple EU-only corporate structures, no Chinese or US parent entities, and operate primarily on open-source IaaS stacks (OpenStack). Their SovScore verdicts are consistently clean: no partial or negative verdicts under SOV-2 or SOV-4. Yet their readiness scores reflect the bounded managed-service portfolios of providers that have not pursued the capital-intensive path of building proprietary PaaS layers.
+
+\textbf{Larger, more-certified providers cluster toward the readiness pole — but with sovereignty costs.} T-Systems OTC has the broadest managed-service catalogue among EU providers studied. It achieves BSI C5 Type 2 attestation and operates under German law. Yet its Huawei infrastructure dependency introduces the SOV-2 and SOV-5 partial verdicts that push it away from the sovereignty pole. This is the central paradox: the provider most often cited as a model of EU sovereign cloud is also the provider with the most significant non-EU supply-chain exposure.
+
+\textbf{The frontier is dynamic.} Providers can move along it. Deutsche Telekom's investment in T Cloud Public — a sovereignty-first successor to OTC with Huawei access to the production environment contractually prohibited — represents a deliberate strategic shift toward the sovereignty pole without sacrificing the managed-service portfolio that defines T-Systems' readiness position. T Cloud Public still runs on Huawei FusionSphere as its core cloud OS, but the governance controls formalised around that dependency already produce a materially higher sovereignty score. If T Cloud Public fully supplants OTC and completes its supply-chain diversification away from Huawei, T-Systems would move to a more Pareto-optimal location on the frontier. Section~\ref{sec:huawei_problem} examines this trajectory in depth.
+
+\textbf{The AI/ML gap creates a new dimension of the frontier.} The universal absence of a Bedrock-equivalent across all EU providers means that the frontier has an additional dimension that cannot currently be addressed by any EU provider at all. This is not simply a matter of investment or time: building a frontier AI API requires access to large-scale GPU clusters (constrained by SOV-6), proprietary foundation model IP (where EU providers have no commercially deployed equivalent), and an inference infrastructure at global scale. The implication is that the sovereignty--readiness frontier as described here understates the total gap, because the AI/ML dimension is currently truncated for all EU providers.
+
+% =============================================================================
+\section{The Huawei Problem and Deutsche Telekom's Strategic Response}
+\label{sec:huawei_problem}
+% =============================================================================
+
+The most nuanced finding of the SovScore assessment concerns T-Systems. T Cloud Public — the platform Deutsche Telekom is developing as the successor to the Open Telekom Cloud (OTC) — holds BSI C5 Type 2 attestation, is approved for German federal administration under the GovTech framework, and operates under the full jurisdiction of German and EU law. By conventional measures it is one of the most compliance-certified cloud platforms in Europe. And yet the SovScore assessment assigns it multiple partial and negative verdicts under SOV-2 and SOV-5 because of its historical and partially ongoing dependency on Huawei FusionSphere infrastructure.
+
+This finding deserves careful unpacking, because it illustrates both the analytical power and the interpretive limits of a framework-based scoring approach.
+
+\subsection{The Legal Exposure Under SOV-2}
+
+SOV-2 assesses freedom from non-EU extraterritorial law. The partial verdict for SOV-2 Q2 (\emph{free from non-EU extraterritorial law}) arises from China's National Intelligence Law of 2017 (NIS), which obliges Chinese organisations and citizens to ``support, assist, and cooperate with state intelligence work.'' Huawei, as a Chinese-headquartered corporation with deep operational ties to the Chinese state, is subject to this law regardless of where its products are deployed.\footnote{The Chinese NIS does not contain a territorial carve-out analogous to, for example, the GDPR's adequacy mechanism. It applies to Chinese entities globally. Whether and how it can be enforced against a hardware vendor operating infrastructure on behalf of a German cloud provider has not been litigated, but the legal exposure is structural rather than theoretical.}
+
+The distinction that T-Systems draws — and that the GovTech approval implicitly accepts — is between \emph{operational} access and \emph{legal-structural} exposure. T-Systems maintains that Huawei has no runtime access to customer data and that network segmentation, access controls, and audit mechanisms prevent any such access in practice. This is a defensible technical claim. The sovereignty framework, however, assesses structural exposure rather than current operational practice, because the relevant question for a ten-year infrastructure contract is not whether Huawei \emph{currently} has access but whether the legal architecture \emph{creates conditions under which} it could be compelled to seek access. Under this reading, the partial verdict is analytically correct.
+
+SOV-2 Q3 (\emph{no technical channels for non-EU data access}) receives a partial verdict because Huawei's third-level hardware support model creates a technically documented channel — Huawei engineers providing firmware-level support remotely — that constitutes a potential access vector, irrespective of contractual prohibitions. Again, the distinction is between contractual access control (which exists) and architectural access control (which does not fully exist while Huawei engineers can reach the hardware layer).
+
+\subsection{The Hardware and Firmware Exposure Under SOV-5}
+
+SOV-5 Q2 (\emph{firmware of EU origin}) receives a negative (N) verdict — the strongest negative available — because T Cloud Public servers run Huawei Baseboard Management Controller (BMC) firmware, Intel Management Engine (ME) firmware, and NVIDIA GPU firmware. None of these originate from EU entities. This is not unique to T-Systems: the same structural issue applies to every provider in the study (see Section~\ref{sec:structural_constraints}). What distinguishes T-Systems is the additional Huawei BMC layer on top of the already-universal Intel ME and NVIDIA dependencies.
+
+SOV-5 Q3 (\emph{software stack of EU origin}) receives a partial verdict because FusionSphere — the virtualisation and orchestration layer co-developed by Huawei and Deutsche Telekom since 2016 — is substantially Huawei-developed. The co-development history is important: OTC was built from the start as a joint project, meaning T-Systems does not own the full IP stack independently of Huawei.
+
+\subsection{Deutsche Telekom's Strategic Response}
+
+The significance of the Huawei findings is amplified by Deutsche Telekom's response to them, which the SovScore assessment captures as a transitional rather than a permanent state.
+
+As confirmed in personal communication with Prof.~Dr.~Oliver Kramer (TH Rosenheim, June 2026)~\cite{Kramer_PersonalComm_2026}, Deutsche Telekom has made a deliberate decision not to restructure OTC but instead to invest in an entirely new sovereign cloud infrastructure. T Cloud Public was launched as a direct response to the Huawei issue. T-Systems operates the platform exclusively with EU-resident staff and enforces a zero-access policy for Huawei personnel in production. However, both OTC and T Cloud Public continue to run on Huawei FusionSphere as the core cloud OS — a dependency T-Systems acknowledges on its own platform blog — meaning the Chinese technology dependency is managed through operational controls rather than eliminated at the architectural level. It has achieved BSI C5 Type 2 attestation and has received federal approval for use by German public administration under the GovTech framework. The spring 2026 milestone — incorporation of T Cloud Public into the GovTech framework agreement for cloud and AI services, enabling federal, state, and local authorities to procure it without individual tenders — represents a formal state certification that the German government considers the sovereignty risk to be managed.
+
+Deutsche Telekom's Industrial AI Cloud goes further: it explicitly excludes both Huawei technology \emph{and} US hyperscaler software stacks, positioning itself as the most structurally clean enterprise AI offering in the German market. T-Systems has also initiated a dual-vendor hardware strategy to reduce Huawei hardware dependence across its remaining OTC deployments.
+
+\subsection{What the SovScore Assessment Captured}
+
+The SovScore results for T-Systems OTC reflect the platform as it existed during Q1--Q2 2026, at a moment of active transition. The multiple partial and negative verdicts under SOV-2 and SOV-5 are accurate for OTC as deployed. They are, however, best understood as a snapshot of a transitional state rather than a permanent structural deficiency. The investment in T Cloud Public, the GovTech approval, and the Industrial AI Cloud exclusion policy collectively suggest that Deutsche Telekom has identified the same vulnerabilities that the SovScore framework surfaces and is actively remediating them.
+
+This has two implications for interpreting the results. First, the SovScore framework is doing its job: it identified a real and substantive sovereignty vulnerability in the market leader, one serious enough that it prompted a strategic platform rebuild. Second, any comparative ranking that places T-Systems below smaller providers with simpler supply chains should be understood in its temporal context. A re-assessment of T Cloud Public in 2027 — once the OTC-to-TCP migration is complete and the dual-vendor hardware strategy is operational — may well produce materially different verdicts under SOV-2 and SOV-5.
+
+\subsection{The OTC–T Cloud Public Intra-Provider Comparison}
+\label{subsec:otc_tcp_comparison}
+
+A methodological decision of this study was to assess OTC and T Cloud Public as two separate provider entries rather than collapsing them into a single Deutsche Telekom entry. This choice is analytically justified by the fact that the two platforms differ in material ways on nearly every sovereignty dimension, despite sharing the same corporate parent, the same physical data centres, the same environmental practices, and the same primary service catalogue. The comparison between the two produces one of the study's most concrete findings.
+
+On the \textbf{SovScore} assessment, T Cloud Public achieves notably better results than OTC on SOV-1, SOV-2, SOV-4, and SOV-5 — the four objectives most directly affected by the Huawei dependency. Both OTC and T Cloud Public receive a Partial (P) verdict on SOV-2 Q2 (freedom from Chinese extraterritorial law) — neither can eliminate the structural legal risk arising from Huawei FusionSphere's Chinese origin and Huawei's obligations under China's National Intelligence Law. The distinction between them falls on SOV-2 Q3 (no legal or technical channels for non-EU data access): T Cloud Public receives Partial (P) because Huawei's engagement is limited to zero-access video consultation only, while OTC receives Negative (N) because Huawei engineers have participated more directly in platform lifecycle management without the same formally enforced zero-access constraint. On SOV-5 (Supply Chain), T Cloud Public has initiated a dual-vendor hardware strategy and is actively reducing FusionSphere dependence; OTC has no documented equivalent programme, resulting in two N verdicts (Q3 and Q4) where T Cloud Public receives Partials.
+
+On the \textbf{Readiness Assessment}, the two platforms are closely matched because they share the same managed-service catalogue — ModelArts, FunctionGraph, CCE, DMS Kafka, and the rest of the OTC service portfolio are present in both. T Cloud Public receives a marginally higher scalability meta-score (74 vs.\ 72) reflecting the newer, purpose-built infrastructure design and its planned capacity expansion in the Netherlands. Performance meta-scores are nearly identical (87 vs.\ 87) given the shared Biere and Magdeburg data centre infrastructure. The readiness gap between the two platforms is therefore negligible — they serve the same enterprise workloads with the same service depth.
+
+The strategic implication is significant: Deutsche Telekom has effectively split its cloud offering along a \emph{sovereignty axis}. OTC continues to serve existing customers on a platform with a known Huawei dependency that makes it unsuitable for the most sovereignty-sensitive workloads. T Cloud Public targets new customers — particularly in the German public sector — who require a platform that can pass the legal-control criteria under SOV-2. The spring~2026 GovTech framework approval of T Cloud Public is the German state's formal endorsement of this distinction~\cite{Kramer_PersonalComm_2026}. Enterprises still operating on OTC should treat migration to T Cloud Public not as an infrastructure upgrade but as a sovereignty compliance step.
+
+% =============================================================================
+\section{Timeline and Investment: AWS versus EU Providers}
+\label{sec:timeline_investment}
+% =============================================================================
+
+The readiness gap between AWS and EU providers cannot be understood without accounting for the asymmetry in investment horizon and capital deployed. AWS launched its first commercial IaaS services in 2006, giving it a twenty-year runway of managed-service development by the time of this assessment. Its annual capital expenditure reached approximately \$53~billion USD in 2023 — a figure that exceeds the total capital raised by every European cloud provider combined, including over their full operating histories.
+
+\subsection{The Cloud Maturity Trajectory}
+
+A provider's cloud operational age is a meaningful predictor of its readiness score. The data support this at a broad level: OVHcloud, which has operated IaaS since approximately 2012 (fourteen years of cloud experience), achieves a scalability score of 68; STACKIT, which launched as a cloud provider in 2021 (five years of cloud experience), achieves a scalability score of 32. The gap of 36 percentage points corresponds to approximately nine years of additional managed-service development. Hetzner (fourteen years) achieves a scalability score of 35, which appears to contradict this trajectory — but Hetzner's cloud strategy has been explicitly IaaS-focused rather than PaaS-broadening, illustrating that time in the market is a necessary but not sufficient condition for readiness breadth.
+
+OVHcloud's cumulative investment of approximately \texteuro{}3~billion over its lifetime, including the 2021 IPO that raised \texteuro{}400~million~\cite{OVHcloud_IPO}, has produced a scalability score of 68 and performance score of 83. Extrapolating from the investment-to-score ratio implied by this data point and AWS's trajectory is speculative, but it suggests that the gap is closable over a ten-to-fifteen-year horizon at current EU investment rates — and potentially faster if EU institutional co-financing accelerates the trajectory.
+
+\subsection{IPCEI-CIS and the European Cloud Strategy}
+
+The EU is not a passive observer of this investment gap. The Important Projects of Common European Interest -- Cloud Infrastructure and Services (IPCEI-CIS)~\cite{IPCEI_CIS_2023} provides EU co-financing for European cloud infrastructure, with T-Systems, OVHcloud, and a number of other providers participating. The European Cloud Strategy (2021--2030)~\cite{EC_CloudStrategy_2021} targets European cloud providers serving 40\% of EU public sector workloads by 2030. These commitments create a procurement-driven demand pull that can justify the managed-service investment that EU providers currently lack the purely commercial incentive to fund.
+
+STACKIT is the provider where this dynamic is most visible. Backed by Schwarz Group — the parent of Lidl and Kaufland, with revenues exceeding \texteuro{}113~billion in 2023 — STACKIT has announced cloud investments of over \texteuro{}300~million~\cite{STACKIT_About}. At five years of cloud operation, its current readiness scores (scalability 32, performance 80) reflect an early-stage managed-service portfolio. The Schwarz Group's captive demand from its own retail and logistics operations, combined with its announced investment trajectory, makes STACKIT the provider most likely to show the steepest readiness improvement curve over the 2026--2030 period. A re-assessment in 2028 is warranted.
+
+Deutsche Telekom, with 2024 group revenue of \texteuro{}112~billion~\cite{OTC_About} and active IPCEI-CIS participation, occupies a different position: it has the financial scale of a hyperscaler parent but has historically under-invested in cloud managed services relative to its balance sheet. The T Cloud Public rebuild and the Industrial AI Cloud suggest that Deutsche Telekom is now deploying that balance sheet more aggressively toward cloud sovereignty.
+
+\subsection{The AI/ML Horizon}
+
+The GenAI service gap (Amazon Bedrock: universal absence) deserves particular attention in the investment context. AWS launched Bedrock in April 2023 following years of SageMaker investment. It therefore has a two-to-three-year head start in production-grade managed AI API infrastructure. EU providers that have announced AI cloud services — including T-Systems' Industrial AI Cloud and OVHcloud's AI Deploy platform — are in early or mid-stage deployment as of Q2 2026. Closing the GenAI gap requires not just investment in inference infrastructure but access to competitive foundation models (where the EU has emerging assets in Mistral, Aleph Alpha, and others) and a customer ecosystem willing to pay for EU-hosted AI inference.
+
+The Digital Compass 2030 target, combined with the EU AI Act's preference for high-risk AI systems deployed on auditable, sovereign infrastructure~\cite{NIS2_2022}, creates a plausible procurement pathway for EU AI cloud services that could accelerate this investment. By 2030, the top EU providers are likely to offer competitive managed AI inference, though whether they will match the breadth of Bedrock's model catalogue is uncertain.
+
+% =============================================================================
+\section{Performance vs.\ Sovereignty: Structural Constraints}
+\label{sec:structural_constraints}
+% =============================================================================
+
+Two SOV verdicts are not provider-specific failures: they are industry-wide structural constraints that affect every provider in the study and that cannot be resolved through governance decisions alone.
+
+\subsection{SOV-6 Q4: No EU HPC Silicon}
+
+SOV-6 Q4 assesses whether the provider's high-performance computing infrastructure uses silicon from EU-governed or trusted sources. Every provider in the study receives a negative verdict on this question. The reason is straightforward: there is no commercially deployed EU-origin general-purpose GPU or high-performance CPU that is competitive with Intel Xeon, AMD EPYC, or NVIDIA data-centre GPUs. The European Processor Initiative (EPI) has produced the RHEA chip and is developing SiPearl processors for HPC, but these are not yet available as commercial cloud infrastructure components. Arm-based EU-assembled chips exist but do not constitute an EU-IP supply chain at the silicon level.
+
+This structural constraint sets a practical ceiling on SOV-6 scores for all providers irrespective of their other governance choices. It is a limitation of the current assessment that it assigns a negative verdict to all providers equally without distinguishing between those actively diversifying their HW procurement (T-Systems' dual-vendor strategy) and those with no such plans. Future iterations of the framework might introduce a partial verdict for providers participating in EU HPC silicon transition programmes.
+
+\subsection{SOV-5 Q2: Non-EU Firmware}
+
+SOV-5 Q2 assesses whether server firmware is of EU origin. Again, every provider receives a negative verdict because Intel Management Engine firmware, AMD Platform Security Processor firmware, and NVIDIA GPU firmware are all developed and controlled by US-headquartered corporations. These firmware components run below the operating system and have privileged access to system hardware.
+
+This is not a theoretical risk. The security research community has documented multiple instances where firmware-level access vectors have been exploited~\cite{ENISA_EUCS_2023}. The EU CHIPS Act and the Open Compute Project's Caliptra initiative represent long-term policy responses to this dependency, but neither produces EU-origin firmware on a horizon relevant to current cloud procurement decisions.
+
+For the purposes of interpreting SovScore results, assessors should treat SOV-5 Q2 and SOV-6 Q4 as systemic floor constraints rather than provider-discriminating findings. Providers that score well on all other SOV-5 and SOV-6 questions despite these universal negatives are effectively doing as well as any EU provider can do under current industry conditions.
+
+\subsection{Policy Instruments}
+
+Three EU policy instruments are relevant to the long-term resolution of these structural constraints. The \textbf{EU CHIPS Act} (2023) targets \texteuro{}43~billion in semiconductor investment to bring leading-edge chip manufacturing to European soil by 2030. The \textbf{European Processor Initiative} is developing the SiPearl HPC processor based on Arm architecture for the EuroHPC supercomputer programme. The \textbf{EU RISC-V initiative} supports the development of open-ISA processors that could eventually underpin EU-origin cloud server silicon free of US export-control risk. None of these initiatives will produce commercial cloud-grade silicon within the thesis horizon, but they establish the infrastructure for a future re-assessment in which SOV-6 Q4 might be satisfiable.
+
+% =============================================================================
 \section{Vendor Lock-in Implications}
-...
-\section{Threat Model — What EU Enterprises Are Actually Protecting Against}
-...
+\label{sec:vendor_lockin}
+% =============================================================================
+
+The Cloud Readiness Assessment was designed around a specific set of 60 services corresponding to Alps Alpine's enterprise workload requirements. A secondary reading of the gap data reveals a vendor lock-in dynamic that has implications both for migration strategy and for the interpretation of sovereignty.
+
+\subsection{OpenStack as an Interoperability Anchor}
+
+Providers that build their IaaS layer on OpenStack — including T-Systems OTC, Cleura, Elastx, and Fuga Cloud — expose standard OpenStack APIs for compute (Nova), storage (Swift, Cinder), networking (Neutron), and identity (Keystone). This means that workloads containerised in Kubernetes and deployed against standard OpenStack APIs are, in principle, portable between these providers and between cloud and on-premise environments. The GAIA-X federated architecture framework~\cite{GAIAX_Architecture_2023} explicitly targets this interoperability as a design goal.
+
+The irony is that OpenStack-based providers tend to have lower readiness scores in dimensions that require proprietary managed services (AI/ML, serverless, managed analytics), precisely because they have not built the proprietary PaaS layers that create lock-in. A provider that offers only OpenStack IaaS is maximally portable and minimally complete relative to the 60-service baseline.
+
+\subsection{Proprietary Managed Services and Lock-in}
+
+The highest-readiness EU providers have built proprietary managed services on top of their IaaS foundations. T-Systems OTC's ModelArts (managed ML), GaussDB (managed NewSQL), and DCS (managed Redis) are services with no simple migration path to another provider. OVHcloud's managed database portfolio, similarly, creates dependency once workloads are running against provider-specific APIs or data formats.
+
+This creates a layered lock-in structure: at the IaaS layer, OpenStack portability is high; at the managed PaaS layer, provider-specific APIs create stickiness; at the AI/ML layer, model management, training pipelines, and inference endpoints are deeply provider-specific.
+
+\subsection{The Migration Barrier from AWS}
+
+The gap table data makes explicit what cloud migration practitioners know empirically: switching from AWS to any EU provider requires architectural re-engineering of any workflow that depends on AWS-proprietary services. DynamoDB's serverless scaling model has no direct analogue in EU providers; Step Functions' workflow orchestration would need to be replaced by open-source alternatives (Apache Airflow, Temporal) that are not offered as managed services by most EU providers; Bedrock's model API has no EU substitute. For an enterprise currently running on AWS, the effective migration cost is dominated not by the commodity services (compute, storage, networking) but by these proprietary integrations.
+
+This observation supports the recommendation (Section~\ref{sec:enterprise_recommendations}) for a hybrid strategy in which sovereignty-sensitive and commodity workloads migrate to EU providers while AI/ML and specialised managed-service workloads remain on AWS until EU equivalents mature.
+
+% =============================================================================
 \section{Recommendations for EU Enterprises}
-...
+\label{sec:enterprise_recommendations}
+% =============================================================================
+
+The following four strategic postures emerge from the combined findings of the SovScore and Cloud Readiness Assessment. They are not mutually exclusive; most enterprises will benefit from a combination of approaches.
+
+\subsection{Strategy 1: Lift-and-Shift to a High-Readiness EU Provider}
+
+For enterprises in regulated industries — financial services, healthcare, public administration — operating workloads that currently run on AWS IaaS and standard managed databases (PostgreSQL, MySQL, Kubernetes), migration to T-Systems OTC or OVHcloud represents the path of least resistance. Both providers offer coverage of core IaaS and PaaS services sufficient to support the majority of enterprise workloads without architectural re-engineering. Both hold BSI C5 or equivalent certifications, GDPR data-processing agreements, and EU data residency guarantees. The readiness gap for these workloads is manageable.
+
+The sovereign risk trade-off for T-Systems OTC (Huawei dependencies) should be assessed against the enterprise's specific threat model. For German public administration workloads, the GovTech approval of T Cloud Public provides regulatory cover. For enterprises with higher sensitivity to China-related extraterritorial risk, OVHcloud or IONOS may be preferable.
+
+\subsection{Strategy 2: Sovereignty-First Selection for Sensitive Workloads}
+
+For workloads handling sensitive personal data, legally privileged information, or national-security-adjacent content, legal certainty outweighs managed-service richness. Infomaniak (Swiss law, FADP compliance, no non-EU parent), Elastx (Swedish law, OpenStack, ISO 27001), and Cleura (Swedish law, OpenStack, dedicated sovereignty tier) offer the cleanest sovereignty profiles in the study. The trade-off is an acceptance of a thinner managed-service portfolio and the operational overhead of self-managing services that AWS or OTC would deliver as fully managed.
+
+This posture is most appropriate for legal firms, medical data processors, and public authorities handling data categories under GDPR Article 9, where the consequences of a Schrems~II-type legal challenge to the processing arrangement outweigh the operational cost of a more limited cloud platform~\cite{SchremsII_2020}.
+
+\subsection{Strategy 3: Hybrid Cloud Architecture}
+
+The most pragmatic path for the majority of EU enterprises is a deliberate hybrid architecture that routes workloads by sovereignty sensitivity. Sovereignty-sensitive workloads — employee data, customer PII, regulated financial records — run on a high-sovereignty EU provider. Commodity development infrastructure and AI/ML workloads run on AWS (or, where appropriate, on Azure or GCP), accepting the sovereignty trade-off in return for access to services with no current EU equivalent.
+
+This architecture requires careful data-flow boundary design to ensure that personally identifiable data does not transit from the EU-provider environment to the AWS environment. It is technically achievable with standard networking and identity federation tooling and is consistent with the ENISA guidance on hybrid cloud sovereignty~\cite{ENISA_EUCS_2023}.
+
+\subsection{Strategy 4: Monitor STACKIT for 2027--2028 Re-evaluation}
+
+STACKIT currently has the lowest scalability score (32) of the providers seriously considered for enterprise adoption. However, its trajectory is uniquely well-resourced: Schwarz Group's financial scale, its captive enterprise demand, and its \texteuro{}300M+ investment programme make it the EU provider most likely to show dramatic readiness improvement over the 2026--2030 horizon. Enterprises making cloud-infrastructure decisions in 2026 should include STACKIT in their evaluation criteria for 2028 contract renewals or new workload deployments. If STACKIT's managed-service catalogue matures as its investment suggests, it would combine high readiness with a straightforward EU corporate structure free of the Huawei complications that affect T-Systems.
+
+% =============================================================================
 \section{Limitations of This Study}
-...
+\label{sec:limitations}
+% =============================================================================
+
+\subsection{Self-Reported and Publicly Documented Evidence Base}
+
+Both the SovScore assessments and the Cloud Readiness verdicts are based on publicly available documentation, provider websites, compliance certificates, and — for selected providers — responses to direct enquiry. No independent technical audit was conducted. A provider that falsely represents its service capability or its supply-chain composition in public documentation would receive an unwarranted favourable verdict. This limitation is inherent to any study of this scope covering 18 providers across 8 sovereignty objectives and 60 services; independent auditing at this scale would require regulatory authority and resource access far beyond an academic research project.
+
+\subsection{Static Snapshot in a Rapidly Evolving Market}
+
+Provider service catalogues, corporate structures, and compliance certifications change continuously. All verdicts in this study reflect the state of each provider as documented in Q1--Q2 2026. Several providers have announced managed services or corporate-structure changes that postdate the assessment window. T-Systems' T Cloud Public migration is the most significant of these; the analysis in Section~\ref{sec:huawei_problem} treats it as a prospective development rather than a completed transition because the OTC-to-TCP migration was not complete at the assessment date.
+
+\subsection{AWS Baseline Bias}
+
+Treating AWS as the 100\% readiness baseline implicitly privileges the hyperscaler managed-service model as the normative reference point for enterprise cloud capability. EU providers operating on OpenStack IaaS may offer equivalent functional capability through different architectural patterns — for example, a self-managed Apache Kafka deployment may satisfy the same enterprise requirement as Amazon MSK — but would receive a partial or negative verdict in the readiness assessment because the service form differs from the AWS reference.
+
+This bias is a deliberate design choice: the assessment is calibrated to the services that Alps Alpine's enterprise workload requires in the form it currently uses them. It reflects a real-world migration scenario rather than an abstract capability comparison. But it should not be read as a claim that OpenStack IaaS is intrinsically inferior; it means that migrating an existing AWS-pattern workload to an OpenStack provider requires architectural adaptation that entails cost and risk~\cite{armbrust2010view}.
+
+\subsection{Service Selection Tailored to a Specific Enterprise}
+
+The 60-service taxonomy was constructed from Alps Alpine's cloud workload requirements across thirteen dimensions. A different enterprise with different workloads — a media company, a financial institution, a public administration body — would produce a different service selection and potentially a different ranking of providers. Providers that score poorly on the scalability and AI/ML dimensions relevant to Alps Alpine might score well on dimensions more relevant to other industries (e.g., managed SAP environments, HPC for simulation workloads). The results should be interpreted as specific to the Alps Alpine enterprise context rather than as a universal EU-cloud ranking.
+
+\subsection{No SLA or Operational Quality Dimension}
+
+Coverage verdicts capture the existence of a service, not its operational maturity, reliability, latency profile, or supported SLA. A managed Kubernetes service offered by a small EU provider with a 99.5\% SLA and a 24-hour support window is counted the same as AWS EKS with a 99.95\% SLA and a 15-minute critical-incident response. The readiness scores therefore overstate the practical substitutability of EU services for enterprises with high availability requirements. A future extension of this study could introduce a quality dimension — drawing on published SLA data, Uptime Institute reports, and third-party latency benchmarks — to complement the coverage assessment~\cite{AWS_WellArchitected_2023}.
+
+\subsection{Exclusion of Cost and Commercial Terms}
+
+Cloud infrastructure cost is a significant procurement factor that this study does not address. EU providers frequently price their services at a premium to AWS for equivalent compute and storage, reflecting their smaller economies of scale. This premium may be acceptable or even welcome in procurement frameworks where EU origin is a requirement (IPCEI, GovTech), but it is a material constraint for cost-sensitive workloads. A cost-adjusted readiness assessment — weighting service availability by the cost premium relative to AWS — would produce a more complete picture of the EU cloud procurement decision.

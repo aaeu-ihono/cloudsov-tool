@@ -2,6 +2,46 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useFramework, useProviders } from '../hooks/useApi'
 import { computeResults } from '../hooks/scoring'
 
+// ── Country flags ──────────────────────────────────────────────────────────
+const PROVIDER_COUNTRY = {
+  // Germany
+  'Hetzner':                          'de',
+  'IONOS':                            'de',
+  'STACKIT':                          'de',
+  'STACKIT (Schwarz Group)':          'de',
+  'T-Systems OTC':                    'de',
+  'T-Systems (T Cloud Public)':       'de',
+  'Arvato Systems':                   'de',
+  'noris network':                    'de',
+  'Noris Network':                    'de',
+  'plusserver':                       'de',
+  'PlusServer':                       'de',
+  // France
+  'OVHcloud':                         'fr',
+  'OVHcloud / Gridscale':             'fr',
+  'Scaleway':                         'fr',
+  // Sweden
+  'Cleura':                           'se',
+  'Elastx':                           'se',
+  // Switzerland
+  'Exoscale':                         'ch',
+  'Infomaniak':                       'ch',
+  'nine':                             'ch',
+  'Nine':                             'ch',
+  // Netherlands
+  'Fuga Cloud':                       'nl',
+  'Cyso Cloud':                       'nl',
+  'Cyso Cloud (formerly Fuga Cloud)': 'nl',
+  // Finland
+  'UpCloud':                          'fi',
+  // USA
+  'AWS':                              'us',
+}
+function flagFor(p) {
+  const code = PROVIDER_COUNTRY[p] ?? null
+  return code ? <span className={`fi fi-${code} provider-flag`} /> : null
+}
+
 // ── Popover ────────────────────────────────────────────────────────────────
 function Popover({ content, pos }) {
   if (!content || !pos) return null
@@ -289,7 +329,7 @@ export default function SovScore() {
                         className="provider-name"
                         onMouseEnter={e => showPopover({ question: provider, note: summaryNotes[provider] }, e)}
                         onMouseLeave={hidePopover}
-                      >{provider}</span>
+                      >{flagFor(provider)}{provider}</span>
                       <button
                         className="remove-btn"
                         title="Remove"

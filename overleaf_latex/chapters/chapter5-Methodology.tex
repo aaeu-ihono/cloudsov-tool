@@ -4,10 +4,105 @@
 \section{Research Design and Overall Approach}
 \label{sec:research_design}
 
-This thesis adopts a constructive research design, combining framework-driven assessment with empirical tool development. Rather than observing cloud sovereignty as a static phenomenon, the research operationalises it through two complementary instruments that can be applied, reproduced, and extended by practitioners. The first instrument — the Sovereignty Scoring Framework (SovScore) — measures the degree of digital sovereignty a cloud provider offers to EU customers. The second — the Cloud Readiness Assessment — measures how prepared each provider is to substitute AWS-equivalent managed services for a European enterprise workload. Both instruments are grounded in publicly available regulatory documents and evaluated against a curated set of 17 European cloud providers.
+This thesis adopts a constructive research design, combining framework-driven assessment with empirical tool development. Rather than observing cloud sovereignty as a static phenomenon, the research operationalises it through two complementary instruments that can be applied, reproduced, and extended by practitioners. The first instrument — the Sovereignty Scoring Framework (SovScore) — measures the degree of digital sovereignty a cloud provider offers to EU customers. The second — the Cloud Readiness Assessment — measures how prepared each provider is to substitute AWS-equivalent managed services for a European enterprise workload. Both instruments are grounded in publicly available regulatory documents and evaluated against a curated set of 18 European cloud providers.
 
-The two experiments are described in detail in Sections~\ref{sec:sovscore_methodology} and~\ref{sec:readiness_methodology} respectively.
+The two experiments are described in detail in Sections~\ref{sec:sovscore_methodology} and~\ref{sec:readiness_methodology} respectively. Both were conducted using an open-source web tool developed as part of this research, described in the following section.
 
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{CloudSov Tool: Implementation and Usage}
+\label{sec:cloudsov_tool}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Overview and Availability}
+
+To ensure reproducibility and accessibility, both experiments were operationalised within a dedicated open-source web application named \textbf{CloudSov}. The tool is publicly available on GitHub and can be run locally without a cloud account or paid subscription. It provides a graphical interface for conducting the SovScore assessment and the Cloud Readiness Assessment in a structured, comparable manner across all 18 EU providers.
+
+\begin{quote}
+\textit{Repository:} \texttt{https://github.com/[author]/cloudsov} \quad
+\textit{Licence:} MIT
+\end{quote}
+
+\noindent The tool is built with a Python/FastAPI backend and a React~19 (Vite) frontend, communicating over a local REST~API. Provider responses are stored as structured JSON files that can be audited independently of the interface.
+
+\subsection{Getting Started}
+
+Prerequisites: Python~3.10+, Node.js~18+, and \texttt{npm}. To launch the tool:
+
+\begin{enumerate}
+  \item Clone the repository: \texttt{git clone https://github.com/[author]/cloudsov}
+  \item Start the backend: \texttt{cd backend \&\& pip install -r requirements.txt \&\& uvicorn main:app --reload}
+  \item Start the frontend: \texttt{cd frontend \&\& npm install \&\& npm run dev}
+  \item Open a browser at \texttt{http://localhost:5173}
+\end{enumerate}
+
+No environment variables or external API keys are required. All provider data is bundled with the repository under the \texttt{survey/} and \texttt{readiness/} directories.
+
+\subsection{Interface Walkthrough}
+
+The tool interface is divided into two primary modules, accessible from the top navigation bar: \textbf{SovScore} and \textbf{Readiness Assessment}. Figures~\ref{fig:tool_sovscore_grid}–\ref{fig:tool_readiness_gap} illustrate each section. The numbered annotations in the figures correspond to the legend in Table~\ref{tab:tool_legend}.
+
+\begin{table}[htbp]
+\centering
+\caption{Interface annotation legend — numbered regions shown in Figures~\ref{fig:tool_sovscore_grid}–\ref{fig:tool_readiness_gap}}
+\label{tab:tool_legend}
+\begin{tabularx}{\linewidth}{cX}
+\toprule
+\textbf{No.} & \textbf{Description} \\
+\midrule
+\circled{1} & Provider selector and add/remove controls — manage which providers appear in the assessment grid \\
+\circled{2} & SOV objective column headers — each column represents one of the eight sovereignty objectives (SOV-1 to SOV-8) \\
+\circled{3} & Verdict input cells — each cell accepts Y (Yes), P (Partial), or N (No) for the corresponding provider–question pair \\
+\circled{4} & Computed SovScore column — displays the weighted aggregate score (0–100) updated in real time \\
+\circled{5} & SEAL badge — colour-coded maturity level (SEAL~0 to SEAL~4) derived from the score \\
+\circled{6} & Dimension breakdown radar/bar chart — shows per-dimension readiness scores for a selected provider \\
+\circled{7} & Provider toggle panel — enables or disables individual providers on the readiness line chart \\
+\circled{8} & Gap table — lists all 60 services ranked by average gap from AWS baseline; expandable rows show per-provider status \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent To use the \textbf{SovScore} module (Figure~\ref{fig:tool_sovscore_grid}): select the providers to compare using the panel at the top \circled{1}, then work through each column \circled{2}, entering verdicts in the cells \circled{3}. The score \circled{4} and SEAL badge \circled{5} update automatically. Hovering over a cell reveals the full question text and an evidence note field where source URLs can be recorded.
+
+\noindent To use the \textbf{Readiness Assessment} module (Figure~\ref{fig:tool_readiness_chart}): toggle providers on or off using the pill buttons \circled{7}. The line chart displays dimension scores as a time-series of 13 capability dimensions. Hovering over any data point reveals a tooltip listing which of the 60 services are available (Y), partial (P), or missing (N) for that provider in that dimension. The gap table \circled{8} (Figure~\ref{fig:tool_readiness_gap}) ranks services by average deficit and allows drill-down per provider.
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\linewidth}\centering\vspace{4cm}
+    \textit{[Screenshot: SovScore assessment grid — annotated with numbers \circled{1}–\circled{5}]}
+  \vspace{4cm}\end{minipage}}
+  \caption{CloudSov SovScore module: provider grid with verdict inputs and computed scores.}
+  \label{fig:tool_sovscore_grid}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\linewidth}\centering\vspace{4cm}
+    \textit{[Screenshot: Readiness Assessment line chart — annotated with \circled{6} and \circled{7}]}
+  \vspace{4cm}\end{minipage}}
+  \caption{CloudSov Readiness Assessment module: dimension scores across providers.}
+  \label{fig:tool_readiness_chart}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\linewidth}\centering\vspace{4cm}
+    \textit{[Screenshot: Gap table with expanded service row — annotated with \circled{8}]}
+  \vspace{4cm}\end{minipage}}
+  \caption{CloudSov gap table: services ranked by average deficit from the AWS baseline.}
+  \label{fig:tool_readiness_gap}
+\end{figure}
+
+\subsection{Advantages, Limitations, and Controversies}
+
+\paragraph{Advantages.}
+CloudSov addresses the absence of a unified, comparable, open evaluation framework for EU cloud sovereignty. By combining two complementary instruments in a single interface, it enables side-by-side comparison across providers that would otherwise require bespoke spreadsheets and manual aggregation. The tool is technology-neutral, provider-agnostic, and entirely reproducible: any researcher with access to the repository can re-run or extend the assessment.
+
+\paragraph{Limitations.}
+The assessments rely on publicly available documentation and self-reported provider claims. No independent technical audit of the verdicts was conducted. Providers with sparse public documentation may receive lower scores not because they fail to meet the criteria, but because sufficient evidence could not be established — a documentation gap rather than a capability gap. Furthermore, the SovScore weights are prescribed by the EC~DG~DIGIT framework and were not derived empirically; alternative weighting schemes would yield different rankings.
+
+\paragraph{Controversies.}
+The use of AWS as a readiness baseline has inherent tensions: it implicitly treats the US hyperscaler's service model as the normative standard against which EU alternatives are measured, which may undervalue architectural choices made by EU providers (e.g., OpenStack-based deployments that prioritise interoperability over proprietary services). Additionally, the binary gap model (available / partial / missing) cannot capture quality, performance, or SLA differences between an EU provider's service and its AWS equivalent. These limitations are acknowledged in the discussion of findings in Chapter~8.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Sovereignty Scoring Framework (SovScore)}
@@ -27,7 +122,29 @@ was motivated by three factors. First, it is produced by the Commission body res
 
 The framework defines eight \textit{SOV objectives}, each representing a distinct dimension of digital sovereignty. Each objective is assigned a percentage weight reflecting its relative importance to overall sovereignty, as specified in the EC~DG~DIGIT framework. These weights sum to 100\% and are held constant across all provider assessments to ensure comparability.
 
-Tables~\ref{tab:sov_objectives_a} and~\ref{tab:sov_objectives_b} list the eight objectives together with their weights, minimum SEAL thresholds, and evaluation questions.
+Table~\ref{tab:sov_objectives} summarises the eight objectives with their weights and minimum SEAL thresholds. Tables~\ref{tab:sov_objectives_a} and~\ref{tab:sov_objectives_b} list the full evaluation questions for each objective.
+
+\begin{table}[htbp]
+\centering
+\caption{SOV objectives, weights, question counts, and minimum SEAL thresholds}
+\label{tab:sov_objectives}
+\begin{tabular}{llrrr}
+\toprule
+\textbf{ID} & \textbf{Objective} & \textbf{Weight (\%)} & \textbf{Questions} & \textbf{Min.\ SEAL} \\
+\midrule
+SOV-1 & Strategic Sovereignty      & 15 & 6 & 3 \\
+SOV-2 & Legal \& Jurisdictional    & 10 & 5 & 4 \\
+SOV-3 & Data \& AI Sovereignty     & 10 & 5 & 3 \\
+SOV-4 & Operational Sovereignty    & 15 & 6 & 2 \\
+SOV-5 & Supply Chain               & 20 & 5 & 2 \\
+SOV-6 & Technology                 & 15 & 4 & 2 \\
+SOV-7 & Security \& Compliance     & 10 & 6 & 3 \\
+SOV-8 & Environmental              &  5 & 4 & 1 \\
+\midrule
+       & \textbf{Total}             & \textbf{100} & \textbf{41} & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ── SOV-1 to SOV-4 ───────────────────────────────────────────────────────────
 \begin{table}[htbp]
@@ -150,7 +267,7 @@ For each of the 41 questions across the eight SOV objectives, a verdict is assig
   \item \textbf{N (No)} — the provider does not meet the criterion, or no credible evidence of compliance was found.
 \end{itemize}
 
-Evidence sources include official provider documentation, annual reports, third-party certification records, press releases, and publicly disclosed regulatory filings. Each verdict is accompanied by a source URL and an explanatory note stored in a structured JSON survey file per provider. The evidence collection process was conducted systematically across all 17 providers using the same set of 41 questions, ensuring comparability.
+Evidence sources include official provider documentation, annual reports, third-party certification records, press releases, and publicly disclosed regulatory filings. Each verdict is accompanied by a source URL and an explanatory note stored in a structured JSON survey file per provider. The evidence collection process was conducted systematically across all 18 providers using the same set of 41 questions, ensuring comparability.
 
 Where a criterion cannot be assessed from public information alone, the conservative verdict~N is applied, consistent with the principle that sovereignty claims must be affirmatively demonstrable rather than assumed by default.%
 \footnote{This is particularly relevant for SOV-5 (Supply Chain), where hardware firmware provenance is rarely disclosed publicly. Intel Management Engine and AMD PSP firmware, present in virtually all commercial x86 servers, are of non-EU origin, creating a structural ceiling that applies uniformly across all providers assessed.}
@@ -213,7 +330,7 @@ or the Chinese Cybersecurity Law — disqualifies a provider from processing per
 \subsection{Provider Coverage and Tool Implementation}
 \label{subsec:sovscore_implementation}
 
-The assessment was applied to 17 European cloud providers selected on the basis of EU headquarters, commercial availability, and relevance to enterprise workloads. For each provider, a structured JSON survey file was compiled containing the 41 verdicts with associated source URLs and explanatory notes.
+The assessment was applied to 18 European cloud providers selected on the basis of EU headquarters, commercial availability, and relevance to enterprise workloads. For each provider, a structured JSON survey file was compiled containing the 41 verdicts with associated source URLs and explanatory notes.
 
 The scoring framework was implemented as an interactive web application (SovScore) built with React~19 and FastAPI, allowing real-time exploration of results, adjustment of minimum SEAL thresholds, and comparison across providers. The application computes $S_{\text{sov}}$ from equation~(\ref{eq:sovscore}) in the browser on every state change, with all verdict data served statically from the JSON survey files.
 
@@ -223,7 +340,7 @@ The scoring framework was implemented as an interactive web application (SovScor
     \centering\vspace{2em}
     \textit{[SCREENSHOT REQUIRED: SovScore web interface showing the full provider $\times$ question grid,
     SEAL chips per SOV objective, and the Score column with sort order applied.
-    Capture with all 17 providers visible and at least one provider highlighted in red (failing).]}
+    Capture with all 18 providers visible and at least one provider highlighted in red (failing).]}
     \vspace{2em}
   \end{minipage}}
   \caption{SovScore web interface: provider assessment grid with SEAL levels and overall sovereignty scores.}
@@ -243,6 +360,15 @@ The scoring framework was implemented as an interactive web application (SovScor
 \end{figure}
 
 
+\subsection{Preliminary SovScore Findings}
+\label{subsec:sovscore_preliminary}
+
+The SovScore assessment surfaces a striking pattern across the 18 providers: the relationship between certification depth and sovereignty score is not linear. Providers holding the most extensive EU compliance portfolios — notably T-Systems (T~Cloud Public) with BSI~C5~Type~2, ISO~27001, SOC~1/2/3, TISAX, and GDPR Art.~28 DPAs — score near-perfectly on Security~\& Compliance (SOV-7) and Environmental (SOV-8) dimensions. Yet the same provider records the study's most complex sovereign weakness: a persistent partial score on Legal~\& Jurisdictional (SOV-2) and a failed verdict on Supply~Chain (SOV-5) due to the Huawei~FusionSphere dependency inherited from the original Open~Telekom~Cloud architecture. China's National Intelligence Law (2017) theoretically obligates Chinese companies to cooperate with state intelligence services, creating a residual extraterritorial risk that even the most rigorous German certification cannot fully eliminate.
+
+A second observation is the universal failure of all EU providers on the Technology dimension (SOV-6) question regarding EU-origin high-performance computing hardware. No commercially available EU cloud provider deploys EU-manufactured server processors or GPU accelerators at scale; all depend on Intel or AMD x86 silicon (US origin) and NVIDIA accelerators (US origin). This is a structural constraint of the current semiconductor industry rather than a provider-specific deficiency, and it establishes a ceiling below which any EU cloud provider's SOV-6 score must fall regardless of governance choices.
+
+A full cross-provider analysis of SovScore results, including ranked scores, SEAL-level breakdowns per objective, and pass/fail determinations against the minimum thresholds, is presented in Chapter~8.
+
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Cloud Readiness Assessment Design}
 \label{sec:readiness_methodology}
@@ -253,7 +379,7 @@ The scoring framework was implemented as an interactive web application (SovScor
 
 Sovereignty scoring measures whether a provider is legally and structurally safe to use under EU jurisdiction. It does not, however, measure whether a provider can actually replace the managed services that an enterprise already depends on. A cloud provider may achieve a high sovereignty score while lacking several services critical to a given workload, creating significant migration friction. The Cloud Readiness Assessment addresses this complementary question.
 
-Amazon Web Services was selected as the 100\% capability baseline for three reasons. First, AWS holds the largest share of the global enterprise cloud market and is the de facto incumbent for the majority of European enterprises currently operating in a hyperscaler environment~\cite{armbrust2010view}. Second, AWS offers the most comprehensive publicly documented managed service portfolio, providing a stable reference taxonomy. Third, the use case driving this research — evaluating migration feasibility for Alps Alpine, an automotive components manufacturer operating on AWS — makes AWS the natural ``as-is'' baseline from which a transition to a European provider would depart.
+Amazon Web Services was selected as the 100\% capability baseline for three reasons. First, AWS holds the largest share of the global enterprise cloud market and is the de facto incumbent for the majority of European enterprises currently operating in a hyperscaler environment~\cite{armbrust2010view}. Second, AWS offers the most comprehensive publicly documented managed service portfolio, providing a stable reference taxonomy. Third, the use case driving this research — evaluating migration feasibility for Alps Alpine, operating on AWS — makes AWS the natural ``as-is'' baseline from which a transition to a European provider would depart.
 
 The assessment is not a judgment on AWS's technical quality; rather, it uses AWS's service portfolio as a reference map of enterprise cloud capability requirements against which European alternatives are measured.
 
@@ -410,6 +536,15 @@ The Cloud Readiness Assessment was implemented as the second module of the Cloud
 
 The two visualisations are designed to serve complementary analytical purposes: the radar chart gives an immediate gestalt impression of a provider's overall readiness profile relative to AWS, while the area chart and gap table support drill-down analysis at the dimension and service level. Clicking any data point in the area chart pins a detailed service table below the chart, listing AWS service name, coverage verdict, EU equivalent, and source reference for every service in that dimension.
 
+
+\subsection{Preliminary Readiness Findings}
+\label{subsec:readiness_preliminary}
+
+The readiness data reveals a pronounced stratification among EU providers that correlates closely with the depth and maturity of their managed-service portfolios. T-Systems OTC achieves the highest individual dimension scores among all EU providers, recording a scalability meta-score of~72 and a performance meta-score of~87 out of~100 — reflecting its wide managed-service catalogue including FunctionGraph (serverless), ModelArts (ML platform), IoTDA, DMS Kafka, and CodeArts. T Cloud Public, assessed separately as a distinct commercial product from the same parent, achieves a marginally higher scalability score of~74 and the same performance score of~87, reflecting its purpose-built sovereign infrastructure design and planned Netherlands capacity expansion. OVHcloud follows as the next-ranked EU provider (scalability~68, performance~83), driven by its breadth of managed databases and broad regional availability. Both providers score significantly higher than the infrastructure-centric providers at the lower end of the spectrum.
+
+Hetzner, despite being one of Europe's most widely used cloud providers by customer count, records a scalability score of just~35 — reflecting its deliberate focus on virtual machines, block storage, and bare-metal servers without native managed services for serverless, workflow orchestration, or AI/ML. STACKIT, despite the substantial financial backing of the Schwarz~Group, scores similarly low on scalability~(32) owing to its 2021 launch date and the resulting managed-service portfolio still under active development. This pattern underlines the critical role of time-in-market: providers with deeper operational histories of cloud service delivery — particularly OVHcloud (cloud IaaS since~2012) and T-Systems~OTC (since~2016) — have broader catalogues than newer entrants.
+
+Across all providers, the dimensions with the largest average gaps to the AWS baseline are AI/ML (Amazon~Bedrock has no equivalent among any EU provider), Database (no EU equivalent to DynamoDB, Amazon~Aurora, or Amazon~Timestream), and Dev/Deploy (Step~Functions has no EU managed equivalent). These structural gaps are consistent across providers of all sizes and ages, suggesting that they reflect the maturity of the underlying managed-service ecosystem rather than any individual provider's product strategy. Full findings with ranked provider scores and per-dimension gap analysis are discussed in Chapter~8.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Benchmark Pipeline Design}

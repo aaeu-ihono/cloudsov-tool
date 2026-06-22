@@ -86,7 +86,7 @@ def load_survey(survey_dir: str | Path) -> dict[str, dict]:
 
     for json_file in sorted(survey_path.glob("sov_*.json")):
         try:
-            with open(json_file, encoding="utf-8") as f:
+            with open(json_file, encoding="utf-8-sig") as f:
                 data = json.load(f)
             parsed = _parse_provider_json(data)
             loaded[parsed["name"]] = {

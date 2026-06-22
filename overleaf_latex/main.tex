@@ -10,6 +10,9 @@
 \usepackage{longtable}  % tables spanning multiple pages
 \usepackage{pdflscape}  % landscape single pages
 \usepackage{tabularx}   % auto-width table columns
+\usepackage{acronym}    % list of abbreviations
+\usepackage{tikz}       % circled numbers in annotation legends
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1.2pt,font=\small] (char) {#1};}}
 
 % \newgeometry{
     % top=0.75in,
@@ -30,12 +33,14 @@
 
 \tableofcontents
 \listoffigures
+\listoftables
+\input{Abbreviations}
 
 \include{chapters/chapter1-Introduction}
 \include{chapters/chapter2-Fundamentals}
 \include{chapters/chapter3-state-of-the-art}
-\include{chapters/chapter4-Methodology}
-\include{chapters/chapter5-Provider-Landscape-and-Compliance-Analysis}
+\include{chapters/chapter4-Provider-Landscape-and-Compliance-Analysis}
+\include{chapters/chapter5-Methodology}
 \include{chapters/chapter6-Technical-Benchmarking}
 \include{chapters/chapter7-Deployment-experiment}
 \include{chapters/chapter8-Discussion}

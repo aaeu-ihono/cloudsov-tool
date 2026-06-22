@@ -1,19 +1,19 @@
 {
-  "T-Systems OTC": {
+  "T-Systems (T Cloud Public)": {
     "meta": {
-      "scalability_score": 72,
-      "scalability_note": "2 German regions (Biere, Magdeburg), managed Kubernetes (CCE), serverless functions (FunctionGraph), GPU instances, global CDN nodes",
-      "scalability_source": "https://open-telekom-cloud.com/en/products-services",
+      "scalability_score": 74,
+      "scalability_note": "2 German regions (Biere, Magdeburg) purpose-built for sovereign workloads; T Cloud Public adds planned Netherlands capacity; managed Kubernetes (CCE), serverless (FunctionGraph), GPU instances; GovTech-approved infrastructure",
+      "scalability_source": "https://public.t-cloud.com/en/products-services",
       "performance_score": 87,
-      "performance_note": "BSI C5 attested, ISO 27001 certified, 99.95% SLA for key services, Tier-4 German data centers, carrier-grade Deutsche Telekom network",
-      "performance_source": "https://open-telekom-cloud.com/en/compliance"
+      "performance_note": "BSI C5:2020 Type 2 attested, ISO 27001/17/18 certified, SOC 1/2/3, 99.95% SLA for key services, Tier III Biere/Magdeburg data centers, carrier-grade Deutsche Telekom network; GovTech-approved for German federal administration",
+      "performance_source": "https://public.t-cloud.com/en/compliance"
     },
     "Application": {
       "AWS Amplify": {
         "coverage": "P",
         "equivalent": "AppStage",
         "note": "Basic application deployment service for containerised apps; lacks full front-end hosting pipeline, CI/CD integration, and mobile backend features of AWS Amplify",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Compute": {
@@ -21,37 +21,37 @@
         "coverage": "Y",
         "equivalent": "FunctionGraph",
         "note": "Fully managed FaaS with Python, Node.js, Go, and Java runtimes; event-driven triggers, auto-scaling to zero, pay-per-invocation billing",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon ECS": {
         "coverage": "Y",
         "equivalent": "Cloud Container Engine (CCE)",
         "note": "Managed container service supporting Docker workloads without requiring full Kubernetes cluster management",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EKS": {
         "coverage": "Y",
         "equivalent": "Cloud Container Engine (CCE) Kubernetes",
         "note": "Fully managed Kubernetes with automated upgrades, node pool auto-scaling, multi-AZ deployment, and integrated container registry",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EC2": {
         "coverage": "Y",
         "equivalent": "Elastic Cloud Server (ECS)",
         "note": "Broad instance portfolio covering general purpose, compute-optimised, memory-optimised, and GPU instance families with flexible billing",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Batch": {
         "coverage": "P",
         "equivalent": null,
         "note": "Batch workloads supported via FunctionGraph event triggers and CCE job scheduling; no dedicated managed Batch service with job queues and compute environments",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Elastic Beanstalk": {
         "coverage": "N",
         "equivalent": null,
         "note": "No PaaS application deployment platform that automatically handles capacity provisioning, load balancing, and health monitoring",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Storage": {
@@ -59,31 +59,31 @@
         "coverage": "Y",
         "equivalent": "Object Storage Service (OBS)",
         "note": "S3-compatible API with cross-region replication, versioning, lifecycle policies, server-side encryption, and fine-grained ACLs",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon S3 Glacier": {
         "coverage": "P",
         "equivalent": "OBS Archive Storage",
         "note": "Cold storage tier available within OBS as a storage class; no dedicated archival product with distinct retrieval SLA tiers (Expedited, Standard, Bulk)",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EBS": {
         "coverage": "Y",
         "equivalent": "Elastic Volume Service (EVS)",
         "note": "High-performance SSD and Ultra-high IO persistent block volumes, detachable from instances, snapshot and backup support",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Backup": {
         "coverage": "Y",
         "equivalent": "Cloud Backup and Recovery (CBR)",
         "note": "Centralised policy-based backup service covering VMs, block volumes, and databases with retention policies and cross-AZ recovery",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EFS": {
         "coverage": "Y",
         "equivalent": "Scalable File Service (SFS)",
         "note": "Managed NFS-compatible shared file system with multi-attach support, elastic capacity scaling, and integration with ECS/CCE workloads",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Database": {
@@ -91,43 +91,43 @@
         "coverage": "Y",
         "equivalent": "Relational Database Service (RDS)",
         "note": "Managed MySQL, PostgreSQL, and SQL Server with automated backups, point-in-time recovery, read replicas, and automated failover",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon DocumentDB": {
         "coverage": "P",
         "equivalent": "Document Database Service (DDS)",
         "note": "Managed MongoDB-compatible document database service in general availability; comparable feature set for most use cases",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon DynamoDB": {
         "coverage": "N",
         "equivalent": null,
         "note": "No serverless, fully managed NoSQL key-value database equivalent with single-digit millisecond latency at any scale",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Timestream": {
         "coverage": "N",
         "equivalent": null,
         "note": "No managed serverless time-series database service",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Aurora": {
         "coverage": "N",
         "equivalent": null,
         "note": "No high-performance distributed relational database engine with MySQL/PostgreSQL compatibility and multi-master replication",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon ElastiCache": {
         "coverage": "Y",
         "equivalent": "Distributed Cache Service (DCS)",
         "note": "Managed Redis and Memcached with cluster mode, high availability, automatic failover, and monitoring integration",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Redshift": {
         "coverage": "P",
         "equivalent": "Data Warehouse Service (DWS)",
         "note": "MPP columnar data warehouse based on GaussDB; comparable analytical workload support but less mature third-party ecosystem and tooling than Redshift",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Networking": {
@@ -135,43 +135,43 @@
         "coverage": "Y",
         "equivalent": "Elastic Load Balancing (ELB)",
         "note": "Managed HTTP/HTTPS load balancer with TLS termination, advanced routing rules, health checks, and sticky sessions",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Network Load Balancer": {
         "coverage": "Y",
         "equivalent": "ELB (Network mode)",
         "note": "TCP/UDP load balancing via the same ELB product in network mode; supports high-throughput, low-latency workloads",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon VPC": {
         "coverage": "Y",
         "equivalent": "Virtual Private Cloud",
         "note": "Full virtual networking with private networks, subnets, route tables, security groups, NAT gateways, and VPC peering",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Route 53": {
         "coverage": "Y",
         "equivalent": "Domain Name Service (DNS)",
         "note": "Managed DNS with full record type support, health checks, and routing policies for public and private zones",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon API Gateway": {
         "coverage": "Y",
         "equivalent": "API Gateway (APIG)",
         "note": "Fully managed API gateway with rate limiting, authentication (IAM, app-key), request transformation, and usage monitoring",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon CloudFront": {
         "coverage": "P",
         "equivalent": "Content Delivery Network (CDN)",
         "note": "CDN service available with caching and HTTPS support; limited PoP density and edge locations compared to CloudFront's global network",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Direct Connect": {
         "coverage": "Y",
         "equivalent": "Direct Connect (DC)",
-        "note": "Dedicated private connectivity from on-premise infrastructure to OTC, leveraging Deutsche Telekom's carrier-grade network",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "note": "Dedicated private connectivity from on-premise infrastructure to T Cloud Public, leveraging Deutsche Telekom's carrier-grade network",
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "AI/ML": {
@@ -179,37 +179,37 @@
         "coverage": "P",
         "equivalent": "Image Recognition Service",
         "note": "Managed image analysis service with classification and object detection; narrower feature set than Rekognition (no video analysis, face liveness, or celebrity detection)",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon SageMaker": {
         "coverage": "Y",
         "equivalent": "ModelArts",
         "note": "End-to-end ML platform covering data labelling, experiment tracking, distributed training, AutoML, and model serving with endpoint management",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Bedrock": {
         "coverage": "N",
         "equivalent": null,
         "note": "No managed generative AI service with access to foundation models via API",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Glue": {
         "coverage": "P",
         "equivalent": "DataArts Studio",
         "note": "Managed data integration and ETL service; comparable for pipeline authoring but less mature than AWS Glue with a smaller connector ecosystem",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EMR": {
         "coverage": "P",
         "equivalent": "MapReduce Service (MRS)",
         "note": "Managed Hadoop and Spark cluster service with auto-scaling; broadly comparable to EMR for big data processing workloads",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Athena": {
         "coverage": "P",
         "equivalent": "Data Lake Insight (DLI)",
         "note": "Serverless SQL analytics over OBS object storage; comparable to Athena for ad-hoc querying but with a smaller SQL dialect and connector coverage",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Security": {
@@ -217,73 +217,73 @@
         "coverage": "Y",
         "equivalent": "Identity and Access Management (IAM)",
         "note": "Full RBAC with policies, federated identity via SAML 2.0 and OIDC, resource-level permissions, and multi-factor authentication",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Cognito": {
         "coverage": "N",
         "equivalent": null,
         "note": "No managed customer identity and access management (CIAM) service with user pools and OAuth2 flows for application authentication",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS IAM Identity Center": {
         "coverage": "N",
         "equivalent": null,
-        "note": "No centralised single sign-on service for managing access across multiple OTC accounts or third-party SaaS applications",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "note": "No centralised single sign-on service for managing access across multiple T Cloud Public accounts or third-party SaaS applications",
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS KMS": {
         "coverage": "Y",
         "equivalent": "Data Encryption Workshop (DEW)",
         "note": "Managed key lifecycle management with HSM-backed key storage, BYOK support, and integration with OBS, EVS, RDS, and other services",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Secrets Manager": {
         "coverage": "P",
         "equivalent": "Cloud Secret Manager",
         "note": "Managed secrets storage in general availability; limited automated rotation support compared to AWS Secrets Manager",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Certificate Manager": {
         "coverage": "Y",
         "equivalent": "SSL Certificate Manager (SCM)",
         "note": "Managed TLS certificate provisioning, renewal, and deployment to ELB and CDN endpoints",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon GuardDuty": {
         "coverage": "P",
         "equivalent": "Host Security Service (HSS)",
         "note": "Workload-level threat detection covering vulnerability scanning, intrusion detection, and file integrity monitoring; less comprehensive than GuardDuty's network and API behaviour analysis",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Security Hub": {
         "coverage": "P",
         "equivalent": "Security Center",
         "note": "Centralised security posture overview and compliance reporting; fewer automated remediations and integrated findings standards than AWS Security Hub",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Config": {
         "coverage": "P",
         "equivalent": "Config",
         "note": "Resource configuration compliance and change tracking service; limited managed rule library and fewer integration points than AWS Config",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Shield": {
         "coverage": "Y",
         "equivalent": "Anti-DDoS",
         "note": "Managed DDoS protection at both network and application layers with real-time traffic scrubbing and attack reporting",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS WAF": {
         "coverage": "Y",
         "equivalent": "Web Application Firewall (WAF)",
         "note": "Managed WAF with OWASP rule sets, custom rule policies, rate limiting, and bot mitigation integrated with ELB and CDN",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS CloudTrail": {
         "coverage": "Y",
         "equivalent": "Cloud Trace Service (CTS)",
         "note": "Full API audit trail with real-time log streaming to LTS, long-term retention, and integration with Cloud Eye alerts and SMN notifications",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Monitoring": {
@@ -291,25 +291,25 @@
         "coverage": "Y",
         "equivalent": "Cloud Eye",
         "note": "Metrics collection, custom dashboards, threshold alarms, and auto-scaling triggers across compute, storage, and networking resources; broadly comparable to CloudWatch",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon SNS": {
         "coverage": "Y",
         "equivalent": "Simple Message Notification (SMN)",
         "note": "Managed pub/sub service with delivery to email, SMS, HTTP/HTTPS endpoints, and FunctionGraph triggers",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Systems Manager": {
         "coverage": "P",
         "equivalent": "Operational Management Center (OMC)",
         "note": "Basic infrastructure operations and resource management; lacks the breadth of Systems Manager capabilities such as Session Manager, Patch Manager, and Parameter Store",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Cost Explorer": {
         "coverage": "Y",
         "equivalent": "Cost Center",
         "note": "Detailed cost breakdown by resource, project, and time period with budget alerts and cost forecasting",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Dev/Deploy": {
@@ -317,45 +317,45 @@
         "coverage": "P",
         "equivalent": "CodeArts Build",
         "note": "Managed CI build service as part of the CodeArts DevOps suite; comparable for standard build pipelines but tighter ecosystem lock-in",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS CodeDeploy": {
         "coverage": "P",
         "equivalent": "CodeArts Deploy",
         "note": "Managed deployment automation supporting rolling and blue-green deployment strategies; part of the integrated CodeArts suite",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS CodePipeline": {
         "coverage": "P",
         "equivalent": "CodeArts Pipeline",
-        "note": "Managed CI/CD pipeline orchestration with stage-gate controls and approval actions; broadly comparable to CodePipeline within the OTC ecosystem",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "note": "Managed CI/CD pipeline orchestration with stage-gate controls and approval actions; broadly comparable to CodePipeline within the T Cloud Public ecosystem",
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon ECR": {
         "coverage": "Y",
         "equivalent": "SoftWare Repository for Container (SWR)",
         "note": "Managed container registry with image vulnerability scanning, fine-grained access control, and deep integration with CCE Kubernetes",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS CloudFormation": {
         "coverage": "Y",
         "equivalent": "Resource Formation Service (RFS)",
-        "note": "IaC service with OTC-native template language for declarative resource provisioning; official Terraform provider also available for multi-cloud workflows",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "note": "IaC service with T Cloud Public-native template language for declarative resource provisioning; official Terraform provider also available for multi-cloud workflows",
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "IoT": {
       "AWS IoT Core": {
         "coverage": "Y",
         "equivalent": "IoT Device Access (IoTDA)",
-        "note": "Managed MQTT and HTTPS broker with device shadow, rule engine for event-driven processing, and integration with other OTC services",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "note": "Managed MQTT and HTTPS broker with device shadow, rule engine for event-driven processing, and integration with other T Cloud Public services",
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS IoT Device Management": {
         "coverage": "Y",
         "equivalent": "IoT Device Management",
         "note": "Device registry, OTA firmware and software update management, device grouping, and fleet monitoring dashboard",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     },
     "Messaging": {
@@ -363,32 +363,33 @@
         "coverage": "Y",
         "equivalent": "Distributed Message Service (DMS) — RocketMQ/Kafka",
         "note": "Managed message queuing with RocketMQ supporting SQS-compatible point-to-point semantics, dead-letter queues, and message retention",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon EventBridge": {
         "coverage": "P",
         "equivalent": "Event Grid",
         "note": "Basic event routing service for cloud resource events; limited custom rule engine and fewer event source integrations compared to EventBridge",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "AWS Step Functions": {
         "coverage": "N",
         "equivalent": null,
         "note": "No managed serverless workflow orchestration or state machine service",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon SES": {
         "coverage": "P",
         "equivalent": "Simple Message Notification (email)",
         "note": "Email notifications available via SMN; no dedicated high-volume transactional email service with deliverability analytics, DKIM/DMARC management, or suppression lists",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       },
       "Amazon Kinesis": {
         "coverage": "P",
         "equivalent": "DMS Kafka",
         "note": "Managed Apache Kafka service supporting real-time data streaming and event streaming pipelines; comparable to Kinesis Data Streams for high-throughput ingestion",
-        "source": "https://open-telekom-cloud.com/en/products-services"
+        "source": "https://public.t-cloud.com/en/products-services"
       }
     }
   }
 }
+

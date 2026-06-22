@@ -7,11 +7,59 @@ import {
 } from 'recharts'
 import { useReadiness } from '../hooks/useReadiness'
 
+// ── Display name overrides (internal key → UI label) ────────────────────────
+const DISPLAY_NAMES = {
+  'T-Systems OTC':              'T-Systems Open Telekom Cloud (OTC)',
+  'T-Systems (T Cloud Public)': 'T-Systems T Cloud Public',
+}
+function displayName(p) { return DISPLAY_NAMES[p] ?? p }
+
+// ── Country flags ──────────────────────────────────────────────────────────
+const PROVIDER_COUNTRY = {
+  // Germany
+  'Hetzner':                          'de',
+  'IONOS':                            'de',
+  'STACKIT':                          'de',
+  'STACKIT (Schwarz Group)':          'de',
+  'T-Systems OTC':                    'de',
+  'T-Systems (T Cloud Public)':       'de',
+  'Arvato Systems':                   'de',
+  'noris network':                    'de',
+  'Noris Network':                    'de',
+  'plusserver':                       'de',
+  'PlusServer':                       'de',
+  // France
+  'OVHcloud':                         'fr',
+  'OVHcloud / Gridscale':             'fr',
+  'Scaleway':                         'fr',
+  // Sweden
+  'Cleura':                           'se',
+  'Elastx':                           'se',
+  // Switzerland
+  'Exoscale':                         'ch',
+  'Infomaniak':                       'ch',
+  'nine':                             'ch',
+  'Nine':                             'ch',
+  // Netherlands
+  'Fuga Cloud':                       'nl',
+  'Cyso Cloud':                       'nl',
+  'Cyso Cloud (formerly Fuga Cloud)': 'nl',
+  // Finland
+  'UpCloud':                          'fi',
+  // USA
+  'AWS':                              'us',
+}
+function flagFor(p) {
+  const code = PROVIDER_COUNTRY[p] ?? null
+  return code ? <span className={`fi fi-${code} provider-flag`} /> : null
+}
+
 // ── Colour palette ──────────────────────────────────────────────────────────
 const PROVIDER_COLORS = {
-  AWS:      '#FF9900',
-  'T-Systems OTC':  '#E53935',
-  STACKIT:  '#1A237E',
+  AWS:                        '#FF9900',
+  'T-Systems OTC':            '#E53935',
+  'T-Systems (T Cloud Public)': '#B71C1C',
+  STACKIT:                    '#1A237E',
   // Scaleway: '#7B1FA2',
 }
 const FALLBACK_COLORS = [
@@ -47,10 +95,11 @@ function CustomTooltip({ active, payload, label, details, categories }) {
     <div className="ra-tooltip">
       <div className="ra-tooltip-label">{label}</div>
       {sorted.map(entry => {
-        const catData = isCat ? (details[entry.name]?.[label] ?? {}) : null
+        const provKey = entry.dataKey ?? entry.name
+        const catData = isCat ? (details[provKey]?.[label] ?? {}) : null
         const metaKey = label === 'Scalability' ? 'scalability' : 'performance'
-        const note = !isCat && entry.name !== 'AWS'
-          ? details[entry.name]?.meta?.[`${metaKey}_note`]
+        const note = !isCat && provKey !== 'AWS'
+          ? details[provKey]?.meta?.[`${metaKey}_note`]
           : null
 
         return (
@@ -282,19 +331,19 @@ export default function ReadinessAssessment() {
     }
   }
 
-  // On first load: default to AWS + top 3 EU providers by avg score
+  // On first load: default to AWS + top 4 EU providers by avg score
   useEffect(() => {
     if (!data || activeProviders !== null) return
-    const top3 = providers
+    const top4 = providers
       .filter(p => p !== 'AWS')
       .map(p => ({
         name: p,
         avg: chartData.reduce((a, r) => a + (r[p] ?? 0), 0) / chartData.length,
       }))
       .sort((a, b) => b.avg - a.avg)
-      .slice(0, 3)
+      .slice(0, 4)
       .map(p => p.name)
-    setActiveProviders(['AWS', ...top3])
+    setActiveProviders(['AWS', ...top4])
   }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const gapSummary = useMemo(() => {
@@ -355,7 +404,7 @@ export default function ReadinessAssessment() {
               className="ra-toggle-dot"
               style={{ background: visibleProviders.includes(p) ? colorFor(p, providers) : '#d1d5db' }}
             />
-            {p}
+            {displayName(p)}
           </button>
         ))}
       </div>
@@ -391,7 +440,7 @@ export default function ReadinessAssessment() {
                 {visibleProviders.map(p => (
                   <Radar
                     key={p}
-                    name={p}
+                    name={displayName(p)}
                     dataKey={p}
                     stroke={colorFor(p, providers)}
                     fill={colorFor(p, providers)}
@@ -447,6 +496,7 @@ export default function ReadinessAssessment() {
                 {visibleProviders.map(p => (
                   <Area
                     key={p}
+                    name={displayName(p)}
                     type="monotone"
                     dataKey={p}
                     stroke={colorFor(p, providers)}
@@ -497,7 +547,7 @@ export default function ReadinessAssessment() {
               style={selected.provider === p ? { borderColor: colorFor(p, providers), color: colorFor(p, providers) } : {}}
               onClick={() => setSelected(s => ({ ...s, provider: p }))}
             >
-              {p}
+              {displayName(p)}
             </button>
           ))}
         </div>
@@ -545,7 +595,7 @@ export default function ReadinessAssessment() {
                     <td>
                       <span className="ra-gap-expand-icon">{isExpanded ? '▼' : '▶'}</span>
                       <span className="ra-gap-dot" style={{ background: colorFor(row.name, providers) }} />
-                      {row.name}
+                      {flagFor(row.name)}{displayName(row.name)}
                     </td>
                     <td className="ra-gap-score">{row.avgScore}%</td>
                     <td className="ra-gap-val">−{row.avgGap}%</td>
