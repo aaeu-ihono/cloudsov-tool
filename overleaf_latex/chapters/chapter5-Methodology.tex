@@ -547,6 +547,170 @@ Hetzner, despite being one of Europe's most widely used cloud providers by custo
 Across all providers, the dimensions with the largest average gaps to the AWS baseline are AI/ML (Amazon~Bedrock has no equivalent among any EU provider), Database (no EU equivalent to DynamoDB, Amazon~Aurora, or Amazon~Timestream), and Dev/Deploy (Step~Functions has no EU managed equivalent). These structural gaps are consistent across providers of all sizes and ages, suggesting that they reflect the maturity of the underlying managed-service ecosystem rather than any individual provider's product strategy. Full findings with ranked provider scores and per-dimension gap analysis are discussed in Chapter~8.
 
 % ─────────────────────────────────────────────────────────────────────────────
+\section{Financial Analysis Methodology}
+\label{sec:financial_methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Rationale and Scope}
+\label{subsec:financial_rationale}
+
+The SovScore and Cloud Readiness Assessment instruments characterise \emph{what} EU providers offer and \emph{how} their jurisdictional posture compares to the AWS baseline. Both instruments, however, are silent on whether the capital underpinning EU providers is sufficient to close the observed readiness gap, and whether the \emph{source} of that capital has its own sovereignty implications. A third complementary analysis --- the Financial Consideration module --- addresses these questions directly. It asks: (1) at current investment velocity, when will EU providers reach AWS parity? (2) Is the capital already deployed proportionate to the readiness achieved? and (3) does the ownership and origin of that capital itself affect a provider's sovereignty score?
+
+This section describes the Financial Consideration module of the CloudSov tool: how it was built, how its data were collected and classified, and how its five interactive visualisations should be read. The quantitative findings and their implications for the thesis research questions are discussed in Section~\ref{sec:financial_landscape}.
+
+\subsection{Data Sources and Collection}
+\label{subsec:financial_data_sources}
+
+Financial data were assembled from four categories of publicly available sources:
+
+\begin{enumerate}
+  \item \textbf{Company filings and investor relations:} Annual reports, IPO prospectuses, and earnings releases from OVHcloud (Euronext Paris, since November~2021) and IONOS~SE (Frankfurt Stock Exchange, since February~2023). AWS revenue figures are drawn from Amazon's Form~10-K annual reports and converted to EUR at the 2024 annual average rate of \$1\,=\,€0.920.
+  \item \textbf{Press releases and investor announcements:} Capital raises, PE/VC transactions, parent-company investment pledges, debt issuances, and government contract awards reported by each provider or their controlling group (Schwarz~Group, Iliad~Group, Deutsche~Telekom~AG).
+  \item \textbf{IPCEI-CIS documentation:} The European Commission's December~2023 approval decision for the Important Project of Common European Interest on Next Generation Cloud Infrastructure and Services (IPCEI-CIS), including the official beneficiary list and published national funding allocations for Scaleway, OVHcloud, and Deutsche~Telekom.
+  \item \textbf{EC sovereign cloud tender records:} The European Commission's April~2026 award notices for the €180M Sovereign Cloud Tender (Lots~1--3), which publicly disclosed winning consortia and per-lot contract values.
+\end{enumerate}
+
+Where a provider's financial data are not publicly disclosed --- most notably STACKIT (a wholly-owned Schwarz~Group internal unit with no separate reporting obligation), Scaleway (Iliad subsidiary), and T-Cloud~Public (Deutsche~Telekom subsidiary) --- revenue figures are derived from parent-group disclosures, analyst commentary, and cross-referencing with readiness capability indicators. These estimates are labelled as such in the tool interface. All monetary amounts are denominated in EUR; USD figures are converted using the rate above, applied uniformly across all years.
+
+\subsection{Investment Milestone Classification}
+\label{subsec:milestone_classification}
+
+Each discrete capital event is recorded as an investment milestone with the following structured attributes: provider key, year, nominal EUR amount (where disclosed), event type, a short label, and a narrative description. Events with undisclosed amounts are retained in the milestone timeline for completeness but excluded from all quantitative aggregations. Event types are consolidated into six funding source categories for the capital structure analysis:
+
+\begin{itemize}
+  \item \textbf{Capex} --- direct infrastructure expenditure by the provider or its parent group (hardware procurement, data centre construction, regional expansion).
+  \item \textbf{Debt} --- bank loans, revolving credit facilities, high-yield bonds, and EIB green loans.
+  \item \textbf{Market Capital} --- IPO proceeds and private equity / venture capital injections.
+  \item \textbf{Parent} --- discretionary capital commitments from the controlling parent entity (Schwarz~Group for STACKIT; Iliad for Scaleway) not separately categorised as Capex.
+  \item \textbf{EU Programmes} --- IPCEI-CIS grant approvals and EC sovereign cloud tender contract awards.
+  \item \textbf{Other} --- strategic acquisitions, infrastructure asset transactions, and government service contracts not classified under the above categories.
+\end{itemize}
+
+\subsection{Financial Consideration Module: Tool Implementation and Visualisations}
+\label{subsec:financial_tool}
+
+The Financial Consideration module is the third module of the CloudSov web application, accessible via the \textbf{Financial} tab in the top navigation bar. It presents five interactive charts, each addressing a distinct analytical question about the financial position and trajectory of EU sovereign cloud providers relative to AWS. Unlike the SovScore and Readiness modules, this module is read-only: there are no verdict inputs. All chart data are derived at backend startup from the structured milestone and revenue datasets described in Sections~\ref{subsec:financial_data_sources} and~\ref{subsec:milestone_classification}.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsubsection{Readiness Gap Closure — EU Providers vs AWS}
+\label{subsubsec:chart_gap_closure}
+%─────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{fig:financial_row1_left} shows each EU provider's historical readiness trajectory as a solid coloured line from its cloud launch year to the current score, followed by a dashed projection at the same velocity until the score reaches 100 (AWS parity). The underlying model is linear: for a provider with cloud launch year $y_0$ and average readiness score $s$ at Q2~2026, the annualised velocity and projected parity year are defined as:
+
+\begin{align}
+  v &= \frac{s}{2026 - y_0} \quad [\text{pts/yr}] \label{eq:velocity} \\[4pt]
+  t_{\text{parity}} &\approx 2026 + \frac{100 - s}{v} \label{eq:parity}
+\end{align}
+
+\noindent where $v$ is the annualised readiness velocity and $t_{\text{parity}}$ is the projected year at which the provider reaches score\,=\,100. Estimated parity years derived from Equations~\ref{eq:velocity}--\ref{eq:parity} are annotated on each trajectory. Two vertical reference lines are overlaid: a grey dashed marker at 2026 labelled \emph{Now}, indicating the analysis cut-off, and an amber dashed marker at 2030 labelled \emph{EC Digital Decade}, corresponding to the headline cloud adoption target of the EU Digital Decade Policy Programme~\cite{EC_DigitalDecade_2022} (see Section~\ref{sec:digital_decade}). The chart addresses the question: \emph{at current investment velocity, when will each EU provider reach AWS readiness parity, and which providers are on track to do so within the Digital Decade horizon?}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Financial Consideration page --- Readiness Gap Closure projection chart showing solid historical lines and dashed projected trajectories for all five EU providers, with AWS parity line at score\,=\,100, annotated parity year labels, the grey ``Now'' marker at 2026, and the amber ``EC Digital Decade'' marker at 2030.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Readiness gap closure: historical readiness velocities (solid) projected forward (dashed) to AWS parity (score\,=\,100). The amber vertical line marks the EC Digital Decade 2030 target~\cite{EC_DigitalDecade_2022}.}
+  \label{fig:financial_row1_left}
+\end{figure}
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsubsection{Annual Revenue Scale — EU Providers vs AWS}
+\label{subsubsec:chart_revenue}
+%─────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{fig:financial_row1_right} plots annual cloud-segment revenue on a log-scale Y-axis for AWS and the five EU providers across 2019--2024. A logarithmic scale is necessary because plotting AWS and the EU cohort on a linear axis would render the EU provider lines indistinguishable from zero: the multi-order-of-magnitude difference between AWS (€92B in 2024) and the highest-revenue EU provider (IONOS, €1.3B) is only legible on a log scale. The chart addresses the question: \emph{how large is the revenue gap between AWS and EU providers, and is it narrowing or widening?}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Financial Consideration page --- Revenue Scale Comparison (log Y-axis) showing AWS and the five EU providers as coloured lines, 2019--2024. The AWS line should be clearly visible at the top of the log scale; EU provider lines clustered at the lower end.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Annual cloud-segment revenue (EUR~M, log scale): AWS vs the five EU providers, 2019--2024. A log scale is required to render both AWS and EU providers on a common axis.}
+  \label{fig:financial_row1_right}
+\end{figure}
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsubsection{Investment and Funding Milestone Timeline}
+\label{subsubsec:chart_milestones}
+%─────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{fig:financial_row2} presents a full-width bubble chart that places each recorded investment milestone against calendar year on the X-axis. Bubble area is proportional to the committed amount (EUR); colour encodes the provider. Hovering over a bubble reveals the event label, year, amount, and event type. Milestones with undisclosed amounts are displayed at a fixed minimum size with a dashed outline, distinguishing them from confirmed capital events. AWS milestones are included for scale reference. The chart addresses the question: \emph{what discrete capital events have shaped each provider's trajectory, and how do they compare in scale to AWS's infrastructure commitments?}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Financial Consideration page --- Investment and Funding Milestone Timeline bubble chart. Capture with STACKIT's €11B Bitterfeld-Wolfen bubble clearly visible (the largest bubble in the chart) alongside the AWS reference bubbles. All provider colours should be visible in the legend. Dashed-outline bubbles indicate undisclosed amounts.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Investment and funding milestones for AWS and the five EU providers, 2006--2026. Bubble area is proportional to the committed capital (EUR); dashed outlines indicate undisclosed amounts.}
+  \label{fig:financial_row2}
+\end{figure}
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsubsection{Investment Efficiency — Readiness Points per Euro Invested}
+\label{subsubsec:chart_efficiency}
+%─────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{fig:financial_row3_left} is an investment efficiency scatter in which each EU provider is plotted with cumulative disclosed capital on the log-scale X-axis (€M) and current average readiness score on the Y-axis. The efficiency ratio $\eta$ plotted beneath each provider label is defined as:
+
+\begin{equation}
+  \eta = \frac{s}{C_{\text{disclosed}}} \quad [\text{pts/\texteuro{}B}] \label{eq:efficiency}
+\end{equation}
+
+\noindent where $s$ is the provider's average readiness score and $C_{\text{disclosed}}$ is the cumulative disclosed capital in billions of euros. Only capital events with a publicly confirmed nominal amount contribute to $C_{\text{disclosed}}$; milestones with undisclosed amounts are excluded from the denominator. Each data point displays the provider name above and $\eta$ below. Providers positioned towards the upper-left --- high readiness relative to low disclosed capital --- represent the most capital-efficient paths to sovereignty. The chart addresses the question: \emph{for every euro disclosed as invested, how much measurable cloud readiness has each provider achieved?}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Financial Consideration page --- Investment Efficiency scatter chart. Each EU provider plotted as a labelled dot with provider name above and pts/€B ratio below. Log X-axis (cumulative disclosed capital, €M), linear Y-axis (readiness score 0--100).]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Investment efficiency scatter: current average readiness score vs cumulative disclosed capital (log scale, €M). The efficiency ratio $\eta$ (readiness points per €B) is shown beneath each provider label.}
+  \label{fig:financial_row3_left}
+\end{figure}
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsubsection{Capital Structure by Funding Source}
+\label{subsubsec:chart_capital_structure}
+%─────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{fig:financial_row3_right} is a stacked bar chart decomposing each provider's total disclosed capital into the six funding source categories defined in Section~\ref{subsec:milestone_classification}. Each bar segment is colour-coded by category (Capex, Debt, Market Capital, Parent, EU Programmes, Other), and the chart is sorted to make the dominant funding model of each provider immediately legible. The chart addresses the question: \emph{where does each provider's capital come from, and does that origin carry its own sovereignty implications under the SovScore framework?}
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering\vspace{2em}
+    \textit{[SCREENSHOT REQUIRED: Financial Consideration page --- Capital Structure stacked bar chart. Each provider shown as a stacked bar with segments colour-coded by funding category (Capex, Debt, Market Capital, Parent, EU Programmes, Other). STACKIT's bar should dominate the chart due to the €11B parent commitment; OVHcloud and IONOS should show Market Capital segments.]}
+    \vspace{2em}
+  \end{minipage}}
+  \caption{Capital structure by funding source: total disclosed capital decomposed by category for each EU provider (€M). Undisclosed events are excluded.}
+  \label{fig:financial_row3_right}
+\end{figure}
+
+\subsection{Preliminary Financial Findings}
+\label{subsec:financial_preliminary}
+
+The financial analysis surfaces three immediate observations that contextualise the SovScore and Readiness results established in preceding sections.
+
+First, the revenue gap between AWS and the EU cohort is not merely large --- it is structurally widening. AWS's sustained ~17\% annual CAGR means the absolute revenue gap grows by €13--16B per year even as EU providers achieve their own growth. No EU provider in the study is on a trajectory to close this gap through organic revenue growth alone in a policy-relevant timeframe.
+
+Second, the gap-closure projection reveals a two-tier EU cohort. T-Systems (OTC / T-Cloud Public) and STACKIT are on trajectories that place AWS readiness parity within reach by approximately 2029--2031, driven by a combination of operational maturity (T-Systems) and accelerating capital deployment (STACKIT). OVHcloud, Scaleway, and IONOS, by contrast, face parity timelines extending into the late 2030s and 2040s under the current investment velocity.
+
+Third, and most directly relevant to the thesis research question on sovereignty, the capital structure decomposition reveals a clean divide: providers financed through EU parent groups or EU institutional channels (STACKIT, Scaleway, T-Systems) achieve full \texttt{Y} verdicts on the SovScore questions that directly score capital origin (SOV-1~Q3, SOV-2~Q2). Providers with US private equity or public market capital exposure (OVHcloud via KKR and General Atlantic; IONOS via Warburg~Pincus) receive \texttt{P} verdicts on these same questions. Capital structure is not merely a financial characteristic --- it is a direct sovereignty determinant within the scoring framework used in this thesis. A full discussion of these findings, including the causal mechanism through which capital origin affects sovereignty scoring, is presented in Section~\ref{sec:financial_landscape}.
+
+\subsection{Limitations}
+\label{subsec:financial_limitations}
+
+The financial analysis is subject to several important limitations. First, only \emph{disclosed} capital events contribute to quantitative aggregations; providers with limited public reporting obligations (STACKIT, Scaleway, T-Cloud~Public) are understated in the capital efficiency and capital structure analyses. Second, the revenue series for non-listed providers are management estimates subject to revision. Third, investment milestones represent \emph{announced} or \emph{committed} amounts, which may differ from capital actually deployed --- most notably STACKIT's €11B Bitterfeld-Wolfen campus pledge, where Phase~1 construction is targeted for completion in~2027 and the associated managed services have not yet been delivered. Fourth, the uniform EUR/USD conversion rate does not account for multi-year exchange-rate fluctuation. These limitations are acknowledged in the discussion in Section~\ref{sec:financial_landscape}.
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Benchmark Pipeline Design}
 \label{sec:benchmark_methodology}
 % ─────────────────────────────────────────────────────────────────────────────

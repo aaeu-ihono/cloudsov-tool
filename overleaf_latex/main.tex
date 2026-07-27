@@ -11,7 +11,11 @@
 \usepackage{pdflscape}  % landscape single pages
 \usepackage{tabularx}   % auto-width table columns
 \usepackage{acronym}    % list of abbreviations
+\PassOptionsToPackage{table}{xcolor}   % enable \cellcolor in tables
 \usepackage{tikz}       % circled numbers in annotation legends
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amssymb}    % \checkmark
 \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1.2pt,font=\small] (char) {#1};}}
 
 % \newgeometry{

@@ -18,6 +18,51 @@ SOV-2 (freedom from non-EU extraterritorial law) presents a more nuanced picture
 
 The conclusion for RQ1 is that the EC DG DIGIT framework identifies real and meaningful distinctions between EU cloud providers, but it also exposes two categories of constraint: those that are addressable through governance and investment decisions (corporate structure, supply-chain diversification), and those that require systemic, industry-level or policy-level solutions (EU semiconductor independence, open-source firmware ecosystems).
 
+Table~\ref{tab:sovscore_results} summarises the per-objective SEAL levels and aggregate SovScore for the five EU providers forming the financial analysis cohort.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength\tabcolsep{4pt}
+\caption{SovScore results for the five EU providers under financial analysis: per-objective SEAL levels (0--4), weighted aggregate score (0--100), and pass/fail determination against minimum SEAL thresholds. Superscript~$\dagger$ denotes a cell below the minimum threshold for that objective. Minimum SEAL thresholds per objective: SOV-1$\geq$3, SOV-2$\geq$4, SOV-3$\geq$3, SOV-4$\geq$2, SOV-5$\geq$2, SOV-6$\geq$2, SOV-7$\geq$3, SOV-8$\geq$1. A provider passes only if all eight thresholds are met simultaneously. T-Systems = T-Systems (OTC / T-Cloud Public), merged readiness entity.}
+\label{tab:sovscore_results}
+\begin{tabular}{lccccccccrc}
+\toprule
+\textbf{Provider} &
+  \textbf{SOV-1} & \textbf{SOV-2} & \textbf{SOV-3} &
+  \textbf{SOV-4} & \textbf{SOV-5} & \textbf{SOV-6} &
+  \textbf{SOV-7} & \textbf{SOV-8} &
+  \textbf{Score} & \textbf{Pass} \\
+& \textit{\scriptsize(15\%)} & \textit{\scriptsize(10\%)} & \textit{\scriptsize(10\%)} & \textit{\scriptsize(15\%)} & \textit{\scriptsize(20\%)} & \textit{\scriptsize(15\%)} & \textit{\scriptsize(10\%)} & \textit{\scriptsize(5\%)} & & \\
+\midrule
+STACKIT &
+  \cellcolor{green!35}4 & \cellcolor{green!35}4 & \cellcolor{green!15}3 & \cellcolor{green!35}4 &
+  \cellcolor{yellow!40}2 & \cellcolor{green!15}3 & \cellcolor{green!35}4 & \cellcolor{green!15}3 &
+  82.5 & \textcolor{green!50!black}{$\checkmark$} \\
+Scaleway &
+  \cellcolor{green!35}4 & \cellcolor{green!15}3$^{\dagger}$ & \cellcolor{green!35}4 & \cellcolor{green!35}4 &
+  \cellcolor{orange!35}1$^{\dagger}$ & \cellcolor{yellow!40}2 & \cellcolor{green!15}3 & \cellcolor{green!35}4 &
+  72.5 & \textcolor{red!60!black}{$\times$} \\
+T-Systems &
+  \cellcolor{green!35}4 & \cellcolor{yellow!40}2$^{\dagger}$ & \cellcolor{green!15}3 & \cellcolor{green!15}3 &
+  \cellcolor{orange!35}1$^{\dagger}$ & \cellcolor{yellow!40}2 & \cellcolor{green!35}4 & \cellcolor{green!35}4 &
+  66.3 & \textcolor{red!60!black}{$\times$} \\
+OVHcloud &
+  \cellcolor{green!15}3 & \cellcolor{orange!35}1$^{\dagger}$ & \cellcolor{yellow!40}2$^{\dagger}$ & \cellcolor{green!15}3 &
+  \cellcolor{yellow!40}2 & \cellcolor{yellow!40}2 & \cellcolor{green!15}3 & \cellcolor{green!15}3 &
+  58.8 & \textcolor{red!60!black}{$\times$} \\
+IONOS &
+  \cellcolor{yellow!40}2$^{\dagger}$ & \cellcolor{yellow!40}2$^{\dagger}$ & \cellcolor{yellow!40}2$^{\dagger}$ & \cellcolor{green!15}3 &
+  \cellcolor{orange!35}1$^{\dagger}$ & \cellcolor{yellow!40}2 & \cellcolor{green!15}3 & \cellcolor{green!15}3 &
+  52.5 & \textcolor{red!60!black}{$\times$} \\
+\midrule
+\footnotesize Min.\ SEAL &
+  \footnotesize$\geq$3 & \footnotesize$\geq$4 & \footnotesize$\geq$3 & \footnotesize$\geq$2 &
+  \footnotesize$\geq$2 & \footnotesize$\geq$2 & \footnotesize$\geq$3 & \footnotesize$\geq$1 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{RQ2: How does the readiness of EU providers compare to AWS?}
 
 A significant, stratified gap exists between EU providers and AWS across all 13 dimensions of the Cloud Readiness Assessment. AWS, used as the 100\% baseline, holds advantages that span three distinct categories.
@@ -28,9 +73,40 @@ A significant, stratified gap exists between EU providers and AWS across all 13 
 
 \textbf{Stratified gaps} — services where the best EU providers approach AWS coverage but the field is wide — are most visible in core IaaS (compute, object storage, VPC networking) and basic PaaS (managed Kubernetes, managed PostgreSQL). Here, T-Systems OTC, OVHcloud, and IONOS come within 10–20 percentage points of AWS.
 
-At the provider level, T-Systems OTC achieves the highest EU readiness scores: scalability 72/100 and performance 87/100, which makes it the closest EU analogue to AWS in terms of managed-service breadth. OVHcloud follows (scalability 68, performance 83). At the other end, STACKIT (scalability 32, performance 80) and Hetzner (scalability 35, performance 72) reflect younger or more IaaS-focused portfolios.
+At the provider level, T-Systems (OTC / T-Cloud Public) achieves the highest EU readiness scores in this cohort: scalability 74/100 and performance 87/100, which makes it the closest EU analogue to AWS in terms of managed-service breadth. OVHcloud follows (scalability 68, performance 83). At the other end, STACKIT (scalability 32, performance 80) and Hetzner (scalability 35, performance 72) reflect younger or more IaaS-focused portfolios.
 
 The conclusion for RQ2 is that EU providers are not uniformly lagging. The best EU providers cover the overwhelming majority of commodity cloud needs for a typical enterprise. The gap becomes decisive precisely in the areas of AI/ML, serverless, and native orchestration — services that represent the fastest-growing share of enterprise cloud spending~\cite{Flexera_CloudReport_2024}.
+
+Table~\ref{tab:readiness_dimensions} presents the full per-dimension scores for the five EU providers, ordered by average readiness score. Colour bands follow the convention used in the CloudSov readiness module: green (score $>$60), yellow (41--60), orange (21--40), red ($\leq$20).
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength\tabcolsep{5pt}
+\caption{Cloud Readiness Assessment dimension scores (0--100) for the five EU providers. Providers are ordered by average readiness score (highest to lowest). Scalability and Performance are pre-scored meta-dimensions; all other dimensions are computed from service-level coverage verdicts. T-Systems = T-Systems (OTC / T-Cloud Public) merged entity, using T-Cloud Public assessment data.}
+\label{tab:readiness_dimensions}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Dimension} & \textbf{T-Systems} & \textbf{OVHcloud} & \textbf{STACKIT} & \textbf{Scaleway} & \textbf{IONOS} \\
+\midrule
+Scalability    & \cellcolor{green!15}74  & \cellcolor{green!15}68  & \cellcolor{orange!30}32  & \cellcolor{yellow!35}42  & \cellcolor{yellow!35}45  \\
+Performance    & \cellcolor{green!35}87  & \cellcolor{green!35}83  & \cellcolor{green!15}80  & \cellcolor{green!15}75  & \cellcolor{green!15}78  \\
+Application    & \cellcolor{yellow!35}50  & \cellcolor{yellow!35}50  & \cellcolor{red!35}0      & \cellcolor{red!35}0      & \cellcolor{red!35}0      \\
+Compute        & \cellcolor{green!15}75  & \cellcolor{green!15}67  & \cellcolor{green!15}67  & \cellcolor{green!35}83  & \cellcolor{orange!30}33  \\
+Storage        & \cellcolor{green!35}90  & \cellcolor{green!35}90  & \cellcolor{green!15}70  & \cellcolor{yellow!35}60  & \cellcolor{yellow!35}50  \\
+Database       & \cellcolor{yellow!35}43  & \cellcolor{yellow!35}43  & \cellcolor{orange!30}36  & \cellcolor{orange!30}29  & \cellcolor{red!35}14     \\
+Networking     & \cellcolor{green!35}93  & \cellcolor{green!35}93  & \cellcolor{green!15}79  & \cellcolor{yellow!35}50  & \cellcolor{yellow!35}50  \\
+AI/ML          & \cellcolor{yellow!35}50  & \cellcolor{red!35}17    & \cellcolor{red!35}8      & \cellcolor{red!35}8      & \cellcolor{red!35}0      \\
+Security       & \cellcolor{green!15}67  & \cellcolor{green!15}62  & \cellcolor{green!15}79  & \cellcolor{yellow!35}42  & \cellcolor{orange!30}21  \\
+Monitoring     & \cellcolor{green!35}88  & \cellcolor{green!15}62  & \cellcolor{green!15}62  & \cellcolor{yellow!35}50  & \cellcolor{orange!30}38  \\
+Dev/Deploy     & \cellcolor{green!15}70  & \cellcolor{orange!30}30  & \cellcolor{orange!30}30  & \cellcolor{red!35}20    & \cellcolor{red!35}20     \\
+IoT            & \cellcolor{green!35}100 & \cellcolor{orange!30}25  & \cellcolor{red!35}0      & \cellcolor{orange!30}25  & \cellcolor{red!35}0      \\
+Messaging      & \cellcolor{yellow!35}50  & \cellcolor{orange!30}40  & \cellcolor{orange!30}30  & \cellcolor{orange!30}40  & \cellcolor{red!35}0      \\
+\midrule
+\textbf{Average} & \cellcolor{green!15}\textbf{72.1} & \cellcolor{yellow!35}\textbf{56.2} & \cellcolor{yellow!35}\textbf{44.1} & \cellcolor{orange!30}\textbf{40.3} & \cellcolor{orange!30}\textbf{26.8} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{RQ3: What is the trade-off between sovereignty and readiness?}
 
@@ -49,10 +125,40 @@ Figure~\ref{fig:sov_readiness_frontier} illustrates this frontier conceptually. 
 
 \begin{figure}[htbp]
   \centering
-  \fbox{\begin{minipage}{0.88\linewidth}\centering\vspace{4cm}
-    \textit{[Conceptual diagram: Sovereignty--Readiness frontier. X-axis: Readiness score (0--100). Y-axis: SovScore (0--100). Points: AWS (bottom-right), Locally Hosted (top-left), OVHcloud (upper-centre-right), T-Systems OTC (centre-right, lower than OVHcloud on Y), Hetzner (upper-centre-left), Elastx/Infomaniak (upper-left), STACKIT (centre-left). Dashed Pareto frontier curve connecting locally hosted to OVHcloud.]}
-  \vspace{4cm}\end{minipage}}
-  \caption{Conceptual sovereignty--readiness frontier. Each provider occupies a position reflecting its trade-off between managed-service breadth (readiness) and freedom from non-EU dependencies (sovereignty). No provider currently sits at the ideal upper-right corner.}
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.82\linewidth, height=9cm,
+      xlabel={Average Cloud Readiness Score (\%)},
+      ylabel={SovScore (0--100)},
+      xmin=0, xmax=115,
+      ymin=0, ymax=100,
+      xtick={0,20,40,60,80,100},
+      ytick={0,20,40,60,80,100},
+      grid=major, grid style={gray!20, very thin},
+      tick label style={font=\small},
+      label style={font=\small},
+      mark size=3.5pt,
+    ]
+    % EU providers (filled circles)
+    \addplot[only marks, mark=*, black]
+      coordinates {(44.1,82.5)(40.3,72.5)(72.1,66.3)(56.2,58.8)(26.8,52.5)};
+    % Reference points (open squares, gray)
+    \addplot[only marks, mark=square, gray!70, mark size=3pt]
+      coordinates {(100,15)(5,95)};
+    % SEAL-3 horizontal reference (score = 80)
+    \addplot[dashed, gray!50, domain=0:115, samples=2] {80};
+    \node[right, font=\scriptsize, gray!70] at (axis cs:101,80) {SEAL~4 threshold};
+    % Provider labels
+    \node[above, font=\footnotesize, align=center] at (axis cs:44.1,82.5) {STACKIT};
+    \node[below right, font=\footnotesize] at (axis cs:40.3,72.5) {Scaleway};
+    \node[above, font=\footnotesize] at (axis cs:72.1,66.3) {T-Systems};
+    \node[below, font=\footnotesize] at (axis cs:56.2,58.8) {OVHcloud};
+    \node[below, font=\footnotesize] at (axis cs:26.8,52.5) {IONOS};
+    \node[above left, font=\footnotesize, gray!70] at (axis cs:100,15) {AWS (ref.)};
+    \node[right, font=\footnotesize, gray!70, align=left] at (axis cs:5,95) {Locally\\Hosted\\(indicative)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Sovereignty--readiness plane for the five EU providers under financial analysis, plotted using actual computed SovScore and average cloud readiness scores. AWS (readiness baseline = 100\%) and a locally hosted boundary marker are shown for reference. The dashed line marks the SEAL~4 SovScore threshold (80\%). No provider currently occupies the upper-right quadrant (high sovereignty \emph{and} high readiness).}
   \label{fig:sov_readiness_frontier}
 \end{figure}
 
@@ -140,6 +246,250 @@ Deutsche Telekom, with 2024 group revenue of \texteuro{}112~billion~\cite{OTC_Ab
 The GenAI service gap (Amazon Bedrock: universal absence) deserves particular attention in the investment context. AWS launched Bedrock in April 2023 following years of SageMaker investment. It therefore has a two-to-three-year head start in production-grade managed AI API infrastructure. EU providers that have announced AI cloud services — including T-Systems' Industrial AI Cloud and OVHcloud's AI Deploy platform — are in early or mid-stage deployment as of Q2 2026. Closing the GenAI gap requires not just investment in inference infrastructure but access to competitive foundation models (where the EU has emerging assets in Mistral, Aleph Alpha, and others) and a customer ecosystem willing to pay for EU-hosted AI inference.
 
 The Digital Compass 2030 target, combined with the EU AI Act's preference for high-risk AI systems deployed on auditable, sovereign infrastructure~\cite{NIS2_2022}, creates a plausible procurement pathway for EU AI cloud services that could accelerate this investment. By 2030, the top EU providers are likely to offer competitive managed AI inference, though whether they will match the breadth of Bedrock's model catalogue is uncertain.
+
+% =============================================================================
+\section{Financial Landscape and Capital Efficiency of EU Sovereign Cloud Providers}
+\label{sec:financial_landscape}
+% =============================================================================
+
+The preceding section introduced investment trajectories at a narrative level, noting that STACKIT's Schwarz~Group backing and OVHcloud's 2021 IPO represent qualitatively different capital strategies. This section deepens that analysis using the quantitative data collected in the CloudSov Financial Consideration module. Five visualisations are presented and interpreted in turn: a revenue scale comparison, a readiness gap-closure projection, an investment milestone timeline, a capital efficiency scatter, and a capital structure decomposition. Together they frame a central financial question of this thesis: \emph{whether the existing capital base is sufficient to close the readiness gap with AWS, and whether the source of that capital makes EU providers more or less sovereign in the process}.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{The Revenue Chasm: Scale Asymmetry Between AWS and EU Providers}
+\label{subsec:revenue_chasm}
+%─────────────────────────────────────────────────────────────────────────────
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      ymode=log,
+      width=0.88\linewidth, height=8cm,
+      xlabel={Year},
+      ylabel={Annual Revenue (EUR M, log scale)},
+      xtick={2019,2020,2021,2022,2023,2024},
+      scaled x ticks=false,
+      xticklabel style={font=\small, /pgf/number format/1000 sep={}},
+      yticklabel style={font=\small},
+      label style={font=\small},
+      grid=major, grid style={gray!20, very thin},
+      mark size=2.2pt,
+      legend style={
+        at={(0.5,-0.18)}, anchor=north,
+        legend columns=3,
+        font=\scriptsize,
+        /tikz/every even column/.append style={column sep=0.5cm}
+      },
+    ]
+    \addplot[color=black!80, mark=*, thick]
+      coordinates {(2019,32224)(2020,41740)(2021,57226)(2022,73688)(2023,83497)(2024,92000)};
+    \addlegendentry{AWS}
+    \addplot[color=blue!70, mark=square*, semithick]
+      coordinates {(2020,632)(2021,736)(2022,795)(2023,884)(2024,955)};
+    \addlegendentry{OVHcloud}
+    \addplot[color=red!60, mark=triangle*, semithick]
+      coordinates {(2020,967)(2021,1057)(2022,1156)(2023,1250)(2024,1335)};
+    \addlegendentry{IONOS}
+    \addplot[color=teal!70, mark=diamond*, semithick]
+      coordinates {(2020,180)(2021,210)(2022,245)(2023,290)(2024,340)};
+    \addlegendentry{T-Systems}
+    \addplot[color=orange!80, mark=*, semithick]
+      coordinates {(2020,75)(2021,90)(2022,108)(2023,125)(2024,145)};
+    \addlegendentry{Scaleway}
+    \addplot[color=violet!70, mark=square, semithick]
+      coordinates {(2022,40)(2023,80)(2024,150)};
+    \addlegendentry{STACKIT}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Annual cloud-segment revenue (EUR~M, log scale) for AWS and the five EU providers, 2019--2024. A log scale is required to render both AWS and the EU providers on a common axis; on a linear scale EU provider lines would be indistinguishable from zero. STACKIT data begins at 2022 (launch 2021, revenue not publicly disclosed in first year).}
+  \label{fig:revenue_scale}
+\end{figure}
+
+The most immediate finding of the financial analysis is the scale asymmetry between AWS and every EU provider in the study. AWS generated approximately €92B in cloud revenue in 2024 (converted from USD~100.1B at the 2024 annual average rate)---a figure that exceeds the combined estimated revenues of all five EU providers by a factor exceeding fifty. IONOS, the largest EU provider by disclosed cloud revenue at approximately €1.4B for 2024, represents roughly 1.5\% of AWS's scale. The contrast is starker still for the smaller providers: STACKIT and Scaleway operate at revenues estimated between €200M and €400M, implying a gap of two orders of magnitude.
+
+The revenue comparison is presented on a logarithmic scale (Figure~\ref{fig:revenue_scale}) because a linear scale renders the EU provider lines effectively indistinguishable from zero. The log-scale representation, while compressing the gap visually, reveals the structural character of the asymmetry: AWS has sustained annual revenue growth of approximately 17\% CAGR over the 2019--2024 period, meaning the absolute gap between AWS and the EU cohort \emph{widens by approximately €13--16B per year} even as EU providers grow their own revenues.
+
+This scale differential has direct implications for the readiness gap. AWS invests a fraction of its annual revenue in R\&D and infrastructure---conservatively modelled at 10--12\% of cloud segment revenue, implying annual capital deployment of roughly €9--11B. The combined annual investment of all five EU providers in this study is estimated to be below €2B, and even this figure is dominated by STACKIT's announced multi-year programme, where annual deployment lags announced commitment by several years. The revenue analysis therefore establishes that the readiness gap is not a function of strategic misalignment; it is a function of economic scale that no individual EU provider can currently overcome through organic growth alone.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Readiness Gap Closure: Projected Parity Timelines}
+\label{subsec:gap_closure}
+%─────────────────────────────────────────────────────────────────────────────
+
+\begin{figure}[htbp]
+  \centering
+  \vspace{0.4cm}
+  \noindent\rule{\linewidth}{0.4pt}\\[0.3cm]
+  {\small\itshape [Insert screenshot: Cloud Readiness Gap Closure Projection, 2006--2050]}\\[0.3cm]
+  \noindent\rule{\linewidth}{0.4pt}
+  \vspace{0.2cm}
+  \caption{Historical readiness trajectories (solid lines) modelled as linear growth from zero at each provider's cloud launch year to the Q2 2026 average readiness score, with projections (dashed lines) at the same velocity to AWS parity (score = 100). Vertical markers indicate estimated parity years.}
+  \label{fig:gap_closure}
+\end{figure}
+
+The readiness gap-closure model (Figure~\ref{fig:gap_closure}) applies the linear velocity assumption defined in Section~\ref{subsubsec:chart_gap_closure} (Equations~\ref{eq:velocity}--\ref{eq:parity}): each provider's historical readiness improvement is modelled as uniform annual growth from zero at the year of cloud service launch to the average readiness score observed at Q2 2026, projected forward at the same rate to AWS parity (score\,=\,100). The resulting parity years are structural benchmarks under a \emph{ceteris paribus} assumption---stable investment levels, stable AWS readiness, and no disruptive capability jumps---and should not be interpreted as forecasts.
+
+Under this model, T-Systems (OTC / T-Cloud Public), which combines the longest continuous operational history in the EU sovereign cloud cohort (OTC launched in 2016) with one of the higher readiness scores, is projected to reach parity with the AWS baseline at approximately 2029--2031. STACKIT, despite its lower 2026 readiness score reflecting its 2021 launch, achieves a comparable velocity owing to its substantial and accelerating capital programme; its parity projection falls in a similar range. These two providers represent the credible near-term contenders for AWS readiness parity under the existing investment trajectory.
+
+OVHcloud, Scaleway, and IONOS present a more challenging picture. OVHcloud's 2021 IPO improved its capital access but has not yet translated into the managed-service depth needed to close the AI/ML and database dimension gaps. Scaleway's trajectory is constrained by its Iliad parent's prioritisation of telecoms infrastructure capital. IONOS is hampered by its deliberate SME-segment positioning, which deprioritises the enterprise managed services that dominate the readiness scoring. For these three providers, parity timelines under the stable-velocity model range from the late 2030s to the mid-2040s---a timeframe that calls into question whether parity under the current capital regime is achievable before structural market consolidation reshapes the landscape.
+
+The critical limitation of the linear model is that readiness improvement is unlikely to remain linear. Managed services exhibit platform economics: each new service lowers the cost of the next through shared infrastructure, shared APIs, and shared developer tooling. Providers that cross a critical managed-service density threshold may experience accelerating readiness improvement. STACKIT's programme---which targets €11B of data centre infrastructure at Bitterfeld-Wolfen, with Phase~1 targeted for completion in 2027---represents precisely this kind of step-change investment that could non-linearly accelerate its readiness trajectory beyond what the velocity model predicts.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Investment Milestones and Capital Events}
+\label{subsec:investment_milestones}
+%─────────────────────────────────────────────────────────────────────────────
+
+\begin{figure}[htbp]
+  \centering
+  \vspace{0.4cm}
+  \noindent\rule{\linewidth}{0.4pt}\\[0.3cm]
+  {\small\itshape [Insert screenshot: Investment and Funding Milestone Timeline, 2012--2026]}\\[0.3cm]
+  \noindent\rule{\linewidth}{0.4pt}
+  \vspace{0.2cm}
+  \caption{Investment and funding milestones for AWS and the five EU providers, 2012--2026. Bubble area is proportional to the committed amount (EUR); colour encodes the provider. AWS milestones are included for scale reference.}
+  \label{fig:milestone_timeline}
+\end{figure}
+
+The investment milestone timeline (Figure~\ref{fig:milestone_timeline}) contextualises the discrete capital events underlying the revenue and readiness trajectories. The most immediately visible feature is the scale of the STACKIT Bitterfeld-Wolfen data centre commitment (€11B, announced 2024)---the single largest capital pledge in the EU sovereign cloud cohort by a factor exceeding five. Without it, the EU cohort's total disclosed capital across all providers and all years is in the range of €3--4B; with it, STACKIT accounts for the majority of total disclosed EU capital.
+
+The OVHcloud 2021 IPO (€400M) and 2024 EIB green loan (€200M) are the next-largest EU events, reflecting a financing strategy that combines public market capital with European institutional debt. IONOS's 2023 Frankfurt Stock Exchange listing raised approximately €480M---similarly structured. These market capital events occurred during a period of rising European interest in digital infrastructure, and both providers have used the resulting capital primarily for data centre expansion and managed-service development rather than acquisition.
+
+The IPCEI-CIS-related milestones---while symbolically significant, as OVHcloud, Scaleway, and Deutsche~Telekom are all official beneficiaries of the December~2023 Commission approval---are modest in absolute scale. Published national indicative funding envelopes for cloud IPCEI-CIS participants are in the range of €10--80M per beneficiary per member state, which is meaningful for an early-stage capability investment but insufficient to materially close the revenue or readiness gap with AWS. The April~2026 EC Sovereign Cloud Tender (€180M across Lots~1--3) is in the same order of magnitude.
+
+The AWS milestones included for comparison illustrate the asymmetry clearly: AWS's capex commitments in Europe in 2023--2024 alone---announced infrastructure investments in Germany, Spain, and France---individually exceed the total lifetime disclosed capital of most EU providers in this study.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Capital Efficiency: Readiness Points per Euro Invested}
+\label{subsec:capital_efficiency}
+%─────────────────────────────────────────────────────────────────────────────
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmode=log,
+      width=0.82\linewidth, height=8cm,
+      xlabel={Cumulative Disclosed Capital (EUR~M, log scale)},
+      ylabel={Average Readiness Score (\%)},
+      xmin=1000, xmax=20000,
+      ymin=0, ymax=85,
+      grid=major, grid style={gray!20, very thin},
+      tick label style={font=\small},
+      label style={font=\small},
+      mark size=3.5pt,
+    ]
+    \addplot[only marks, mark=*, black]
+      coordinates {(1764,72.1)(2762,56.2)(2124,26.8)(3625,40.3)(11689,44.1)};
+    % Provider labels with efficiency ratio
+    \node[above, font=\footnotesize, align=center] at (axis cs:1764,72.1)
+      {T-Systems\\{\scriptsize 40.9~pts/\texteuro{}B}};
+    \node[above, font=\footnotesize, align=center] at (axis cs:2762,56.2)
+      {OVHcloud\\{\scriptsize 20.3~pts/\texteuro{}B}};
+    \node[below, font=\footnotesize, align=center] at (axis cs:2124,26.8)
+      {IONOS\\{\scriptsize 12.6~pts/\texteuro{}B}};
+    \node[above, font=\footnotesize, align=center] at (axis cs:3625,40.3)
+      {Scaleway\\{\scriptsize 11.1~pts/\texteuro{}B}};
+    \node[below, font=\footnotesize, align=center] at (axis cs:11689,44.1)
+      {STACKIT\\{\scriptsize 3.8~pts/\texteuro{}B}};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Investment efficiency scatter: each provider is plotted by cumulative disclosed capital (EUR~M, log scale) on the X-axis and current average readiness score on the Y-axis. The efficiency ratio (readiness points per \texteuro{}B of disclosed capital) is shown beneath each label. STACKIT's low ratio reflects that its \texteuro{}11B Bitterfeld-Wolfen commitment is a forward pledge, not yet fully deployed.}
+  \label{fig:capital_efficiency}
+\end{figure}
+
+The capital efficiency scatter (Figure~\ref{fig:capital_efficiency}) relates cumulative disclosed capital to current average readiness score for each EU provider, surfacing the degree to which capital has translated into measurable capability. The efficiency ratio $\eta$ is defined in Section~\ref{subsubsec:chart_efficiency} (Equation~\ref{eq:efficiency}); only capital events with a publicly confirmed nominal amount contribute to the denominator, with undisclosed events retained in the milestone timeline but excluded from all quantitative aggregations. The ratio reveals a pattern that is counterintuitive given the naive expectation that higher investment produces higher readiness.
+
+T-Systems (OTC / T-Cloud Public) and IONOS emerge as the most capital-efficient providers in the cohort. T-Systems achieves its high readiness score through a combination of the mature OTC managed-service catalogue (developed since 2016 with continuous parent investment from Deutsche~Telekom) and the purpose-built sovereign architecture of T-Cloud~Public (purpose-built Biere and Magdeburg infrastructure). IONOS achieves comparable efficiency through decades of organic growth in its managed hosting and cloud business, reflecting operational experience that compounds without requiring step-change capital events.
+
+STACKIT presents the apparent paradox of high cumulative disclosed capital and a \emph{lower} current readiness score than T-Systems or IONOS. The explanation is structural: STACKIT's disclosed capital is dominated by the €11B Bitterfeld-Wolfen commitment, which is a forward-looking infrastructure pledge, not historical operational expenditure. The capital has been committed but not yet deployed in full; Phase~1 construction is ongoing as of Q2 2026 and the associated managed-service layer has not yet been built on top of the physical infrastructure. Once the infrastructure is commissioned and the managed-service stack matures---a timeline STACKIT's own roadmap places in the 2027--2029 period---its efficiency ratio is expected to improve substantially.
+
+OVHcloud and Scaleway occupy intermediate positions: moderate disclosed capital, moderate readiness scores, and efficiency ratios that reflect their role as full-featured providers operating without either STACKIT's capital concentration or T-Systems' legacy managed-service depth.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Capital Structure and its Sovereignty Implications}
+\label{subsec:capital_structure}
+%─────────────────────────────────────────────────────────────────────────────
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xbar stacked,
+      width=0.88\linewidth, height=6.5cm,
+      bar width=14pt,
+      xlabel={Disclosed Capital (EUR~M)},
+      symbolic y coords={IONOS, OVHcloud, T-Systems, Scaleway, STACKIT},
+      ytick=data,
+      yticklabel style={font=\small},
+      xticklabel style={font=\small},
+      label style={font=\small},
+      xmin=0, xmax=13000,
+      xtick={0,2000,4000,6000,8000,10000,12000},
+      xmajorgrids=true, ymajorgrids=false,
+      grid style={gray!20, very thin},
+      legend style={
+        at={(0.5,-0.22)}, anchor=north,
+        legend columns=3,
+        font=\scriptsize,
+        /tikz/every even column/.append style={column sep=0.4cm}
+      },
+    ]
+    % Capex
+    \addplot+[xbar, fill=blue!50, draw=white] coordinates
+      {(0,IONOS)(0,OVHcloud)(1539,T-Systems)(0,Scaleway)(0,STACKIT)};
+    \addlegendentry{Capex}
+    % Debt
+    \addplot+[xbar, fill=orange!70, draw=white] coordinates
+      {(800,IONOS)(2017,OVHcloud)(100,T-Systems)(0,Scaleway)(0,STACKIT)};
+    \addlegendentry{Debt}
+    % Market Capital
+    \addplot+[xbar, fill=violet!50, draw=white] coordinates
+      {(897,IONOS)(700,OVHcloud)(0,T-Systems)(0,Scaleway)(0,STACKIT)};
+    \addlegendentry{Market Capital}
+    % Parent
+    \addplot+[xbar, fill=teal!60, draw=white] coordinates
+      {(0,IONOS)(0,OVHcloud)(0,T-Systems)(3000,Scaleway)(11000,STACKIT)};
+    \addlegendentry{Parent}
+    % EU Programmes
+    \addplot+[xbar, fill=green!50, draw=white] coordinates
+      {(17,IONOS)(45,OVHcloud)(0,T-Systems)(195,Scaleway)(45,STACKIT)};
+    \addlegendentry{EU Programmes}
+    % Other
+    \addplot+[xbar, fill=gray!45, draw=white] coordinates
+      {(410,IONOS)(0,OVHcloud)(125,T-Systems)(430,Scaleway)(644,STACKIT)};
+    \addlegendentry{Other}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Capital structure decomposition for the five EU providers, showing cumulative disclosed capital by funding source category (EUR~M). T-Systems abbreviates T-Systems (OTC / T-Cloud Public). STACKIT's bar is dominated by the €11B Schwarz~Group parent pledge at Bitterfeld-Wolfen. OVHcloud and IONOS are the only two providers with US-managed-fund exposure in the Market Capital and Debt categories.}
+  \label{fig:capital_structure}
+\end{figure}
+
+The capital structure decomposition (Figure~\ref{fig:capital_structure}) reveals qualitatively different financing strategies across the EU provider cohort---strategies that are not neutral with respect to sovereignty scoring under the SovScore framework.
+
+STACKIT's capital stack is dominated by Parent funding: the Schwarz~Group's discretionary investment commitments constitute nearly all of STACKIT's disclosed capital base. The Schwarz~Group is a German family-owned group with no listed equity and no US institutional investor exposure. This capital structure is sovereignly ideal: it creates no governance vectors through US law, no CLOUD~Act exposure through US parent ownership, and no shareholder pressure structures that could be leveraged through US jurisdiction. SOV-1~Q3 (``Is EU-based financing the primary source?''), SOV-2~Q1 (``No compelled access under CLOUD~Act?''), and SOV-2~Q2 (``No US PE/VC investor with board-level influence?'') all score \texttt{Y} for STACKIT.
+
+Scaleway's capital structure is similarly dominated by Parent funding from Iliad~Group---a French-listed telecoms group with no material US shareholder or debt exposure. Like STACKIT, Scaleway scores \texttt{Y} on SOV-2~Q2, as no US~PE/VC investor holds board-level influence.
+
+T-Systems (OTC / T-Cloud~Public) is funded through Capex transfers from Deutsche~Telekom~AG, a DAX-listed entity with international institutional shareholders but with primary governance under German law and no US~PE control. Its capital structure triggers no CLOUD~Act exposure, and its SOV-2 scores reflect this.
+
+OVHcloud and IONOS present a more complex picture. OVHcloud's Market Capital category includes a combined €500M private equity injection from KKR and General Atlantic in 2021--2022---US-domiciled funds with potential board-level influence and US legal exposure. IONOS's Market Capital includes the 2023 Frankfurt IPO and earlier PE investment from Warburg~Pincus (US-domiciled). Both of these capital structures create governance vectors that the SovScore methodology explicitly penalises: under SOV-2~Q2, any US~PE/VC investor with board-level influence produces a \texttt{P} (Partial) answer, reflecting that although cloud operations are EU-hosted, the investor governance chain touches US legal jurisdiction. Neither OVHcloud nor IONOS achieves a \texttt{Y} on SOV-2~Q2, and this outcome is a direct function of their capital structure.
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Capital Source as a Direct Sovereignty Determinant}
+\label{subsec:capital_sovereignty_link}
+%─────────────────────────────────────────────────────────────────────────────
+
+The preceding analysis establishes that the relationship between capital structure and sovereignty score in the SovScore framework is not correlational but causal. The methodology, as designed in Section~\ref{sec:sovscore_design}, contains questions that directly score the legal and governance implications of capital origin:
+
+\begin{itemize}
+  \item \textbf{SOV-1~Q3} (``Is financing primarily from EU institutions?'') awards \texttt{Y} only where the primary capital source is EU-domiciled, producing a direct positive contribution to the SEAL~1 (Data Sovereignty) seal score. STACKIT, Scaleway, and T-Systems score \texttt{Y}; OVHcloud and IONOS score \texttt{P} owing to their US~PE/market capital components.
+  \item \textbf{SOV-2~Q1} (``Is the provider free from CLOUD~Act compelled disclosure?'') awards \texttt{Y} where no group entity is subject to US jurisdiction under 18~U.S.C.\ §2523---the Electronic Communications Privacy Act amendment commonly called the CLOUD~Act. IONOS's US subsidiary IONOS~Inc.\ (registered in Pennsylvania) creates a potential exposure vector, resulting in a \texttt{P} for IONOS. Providers without any US-registered entity in the corporate chain score \texttt{Y}.
+  \item \textbf{SOV-2~Q2} (``Does the shareholder structure contain no US PE/VC investor with board-level influence?'') directly scores capital structure as a governance vector. KKR's and Warburg~Pincus's involvement in OVHcloud and IONOS respectively produce \texttt{P} answers for both, reducing their SEAL~2 (Legal Sovereignty) seal scores.
+  \item \textbf{SOV-2~Q3} (``Is the provider free from any parent-company jurisdiction outside the EU?'') intersects capital structure in cases where a parent-level entity that is itself a capital source is subject to non-EU law. OVHcloud's 2022 Ontario Superior Court ruling---which ordered OVHcloud to comply with a data-disclosure order---produced a \texttt{N} on this question, the most penalising outcome in the SEAL~2 seal, and is directly traceable to the jurisdictional exposure created by OVHcloud's pre-IPO international expansion financed through private equity.
+\end{itemize}
+
+This scoring structure means that capital from US private equity---regardless of the cloud service's technical architecture or data residency---directly reduces a provider's SovScore through governance and jurisdiction vectors. Conversely, parent-group capital from EU-domiciled, non-US-exposed entities (as with STACKIT and Scaleway) produces the most favourable sovereignty scores, all else being equal. The financial analysis therefore arrives at a finding with direct policy implications: \emph{EU sovereign cloud investment is most effective, from a sovereignty standpoint, when it originates from EU-controlled entities}---public institutions (IPCEI-CIS, EIB, EC tender awards), EU-listed parent groups, or EU family-owned conglomerates---rather than international capital markets where US jurisdictional exposure is difficult to quarantine from the operating entity. The modest scale of IPCEI-CIS and the EC tender relative to the investment needed to close the readiness gap with AWS indicates that this alignment remains more aspiration than structural reality for the full EU cloud cohort.
 
 % =============================================================================
 \section{Performance vs.\ Sovereignty: Structural Constraints}

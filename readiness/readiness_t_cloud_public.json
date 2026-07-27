@@ -1,5 +1,5 @@
 {
-  "T-Systems (T Cloud Public)": {
+  "T-Systems (OTC / T-Cloud Public)": {
     "meta": {
       "scalability_score": 74,
       "scalability_note": "2 German regions (Biere, Magdeburg) purpose-built for sovereign workloads; T Cloud Public adds planned Netherlands capacity; managed Kubernetes (CCE), serverless (FunctionGraph), GPU instances; GovTech-approved infrastructure",

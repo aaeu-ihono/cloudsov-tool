@@ -271,3 +271,124 @@ tr.seal-subrow td { border-bottom: 2px solid #64748b !important; }
 .ra-expand-svc-n s { text-decoration-color: #b91c1c; }
 .ra-expand-equiv { font-size: 0.62rem; color: #4b6080; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ra-expand-none { font-size: 0.6rem; color: #9ca3af; font-style: italic; }
+
+/* ── Financial Consideration ─────────────────────────────────────────────── */
+.fc-section { margin-top: 34px; }
+
+/* Side-by-side chart row */
+.fc-charts-row { display: flex; gap: 16px; align-items: stretch; min-height: 340px; margin-top: 12px; margin-bottom: 4px; }
+.fc-charts-col { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+@media (max-width: 1024px) {
+  .fc-charts-row { flex-direction: column; min-height: unset; }
+  .fc-charts-col { min-height: 320px; }
+}
+
+/* Chart card wrappers */
+.fc-chart-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 8px 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); flex: 1; display: flex; flex-direction: column; }
+.fc-chart-full { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 4px 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); height: 440px; margin-top: 12px; margin-bottom: 4px; }
+.fc-chart-label { font-size: 0.7rem; color: #6b7280; margin-bottom: 8px; padding-left: 8px; }
+
+/* Analysis block */
+.fc-analysis { margin-top: 10px; margin-bottom: 4px; font-size: 0.78rem; color: #4b5563; line-height: 1.72; padding: 14px 18px; background: #f8f9fb; border-left: 3px solid #c8d0de; border-radius: 0 6px 6px 0; }
+.fc-analysis strong { color: #1e3a5f; }
+
+/* ── Financial Consideration — gap-closure chart ────────────────────────── */
+:root {
+  --tt-bg: #fff;
+  --tt-border: #e5e7eb;
+  --tt-head: #111827;
+  --grid-color: #f0f0f0;
+}
+
+/* velocity summary cards */
+.fc-velocity-row { display: flex; gap: 12px; margin: 18px 0 4px; flex-wrap: wrap; }
+.fc-velocity-card { flex: 1; min-width: 140px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 16px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.fc-vc-name { font-size: 0.72rem; font-weight: 600; color: #374151; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.fc-vc-score { font-size: 2rem; font-weight: 700; color: #1a1a2e; line-height: 1; }
+.fc-vc-label { font-size: 0.65rem; color: #9ca3af; margin-top: 2px; margin-bottom: 8px; }
+.fc-vc-meta { font-size: 0.72rem; color: #6b7280; display: flex; gap: 4px; flex-wrap: wrap; }
+.fc-vc-sep { color: #d1d5db; }
+
+/* chart wrapper */
+.fc-chart-wrap { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 12px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-top: 16px; }
+.fc-chart-title { font-size: 0.85rem; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; padding-left: 4px; }
+.fc-chart-note { font-size: 0.7rem; color: #6b7280; margin-bottom: 14px; padding-left: 4px; }
+
+/* analysis */
+.fc-analysis-section { margin-top: 24px; }
+.fc-analysis-title { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e5e7eb; }
+.fc-analysis-block { margin-bottom: 18px; }
+.fc-analysis-heading { font-size: 0.78rem; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.fc-analysis-block p { font-size: 0.82rem; color: #4b5563; line-height: 1.75; margin-bottom: 8px; }
+.fc-analysis-block strong { color: #1a1a2e; }
+
+/* ── Financial Consideration v2 ─────────────────────────────────────────── */
+.fc-section-wrap { margin-bottom: 32px; }
+
+/* compact velocity strip */
+.fc-strip { display: flex; gap: 8px; margin: 14px 0 12px; flex-wrap: wrap; }
+.fc-strip-item { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 14px 8px; flex: 1; min-width: 140px; }
+.fc-strip-name { font-size: 0.7rem; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.04em; }
+.fc-strip-score { font-size: 1.55rem; font-weight: 700; line-height: 1.1; }
+.fc-strip-meta { font-size: 0.65rem; color: #6b7280; margin-top: 1px; }
+
+/* chart card */
+.fc-chart-wrap { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 8px 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 12px; }
+.fc-chart-title { font-size: 0.82rem; font-weight: 600; color: #1a1a2e; margin-bottom: 3px; padding-left: 6px; }
+.fc-chart-note { font-size: 0.68rem; color: #6b7280; margin-bottom: 10px; padding-left: 6px; }
+
+/* analysis within section */
+.fc-analysis-block { margin-bottom: 8px; }
+.fc-analysis-heading { font-size: 0.72rem; font-weight: 700; color: #1e3a5f; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+.fc-analysis-block p { font-size: 0.8rem; color: #4b5563; line-height: 1.75; }
+.fc-analysis-block strong { color: #1a1a2e; }
+
+/* section divider placeholder */
+.fc-section-divider { margin-top: 28px; padding: 18px; background: #f8f9fb; border: 1px dashed #d1d5db; border-radius: 6px; font-size: 0.75rem; color: #9ca3af; text-align: center; letter-spacing: 0.04em; }
+
+/* ── Financial Consideration — two-column row layout ────────────────────── */
+.fc-row { display: flex; gap: 0; align-items: flex-start; margin-top: 8px; }
+.fc-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.fc-col:not(:last-child) { padding-right: 24px; border-right: 2px solid #e5e7eb; }
+.fc-col:not(:first-child) { padding-left: 24px; }
+@media (max-width: 1100px) {
+  .fc-row { flex-direction: column; }
+  .fc-col:not(:last-child) { padding-right: 0; border-right: none; padding-bottom: 24px; border-bottom: 2px solid #e5e7eb; }
+  .fc-col:not(:first-child) { padding-left: 0; }
+}
+
+/* compact strip inside chart-wrap */
+.fc-strip--compact { margin: 4px 0 12px; gap: 5px; }
+.fc-strip--compact .fc-strip-item { padding: 5px 9px 4px; min-width: 60px; border-radius: 4px; }
+.fc-strip--compact .fc-strip-score { font-size: 0.88rem; }
+.fc-strip--compact .fc-strip-name { font-size: 0.58rem; }
+.fc-strip--compact .fc-strip-meta { font-size: 0.57rem; }
+
+.fc-placeholder { flex: 1; min-height: 420px; background: #f8f9fb; border: 1px dashed #d1d5db; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #9ca3af; letter-spacing: 0.04em; }
+
+/* ── Thesis question callout ─────────────────────────────────────────────── */
+.fc-thesis-q {
+  font-size: 0.74rem;
+  font-style: italic;
+  color: #374151;
+  background: #eef2ff;
+  border-left: 3px solid #6366f1;
+  border-radius: 0 4px 4px 0;
+  padding: 7px 12px 7px 10px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.fc-thesis-q::before {
+  content: 'Thesis question — ';
+  font-style: normal;
+  font-weight: 700;
+  color: #4f46e5;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Financial chart legend ──────────────────────────────────────────────── */
+.fc-legend { display: flex; flex-wrap: wrap; gap: 12px; padding: 6px 8px 10px; align-items: center; }
+.fc-legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 500; white-space: nowrap; }
+.fc-legend-box { display: inline-block; width: 14px; height: 10px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 2px; }

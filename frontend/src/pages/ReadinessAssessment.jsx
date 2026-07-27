@@ -334,16 +334,16 @@ export default function ReadinessAssessment() {
   // On first load: default to AWS + top 4 EU providers by avg score
   useEffect(() => {
     if (!data || activeProviders !== null) return
-    const top4 = providers
+    const top3 = providers
       .filter(p => p !== 'AWS')
       .map(p => ({
         name: p,
         avg: chartData.reduce((a, r) => a + (r[p] ?? 0), 0) / chartData.length,
       }))
       .sort((a, b) => b.avg - a.avg)
-      .slice(0, 4)
+      .slice(0, 3)
       .map(p => p.name)
-    setActiveProviders(['AWS', ...top4])
+    setActiveProviders(['AWS', ...top3])
   }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const gapSummary = useMemo(() => {

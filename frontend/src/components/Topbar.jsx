@@ -17,6 +17,12 @@ export default function Topbar() {
         >
           Readiness
         </NavLink>
+        <NavLink
+          to="/financial"
+          className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+        >
+          Financial
+        </NavLink>
       </nav>
     </div>
   )
