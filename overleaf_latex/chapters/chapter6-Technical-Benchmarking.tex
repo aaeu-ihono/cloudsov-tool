@@ -1,18 +1,113 @@
-\chapter{Technical Benchmarking}
+\chapter{Technical Benchmarking and Price Consideration}
 
-\section{Benchmark Setup and Reproducibility}
-...
-\section{Compute Results (sysbench)}
-...
-\section{Storage Results (fio)}
-...
-\section{Network Results (iperf3)}
-...
-\section{AI/ML Inference Results (Odin)}
-...
-\section{Service Catalogue Evaluation (mapped against Alps Alpine checklist)}
-...
-\section{LLM Self-Hosting Feasibility Assessment}
-...
-\section{Final Provider Ranking}
-...
+In this chapter, we consider the technical benchmarking for all the providers, we would only consider our top 5 ranked providers from the readiness evaluation and measurements. 
+
+On the cloudSov, a web page was added to show the benchmarking results, and the data was compiled for each provider from multiple sources. 
+
+Gillam et al. in their paper carried out a The Fair Benchmarking project, was conducted at the University of Surrey between 1st April 2011 and 31st January 2012 to attempt to address this vexed question of value-for-money
+
+Compute resource benchmarks are an established part of the high performance computing(HPC) research landscape
+
+Gillam et al, also tried to address the problem of different machine comparability from different providers, where he stateed its like "comparing apples to lizards" 
+
+Cloud Computing benchmarks need to offer up comparability for all parts of the IaaS, and should also be informative about all parts of the lifecycle of cloud system use. Individually, most existing benchmarks do not offer such comparability
+
+
+Fortunately in the past, there have been some research papers that have addressed this issue, and how to accurately match the machines across providers, and fair comparison methodology. 
+
+Gray [14] identified four criteria for a successful benchmark: (i) relevance to an application domain; (ii) portability to
+allow benchmarking of different systems; (iii) scalability to support benchmarking large systems; and (iv) simplicity so the results are understandable. This drove my need to narrow down on this research in order to come up with a kind of benchmarking that is relevant to the providers selection and to accurately reflect the performance of the providers, and to be able to compare them in a fair manner. But unfortunely, this was not as easy as it seemed, especially sinnce each providers have different machine specifications, and so to steer a fair comparison, I had to come up with a way to make the machines equivalent, and this was not an easy task.
+
+Take Note that Benchmarks measures visualized machines and not the actual physical characteristics. In terms of scalability, we can break these into two types – horizontal scaling, involving the use of a number of machines running in parallel, and vertical scaling, involving different sizes of individual machines. In terms of the performance of each Cloud instance, vertical scaling is more of interest here.
+
+
+A series of reports on Cloud Performance Benchmarks [17] covers networking and CPU speed for AWS and Rackspace, as well as Simple Queue Service (SQS) and Elastic Load Balancing (ELB) in AWS
+
+
+Jackson et al. [18] analysed HPC capabilities in AWS using NERSC – which needs MPI - to find that “the more communication, the worse the performance becomes”.
+
+In the past, there were many websites including commercial web services that claimed to offer comparisons of cloud systems, but unfortuately, these are no longer available, such as CloudSleuth(CLOUDSLEUTH [21] offers visualisation of response times and availability for Cloud provider data centres, overlaid onto a World map.), CloudHarmony (CloudHarmony [20] has been monitoring the availability of Cloud services (38 in total)since late 2009.), and OpenBenchmarking.org (The OpenBenchmarking [22] website offers information from benchmark runs based around the Phoronix Test Suite. this is still active as of the time of this research )
+
+In this chapter, the cloudsov tool was used. 
+
+Another thing to consider was the "sense if the network I/O", which region the test was run, a table of Cloud instance types used for benchmark tests for each provider respectively, and seen from our screenshot from cloudsov. 
+
+
+BENCHMARKING SELECTION 
+Benchmark selection Cloud Computing benchmarks need to be able to account for the components of the Cloud “machine”. Typically, in IaaS, the components are the virtualized resources being provided to a virtual machine.
+
+Traditional benchmarking involves the benchmark application being ready to run, and information captured about the system only from the benchmark itself. 
+
+For our purposes, we want to understand performance in terms of what you can get in a Cloud instance and require a set of benchmarks that tests different aspects of such an instance. Further, we also want to understand an underlying cost (in time and/or money) as necessary to achieve that performance. Put another way, if two Cloud in
+stances achieved equal performance in a benchmark, but one took equally as long to be provisioned as it did to run the benchmark, what might we say about the value-for-money question? Raw performance is just one part of this. Additionally, if performance is variable for Cloud instances of the same type from the same provider, would we want to report only “best” performance? We can also enquire as to whether performance varies over time – either for new instances of the same type, or in relation to continuous use of the same instances over a period
+
+The selected benchmarks are intended to treat (i) Memory IO; (ii) CPU; (iii) Disk IO; (iv) Application; (v) Network
+
+1. Memory IO (short description of the benchmark and why it is important)
+2. STREAM
+3. CPU (short description of the benchmark and why it is important)
+4. LINPACK
+5. Disk I/O (short description of the benchmark and why it is important)
+6. Bonnie++
+7. IOzone
+8. Bzip2
+9. Network (short description of the benchmark and why it is important)
+10. Iperf
+11. MPPTEST
+12. Simple speed tests 
+13. 
+
+All but one of the benchmarks was run across all selected Cloud providers within selected regions on all available machine types. 10 instances of each type were run to obtain information about variability. Due to the sheer number of results obtained, in this section we limit our focus primarily to one set of (relatively) comparable machine types across the four providers
+
+Also Kris Lowet, In his research, "benchmark between cloud servers" (January 2024) where him and his team compared the performance of cloud servers from Hetzner, digitalocean, Linode, Vultr, OVH, Upcloud and scaleway. (some of our top ranked readiness providers).......
+
+they only compared the technical performance of equivalent virtual machines and did not take into account other services offered by the providers, the level of support, SLAs, audits, reliability, global presence, etc.
+
+They classified the benchmarks differently, with the focus on the system, a single and multi-core CPU, the RAM and the storage space. 
+
+1. pts/apache (focus on the systeem). This is a test of the Apache HTTPD web server. This Apache HTTPD web server benchmark test profile makes use of the Golang "Bombardier" program for facilitating the HTTP requests over a fixed period time with a configurable number of concurrent clients. 
+(brieftly discuss their results for this benchmark......)
+2. pts/hint (focus on single core CPU). This test runs the U.S. Department of Energy's Ames Laboratory Hierarchical INTegration (HINT) benchmark.
+(brieftly discuss their results for this benchmark......)
+3. pts/compress-7zip (focues on multi core CPU). This is a test of 7-Zip compression/decompression with its integrated benchmark feature.
+(brieftly discuss their results for this benchmark......)
+4. pts/stream (focus on the memory). This is a benchmark of Stream, the popular system memory (RAM) benchmark.
+(brieftly discuss their results for this benchmark......)
+5. pts/postmark (focus on the storage). This is a test of NetApp's PostMark benchmark designed to simulate small-file testing similar to the tasks endured by web and mail servers. This test profile will set PostMark to perform 25,000 transactions with 500 files simultaneously with the file sizes ranging between 5 and 512 kilobytes.
+(brieftly discuss their results for this benchmark......)
+
+
+
+Considering the above, I have decided to adopt some of these benchmarks, (explain how we matched both benchmarks that are similar) and also add some more benchmarks that are relevant to our research.
+- Performance variation is a question of Quality of Service (QoS), and service level agreements (SLAs) tend only to offer compensation when entire services have outages, not when performance dips
+- booting time
+- setup time 
+-
+- 
+- 
+-
+- 
+- 
+- 
+- 
+- 
+- 
+- compute costs 
+(justify why these benchmarks are important and relevant to our research, and how they will help us in the provider selection process......)
+
+
+To better suit the benchmarks below is the table of instances from each provider, what VM was  selected for the providers with similar specifications, and the region where the benchmark was run. 
+
+
+(then explain for each benchmark how the data was collected for each instances of the various providers with sources ......)
+Here the data was collected and saved as json files in our cloudsov tool backend, (explain briefly.....)
+I like how Gillam et al, did 10 runs, took max, min, average for each benchmark and showed the results, (check the table), he said We store benchmark data in a directory structure based on benchmark, provider, operating system, region, date, and machine size (We should state our collected data was stored in our tool)
+
+(on the frontend, now explain all the visualizations of the data ........ and comparison charts........ )
+
+Each visualization and table must be explained like what they did "Table 11 A table, as generated by the software, showing results for both STREAM and Bonnie++ on AWS"
+
+
+Lastly what inferences can be drawn from the data, that relation to sovereignity 
+
+

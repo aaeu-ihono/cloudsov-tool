@@ -23,6 +23,12 @@ export default function Topbar() {
         >
           Financial
         </NavLink>
+        <NavLink
+          to="/benchmarking"
+          className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+        >
+          Benchmarking
+        </NavLink>
       </nav>
     </div>
   )
