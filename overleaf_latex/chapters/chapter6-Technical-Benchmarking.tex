@@ -26,7 +26,7 @@ A series of reports on Cloud Performance Benchmarks [17] covers networking and C
 
 Jackson et al. [18] analysed HPC capabilities in AWS using NERSC – which needs MPI - to find that “the more communication, the worse the performance becomes”.
 
-In the past, there were many websites including commercial web services that claimed to offer comparisons of cloud systems, but unfortuately, these are no longer available, such as CloudSleuth(CLOUDSLEUTH [21] offers visualisation of response times and availability for Cloud provider data centres, overlaid onto a World map.), CloudHarmony (CloudHarmony [20] has been monitoring the availability of Cloud services (38 in total)since late 2009.), and OpenBenchmarking.org (The OpenBenchmarking [22] website offers information from benchmark runs based around the Phoronix Test Suite. this is still active as of the time of this research )
+In the past, there were many websites including commercial web services that claimed to offer comparisons of cloud systems, but unfortuately, these are no longer available, such as CloudSleuth(CLOUDSLEUTH [21] offers visualisation of response times and availability for Cloud provider data centres, overlaid onto a World map.), CloudHarmony (CloudHarmony [20] has been monitoring the availability of Cloud services (38 in total)since late 2009.), and OpenBenchmarking.org (The OpenBenchmarking [22] website offers information from benchmark runs based around the Phoronix Test Suite. this is still active as of the time of this research ) , www.cloud-mercato.com and vpsbenchmark.com . but none offer a comprehensive comparison of all the providers ......
 
 In this chapter, the cloudsov tool was used. 
 
@@ -40,6 +40,11 @@ Traditional benchmarking involves the benchmark application being ready to run, 
 
 For our purposes, we want to understand performance in terms of what you can get in a Cloud instance and require a set of benchmarks that tests different aspects of such an instance. Further, we also want to understand an underlying cost (in time and/or money) as necessary to achieve that performance. Put another way, if two Cloud in
 stances achieved equal performance in a benchmark, but one took equally as long to be provisioned as it did to run the benchmark, what might we say about the value-for-money question? Raw performance is just one part of this. Additionally, if performance is variable for Cloud instances of the same type from the same provider, would we want to report only “best” performance? We can also enquire as to whether performance varies over time – either for new instances of the same type, or in relation to continuous use of the same instances over a period
+
+We need to consider the 3 Sysbench, Geekbench, Phoronix test suite and why we opted for the Phoronix test suite, and how it is more relevant to our research.
+
+
+
 
 The selected benchmarks are intended to treat (i) Memory IO; (ii) CPU; (iii) Disk IO; (iv) Application; (v) Network
 
