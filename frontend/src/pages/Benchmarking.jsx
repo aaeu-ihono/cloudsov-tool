@@ -16,6 +16,9 @@ const COLORS = {
 }
 const PROVIDERS = ['OVHcloud', 'Scaleway', 'IONOS', 'STACKIT', 'T-Cloud Public', 'AWS']
 
+// Providers shown with strikethrough in the instance table (data not self-collected)
+const STRUCK = new Set(['STACKIT'])
+
 // ── Raw benchmark data ────────────────────────────────────────────
 const PRICE = {
   OVHcloud: 0.060, Scaleway: 0.074, IONOS: 0.041,
@@ -266,39 +269,130 @@ const METRICS = [
     how: 'Two same-tier instances in the same availability zone exchange data over the private network using iperf3 with multiple parallel threads. Measures the maximum achievable bandwidth between co-located VMs — relevant to distributed workloads, replication, and data pipelines. Reported in Mbit/s — higher is better. Data sourced from Cloud Mercato (pcr.cloud-mercato.com) where available.',
   },
   {
-    key: 'boot', label: 'Boot speed', sub: 'lower time = 100', unit: 's⁻¹',
+    key: 'boot', label: 'Boot speed', sub: 'seconds · ↓ better', unit: 's',
     desc: 'Lifecycle — Boot Time (Gillam et al., 2013)',
     how: 'Measures the elapsed time in seconds from submitting the VM create request to SSH becoming reachable on the instance. Part of the Gillam et al. IaaS lifecycle model (Request → Boot → Setup → Run → Release). Inverted for scoring: the provider with the lowest boot time receives 100; others score proportionally lower.',
   },
   {
-    key: 'setup', label: 'Setup speed', sub: 'lower time = 100', unit: 's⁻¹',
+    key: 'setup', label: 'Setup speed', sub: 'seconds · ↓ better', unit: 's',
     desc: 'Lifecycle — Setup Time (Gillam et al., 2013)',
     how: 'Measures the elapsed time in seconds for OS-level initialisation to complete after SSH is first available — covering cloud-init, package updates, and agent startup. Inverted for scoring: the provider with the lowest setup time receives 100; others score proportionally lower.',
   },
 ]
 
-// Raw values shown on hover title
+// Per-metric value formatter (raw number → display string)
+const CELL_FMT = {
+  mem:    v => Math.round(v).toLocaleString(),
+  single: v => Number(v).toFixed(1),
+  multi:  v => Math.round(v).toLocaleString(),
+  disk:   v => Math.round(v).toLocaleString(),
+  app:    v => Math.round(v).toLocaleString(),
+  net:    v => Math.round(v).toLocaleString(),
+  boot:   v => `${v}s`,
+  setup:  v => `${v}s`,
+}
+
+// Min / avg / max / n sourced from per-provider JSON benchmark files
+const CELL_STATS = {
+  mem: {
+    OVHcloud: { avg: 16944,  min: 16900,  max: 16988,  n: 3  },
+    IONOS:    { avg: 20394,  min: 20251,  max: 20510,  n: 3  },
+    STACKIT:  { avg: 18994,  min: 18851,  max: 19110,  n: 3  },
+    'T-Cloud Public': { avg: 20100,  min: 19951,  max: 20250,  n: 3  },
+    AWS:      { avg: 21477,  min: 21351,  max: 21590,  n: 3  },
+    Scaleway: { avg: 19384,  min: 19281,  max: 19490,  n: 3  },
+  },
+  single: {
+    OVHcloud: { avg: 445.3,  min: 442.1,  max: 448.5,  n: 3  },
+    IONOS:    { avg: 415.6,  min: 412.4,  max: 418.9,  n: 3  },
+    STACKIT:  { avg: 424.3,  min: 421.4,  max: 426.8,  n: 3  },
+    'T-Cloud Public': { avg: 418.5,  min: 415.2,  max: 421.8,  n: 3  },
+    AWS:      { avg: 443.6,  min: 441.3,  max: 445.9,  n: 3  },
+    Scaleway: { avg: 437.5,  min: 435.1,  max: 439.9,  n: 3  },
+  },
+  multi: {
+    OVHcloud: { avg: 11977,  min: 11850,  max: 12100,  n: 3  },
+    IONOS:    { avg: 9470,   min: 9420,   max: 9510,   n: 3  },
+    STACKIT:  { avg: 10483,  min: 10420,  max: 10550,  n: 3  },
+    'T-Cloud Public': { avg: 11363,  min: 11250,  max: 11480,  n: 3  },
+    AWS:      { avg: 10296,  min: 10275,  max: 10319,  n: 3  },
+    Scaleway: { avg: 10917,  min: 10850,  max: 10980,  n: 3  },
+  },
+  disk: {
+    OVHcloud: { avg: 8363,   min: 8250,   max: 8480,   n: 3  },
+    IONOS:    { avg: 5893,   min: 5820,   max: 5950,   n: 3  },
+    STACKIT:  { avg: 6203,   min: 6120,   max: 6280,   n: 3  },
+    'T-Cloud Public': { avg: 6063,   min: 5980,   max: 6150,   n: 3  },
+    AWS:      { avg: 4470,   min: 4420,   max: 4510,   n: 3  },
+    Scaleway: { avg: 6513,   min: 6450,   max: 6580,   n: 3  },
+  },
+  app: {
+    OVHcloud: { avg: 32477,  min: 32101,  max: 32850,  n: 3  },
+    IONOS:    { avg: 27790,  min: 27451,  max: 28100,  n: 3  },
+    STACKIT:  { avg: 28790,  min: 28451,  max: 29100,  n: 3  },
+    'T-Cloud Public': { avg: 31184,  min: 30850,  max: 31521,  n: 3  },
+    AWS:      { avg: 30127,  min: 29850,  max: 30421,  n: 3  },
+    Scaleway: { avg: 29424,  min: 29100,  max: 29751,  n: 3  },
+  },
+  net: {
+    OVHcloud: { avg: 940,    min: 938,    max: 943,    n: 3  },
+    IONOS:    { avg: 2465,   min: 2450,   max: 2481,   n: 3  },
+    STACKIT:  { avg: 2872,   min: 2850,   max: 2891,   n: 3  },
+    'T-Cloud Public': { avg: 1548,   min: 1538,   max: 1578,   n: 50 },
+    AWS:      { avg: 4607,   min: 758,    max: 11271,  n: 80 },
+    Scaleway: { avg: 401,    min: 390,    max: 462,    n: 20 },
+  },
+  boot: {
+    OVHcloud: { avg: 10.63,  min: 10.2,   max: 11.1,   n: 3  },
+    IONOS:    { avg: 15.27,  min: 14.9,   max: 15.8,   n: 3  },
+    STACKIT:  { avg: 13.13,  min: 12.8,   max: 13.5,   n: 3  },
+    'T-Cloud Public': { avg: 15.8,   min: 15.2,   max: 16.4,   n: 3  },
+    AWS:      { avg: 13.3,   min: 12.9,   max: 13.8,   n: 3  },
+    Scaleway: { avg: 14.1,   min: 13.8,   max: 14.5,   n: 3  },
+  },
+  setup: {
+    OVHcloud: { avg: 22.27,  min: 21.5,   max: 23.2,   n: 3  },
+    IONOS:    { avg: 28.8,   min: 27.9,   max: 30.1,   n: 3  },
+    STACKIT:  { avg: 26.23,  min: 25.4,   max: 27.1,   n: 3  },
+    'T-Cloud Public': { avg: 39.8,   min: 38.5,   max: 41.2,   n: 3  },
+    AWS:      { avg: 23.4,   min: 22.1,   max: 24.8,   n: 3  },
+    Scaleway: { avg: 34.43,  min: 33.2,   max: 36.1,   n: 3  },
+  },
+}
+
+// Hover title (avg with unit)
 const RAW = {
-  mem:    p => `${STREAM[p].TRIAD.toLocaleString()} MB/s`,
-  single: p => `${HINT[p]} M MIPS`,
-  multi:  p => `${COMPRESS[p].comp.toLocaleString()} MIPS`,
-  disk:   p => `${POSTMARK[p].toLocaleString()} TPS`,
-  app:    p => `${APACHE[p].toLocaleString()} req/s`,
-  net:    p => `${IPERF[p].up.toLocaleString()} Mbit/s`,
-  boot:   p => `${LIFECYCLE[p].boot}s`,
-  setup:  p => `${LIFECYCLE[p].setup}s`,
+  mem:    p => `${CELL_STATS.mem[p].avg.toLocaleString()} MB/s`,
+  single: p => `${CELL_STATS.single[p].avg.toFixed(1)} M MIPS`,
+  multi:  p => `${CELL_STATS.multi[p].avg.toLocaleString()} MIPS`,
+  disk:   p => `${CELL_STATS.disk[p].avg.toLocaleString()} TPS`,
+  app:    p => `${CELL_STATS.app[p].avg.toLocaleString()} req/s`,
+  net:    p => `${CELL_STATS.net[p].avg.toLocaleString()} Mbit/s`,
+  boot:   p => `${CELL_STATS.boot[p].avg}s`,
+  setup:  p => `${CELL_STATS.setup[p].avg}s`,
+}
+
+// True leader per metric — determined from raw values, not rounded scores,
+// so rounding ties never produce two stars in the same column.
+const LEADERS = {
+  mem:    PROVIDERS.reduce((a, b) => STREAM[a].TRIAD   >= STREAM[b].TRIAD   ? a : b),
+  single: PROVIDERS.reduce((a, b) => HINT[a]           >= HINT[b]           ? a : b),
+  multi:  PROVIDERS.reduce((a, b) => COMPRESS[a].comp  >= COMPRESS[b].comp  ? a : b),
+  disk:   PROVIDERS.reduce((a, b) => POSTMARK[a]       >= POSTMARK[b]       ? a : b),
+  app:    PROVIDERS.reduce((a, b) => APACHE[a]         >= APACHE[b]         ? a : b),
+  net:    PROVIDERS.reduce((a, b) => IPERF[a].up       >= IPERF[b].up       ? a : b),
+  boot:   PROVIDERS.reduce((a, b) => LIFECYCLE[a].boot  <= LIFECYCLE[b].boot  ? a : b),
+  setup:  PROVIDERS.reduce((a, b) => LIFECYCLE[a].setup <= LIFECYCLE[b].setup ? a : b),
 }
 
 function PerformanceHeatmap() {
   const [hovTip, setHovTip] = useState(null)
   const ranked = [...PROVIDERS].sort((a, b) => COMPOSITE[b] - COMPOSITE[a])
-  // Best score per metric column
-  const best = Object.fromEntries(METRICS.map(m => [m.key, Math.max(...PROVIDERS.map(p => NORM[m.key][p]))]))
 
   return (
     <div className="fc-chart-wrap" style={{ marginBottom: 16, marginTop: 20, overflowX: 'auto' }}>
-      <div className="fc-chart-title">Normalized performance — 8 metrics (score 0–100, 100 = best per column)</div>
-      <div className="fc-chart-note">Each metric is normalized independently: the top provider scores 100, others scale proportionally. Boot and setup speed are inverted — lower time = higher score. Gold outline = column leader.</div>
+      <div className="fc-chart-title">Normalized performance — 8 metrics (raw values, colour = normalized score)</div>
+      <div className="fc-chart-note">Each cell shows the average (large centre), with min ↓ / max ↑ range and run count n above/below. Cell colour reflects the normalized 0–100 score (green = best, red = weakest in that column). Boot and setup: lower seconds = better (colour inverted). Gold outline = column leader. Hover a column header for methodology.</div>
 
       <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0, marginTop: 12, fontSize: '0.78rem' }}>
         <thead>
@@ -309,7 +403,7 @@ function PerformanceHeatmap() {
                 key={m.key}
                 onMouseEnter={() => setHovTip(m.key)}
                 onMouseLeave={() => setHovTip(null)}
-                style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: hovTip === m.key ? '#eff6ff' : '#f9fafb', borderBottom: '2px solid #e5e7eb', lineHeight: 1.35, minWidth: 88, cursor: 'help', position: 'relative', transition: 'background 0.15s' }}
+                style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: hovTip === m.key ? '#eff6ff' : '#f9fafb', borderBottom: '2px solid #e5e7eb', lineHeight: 1.35, minWidth: 126, cursor: 'help', position: 'relative', transition: 'background 0.15s' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
                   {m.label}
@@ -353,14 +447,17 @@ function PerformanceHeatmap() {
                 {/* Metric cells */}
                 {METRICS.map(m => {
                   const score = NORM[m.key][p]
-                  const isBest = score === best[m.key]
+                  const isBest = LEADERS[m.key] === p
+                  const st = CELL_STATS[m.key][p]
+                  const fmt = CELL_FMT[m.key]
+                  const tc = scoreText(score)
                   return (
                     <td
                       key={m.key}
-                      title={`${p} · ${m.label}: ${RAW[m.key](p)} → score ${score}`}
+                      title={`${p} · ${m.label}: avg ${RAW[m.key](p)}, min ${fmt(st.min)}, max ${fmt(st.max)}, n=${st.n} → score ${score}`}
                       style={{
                         textAlign: 'center',
-                        padding: '9px 8px',
+                        padding: '7px 6px',
                         borderBottom: isLast ? 'none' : '1px solid #f0f0f0',
                         background: scoreColor(score),
                         outline: isBest ? '2px solid #ca8a04' : 'none',
@@ -369,9 +466,21 @@ function PerformanceHeatmap() {
                         cursor: 'default',
                       }}
                     >
-                      <span style={{ fontWeight: isBest ? 700 : 500, color: scoreText(score), fontSize: '0.82rem', fontVariantNumeric: 'tabular-nums' }}>
-                        {score}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
+                        {/* Left column: max on top, min on bottom */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+                          <span style={{ fontSize: '0.55rem', color: tc, opacity: 0.68, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>↑ {fmt(st.max)}</span>
+                          <span style={{ fontSize: '0.55rem', color: tc, opacity: 0.68, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>↓ {fmt(st.min)}</span>
+                        </div>
+                        {/* Separator */}
+                        <div style={{ width: 1, height: 26, background: tc, opacity: 0.18, flexShrink: 0 }} />
+                        {/* Right column: average */}
+                        <div style={{ fontSize: '0.9rem', fontWeight: isBest ? 700 : 600, color: tc, fontVariantNumeric: 'tabular-nums' }}>
+                          {fmt(st.avg)}
+                        </div>
+                      </div>
+                      {/* n badge bottom-right */}
+                      <span style={{ position: 'absolute', bottom: 2, right: 4, fontSize: '0.5rem', color: tc, opacity: 0.38 }}>n={st.n}</span>
                       {isBest && (
                         <span style={{ position: 'absolute', top: 3, right: 4, fontSize: '0.6rem', color: '#b45309' }}>★</span>
                       )}
@@ -422,23 +531,27 @@ function InstanceTable() {
           </tr>
         </thead>
         <tbody>
-          {ranked.map((p, i) => (
-            <tr key={p} style={{ borderTop: '1px solid #e5e7eb' }}>
-              <td style={{ padding: '6px 10px', textAlign: 'center', fontWeight: 700, color: '#9ca3af', fontSize: '0.75rem', fontVariantNumeric: 'tabular-nums' }}>{i + 1}</td>
-              <td style={{ padding: '6px 10px', fontWeight: 600 }}>
-                <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: COLORS[p], marginRight: 6 }} />
-                {p}
-              </td>
-              <td style={{ padding: '6px 10px', color: '#6b7280', fontFamily: 'monospace', fontSize: '0.75rem' }}>{INSTANCE[p]}</td>
-              <td style={{ padding: '6px 10px', textAlign: 'center' }}>2</td>
-              <td style={{ padding: '6px 10px', textAlign: 'center' }}>8 GB</td>
-              <td style={{ padding: '6px 10px', color: '#6b7280', fontSize: '0.73rem' }}>
-                {p === 'OVHcloud' ? 'Local NVMe' : 'Network block'}
-              </td>
-              <td style={{ padding: '6px 10px', textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>€{PRICE[p].toFixed(3)}</td>
-              <td style={{ padding: '6px 10px', textAlign: 'center', fontWeight: 700, color: '#111827' }}>{COMPOSITE[p]}</td>
-            </tr>
-          ))}
+          {ranked.map((p, i) => {
+            const struck = STRUCK.has(p)
+            const sd = struck ? 'line-through' : 'none'
+            return (
+              <tr key={p} style={{ borderTop: '1px solid #e5e7eb', opacity: struck ? 0.5 : 1 }}>
+                <td style={{ padding: '6px 10px', textAlign: 'center', fontWeight: 700, color: '#9ca3af', fontSize: '0.75rem', fontVariantNumeric: 'tabular-nums', textDecoration: sd }}>{i + 1}</td>
+                <td style={{ padding: '6px 10px', fontWeight: 600, textDecoration: sd }}>
+                  <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: COLORS[p], marginRight: 6 }} />
+                  {p}
+                </td>
+                <td style={{ padding: '6px 10px', color: '#6b7280', fontFamily: 'monospace', fontSize: '0.75rem', textDecoration: sd }}>{INSTANCE[p]}</td>
+                <td style={{ padding: '6px 10px', textAlign: 'center', textDecoration: sd }}>2</td>
+                <td style={{ padding: '6px 10px', textAlign: 'center', textDecoration: sd }}>8 GB</td>
+                <td style={{ padding: '6px 10px', color: '#6b7280', fontSize: '0.73rem', textDecoration: sd }}>
+                  {p === 'OVHcloud' ? 'Local NVMe' : 'Network block'}
+                </td>
+                <td style={{ padding: '6px 10px', textAlign: 'right', fontVariantNumeric: 'tabular-nums', textDecoration: sd }}>€{PRICE[p].toFixed(3)}</td>
+                <td style={{ padding: '6px 10px', textAlign: 'center', fontWeight: 700, color: '#111827', textDecoration: sd }}>{COMPOSITE[p]}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
       <p style={{padding: 15, marginTop: 10, fontSize: '0.6rem', color: '#6b7280', lineHeight: 1.65 }}>
