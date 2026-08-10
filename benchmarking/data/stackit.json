@@ -1,0 +1,127 @@
+{
+  "provider": "stackit",
+  "instance": "g1a.2d",
+  "vcpu": 2,
+  "ram_gb": 8,
+  "storage": "Block storage (NVMe-class)",
+  "region": "EU01",
+  "os": "Ubuntu 22.04 LTS",
+  "price_eur_per_hr": 0.098,
+  "profiles": [
+    {
+      "profile": "pts/stream",
+      "gillam_category": "Memory IO",
+      "unit": "MB/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/stream",
+      "runs": {
+        "COPY": [27850.4, 28120.2, 27980.6],
+        "SCALE": [16410.2, 16650.5, 16580.0],
+        "ADD": [18710.3, 18980.7, 18840.1],
+        "TRIAD": [18850.6, 19110.2, 19020.4]
+      },
+      "min": {
+        "COPY": 27850.4,
+        "SCALE": 16410.2,
+        "ADD": 18710.3,
+        "TRIAD": 18850.6
+      },
+      "avg": {
+        "COPY": 27983.7,
+        "SCALE": 16546.9,
+        "ADD": 18843.7,
+        "TRIAD": 18993.7
+      },
+      "max": {
+        "COPY": 28120.2,
+        "SCALE": 16650.5,
+        "ADD": 18980.7,
+        "TRIAD": 19110.2
+      }
+    },
+    {
+      "profile": "pts/hint",
+      "gillam_category": "CPU — single-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/hint",
+      "runs": [421350610, 426820310, 424600200],
+      "min": 421350610,
+      "avg": 424257040,
+      "max": 426820310
+    },
+    {
+      "profile": "pts/compress-7zip",
+      "gillam_category": "CPU — multi-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/compress-7zip",
+      "runs": {
+        "compression": [10420.0, 10550.0, 10480.0],
+        "decompression": [8150.0, 8240.0, 8190.0]
+      },
+      "min": { "compression": 10420.0, "decompression": 8150.0 },
+      "avg": { "compression": 10483.3, "decompression": 8193.3 },
+      "max": { "compression": 10550.0, "decompression": 8240.0 }
+    },
+    {
+      "profile": "pts/postmark",
+      "gillam_category": "Disk IO",
+      "unit": "TPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/postmark",
+      "runs": [6120, 6280, 6210],
+      "min": 6120,
+      "avg": 6203,
+      "max": 6280
+    },
+    {
+      "profile": "pts/apache",
+      "gillam_category": "Application",
+      "unit": "req/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/apache",
+      "runs": [28450.5, 29100.2, 28820.1],
+      "min": 28450.5,
+      "avg": 28790.3,
+      "max": 29100.2
+    },
+    {
+      "profile": "iperf3",
+      "gillam_category": "Network",
+      "unit": "Mbit/s",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/stackit/performance/network-bandwidth",
+      "methodology": "Two STACKIT g1a.2d instances in the same private network/zone (EU01). iperf3 multi-thread baseline.",
+      "runs": {
+        "upload": [2850.2, 2890.6, 2875.1],
+        "download": [2860.1, 2900.5, 2882.3]
+      },
+      "min": { "upload": 2850.2, "download": 2860.1 },
+      "avg": { "upload": 2871.97, "download": 2880.97 },
+      "max": { "upload": 2890.6, "download": 2900.5 }
+    },
+    {
+      "profile": "boot_time",
+      "gillam_category": "Lifecycle — Boot",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/stackit/lifecycle",
+      "runs": [12.8, 13.5, 13.1],
+      "min": 12.8,
+      "avg": 13.13,
+      "max": 13.5
+    },
+    {
+      "profile": "setup_time",
+      "gillam_category": "Lifecycle — Setup",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/stackit/lifecycle",
+      "runs": [25.4, 27.1, 26.2],
+      "min": 25.4,
+      "avg": 26.23,
+      "max": 27.1
+    }
+  ]
+}

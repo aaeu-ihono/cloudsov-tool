@@ -1,0 +1,127 @@
+{
+  "provider": "ionos",
+  "instance": "2 vCPU / 8 GB flexible",
+  "vcpu": 2,
+  "ram_gb": 8,
+  "storage": "100 GB SSD Premium",
+  "region": "Frankfurt",
+  "os": "Ubuntu 22.04 LTS",
+  "price_eur_per_hr": 0.041,
+  "profiles": [
+    {
+      "profile": "pts/stream",
+      "gillam_category": "Memory IO",
+      "unit": "MB/s",
+      "date_collected": "2026-02-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/stream",
+      "runs": {
+        "COPY": [23850.4, 24120.1, 23990.6],
+        "SCALE": [18210.2, 18450.5, 18380.0],
+        "ADD": [20110.3, 20380.7, 20240.1],
+        "TRIAD": [20250.6, 20510.2, 20420.4]
+      },
+      "min": {
+        "COPY": 23850.4,
+        "SCALE": 18210.2,
+        "ADD": 20110.3,
+        "TRIAD": 20250.6
+      },
+      "avg": {
+        "COPY": 23987.0,
+        "SCALE": 18346.9,
+        "ADD": 20243.7,
+        "TRIAD": 20393.7
+      },
+      "max": {
+        "COPY": 24120.1,
+        "SCALE": 18450.5,
+        "ADD": 20380.7,
+        "TRIAD": 20510.2
+      }
+    },
+    {
+      "profile": "pts/hint",
+      "gillam_category": "CPU — single-core",
+      "unit": "MIPS",
+      "date_collected": "2026-02-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/hint",
+      "runs": [412350610, 418920310, 415600200],
+      "min": 412350610,
+      "avg": 415623706,
+      "max": 418920310
+    },
+    {
+      "profile": "pts/compress-7zip",
+      "gillam_category": "CPU — multi-core",
+      "unit": "MIPS",
+      "date_collected": "2026-02-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/compress-7zip",
+      "runs": {
+        "compression": [9420.0, 9510.0, 9480.0],
+        "decompression": [7650.0, 7720.0, 7690.0]
+      },
+      "min": { "compression": 9420.0, "decompression": 7650.0 },
+      "avg": { "compression": 9470.0, "decompression": 7686.7 },
+      "max": { "compression": 9510.0, "decompression": 7720.0 }
+    },
+    {
+      "profile": "pts/postmark",
+      "gillam_category": "Disk IO",
+      "unit": "TPS",
+      "date_collected": "2026-02-10",
+      "source": "Cloud Mercato — https://cloud.ionos.com/reports/cloud-mercato-compute-benchmark-2024",
+      "runs": [5820, 5950, 5910],
+      "min": 5820,
+      "avg": 5893,
+      "max": 5950
+    },
+    {
+      "profile": "pts/apache",
+      "gillam_category": "Application",
+      "unit": "req/s",
+      "date_collected": "2026-02-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/apache",
+      "runs": [27450.5, 28100.2, 27820.1],
+      "min": 27450.5,
+      "avg": 27790.3,
+      "max": 28100.2
+    },
+    {
+      "profile": "iperf3",
+      "gillam_category": "Network",
+      "unit": "Mbit/s",
+      "date_collected": "2026-02-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ionos/performance/network-bandwidth",
+      "methodology": "Two IONOS vCPU instances in the same private VDC, Frankfurt zone. iperf3 multi-thread baseline.",
+      "runs": {
+        "upload": [2450.2, 2480.6, 2465.1],
+        "download": [2460.1, 2490.5, 2472.3]
+      },
+      "min": { "upload": 2450.2, "download": 2460.1 },
+      "avg": { "upload": 2465.3, "download": 2474.3 },
+      "max": { "upload": 2480.6, "download": 2490.5 }
+    },
+    {
+      "profile": "boot_time",
+      "gillam_category": "Lifecycle — Boot",
+      "unit": "seconds",
+      "date_collected": "2026-02-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ionos/lifecycle",
+      "runs": [15.1, 15.8, 14.9],
+      "min": 14.9,
+      "avg": 15.27,
+      "max": 15.8
+    },
+    {
+      "profile": "setup_time",
+      "gillam_category": "Lifecycle — Setup",
+      "unit": "seconds",
+      "date_collected": "2026-02-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ionos/lifecycle",
+      "runs": [28.4, 30.1, 27.9],
+      "min": 27.9,
+      "avg": 28.8,
+      "max": 30.1
+    }
+  ]
+}

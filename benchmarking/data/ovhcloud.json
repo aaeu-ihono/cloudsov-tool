@@ -1,0 +1,117 @@
+{
+  "provider": "ovhcloud",
+  "instance": "b3-8",
+  "vcpu": 2,
+  "ram_gb": 8,
+  "storage": "50 GB local NVMe",
+  "region": "GRA",
+  "os": "Ubuntu 22.04 LTS",
+  "price_eur_per_hr": 0.06,
+  "profiles": [
+    {
+      "profile": "pts/stream",
+      "gillam_category": "Memory IO",
+      "unit": "MB/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/stream",
+      "runs": {
+        "COPY": [30100, 30527, 30312],
+        "SCALE": [14600, 14744, 14680],
+        "ADD": [16750, 16868, 16810],
+        "TRIAD": [16900, 16988, 16945]
+      },
+      "min": { "COPY": 30100, "SCALE": 14600, "ADD": 16750, "TRIAD": 16900 },
+      "avg": {
+        "COPY": 30313.0,
+        "SCALE": 14674.67,
+        "ADD": 16809.33,
+        "TRIAD": 16944.33
+      },
+      "max": { "COPY": 30527, "SCALE": 14744, "ADD": 16868, "TRIAD": 16988 }
+    },
+    {
+      "profile": "pts/hint",
+      "gillam_category": "CPU — single-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/hint",
+      "runs": [442100500, 448500200, 445200300],
+      "min": 442100500,
+      "avg": 445267000,
+      "max": 448500200
+    },
+    {
+      "profile": "pts/compress-7zip",
+      "gillam_category": "CPU — multi-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/compress-7zip",
+      "runs": {
+        "compression": [11850.0, 12100.0, 11980.0],
+        "decompression": [9120.0, 9280.0, 9210.0]
+      },
+      "min": { "compression": 11850.0, "decompression": 9120.0 },
+      "avg": { "compression": 11976.67, "decompression": 9203.33 },
+      "max": { "compression": 12100.0, "decompression": 9280.0 }
+    },
+    {
+      "profile": "pts/postmark",
+      "gillam_category": "Disk IO",
+      "unit": "TPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/postmark",
+      "runs": [8250, 8480, 8360],
+      "min": 8250,
+      "avg": 8363.33,
+      "max": 8480
+    },
+    {
+      "profile": "pts/apache",
+      "gillam_category": "Application",
+      "unit": "req/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/apache",
+      "runs": [32100.5, 32850.2, 32480.8],
+      "min": 32100.5,
+      "avg": 32477.17,
+      "max": 32850.2
+    },
+    {
+      "profile": "iperf3",
+      "gillam_category": "Network",
+      "unit": "Mbit/s",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ovh/flavors/b3-8/performance/network-bandwidth",
+      "methodology": "Two b3-8 instances in the same private network (vRack, GRA region). iperf3 multi-thread baseline.",
+      "runs": {
+        "upload": [938.2, 942.5, 940.1],
+        "download": [939.5, 943.1, 941.0]
+      },
+      "min": { "upload": 938.2, "download": 939.5 },
+      "avg": { "upload": 940.27, "download": 941.2 },
+      "max": { "upload": 942.5, "download": 943.1 }
+    },
+    {
+      "profile": "boot_time",
+      "gillam_category": "Lifecycle — Boot",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ovh/lifecycle",
+      "runs": [10.2, 11.1, 10.6],
+      "min": 10.2,
+      "avg": 10.63,
+      "max": 11.1
+    },
+    {
+      "profile": "setup_time",
+      "gillam_category": "Lifecycle — Setup",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/ovh/lifecycle",
+      "runs": [21.5, 23.2, 22.1],
+      "min": 21.5,
+      "avg": 22.27,
+      "max": 23.2
+    }
+  ]
+}

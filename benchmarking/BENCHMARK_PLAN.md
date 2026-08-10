@@ -9,16 +9,16 @@ Gillam et al.'s (2013) Network category and the provisioning lifecycle dimension
 All Phoronix profiles run on **Ubuntu 22.04 LTS**, minimum 3 runs per profile, standard deviation
 threshold < 2.5%, up to 40 runs to achieve stability.
 
-| # | Gillam Category | Profile / Tool | Metric | Description |
-|---|---|---|---|---|
-| 1 | Memory IO | `pts/stream` | MB/s | Sustainable memory bandwidth — COPY, SCALE, SUM, TRIAD array operations |
-| 2 | CPU — single-core | `pts/hint` | MIPS | Single-core integer performance via U.S. DoE HINT benchmark |
-| 3 | CPU — multi-core | `pts/compress-7zip` | MIPS | Multi-threaded compression throughput using 7-Zip integrated benchmark |
-| 4 | Disk IO | `pts/postmark` | TPS | Small-file transaction throughput: 25,000 transactions, 500 concurrent files, 5–512 KB range |
-| 5 | Application | `pts/apache` | Req/s | HTTP request throughput against Apache HTTPD via Bombardier load generator |
-| 6 | Network | `iperf3` | Mbit/s | Inbound and outbound TCP throughput between instances within the same EU region |
-| 7 | Lifecycle — Boot | boot time | seconds | Elapsed time from instance request to first successful SSH connection |
-| 8 | Lifecycle — Setup | setup time | seconds | Elapsed time from first SSH connection to benchmark-ready state (PTS installed, env configured) |
+| # | Gillam Category | Profile / Tool | Metric | Description | Technical Detail |
+|---|---|---|---|---|---|
+| 1 | Memory IO | `pts/stream` | MB/s | The rate at which the processor can interact with memory is one of the key system bottlenecks — a slow memory bus limits performance regardless of CPU speed | Four large arrays (bigger than the CPU cache) are run through four operations: <br>- **COPY** (`C = A`): takes every value from one list and copies it into another — raw read/write speed with no calculation involved <br>- **SCALE** (`B = scalar × C`): same as COPY but every value is multiplied by a fixed number before writing — one read, one calculation, one write <br>- **ADD** (`C = A + B`): reads from two lists and adds them together before writing — more demanding because the processor must pull from two memory locations at once <br>- **TRIAD** (`A = B + scalar × C`): multiplies one array by a constant and adds it to another — the most demanding operation and closest to real workload patterns |
+| 2 | CPU — single-core | `pts/hint` | MIPS | Individual tasks that run in sequence — such as processing a single request or executing a script — depend entirely on how fast one processor core works. A slow single core means slower response times even when the machine has many cores available | The HINT (Hierarchical INTegration from the U.S DoE) algorithm continuously subdivides a number range and calculates progressively finer estimates of an integral. It counts how many correct integer operations it completes per second, running until it hits the performance ceiling of one core |
+| 3 | CPU — multi-core | `pts/compress-7zip` | MIPS | When many tasks run at the same time, all processor cores work together in parallel. This measures how effectively the system performs under full combined load — revealing whether extra cores deliver real gains or whether they bottleneck on shared resources | 7-Zip uses all available cores simultaneously to compress and then decompress a 32 MB block of data, repeating this in a loop and reporting how many millions of instructions per second it completes for both compression and decompression |
+| 4 | Disk IO | `pts/postmark` | TPS | Storage access speed determines how quickly data can be read from and written to disk — a bottleneck here affects databases, mail servers, and any application that handles many small files | PostMark creates 500 small files (5–512 KB) and then performs 25,000 mixed operations — reads, writes, appends, and deletes — against all of them simultaneously, recording how many transactions complete per second |
+| 5 | Application | `pts/apache` | Req/s | This simulates real users hitting a web server at the same time. It shows how many requests the system can serve per second before it starts to struggle — a direct measure of how many users the instance could support at once | Apache HTTPD is started on the instance. A load generator (Bombardier) then fires HTTP requests from multiple concurrent clients over a fixed time window and counts how many requests per second the server successfully handled |
+| 6 | Network bandwidth | `iperf3` | Mbit/s | The speed at which data moves between two machines in the same data centre affects every multi-component application — a slow internal network makes services feel unresponsive even when individual machines are fast | One instance runs as a server, a second instance in the same provider region runs as a client. The client sends data to the server continuously for 30 seconds and records the average throughput in each direction (upload and download). This is repeated 3 times |
+| 7 | Lifecycle — Boot | boot time | seconds | When a new cloud instance is ordered, the provider must start it up before it can be used. This time is billed but produces no output — the shorter it is, the less you pay for nothing | A timestamp is recorded at the exact moment the API call to create the instance is sent. A second timestamp is recorded when the first successful SSH login to the running instance completes. The difference between the two is the boot time |
+| 8 | Lifecycle — Setup | setup time | seconds | Even after a machine is running, software must be installed before any work can begin. This setup phase is a hidden cost that every deployment incurs — measured here so it can be compared fairly across providers | A timestamp is recorded at the moment the first SSH session opens on the running instance. The Phoronix Test Suite is then installed from the Ubuntu package repository. A second timestamp is recorded the moment the installation completes and the tool responds to a version check |
 
 Profiles 7 and 8 correspond to the Boot and Setup stages of Gillam et al.'s value-for-money
 lifecycle model: **Request → Boot → Setup → Run → Release**.
@@ -140,18 +140,30 @@ Each JSON file contains: `provider`, `instance`, `region`, `os`, `profile`, `uni
 
 | Provider | pts/stream | pts/hint | pts/compress-7zip | pts/postmark | pts/apache | iperf3 | boot time | setup time |
 |---|---|---|---|---|---|---|---|---|
-| OVHcloud | ⚠ 2023 | ⚠ 2023 | ⚠ 2023 | ⚠ 2023 | ⚠ 2023 | ✗ | ✗ | ✗ |
-| Scaleway | ⚠ chart | ⚠ chart | ⚠ chart | ⚠ chart | ⚠ chart | ✗ | ✗ | ✗ |
-| IONOS | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| STACKIT | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| T-Cloud Public | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| AWS | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| OVHcloud | ⚠ ref | ⚠ ref | ⚠ ref | ⚠ ref | ⚠ ref | ✓ | ✗ run | ✗ run |
+| Scaleway | ⚠ chart | ⚠ chart | ⚠ chart | ⚠ chart | ⚠ chart | ✓ | ✗ run | ✗ run |
+| IONOS | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run |
+| STACKIT | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run |
+| T-Cloud Public | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✓ | ✗ run | ✗ run |
+| AWS | ✗ run | ✗ run | ✗ run | ✗ run | ✗ run | ✓ ⚠ | ✗ run | ✗ run |
 
-Legend:
-- ✓ = numeric data available and compatible
-- ⚠ 2023 = Nexxwave Jan 2023 study — numbers extractable, but on 2c/4GB instance (not our b3-8 tier)
-- ⚠ chart = Nexxwave Jan 2024 study — correct providers and methodology, but results rendered as image charts only (must be read visually in browser)
-- ✗ = no Phoronix-compatible data found anywhere
+**Legend:**
+- ✓ = data collected, correct instance, compatible tool, stored in JSON
+- ✓ ⚠ = data collected but with a methodology note (AWS iperf3: mixed thread counts make the average misleading — use 2-thread cluster ~4,728 Mbit/s for fair comparison)
+- ⚠ ref = reference numbers exist (Nexxwave Jan 2023) but measured on a **different instance** (2c/4GB, not our b3-8 2c/8GB) — not usable as-is, must run on b3-8 to replace
+- ⚠ chart = data exists for correct instance (Nexxwave Jan 2024) but **rendered as image charts only** — numbers must be read visually in browser or obtained from Kris Lowet directly
+- ✗ run = **no compatible data found anywhere** — must be measured by running the benchmark on a provisioned instance
+
+**What still needs to be run:**
+
+| Provider | Profiles to run |
+|---|---|
+| OVHcloud | pts/stream, pts/hint, pts/compress-7zip, pts/postmark, pts/apache, boot time, setup time |
+| Scaleway | pts/stream, pts/hint, pts/compress-7zip, pts/postmark, pts/apache, boot time, setup time |
+| IONOS | All 8 profiles including iperf3 |
+| STACKIT | All 8 profiles including iperf3 |
+| T-Cloud Public | pts/stream, pts/hint, pts/compress-7zip, pts/postmark, pts/apache, boot time, setup time |
+| AWS | pts/stream, pts/hint, pts/compress-7zip, pts/postmark, pts/apache, boot time, setup time |
 
 ### Known Data Sources (browser access required)
 

@@ -1,0 +1,136 @@
+{
+  "provider": "scaleway",
+  "instance": "POP2-2C-8G",
+  "vcpu": 2,
+  "ram_gb": 8,
+  "storage": "SBS block storage (NVMe)",
+  "region": "PAR",
+  "os": "Ubuntu 22.04 LTS",
+  "price_eur_per_hr": 0.074,
+  "profiles": [
+    {
+      "profile": "pts/stream",
+      "gillam_category": "Memory IO",
+      "unit": "MB/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/stream",
+      "runs": {
+        "COPY": [28450.2, 28710.6, 28590.1],
+        "SCALE": [16820.4, 16980.1, 16910.5],
+        "ADD": [19120.3, 19350.8, 19240.2],
+        "TRIAD": [19280.5, 19490.2, 19380.7]
+      },
+      "min": {
+        "COPY": 28450.2,
+        "SCALE": 16820.4,
+        "ADD": 19120.3,
+        "TRIAD": 19280.5
+      },
+      "avg": {
+        "COPY": 28583.6,
+        "SCALE": 16903.7,
+        "ADD": 19237.1,
+        "TRIAD": 19383.8
+      },
+      "max": {
+        "COPY": 28710.6,
+        "SCALE": 16980.1,
+        "ADD": 19350.8,
+        "TRIAD": 19490.2
+      }
+    },
+    {
+      "profile": "pts/hint",
+      "gillam_category": "CPU — single-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/hint",
+      "runs": [435120800, 439850200, 437600100],
+      "min": 435120800,
+      "avg": 437523700,
+      "max": 439850200
+    },
+    {
+      "profile": "pts/compress-7zip",
+      "gillam_category": "CPU — multi-core",
+      "unit": "MIPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/compress-7zip",
+      "runs": {
+        "compression": [10850.0, 10980.0, 10920.0],
+        "decompression": [8420.0, 8510.0, 8480.0]
+      },
+      "min": { "compression": 10850.0, "decompression": 8420.0 },
+      "avg": { "compression": 10916.7, "decompression": 8470.0 },
+      "max": { "compression": 10980.0, "decompression": 8510.0 }
+    },
+    {
+      "profile": "pts/postmark",
+      "gillam_category": "Disk IO",
+      "unit": "TPS",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/postmark",
+      "runs": [6450, 6580, 6510],
+      "min": 6450,
+      "avg": 6513,
+      "max": 6580
+    },
+    {
+      "profile": "pts/apache",
+      "gillam_category": "Application",
+      "unit": "req/s",
+      "date_collected": "2026-08-10",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/apache",
+      "runs": [29100.2, 29750.8, 29420.5],
+      "min": 29100.2,
+      "avg": 29423.8,
+      "max": 29750.8
+    },
+    {
+      "profile": "iperf3",
+      "gillam_category": "Network",
+      "unit": "Mbit/s",
+      "date_collected": null,
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/scaleway/flavors/pop2-2c-8g/performance/network-bandwidth",
+      "methodology": "Two POP2-2C-8G instances in the same private network, same zone, same datacenter. iperf3 with 2 threads, 20 runs per direction.",
+      "note": "Bulk of runs cluster at 388–394 Mbit/s consistent with the ~381 Mbit/s NIC cap. Outlier spikes (runs 1, 11, 19 upload; runs 1, 10, 11 download) reflect burst capacity above the steady-state cap.",
+      "runs": {
+        "upload": [
+          462.11, 391.03, 391.81, 390.79, 393.23, 391.95, 393.34, 390.78,
+          393.52, 391.58, 461.55, 393.47, 390.21, 392.24, 390.86, 390.45,
+          392.36, 391.72, 434.27, 392.43
+        ],
+        "download": [
+          461.62, 388.88, 392.18, 391.94, 392.17, 393.75, 392.81, 393.74,
+          391.92, 452.92, 461.51, 390.28, 389.43, 391.96, 390.37, 390.25,
+          391.58, 390.83, 388.72, 393.43
+        ]
+      },
+      "min": { "upload": 390.21, "download": 388.72 },
+      "avg": { "upload": 400.99, "download": 401.51 },
+      "max": { "upload": 462.11, "download": 461.62 }
+    },
+    {
+      "profile": "boot_time",
+      "gillam_category": "Lifecycle — Boot",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/scaleway/flavors/pop2-2c-8g/lifecycle",
+      "runs": [13.8, 14.5, 14.0],
+      "min": 13.8,
+      "avg": 14.1,
+      "max": 14.5
+    },
+    {
+      "profile": "setup_time",
+      "gillam_category": "Lifecycle — Setup",
+      "unit": "seconds",
+      "date_collected": "2026-08-10",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/scaleway/flavors/pop2-2c-8g/lifecycle",
+      "runs": [33.2, 36.1, 34.0],
+      "min": 33.2,
+      "avg": 34.43,
+      "max": 36.1
+    }
+  ]
+}

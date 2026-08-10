@@ -1,0 +1,152 @@
+{
+  "provider": "aws",
+  "instance": "m6i.large",
+  "vcpu": 2,
+  "ram_gb": 8,
+  "storage": "EBS gp3 (100 GB)",
+  "region": "eu-central-1",
+  "os": "Ubuntu 22.04 LTS",
+  "price_eur_per_hr": 0.106,
+  "profiles": [
+    {
+      "profile": "pts/stream",
+      "gillam_category": "Memory IO",
+      "unit": "MB/s",
+      "date_collected": "2026-01-15",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/stream",
+      "runs": {
+        "COPY": [25120.4, 25340.1, 25280.6],
+        "SCALE": [19150.2, 19310.5, 19240.8],
+        "ADD": [21200.3, 21450.7, 21380.1],
+        "TRIAD": [21350.6, 21590.2, 21490.4]
+      },
+      "min": {
+        "COPY": 25120.4,
+        "SCALE": 19150.2,
+        "ADD": 21200.3,
+        "TRIAD": 21350.6
+      },
+      "avg": {
+        "COPY": 25247.0,
+        "SCALE": 19233.8,
+        "ADD": 21343.7,
+        "TRIAD": 21477.1
+      },
+      "max": {
+        "COPY": 25340.1,
+        "SCALE": 19310.5,
+        "ADD": 21450.7,
+        "TRIAD": 21590.2
+      }
+    },
+    {
+      "profile": "pts/hint",
+      "gillam_category": "CPU — single-core",
+      "unit": "MIPS",
+      "date_collected": "2026-01-15",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/hint",
+      "runs": [441250810, 445890120, 443620400],
+      "min": 441250810,
+      "avg": 443587110,
+      "max": 445890120
+    },
+    {
+      "profile": "pts/compress-7zip",
+      "gillam_category": "CPU — multi-core",
+      "unit": "MIPS",
+      "date_collected": "2026-01-15",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/compress-7zip",
+      "runs": {
+        "compression": [10275.0, 10294.0, 10319.0],
+        "decompression": [8120.0, 8155.0, 8180.0]
+      },
+      "min": { "compression": 10275.0, "decompression": 8120.0 },
+      "avg": { "compression": 10296.0, "decompression": 8151.7 },
+      "max": { "compression": 10319.0, "decompression": 8180.0 }
+    },
+    {
+      "profile": "pts/postmark",
+      "gillam_category": "Disk IO",
+      "unit": "TPS",
+      "date_collected": "2026-01-15",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/postmark",
+      "runs": [4420, 4510, 4480],
+      "min": 4420,
+      "avg": 4470,
+      "max": 4510
+    },
+    {
+      "profile": "pts/apache",
+      "gillam_category": "Application",
+      "unit": "req/s",
+      "date_collected": "2026-01-15",
+      "source": "OpenBenchmarking — https://openbenchmarking.org/test/pts/apache",
+      "runs": [29850.1, 30420.5, 30110.2],
+      "min": 29850.1,
+      "avg": 30126.9,
+      "max": 30420.5
+    },
+    {
+      "profile": "iperf3",
+      "gillam_category": "Network",
+      "unit": "Mbit/s",
+      "date_collected": null,
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/aws/flavors/m6i.large/performance/network-bandwidth",
+      "methodology": "Two m6i.large instances in the same private network, same zone, same datacenter. iperf3 with 1, 2, 3, and 4 threads varied across 80 runs per direction.",
+      "note": "Data is multimodal due to thread count variation. Clusters: ~758-800 Mbit/s (1-thread), ~4728 Mbit/s (2-thread), ~9450 Mbit/s (3-thread), ~11000-11291 Mbit/s (4-thread). The aggregate avg (4607) and high stddev (4372) are a consequence of mixing thread counts, not genuine variability.",
+      "runs": {
+        "upload": [
+          9098.26, 9031.08, 9027.2, 8697.3, 9011.68, 11038.69, 11029.74,
+          11033.31, 11023.65, 11023.18, 11266.58, 11268.09, 11271.01, 11264.0,
+          1763.91, 783.47, 770.19, 768.21, 773.88, 2804.57, 1422.56, 775.5,
+          800.95, 770.33, 798.15, 769.65, 774.02, 768.31, 779.48, 803.89,
+          778.56, 766.77, 789.27, 784.65, 777.22, 768.63, 770.04, 764.53,
+          767.79, 775.42, 4728.3, 4727.86, 4727.9, 4727.72, 4727.81, 9453.07,
+          9452.91, 9455.52, 9451.88, 9452.93, 11231.55, 11238.19, 11237.95,
+          11240.64, 11259.34, 11221.28, 11082.89, 1122.49, 1504.23, 993.34,
+          1814.43, 802.15, 759.42, 759.1, 758.41, 758.88, 759.74, 759.67,
+          759.43, 758.92, 1955.83, 759.95, 758.67, 760.16, 759.74, 760.08,
+          758.09, 760.28, 759.35, 759.35
+        ],
+        "download": [
+          8931.06, 9101.15, 9100.08, 9099.08, 9039.51, 11026.21, 11041.54,
+          11021.49, 11040.41, 11038.95, 11262.34, 11265.06, 11265.76, 11263.23,
+          2807.48, 1914.76, 790.03, 774.84, 768.53, 780.64, 9084.04, 9090.34,
+          9054.69, 6731.46, 893.47, 847.14, 766.84, 769.36, 771.66, 768.7,
+          773.65, 817.93, 811.91, 1410.6, 767.96, 767.05, 775.83, 982.03,
+          779.48, 770.82, 4733.91, 4734.72, 4734.33, 4734.34, 4734.68, 9468.88,
+          9467.64, 9468.2, 9050.79, 9469.32, 11290.96, 11089.0, 11246.22,
+          11242.66, 10478.85, 11239.37, 9526.96, 1469.53, 1997.99, 757.89,
+          4733.95, 4734.32, 4734.32, 4734.4, 4734.69, 9468.72, 1690.06, 952.12,
+          915.56, 806.95, 1012.97, 1164.31, 759.06, 760.1, 909.55, 758.77,
+          759.47, 759.57, 759.32, 758.56
+        ]
+      },
+      "min": { "upload": 758.09, "download": 757.89 },
+      "avg": { "upload": 4607.0, "download": 4607.0 },
+      "max": { "upload": 11271.01, "download": 11290.96 }
+    },
+    {
+      "profile": "boot_time",
+      "gillam_category": "Lifecycle — Boot",
+      "unit": "seconds",
+      "date_collected": "2026-01-15",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/aws/flavors/m6i.large/lifecycle",
+      "runs": [13.2, 13.8, 12.9],
+      "min": 12.9,
+      "avg": 13.3,
+      "max": 13.8
+    },
+    {
+      "profile": "setup_time",
+      "gillam_category": "Lifecycle — Setup",
+      "unit": "seconds",
+      "date_collected": "2026-01-15",
+      "source": "Cloud Mercato — https://pcr.cloud-mercato.com/providers/aws/flavors/m6i.large/lifecycle",
+      "runs": [23.5, 24.8, 22.1],
+      "min": 22.1,
+      "avg": 23.4,
+      "max": 24.8
+    }
+  ]
+}
