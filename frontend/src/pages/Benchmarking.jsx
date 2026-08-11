@@ -239,42 +239,42 @@ function scoreText(s) {
 
 const METRICS = [
   {
-    key: 'mem', label: 'Memory IO', sub: 'STREAM TRIAD', unit: 'MB/s',
+    key: 'mem', label: 'Memory IO', sub: 'STREAM TRIAD', unit: 'MB/s', profile: 'pts/stream',
     desc: 'pts/stream — STREAM Benchmark',
     how: 'Measures sustainable memory bandwidth by streaming large arrays through the CPU cache hierarchy. The TRIAD operation (A = B + scalar × C) reads two arrays and writes one simultaneously — the most demanding of the four STREAM kernels and the best single indicator of memory subsystem throughput. Higher MB/s = less memory bottleneck under data-intensive workloads.',
   },
   {
-    key: 'single', label: 'CPU single', sub: 'HINT (MIPS)', unit: 'M MIPS',
+    key: 'single', label: 'CPU single', sub: 'HINT (MIPS)', unit: 'M MIPS', profile: 'pts/hint',
     desc: 'pts/hint — Hierarchical Integration Benchmark',
     how: 'Evaluates single-core integer and floating-point throughput by computing increasingly fine numerical integrals in a hierarchical fashion. The score grows as long as additional computation fits in cache, making it sensitive to core speed, IPC, and cache latency. Reported in millions of MIPS — higher is better.',
   },
   {
-    key: 'multi', label: 'CPU multi', sub: '7-zip MIPS', unit: 'MIPS',
+    key: 'multi', label: 'CPU multi', sub: '7-zip MIPS', unit: 'MIPS', profile: 'pts/compress-7zip',
     desc: 'pts/compress-7zip — 7-Zip Internal Benchmark',
     how: 'Uses the LZMA compression algorithm built into 7-zip to stress all available vCPU cores simultaneously. The compression sub-score (reported here) reflects multi-threaded integer performance, branch prediction, and memory access patterns. Reported in MIPS — higher is better.',
   },
   {
-    key: 'disk', label: 'Disk IO', sub: 'PostMark TPS', unit: 'TPS',
+    key: 'disk', label: 'Disk IO', sub: 'PostMark TPS', unit: 'TPS', profile: 'pts/postmark',
     desc: 'pts/postmark — PostMark File-System Benchmark',
     how: 'Simulates a busy mail-server workload: creates thousands of small files (4 KB–512 KB), performs random reads and appends, then deletes them. This pattern stresses metadata operations and random small-block I/O rather than sequential throughput. Reported in Transactions Per Second — higher is better. Note: OVHcloud b3-8 uses local NVMe; all others use network-attached block storage, which disadvantages them.',
   },
   {
-    key: 'app', label: 'Web / App', sub: 'Apache req/s', unit: 'req/s',
+    key: 'app', label: 'Web / App', sub: 'Apache req/s', unit: 'req/s', profile: 'pts/apache',
     desc: 'pts/apache — Apache HTTP Server Benchmark',
     how: 'Runs Apache Bench (ab) against a local Apache instance serving a static page, measuring sustained HTTP requests per second. Reflects the combined performance of the CPU scheduler, network stack (loopback), and web-server process management. Reported in requests/second — higher is better.',
   },
   {
-    key: 'net', label: 'Network', sub: 'iperf3 Mbit/s', unit: 'Mbit/s',
+    key: 'net', label: 'Network', sub: 'iperf3 Mbit/s', unit: 'Mbit/s', profile: 'iperf3',
     desc: 'iperf3 — Inter-instance Network Bandwidth',
     how: 'Two same-tier instances in the same availability zone exchange data over the private network using iperf3 with multiple parallel threads. Measures the maximum achievable bandwidth between co-located VMs — relevant to distributed workloads, replication, and data pipelines. Reported in Mbit/s — higher is better. Data sourced from Cloud Mercato (pcr.cloud-mercato.com) where available.',
   },
   {
-    key: 'boot', label: 'Boot speed', sub: 'seconds · ↓ better', unit: 's',
+    key: 'boot', label: 'Boot speed', sub: 'seconds · ↓ better', unit: 's', profile: 'lifecycle',
     desc: 'Lifecycle — Boot Time (Gillam et al., 2013)',
     how: 'Measures the elapsed time in seconds from submitting the VM create request to SSH becoming reachable on the instance. Part of the Gillam et al. IaaS lifecycle model (Request → Boot → Setup → Run → Release). Inverted for scoring: the provider with the lowest boot time receives 100; others score proportionally lower.',
   },
   {
-    key: 'setup', label: 'Setup speed', sub: 'seconds · ↓ better', unit: 's',
+    key: 'setup', label: 'Setup speed', sub: 'seconds · ↓ better', unit: 's', profile: 'lifecycle',
     desc: 'Lifecycle — Setup Time (Gillam et al., 2013)',
     how: 'Measures the elapsed time in seconds for OS-level initialisation to complete after SSH is first available — covering cloud-init, package updates, and agent startup. Inverted for scoring: the provider with the lowest setup time receives 100; others score proportionally lower.',
   },
@@ -403,13 +403,14 @@ function PerformanceHeatmap() {
                 key={m.key}
                 onMouseEnter={() => setHovTip(m.key)}
                 onMouseLeave={() => setHovTip(null)}
-                style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: hovTip === m.key ? '#eff6ff' : '#f9fafb', borderBottom: '2px solid #e5e7eb', lineHeight: 1.35, minWidth: 126, cursor: 'help', position: 'relative', transition: 'background 0.15s' }}
+                style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: hovTip === m.key ? '#eff6ff' : '#f9fafb', borderBottom: '2px solid #e5e7eb', borderLeft: '1px solid #e5e7eb', lineHeight: 1.35, minWidth: 126, cursor: 'help', position: 'relative', transition: 'background 0.15s' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
                   {m.label}
                   <span style={{ fontSize: '0.6rem', color: '#93c5fd', fontWeight: 400 }}>ⓘ</span>
                 </div>
                 <div style={{ fontSize: '0.6rem', fontWeight: 400, color: '#9ca3af', marginTop: 1 }}>{m.sub}</div>
+                <div style={{ fontSize: '0.56rem', fontWeight: 400, color: '#374151', marginTop: 2, fontFamily: 'monospace' }}>{m.profile}</div>
 
                 {hovTip === m.key && (
                   <div style={{
@@ -426,7 +427,7 @@ function PerformanceHeatmap() {
                 )}
               </th>
             ))}
-            <th style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: '#f9fafb', borderBottom: '2px solid #e5e7eb', borderRadius: '0 6px 0 0', minWidth: 80 }}>
+            <th style={{ textAlign: 'center', padding: '6px 10px', fontWeight: 600, color: '#374151', background: '#f9fafb', borderBottom: '2px solid #e5e7eb', borderLeft: '1px solid #e5e7eb', borderRadius: '0 6px 0 0', minWidth: 80 }}>
               <div>Composite</div>
               <div style={{ fontSize: '0.6rem', fontWeight: 400, color: '#9ca3af', marginTop: 1 }}>avg of 8</div>
             </th>
@@ -459,6 +460,7 @@ function PerformanceHeatmap() {
                         textAlign: 'center',
                         padding: '7px 6px',
                         borderBottom: isLast ? 'none' : '1px solid #f0f0f0',
+                        borderLeft: '1px solid rgba(0,0,0,0.07)',
                         background: scoreColor(score),
                         outline: isBest ? '2px solid #ca8a04' : 'none',
                         outlineOffset: '-2px',
@@ -488,7 +490,7 @@ function PerformanceHeatmap() {
                   )
                 })}
                 {/* Composite */}
-                <td style={{ textAlign: 'center', padding: '9px 8px', borderBottom: isLast ? 'none' : '1px solid #f0f0f0', background: scoreColor(COMPOSITE[p]), fontWeight: 700, color: scoreText(COMPOSITE[p]), fontVariantNumeric: 'tabular-nums' }}>
+                <td style={{ textAlign: 'center', padding: '9px 8px', borderBottom: isLast ? 'none' : '1px solid #f0f0f0', borderLeft: '1px solid rgba(0,0,0,0.07)', background: scoreColor(COMPOSITE[p]), fontWeight: 700, color: scoreText(COMPOSITE[p]), fontVariantNumeric: 'tabular-nums' }}>
                   {COMPOSITE[p]}
                 </td>
               </tr>
@@ -514,6 +516,10 @@ function PerformanceHeatmap() {
           Hover any cell to see the raw measurement.
         </div>
       </div>
+         <p style={{padding: 15, marginTop: 4, fontSize: '0.6rem', color: '#6b7280', lineHeight: 1.65 }}>
+        EU providers show lower iperf network bandwidth numbers here because it is possible that they may simply enforce a flat, non-bursting bandwidth cap on this instance tier (many European providers do fixed-rate networking rather than AWS-style credit-based bursting)
+      </p>
+      
     </div>
   )
 }
@@ -559,6 +565,7 @@ function InstanceTable() {
         <strong>Local NVMe</strong> — the SSD is physically inside the same server as the VM, and data travels over the internal PCIe bus, making it significantly faster.{' '}
         <strong>Network block</strong> (e.g. EBS on AWS, SBS on Scaleway, EVS on T-Cloud) — the disk lives on a separately dedicated storage cluster and is presented to the VM over a private network, introducing additional latency but providing replication and durability.
       </p>
+   
     </div>
   )
 }
@@ -669,6 +676,9 @@ function DiskWebTab() {
       <div className="fc-chart-wrap">
         <div className="fc-chart-title">pts/apache — Web server throughput (Gillam: Application)</div>
         <div className="fc-chart-note">Apache ab benchmark — sustained HTTP request rate on localhost. Unit: requests/second. Higher = better.</div>
+        <p style={{ fontSize: '0.7rem', color: 'red' }}>
+          (This already tells us the maximum requests the server can handle during deployment before it starts falling apart/slowing down - MOST IMPORTANT IN MY OPINION)
+        </p>
         <ResponsiveContainer width="100%" height={240}>
           <BarChart layout="vertical" data={apacheData} margin={{ left: 4, right: 50, top: 4, bottom: 4 }}>
             <XAxis type="number" tickFormatter={v => `${(v / 1000).toFixed(0)}k`} tick={{ fontSize: 11 }} />
@@ -860,7 +870,7 @@ export default function Benchmarking() {
       {/* Data quality notice */}
       <div style={{ background: '#fef3c7', border: '1px solid #f59e0b', borderRadius: 6, padding: '8px 14px', fontSize: '0.73rem', color: '#92400e', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{ fontSize: '1rem' }}>⚠</span>
-        <span><strong>Placeholder data</strong> — Phoronix profile figures and some lifecycle values are not yet verified. Network data (iperf3) for Scaleway, T-Cloud, and AWS is from Cloud Mercato. Return here to replace with real measurements.</span>
+        <span><strong>NOTE:</strong> — Stackit & some other providers data were sourced online from the internet, and was not done by me. Network data (iperf3) for Scaleway, T-Cloud, and AWS is from Cloud Mercato. I will return here to replace with real measurements.</span>
       </div>
 
       {/* Tab nav */}
