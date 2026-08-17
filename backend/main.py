@@ -14,6 +14,7 @@ from sov_loader import load_survey
 from readiness_data import READINESS_CATEGORIES, CHART_DIMENSIONS
 from readiness_loader import load_readiness
 from financial_data import FINANCIAL_PROVIDERS, USD_TO_EUR
+from benchmark_loader import load_benchmarks
 
 
 # ---------------------------------------------------------------------------
@@ -28,6 +29,7 @@ READINESS_DIR = BASE_DIR / "readiness"
 # Load survey data once at startup
 # ---------------------------------------------------------------------------
 _SURVEY: dict[str, dict] = load_survey(SURVEY_DIR)
+_BENCHMARKS: dict[str, dict] = load_benchmarks()
 
 # Pre-compute initial scores for all loaded providers
 _DEFAULT_MIN_SEALS = {k: v["default_min_seal"] for k, v in SOV_OBJECTIVES.items()}
@@ -234,6 +236,15 @@ def get_financial():
         "revenue_summary":    revenue_summary,
         "milestones":         milestones,
     }
+
+
+@app.get("/api/benchmarks")
+def get_benchmarks():
+    """
+    Returns all benchmark data from benchmarking/data/*.json.
+    Structured per provider: stream, hint, compress, postmark, apache, iperf, boot_time, setup_time.
+    """
+    return _BENCHMARKS
 
 
 @app.post("/api/score")
