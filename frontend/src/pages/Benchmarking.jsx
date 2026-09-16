@@ -4,6 +4,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import GlobeView from '../components/GlobeView'
+import { API_BASE_URL } from '../config'
 
 // ── Provider palette (matches FinancialConsideration.jsx) ─────────
 const COLORS = {
@@ -677,7 +678,7 @@ export default function Benchmarking() {
   const [fetchErr, setFetchErr] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/benchmarks')
+    fetch(`${API_BASE_URL}/api/benchmarks`)
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
       .then(data => { setRawData(data); setLoading(false) })
       .catch(e  => { setFetchErr(e.message); setLoading(false) })

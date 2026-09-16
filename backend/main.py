@@ -4,6 +4,7 @@ Step 1: serves framework + pre-loaded provider data + stateless scoring
 """
 
 import math
+import os
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -42,10 +43,14 @@ _INITIAL_SCORES = compute_results(_INITIAL_ANSWERS, _DEFAULT_MIN_SEALS)
 # ---------------------------------------------------------------------------
 app = FastAPI(title="CloudSov API", version="0.1.0")
 
-# Allow Vite dev server (localhost:5173) during development
+# Allow the Vite dev server plus the deployed frontend (set via env var on Render)
+_allowed_origins = ["http://localhost:5173", "http://localhost:3000"]
+if _frontend_url := os.environ.get("FRONTEND_URL"):
+    _allowed_origins.append(_frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=_allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )

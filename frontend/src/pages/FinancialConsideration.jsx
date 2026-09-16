@@ -6,6 +6,7 @@ import {
   BarChart, Bar, Cell,
   ResponsiveContainer,
 } from 'recharts'
+import { API_BASE_URL } from '../config'
 
 const COLORS = {
   OVHcloud:        '#2563eb',
@@ -232,7 +233,7 @@ export default function FinancialConsideration() {
   const [legendCollapsed, setLegendCollapsed] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/financial')
+    fetch(`${API_BASE_URL}/api/financial`)
       .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
       .then(setData)
       .catch(e => setError(String(e)))
