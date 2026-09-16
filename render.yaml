@@ -11,7 +11,7 @@ services:
       # unless that name was already taken, in which case update this to match
       # the actual frontend URL shown in the Render dashboard.
       - key: FRONTEND_URL
-        value: https://cloudsov-frontend.onrender.com
+        value: https://cloudsov.onrender.com
 
   - type: web
     name: cloudsov-frontend
