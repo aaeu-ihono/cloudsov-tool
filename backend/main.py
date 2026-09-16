@@ -43,8 +43,14 @@ _INITIAL_SCORES = compute_results(_INITIAL_ANSWERS, _DEFAULT_MIN_SEALS)
 # ---------------------------------------------------------------------------
 app = FastAPI(title="CloudSov API", version="0.1.0")
 
-# Allow the Vite dev server plus the deployed frontend (set via env var on Render)
-_allowed_origins = ["http://localhost:5173", "http://localhost:3000"]
+# Allow the Vite dev server plus the deployed frontend(s) on Render.
+# Both onrender.com URLs are listed since the site has been served under each name.
+_allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://cloudsov-frontend.onrender.com",
+    "https://cloudsov.onrender.com",
+]
 if _frontend_url := os.environ.get("FRONTEND_URL"):
     _allowed_origins.append(_frontend_url)
 

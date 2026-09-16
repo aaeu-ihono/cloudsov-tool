@@ -7,9 +7,8 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      # Render derives the public URL from `name` above (https://<name>.onrender.com)
-      # unless that name was already taken, in which case update this to match
-      # the actual frontend URL shown in the Render dashboard.
+      # Must match the frontend static site's actual onrender.com URL
+      # (renamed via Render dashboard → cloudsov-frontend → Settings → Name).
       - key: FRONTEND_URL
         value: https://cloudsov.onrender.com
 
@@ -20,7 +19,7 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
-      # Same caveat as above, mirrored for the API's own name.
+      # Must match the backend service's actual onrender.com URL above.
       - key: VITE_API_URL
         value: https://cloudsov-api.onrender.com
     routes:
