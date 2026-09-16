@@ -13,7 +13,7 @@ services:
         value: https://cloudsov.onrender.com
 
   - type: web
-    name: cloudsov-frontend
+    name: cloudsov
     runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
