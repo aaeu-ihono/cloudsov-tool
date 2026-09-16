@@ -7,6 +7,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { API_BASE_URL } from '../config'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const COLORS = {
   OVHcloud:        '#2563eb',
@@ -242,18 +243,18 @@ export default function FinancialConsideration() {
   if (error) return (
     <div className="content">
       <div className="ss-header"><div className="ss-title">Financial Consideration</div></div>
-      <p style={{ color:'#ef4444', marginTop:16 }}>Failed to load: {error}</p>
+      <p style={{ color:'#ef4444', marginTop:16 }}>
+        Failed to load: {error}. The backend may still be waking up — try refreshing in a minute.
+      </p>
     </div>
   )
 
   if (!data) return (
     <div className="content">
       <div className="ss-header">
-        <div>
-          <div className="ss-title">Financial Consideration</div>
-          <div className="ss-sub">Loading…</div>
-        </div>
+        <div className="ss-title">Financial Consideration</div>
       </div>
+      <LoadingSpinner message="Loading financial data…" />
     </div>
   )
 

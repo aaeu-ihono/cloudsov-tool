@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useFramework, useProviders } from '../hooks/useApi'
 import { computeResults } from '../hooks/scoring'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 // ── Country flags ──────────────────────────────────────────────────────────
 const PROVIDER_COUNTRY = {
@@ -193,11 +194,11 @@ export default function SovScore() {
   // ── Loading / error states ─────────────────────────────────────────────────
   if (fwErr || pvErr) return (
     <div className="content" style={{ color: '#dc2626' }}>
-      API error: {fwErr || pvErr}. Is the FastAPI server running on port 8000?
+      API error: {fwErr || pvErr}. The backend may still be waking up — try refreshing in a minute.
     </div>
   )
   if (!framework || !initialProviders || providerList.length === 0) return (
-    <div className="content" style={{ color: '#6b7280' }}>Loading…</div>
+    <div className="content"><LoadingSpinner message="Loading SovScore…" /></div>
   )
 
   const objectives = framework.objectives

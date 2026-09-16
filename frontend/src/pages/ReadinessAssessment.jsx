@@ -6,6 +6,7 @@ import {
   Tooltip, Legend, ResponsiveContainer, ReferenceLine,
 } from 'recharts'
 import { useReadiness } from '../hooks/useReadiness'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 // ── Display name overrides (internal key → UI label) ────────────────────────
 const DISPLAY_NAMES = {
@@ -367,11 +368,11 @@ export default function ReadinessAssessment() {
 
   if (error) return (
     <div className="content" style={{ color: '#dc2626' }}>
-      API error: {error}. Is the FastAPI server running on port 8000?
+      API error: {error}. The backend may still be waking up — try refreshing in a minute.
     </div>
   )
   if (!data) return (
-    <div className="content" style={{ color: '#6b7280' }}>Loading…</div>
+    <div className="content"><LoadingSpinner message="Loading readiness data…" /></div>
   )
 
   return (

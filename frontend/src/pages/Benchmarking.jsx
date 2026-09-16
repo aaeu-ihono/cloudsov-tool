@@ -4,6 +4,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import GlobeView from '../components/GlobeView'
+import LoadingSpinner from '../components/LoadingSpinner'
 import { API_BASE_URL } from '../config'
 
 // ── Provider palette (matches FinancialConsideration.jsx) ─────────
@@ -687,9 +688,7 @@ export default function Benchmarking() {
   if (loading) {
     return (
       <div className="content">
-        <div style={{ padding: 40, textAlign: 'center', color: '#6b7280', fontSize: '0.85rem' }}>
-          Loading benchmark data…
-        </div>
+        <LoadingSpinner message="Loading benchmark data…" />
       </div>
     )
   }
@@ -699,7 +698,7 @@ export default function Benchmarking() {
       <div className="content">
         <div style={{ padding: 24, background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 6, color: '#991b1b', fontSize: '0.82rem' }}>
           <strong>Could not load benchmark data:</strong> {fetchErr}<br/>
-          Make sure the backend is running on port 8000.
+          The backend may still be waking up — try refreshing in a minute.
         </div>
       </div>
     )
