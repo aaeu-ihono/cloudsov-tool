@@ -338,7 +338,7 @@ function OverviewTab({ d }) {
       <InstanceTable d={d} />
       <PerformanceHeatmap d={d} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         <div>
           <div className="fc-chart-wrap">
             <div className="fc-chart-title">Composite performance score (avg of 8 normalized metrics)</div>
@@ -392,7 +392,7 @@ function MemoryTab({ d }) {
       <p style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 16, lineHeight: 1.6 }}>
         <strong>pts/stream</strong> — Memory bandwidth benchmark (Gillam: Memory IO). Four operations measure how fast the CPU can interact with RAM. Higher MB/s indicates less memory bottleneck.
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         {ops.map(op => {
           const data = PROVIDERS.map(p => ({ provider: p, value: STREAM[p][op] }))
           return (
@@ -464,7 +464,7 @@ function DiskWebTab({ d }) {
   const postData   = hbar(POSTMARK)
   const apacheData = hbar(APACHE)
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
       <div className="fc-chart-wrap">
         <div className="fc-chart-title">pts/postmark — Disk IO (Gillam: Disk IO)</div>
         <div className="fc-chart-note">
@@ -546,7 +546,7 @@ function LifecycleTab({ d }) {
       <p style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 16, lineHeight: 1.6 }}>
         Gillam et al.'s lifecycle model measures the time between requesting a VM and it being ready to serve workloads. <strong>Boot time</strong> = VM reaches SSH. <strong>Setup time</strong> = OS-level initialization completes. Lower is better.
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         <div className="fc-chart-wrap">
           <div className="fc-chart-title">Boot time — VM reaches SSH</div>
           <div className="fc-chart-note">Unit: seconds. Lower = better.</div>
@@ -638,7 +638,7 @@ function ValueTab({ d }) {
         </ResponsiveContainer>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
         {perMetric.map(({ label, key, data }) => (
           <div key={key} className="fc-chart-wrap" style={{ padding: '10px 8px 8px' }}>
             <div className="fc-chart-title" style={{ fontSize: '0.75rem' }}>{label}</div>
