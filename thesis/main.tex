@@ -1,0 +1,106 @@
+% ============================================================
+%  Achieving Data Sovereignty for EU Enterprises
+%  Through European Cloud Infrastructure
+%
+%  Ihonosetale Oseghale — M.Eng. Advanced Industrial Engineering
+%  TH Rosenheim / Alps Alpine Europe GmbH
+% ============================================================
+
+\documentclass[12pt,a4paper]{report}
+
+% ── Language & typography ───────────────────────────────────
+% British English throughout (matches existing draft usage).
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{XCharter}
+\usepackage[british]{babel}
+\usepackage{microtype}          % better justification, fewer overfull boxes
+\usepackage{csquotes}
+\setlength{\emergencystretch}{3em}
+
+% ── Layout ──────────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm}
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Graphics & figures ──────────────────────────────────────
+% Guide: vector graphics only. pgfplots figures are generated into
+% figures/ from the project JSON; images/ holds raster UI screenshots,
+% which are the one legitimate bitmap exception.
+\usepackage{graphicx}
+\graphicspath{{images/}{figures/}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{float}
+
+% ── Tables ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\PassOptionsToPackage{table}{xcolor}
+\usepackage{xcolor}
+
+% ── Maths & symbols ─────────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[xcharter]{newtxmath}
+\usepackage{siunitx}
+\sisetup{per-mode=symbol, group-separator={,}}
+
+% ── Abbreviations ───────────────────────────────────────────
+% Guide: managed automatically. Use \ac{GDPR} in the text — NOT "GDPR".
+% First use expands to the full term, later uses print the short form.
+\usepackage{acronym}
+
+% ── References & links ──────────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}           % \cref{fig:x} -> "Figure 3.2" automatically
+
+% ── Draft helpers ───────────────────────────────────────────
+% Flip to \draftfalse to hide every TODO note in one go.
+\newif\ifdraft
+\drafttrue
+\newcommand{\todo}[1]{%
+  \ifdraft\par\medskip\noindent
+  \textcolor{red!65!black}{\small\itshape[TO WRITE: #1]}\par\medskip\fi}
+\newcommand{\circled}[1]{%
+  \tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1.2pt,font=\small] (char) {#1};}}
+
+% ============================================================
+\begin{document}
+
+\input{Titlepage}
+
+% Front matter in roman numerals, main matter in arabic — also stops the
+% duplicate-hyperref-destination warning on page 1.
+\pagenumbering{roman}
+
+\input{Abstract}
+\input{Acknowledgement}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\input{Abbreviations}
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\include{chapters/chapter1-introduction}
+\include{chapters/chapter2-foundations}
+\include{chapters/chapter3-methodology}
+\include{chapters/chapter4-provider-evaluation}
+\include{chapters/chapter5-build-feasibility}
+\include{chapters/chapter6-conclusion}
+
+\appendix
+\include{chapters/appendix}
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+\end{document}
