@@ -158,7 +158,22 @@
 
 ---
 
-## 10. Summary Assessment for Thesis
+## 10. Launch Date Used in Study 3 (Baseline)
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Development | 2003 | Benjamin Black and Chris Pinkham circulate an internal paper proposing standardised, automated, web-service-based infrastructure. Bezos approves an experiment in 2004; a pilot team is set up in Cape Town | [Benjamin Black, "EC2 Origins"](https://blog.b3k.us/2009/01/25/ec2-origins.html), [TechCrunch, 28 Aug 2021](https://techcrunch.com/2021/08/28/how-amazon-ec2-grew-from-a-notion-into-a-foundational-element-of-cloud-computing) |
+| **First external sale** | **2006** | Amazon S3 on general sale. AWS's own retrospective says "the spring of 2006"; the AWS timeline gives 14 March 2006. EC2 followed in August 2006 | [AWS Blog — The First Five Years](https://aws.amazon.com/blogs/aws/aws-blog-the-first-five-years/), [Timeline of Amazon Web Services](https://en.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services) |
+
+> **Note:** Amazon Web Services existed as a brand from July 2002, exposing Amazon product data to developers, and SQS entered preview in November 2004. Neither was purchasable cloud infrastructure, so neither is used.
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **Why this matters for the study's credibility.** AWS ran roughly three years from internal proposal to first sale, and those years are excluded — exactly as StackIT's four internal years (2018–2022) are excluded. The rule is applied to the baseline on the same terms as to the provider most open to the charge of being flattered by it.
+
+---
+
+## 11. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|

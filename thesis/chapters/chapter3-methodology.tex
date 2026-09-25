@@ -1311,9 +1311,272 @@ other --- which is why they are kept apart until \cref{ch:evaluation}.
 \section{Study 3 --- Financial Viability}
 \label{sec:method-study3}
 
-\todo{Revenue series, \ac{CAGR}, investment milestones, and the gap-closure
-projection. Be explicit that linear extrapolation illustrates current
-velocity and is not a forecast.}
+Sovereignty has to be paid for. The first two studies asked whether a provider is
+legally able to protect the data it holds and technically able to run the work,
+but both of those are things a provider must keep buying. Data centres, servers
+and network capacity are not bought once, and a provider that cannot fund them
+cannot offer the services counted in \cref{sec:method-study2}, whatever its legal
+standing. A provider that runs out of money altogether offers nothing at all.
+
+The economics make this harder for a European entrant than for the incumbent.
+The \ac{OECD} finds that establishing a cloud service carries high fixed costs,
+and that most of the capital involved --- data centres, network infrastructure,
+servers and hardware --- is sunk, in the sense that it cannot be recovered if the
+provider withdraws \cite{OECD_CloudCompetition_2025}. Committing to build is
+therefore close to irreversible. Scale then compounds the difficulty: because the
+largest providers can invest at a level almost no entrant can match, they operate
+at lower marginal cost, and the same report concludes that a supplier unwilling
+to match those investment levels \enquote{will likely incur higher costs to
+deliver the same level of service as the hyperscalers}
+\cite{OECD_CloudCompetition_2025}.
+
+That is the position every provider in this study occupies, and it carries a
+consequence for sovereignty that the first two studies cannot see. A sovereign
+alternative exists in practice only if somebody can afford to build and keep
+running it. A provider may hold the strongest legal position in Europe and still
+be unable to fund the next data centre, in which case the sovereignty it offers
+is available only for the workloads it already supports.
+
+This study therefore examines the money behind each provider, and what it implies
+for the years a contract has to run: how fast each is closing the capability gap
+against the \acs{AWS} baseline and when it would draw level, what it earns, what
+it spends to gain that ground, and where that money comes from. The aim is to
+establish how far finance accounts for the progress these providers have made,
+and for the distance still left.
+
+Five providers are carried into this study, with \acs{AWS} again as the baseline.
+\Cref{tab:study3-providers} gives them, and what the first two studies found
+about each.
+
+\begin{table}[htbp]
+  \centering
+  \caption{The five providers carried into Study~3, with their results from the
+           first two studies.}
+  \label{tab:study3-providers}
+  \small
+  \begin{tabularx}{\textwidth}{@{}l r r X@{}}
+    \toprule
+    \textbf{Provider} & \textbf{Sovereignty} & \textbf{Capability}
+      & \textbf{Reason for inclusion} \\
+    \midrule
+    T-Cloud Public & 66.2 & 72 & Highest capability of the eighteen \\
+    OVHcloud       & 58.8 & 56 & Second \\
+    STACKIT        & 82.5 & 44 & Third \\
+    Scaleway       & 72.5 & 40 & Fourth \\
+    IONOS          & 52.5 & 27 & Publishes accounts \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Four of the five are the highest-ranked on capability in
+\cref{sec:method-study2}. IONOS was included because it publishes financial
+accounts of its own, which is what this study needs. 
+
+Sovereignty rank played no part in the selection, and the table shows why it
+could not have: only STACKIT clears every minimum in \cref{sec:method-study1}.
+Carrying forward only the providers that passed would have left a single
+candidate and nothing to compare it against. This study aims to evaluate whether
+the financial position of the providers is consistent with the sovereignty and
+capability they offer. 
+
+
+\subsection*{Closing the gap to AWS}
+
+Will these \acs{EU} cloud providers catch up with hyperscalers like \acs{AWS}?
+Two figures are used to answer that: the \textbf{parity speed}, the rate of
+growth in capability each provider has achieved since it launched, and the
+\textbf{parity year}, the year it would reach the same capability as \acs{AWS} if
+that growth continues.
+
+Both rest on a starting year, and the providers do not share one. To establish
+it, the development phase of each was examined, as shown in
+\cref{fig:launch-dates}, and the external launch date was considered --- the year the platform was made available to the general public, not to internal teams or a free trial.
+
+\begin{figure}[htbp]
+  \centering
+  % Years are plotted as an offset from 1999: using the year itself as a
+  % coordinate multiplies out past TikZ's maximum dimension.
+  \begin{tikzpicture}[x=0.42cm, y=1.05cm]
+    \def\yzero{1999}
+    \draw[black!35] (0,-0.45) -- (27.5,-0.45);
+    \foreach \yr in {2000,2005,2010,2015,2020,2025} {
+      \pgfmathsetmacro\xx{\yr-\yzero}
+      \draw[black!35] (\xx,-0.45) -- (\xx,-0.60);
+      \node[below, font=\scriptsize, black!55] at (\xx,-0.62) {\yr};
+    }
+    \foreach \row/\start/\launch/\name/\origin in {%
+      5/2003/2006/{\acs{AWS}}/{first written down},
+      4/1999/2010/{OVHcloud}/{founded as a web host},
+      3/2010/2012/{IONOS}/{ProfitBricks founded},
+      2/2013/2015/{Scaleway}/{free trial only},
+      1/2015/2016/{T-Cloud Public}/{platform commissioned},
+      0/2018/2022/{STACKIT}/{internal use only}}
+    {
+      \pgfmathsetmacro\xs{\start-\yzero}
+      \pgfmathsetmacro\xl{\launch-\yzero}
+      \node[left, font=\footnotesize] at (-0.6,\row) {\name};
+      \draw[black!45, dashed, line width=0.9pt] (\xs,\row) -- (\xl,\row);
+      \node[circle, fill=black!45, inner sep=1.1pt] at (\xs,\row) {};
+      \node[above, font=\scriptsize, black!55] at (\xs,\row) {\origin};
+      \draw[black!75, line width=1.9pt] (\xl,\row) -- (27,\row);
+      \node[circle, fill=black!85, inner sep=1.7pt] at (\xl,\row) {};
+      \node[below, font=\scriptsize\bfseries] at (\xl,\row) {\launch};
+    }
+  \end{tikzpicture}
+  \caption{Development phase of each provider.}
+  \label{fig:launch-dates}
+\end{figure}
+
+The dashed part is the time spent building before anything could be bought; the solid part is the time
+on sale. The external launch year used in the calculation is shown in
+bold. 
+
+\begin{itemize}
+  \item \textbf{\acs{AWS}} --- the idea was written down inside Amazon in 2003
+        and built from 2004 \cite{Black_EC2Origins_2009}. Its storage service
+        went on sale in \textbf{2006}, the year used
+        \cite{AWS_FirstFiveYears}.
+  \item \textbf{OVHcloud} --- founded in 1999, but as a web hosting company. It
+        began building its own data centres in 2006 and sold no cloud product
+        until \textbf{2010}, the year used \cite{OVHcloud_History}.
+  \item \textbf{IONOS} --- the platform is ProfitBricks, founded in Berlin in
+        2010 \cite{IONOS_ProfitBricks_2018} and selling by \textbf{2012}, the
+        year used: it had around a thousand customers by that November
+        \cite{ProfitBricks_DCK_2012}. United Internet bought it in 2017 and the
+        business was renamed IONOS in 2018
+        \cite{IONOS_ProfitBricks_2018}, so the familiar name is six years
+        younger than the platform behind it.
+  \item \textbf{Scaleway} --- ran from 2013 as a free trial under the name
+        Online Labs. It went on sale as Scaleway in \textbf{2015}, the year
+        used \cite{Scaleway_About}.
+  \item \textbf{T-Cloud Public} --- the platform was commissioned in 2015 under
+        a partnership with Huawei and opened to customers as Open Telekom Cloud
+        in \textbf{2016}, the year used \cite{OTC_GoesLive_2016}.
+  \item \textbf{STACKIT} --- built in 2018 to run Lidl and Kaufland alone. It
+        opened to customers outside the Schwarz group in \textbf{2022}, the year
+        used \cite{STACKIT_Launch_2022}.
+\end{itemize}
+
+The dashed part is therefore left out in every case, the baseline included.
+\acs{AWS} ran three years before it had anything to sell, and STACKIT four;
+neither is credited with them.
+
+With a start year fixed, the capability score becomes a rate. The parity speed is
+the score divided by the years the provider has been selling, and the parity year
+is the point at which that speed would carry it to the baseline of 100. The year
+of assessment is 2026 throughout.
+
+\begin{align}
+  \label{eq:parity-speed}
+  \text{parity speed (points/year)}
+    &= \frac{\text{score}}{2026 - \text{launch year}} \\[0.6em]
+  \label{eq:parity-year}
+  \text{parity year}
+    &\approx 2026 + \frac{100 - \text{score}}{\text{parity speed}}
+\end{align}
+
+Worked through for T-Cloud Public: it scores 72.1 and has been selling since
+2016, so ten years for 72.1 points, a rate of 7.2 points a year. The remaining
+27.9 points at that rate take a further four years, giving 2030.
+
+Three things about this figure need saying plainly. It is an illustration, not a
+forecast: no provider has undertaken to keep improving at the rate it has managed
+so far, and none is obliged to. It assumes progress is even, which it is not ---
+the first services a provider builds are the ones its customers ask for most, and
+the remainder get harder.
+
+And it holds the baseline still. \acs{AWS} sits at 100 throughout, but it is not
+a fixed target. It adds services continuously, and the catalogue used in
+\cref{sec:method-study2} records only what it offered at the time of assessment.
+A provider closing on 100 is therefore closing on where \acs{AWS} stood in 2026,
+not where it will stand in 2038, for example. Every date that follows is the earliest a
+provider could arrive, on the most favourable reading available to it, and the
+real distance is wider than the chart can show. Whether it is wider by a few
+years or by an unbridgeable margin depends on how fast \acs{AWS} keeps extending
+its own catalogue, which this study does not attempt to predict.
+
+The figure is reported because it expresses the gap in years rather than points,
+and years are the unit a contract is written in.
+
+\Cref{fig:parity-projection} draws the result. The solid lines are the record so
+far, from launch to the year of assessment. The dashed lines carry each rate
+forward to the baseline.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.96\textwidth, height=8.2cm,
+      xmin=2006, xmax=2066, ymin=0, ymax=108,
+      xlabel={Year}, ylabel={Capability score},
+      xlabel style={font=\footnotesize}, ylabel style={font=\footnotesize},
+      xtick={2006,2016,2026,2036,2046,2056,2066},
+      ytick={0,20,40,60,80,100},
+      ticklabel style={font=\footnotesize},
+      % years are years, not quantities: suppress the thousands separator
+      scaled x ticks=false,
+      x tick label style={/pgf/number format/1000 sep={}},
+      grid=major, grid style={black!10},
+      axis on top,
+      legend style={at={(0.5,-0.22)}, anchor=north, legend columns=3,
+                    font=\footnotesize, draw=none, column sep=1ex},
+      tick style={draw=none},
+      axis x line*=bottom, axis y line*=left,
+      clip=false,
+    ]
+      % projection zone, everything right of the year of assessment
+      \fill[black!4] (axis cs:2026,0) rectangle (axis cs:2066,108);
+      % the baseline the providers are measured against
+      \addplot[cBase, dashed, very thick, mark=none, forget plot]
+        coordinates {(2006,100) (2066,100)};
+      \node[anchor=south east, font=\scriptsize, cBase]
+        at (axis cs:2066,100) {\acs{AWS} baseline};
+      % year of assessment, and the Digital Decade target
+      \draw[black!45, dashed] (axis cs:2026,0) -- (axis cs:2026,108);
+      \node[anchor=south, font=\scriptsize, black!55, rotate=90]
+        at (axis cs:2025.2,2) {assessed 2026};
+      \draw[black!45, dashed] (axis cs:2030,0) -- (axis cs:2030,108);
+      \node[anchor=south, font=\scriptsize, black!55, rotate=90]
+        at (axis cs:2029.2,2) {2030 EC Digital Decade};
+
+      % record so far (solid) and the rate carried forward (dashed)
+      \addplot[cProvA, very thick] coordinates {(2016,0) (2026,72.1)};
+      \addplot[cProvA, thick, dashed, mark=*, mark size=1.6pt,
+               forget plot] coordinates {(2026,72.1) (2029.9,100)};
+      \addplot[cProvC, very thick] coordinates {(2022,0) (2026,44.1)};
+      \addplot[cProvC, thick, dashed, mark=*, mark size=1.6pt,
+               forget plot] coordinates {(2026,44.1) (2031.1,100)};
+      \addplot[cProvB, very thick] coordinates {(2010,0) (2026,56.2)};
+      \addplot[cProvB, thick, dashed, mark=*, mark size=1.6pt,
+               forget plot] coordinates {(2026,56.2) (2038.5,100)};
+      \addplot[cProvD, very thick] coordinates {(2015,0) (2026,40.3)};
+      \addplot[cProvD, thick, dashed, mark=*, mark size=1.6pt,
+               forget plot] coordinates {(2026,40.3) (2042.3,100)};
+      \addplot[cProvE, very thick] coordinates {(2012,0) (2026,26.8)};
+      \addplot[cProvE, thick, dashed, mark=*, mark size=1.6pt,
+               forget plot] coordinates {(2026,26.8) (2064.2,100)};
+      \legend{T-Cloud Public, STACKIT, OVHcloud, Scaleway, IONOS}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Capability added since launch (solid) and the same rate carried
+           forward to the \acs{AWS} baseline (dashed). The shaded area is
+           projection rather than record.}
+  \label{fig:parity-projection}
+\end{figure}
+
+The steepest line belongs to the youngest provider. STACKIT has been selling for
+four years and has added capability faster than anyone in the set, which is what
+places it at the baseline in 2031 despite starting last. T-Cloud Public arrives a
+year earlier from a higher score and a gentler slope. Both fall close to the
+Union's 2030 target for digital capability, and the remaining three do not:
+OVHcloud in 2038, Scaleway in 2042, and IONOS not until the 2060s.
+
+That last figure should be read as a direction rather than a date. Thirty-eight
+years is past any horizon a procurement decision occupies, and it reflects what
+IONOS is: a business whose capability score is low because it sells hosting and
+domains rather than infrastructure, not because it is building infrastructure
+slowly. The projection assumes every provider is running the same race, and that
+is the assumption it exposes.
 
 \section{Study 4 --- Technical Benchmarking}
 \label{sec:method-study4}

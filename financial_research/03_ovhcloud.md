@@ -177,7 +177,21 @@
 
 ---
 
-## 12. Summary Assessment for Thesis
+## 12. Launch Date Used in Study 3
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Origin | 1999 | Founded by Octave Klaba as a **web hosting** company — not the cloud platform being scored | §10 timeline |
+| Development | 2006 | Begins building its own data centres and servers. An internal infrastructure milestone; no cloud product on sale | §10 timeline |
+| **First external sale** | **2010** | Hosted Private Cloud released. OVHcloud's own history: *"From 2010, OVHcloud entered into the world of cloud with a disruptive, high-performance offer — the Hosted Private Cloud. A Public Cloud offer followed."* | [OVHcloud company history](https://corporate.ovhcloud.com/en/company/history/) |
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **Correction.** `backend/financial_data.py` currently holds `cloud_launch_year = 2006`, which credits OVHcloud with four years in which it had no cloud product to sell. Correcting to 2010 **shortens** its operating span and therefore **raises** its measured rate of progress. Rerun the projection before quoting any parity year.
+
+---
+
+## 13. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|

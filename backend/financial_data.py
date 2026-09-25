@@ -58,7 +58,11 @@ FINANCIAL_PROVIDERS = {
     "OVHcloud": {
         "display_name": "OVHcloud",
         "currency": "EUR",
-        "cloud_launch_year": 2006,
+        # First external sale, not first construction. OVH was founded in 1999 as
+        # a web host and began building its own data centres in 2006, but sold no
+        # cloud product until the Hosted Private Cloud in 2010.
+        # https://corporate.ovhcloud.com/en/company/history/
+        "cloud_launch_year": 2010,
         "revenue_disclosed": True,
         "bucket": "A",
         "revenue_series": {
@@ -134,7 +138,12 @@ FINANCIAL_PROVIDERS = {
     "IONOS": {
         "display_name": "IONOS",
         "currency": "EUR",
-        "cloud_launch_year": 2018,
+        # First external sale, not the rebrand. IONOS Cloud is ProfitBricks,
+        # founded in Berlin in 2010 and generally available from 2012. 1&1
+        # acquired it in 2017 and renamed it IONOS in 2018, so 2018 dates the
+        # name rather than the platform.
+        # https://www.datacenterknowledge.com/archives/2012/12/13/profitbricks-looks-to-be-the-2nd-generation-of-iaas
+        "cloud_launch_year": 2012,
         "revenue_disclosed": True,
         "bucket": "A",
         "revenue_series": {

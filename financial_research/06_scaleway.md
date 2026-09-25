@@ -154,7 +154,21 @@
 
 ---
 
-## 9. Summary Assessment for Thesis
+## 9. Launch Date Used in Study 3
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Origin | 1999 | Founded as Dedibox, dedicated hosting — not the cloud platform being scored | §7 timeline |
+| Development | 2013 | ARM instances offered as a **free trial** under the name Online Labs. A trial is not a sale | [Wikipedia — Scaleway](https://en.wikipedia.org/wiki/Scaleway) |
+| **First external sale** | **April 2015** | The C1 ARM server left beta and went on sale under the Scaleway brand at €9.99/month. Scaleway's own about page dates the first ARM-based bare-metal IaaS to 2015 | [Scaleway — About us](https://www.scaleway.com/en/about-us/), [CNX Software, 2 Apr 2015](https://www.cnx-software.com/2015/04/02/scaleway-provides-dedicated-arm-servers-for-10-euros-per-month-0-02-euro-per-hour/) |
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **No correction required.** The launch year already in use matches the rule. Note that the §7 timeline describes 2015 as a "rebrand", which understates it — April 2015 is when the commercial cloud service began, not merely when the name changed.
+
+---
+
+## 10. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|

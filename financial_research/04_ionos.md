@@ -166,7 +166,24 @@ In 2025, IONOS restructured its segment reporting to reflect this distinction:
 
 ---
 
-## 12. Summary Assessment for Thesis
+## 12. Launch Date Used in Study 3
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Origin | 1988 | 1&1 founded by United Internet — a web hosting parent, not the cloud platform | §10 timeline |
+| Development | 2010 | ProfitBricks founded in Berlin by Achim Weiss and Andreas Gauger, former 1&1 co-founders, with United Internet funding. IONOS's own newsroom: *"In 2010, Achim Weiss founded ProfitBricks, Germany's first provider focusing on IaaS solutions."* | [IONOS newsroom](https://www.ionos.com/newsroom/news/11-internet-and-profitbricks-become-ionos-by-11/) |
+| **First external sale** | **2012** | Commercially trading during 2012 — US launch that September, and approximately **1,000 customers by late November 2012** | [Data Centre Knowledge, 13 Dec 2012](https://www.datacenterknowledge.com/archives/2012/12/13/profitbricks-looks-to-be-the-2nd-generation-of-iaas) |
+| Rename | 2018 | United Internet acquired ProfitBricks in 2017 and the merged business was rebranded IONOS in 2018. IONOS Cloud is the same platform | [IONOS newsroom](https://www.ionos.com/newsroom/news/11-internet-and-profitbricks-become-ionos-by-11/) |
+
+> **Sourcing note.** A Business Wire release of 10 September 2012 is widely cited as announcing general availability in North America, but Business Wire returns HTTP 403 to automated retrieval and the page could not be read directly. It is therefore **not** used as a source here. The 2012 date rests instead on the Data Centre Knowledge article above, which is readable and independently establishes that the platform was selling to roughly a thousand customers during that year. If the Business Wire release can be opened in a browser it would pin the exact GA date; until then, 2012 is supported as "demonstrably trading", not as a precise announcement date.
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **Correction.** `backend/financial_data.py` currently holds `cloud_launch_year = 2018`, which is the **rename**, not the launch. The platform has been trading since 2012. Correcting **lengthens** its operating span and therefore **lowers** its measured rate of progress — the opposite direction to the OVHcloud correction. Rerun the projection before quoting any parity year.
+
+---
+
+## 13. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|
