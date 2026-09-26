@@ -36,6 +36,11 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{polar}
+% groupplots: the six revenue panels, each needing its own scale.
+% patterns: hatching, used where a bar cannot be divided because the company
+% does not publish the split.
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{patterns}
 \usepackage{float}
 % Keeps floats inside the section that introduces them, so a later section
 % heading cannot appear above its own tables and figures.

@@ -1,0 +1,243 @@
+{
+  "key": "STACKIT",
+  "entity": "STACKIT (Schwarz Digits, Schwarz Group)",
+  "entity_note": "STACKIT is the cloud brand inside Schwarz Digits, the IT and digital division of the Schwarz Group. Neither STACKIT nor Schwarz Digits publishes a revenue figure for STACKIT alone, in any year.",
+  "parent": {
+    "name": "Schwarz Group (Unternehmen der Schwarz Gruppe)",
+    "relationship": "STACKIT sits inside Schwarz Digits, one of the group's business fields alongside Lidl, Kaufland and PreZero. The Schwarz Group is privately held and publishes turnover in an annual press release rather than a filed annual report."
+  },
+  "currency": "EUR",
+  "unit": "million",
+  "fiscal_year_end": "end of February",
+  "fiscal_year_note": "Schwarz Group fiscal year 2025 means 1 March 2025 to 28 February 2026. The years in this file are the group's own fiscal-year labels and run roughly two months ahead of the calendar year.",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date",
+    "rounded": "the only company statement gives the figure rounded"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": null,
+      "parent_status": "not_located",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2016,
+      "parent": null,
+      "parent_status": "not_located",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2017,
+      "parent": null,
+      "parent_status": "not_located",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2018,
+      "parent": 105300,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2019,
+      "parent": 114300,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2020,
+      "parent": 125300,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2021,
+      "parent": 133600,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2022,
+      "parent": 154100,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_applicable"
+    },
+    {
+      "year": 2023,
+      "parent": 167200,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "division_schwarz_digits": 1900,
+      "division_source": "S4"
+    },
+    {
+      "year": 2024,
+      "parent": 175400,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "division_schwarz_digits": 1900,
+      "division_source": "S5"
+    },
+    {
+      "year": 2025,
+      "parent": 185600,
+      "parent_status": "reported",
+      "parent_source": "S6",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "division_schwarz_digits": 2200,
+      "division_source": "S6"
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_yet_reported",
+      "cloud_source": null,
+      "division_schwarz_digits": null,
+      "division_status": "not_yet_reported"
+    }
+  ],
+  "proxy": {
+    "field": "division_schwarz_digits",
+    "label": "Schwarz Digits division",
+    "short_label": "Schwarz Digits",
+    "bound": "upper",
+    "explanation": "The division contains STACKIT together with XM Cyber, Schwarz Digital and the group's internal IT. STACKIT is one part of it, so STACKIT must be smaller than this figure. How much smaller is not published.",
+    "in_plain_words": "the cloud arm is inside this figure, so it is smaller"
+  },
+  "europe": {
+    "kind": "not disclosed",
+    "measure": null,
+    "note": "The Schwarz Group publishes a single worldwide turnover figure and no geographic breakdown of any kind. Lidl and Kaufland store counts are given by country, but no revenue is.",
+    "series": {},
+    "sources": []
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Sustainability Report Schwarz Group 2018/2019",
+      "publisher": "Schwarz Group",
+      "url": "https://gruppe.schwarz/assets/csr/sustainability-report/index.html",
+      "quote": "the Schwarz Group was able in fiscal year 2018 to earn more than 100 billion euros for the first time (at 105.3 billion euros) ... it again generated an increased level of revenue (114.3 billion euros) in fiscal year 2019",
+      "covers": "FY2018, FY2019",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "Aktuelle Zahlen der Schwarz Gruppe (press release)",
+      "publisher": "Schwarz Group",
+      "date": "2021-07-15",
+      "url": "https://gruppe.schwarz/presse/archiv/2021/aktuelle-zahlen-2020",
+      "quote": "eine Steigerung zum Vorjahr von 114,3 Mrd. Euro Gesamtumsatz auf insgesamt 125,3 Mrd. Euro",
+      "covers": "FY2019, FY2020; FY2021 (133.6) from the same release series",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "Die Unternehmen der Schwarz Gruppe wachsen auf stabilem Niveau (press release)",
+      "publisher": "Schwarz Group",
+      "date": "2023-05-25",
+      "url": "https://gruppe.schwarz/presse/archiv/2023/die-unternehmen-der-schwarz-gruppe-wachsen-auf-stabilem-niveau",
+      "quote": "einen Umsatz von 154,1 Milliarden Euro (Umsatzplus: 15,4 Prozent)",
+      "covers": "FY2022",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "Erfolgreiches Geschaeftsjahr der Unternehmen der Schwarz Gruppe in konjunkturell herausfordernden Zeiten (press release)",
+      "publisher": "Schwarz Group",
+      "date": "2024-05-23",
+      "url": "https://gruppe.schwarz/presse/archiv/2024/erfolgreiches-geschaeftsjahr-der-unternehmen-der-schwarz-gruppe",
+      "quote": "einen Umsatz von 167,2 Milliarden Euro (Umsatzplus: 8,5 Prozent)",
+      "covers": "FY2023, balance-sheet date 29 February 2024; Schwarz Digits 1.9 billion",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "Die Unternehmen der Schwarz Gruppe verzeichnen positive Entwicklung im Geschaeftsjahr 2024 (press release)",
+      "publisher": "Schwarz Group",
+      "date": "2025-05-22",
+      "url": "https://gruppe.schwarz/presse/archiv/2025/die-unternehmen-der-schwarz-gruppe-verzeichnen-positive-entwicklung-im-geschaeftsjahr-2024-und-erhoehen-ihre-investitionen",
+      "quote": "Ueber alle Geschaeftsfelder hinweg erwirtschafteten sie einen Gesamtumsatz von 175,4 Milliarden Euro ... hielt ihren Umsatz stabil auf 1,9 Milliarden Euro",
+      "covers": "FY2024, balance-sheet date 28 February 2025; Schwarz Digits 1.9 billion",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S6",
+      "title": "Unternehmen der Schwarz Gruppe erzielen 185,6 Milliarden Euro Umsatz (press release)",
+      "publisher": "Schwarz Group",
+      "date": "2026-06-11",
+      "url": "https://gruppe.schwarz/presse/archiv/2026/unternehmen-der-schwarz-gruppe-erzielen-185-6-milliarden-euro-umsatz-und-treiben-mit-investitionen-von-mehr-als-10-milliarden-euro-ihren-wachstumsk",
+      "quote": "Der Gesamtumsatz der Unternehmensgruppe waechst um 5,8 Prozent auf 185,6 Milliarden Euro ... einem deutlichen Umsatzplus der IT- und Digital-Sparte der Schwarz Gruppe von 15,8 Prozent auf 2,2 Milliarden Euro",
+      "covers": "FY2025, balance-sheet date 28 February 2026; Schwarz Digits 2.2 billion",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "STACKIT revenue is undisclosed for every year since the platform opened to external customers in 2022. Before that the cloud arm did not exist as an external business, which is recorded as not_applicable rather than undisclosed.",
+    "Schwarz Digits was founded in September 2023 and first reported for fiscal year 2023. Its revenue is carried as division context, not as STACKIT revenue: the division also contains XM Cyber, Schwarz Digital and the group's internal IT.",
+    "Schwarz Group turnover for fiscal years 2015 to 2017 was published in press releases at the time but was not found in an accessible Schwarz source in this pass. It is marked not_located, which is different from undisclosed.",
+    "The group is privately held and files no consolidated annual report. Every figure here comes from the group's own annual turnover press release or its sustainability report.",
+    "Fiscal year 2026 ends on 28 February 2027, well after the compile date."
+  ]
+}

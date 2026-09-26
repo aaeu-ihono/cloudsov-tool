@@ -409,3 +409,88 @@ MARKET_2030 = {
     "aws_2030_est_eur_m": 250000,
     "eu_market_2024_eur_m": 8500,
 }
+
+
+# ---------------------------------------------------------------------------
+# Parent company revenue.
+#
+# Every provider sits inside a parent. This records what that parent earns, so
+# the backing behind a provider can be seen separately from the provider's own
+# cloud business. The two are never mixed: a parent figure is never used as a
+# substitute for a cloud figure.
+#
+# Every value below was read from the primary document, not from a summary.
+# Fiscal years do not align -- Schwarz closes in February, OVH Groupe in
+# August, and iliad's most recent published actual is 2023 -- so `period`
+# records what each figure actually covers.
+# ---------------------------------------------------------------------------
+PARENT_REVENUE = {
+    "AWS": {
+        "parent": "Amazon.com, Inc.",
+        "value_m": 637959,
+        "currency": "USD",
+        "period": "FY2024 (calendar)",
+        "main_business": "Retail",
+        "note": "Consolidated net sales. North America 387,497 plus International "
+                "142,906 plus AWS 107,556. AWS is 16.9 per cent of the total.",
+        "source": "https://s2.q4cdn.com/299287126/files/doc_financials/2025/ar/"
+                  "Amazon-2024-Annual-Report.pdf",
+    },
+    "STACKIT": {
+        "parent": "Schwarz Group",
+        "value_m": 185600,
+        "currency": "EUR",
+        "period": "FY2025, ended 28 February 2026",
+        "main_business": "Retail",
+        "note": "Prior year 175.4bn. Group plans investments of more than 10bn in "
+                "the current year, about 5bn of it in Germany.",
+        "source": "https://gruppe.schwarz/en/press/archive/2026/companies-of-schwarz-"
+                  "group-generate-185.6-billion-euros-in-revenue-and-drive-growth-"
+                  "with-investments-in-excess-of-10-billion-euros",
+    },
+    "T-Cloud Public": {
+        "parent": "Deutsche Telekom AG",
+        "value_m": 115769,
+        "currency": "EUR",
+        "period": "FY2024 (calendar)",
+        "main_business": "Telecommunications",
+        "note": "Net revenue, up 3.4 per cent from 111,985 in 2023. Service revenue "
+                "was 96.5bn of the total.",
+        "source": "https://report.telekom.com/annual-report-2024/management-report/"
+                  "development-of-business-in-the-group/results-of-operations-of-the-group.html",
+    },
+    "Scaleway": {
+        "parent": "iliad Group",
+        "value_m": 9240,
+        "currency": "EUR",
+        "period": "FY2023 (calendar)",
+        "main_business": "Telecommunications",
+        "note": "Consolidated revenues, up 10.4 per cent. The group targeted 10bn "
+                "for 2024, but that is guidance rather than a reported actual. "
+                "iliad was delisted in 2022-23 and reports for bond covenants only.",
+        "source": "https://www.globenewswire.com/news-release/2024/03/14/2845988/0/en/"
+                  "Press-Release-A-year-of-exceptional-growth.html",
+    },
+    "IONOS": {
+        "parent": "United Internet AG",
+        "value_m": 6329.2,
+        "currency": "EUR",
+        "period": "FY2024 (calendar)",
+        "main_business": "Telecommunications and web services",
+        "note": "Total group sales, against 6,213.2 in 2023. United Internet retains "
+                "a majority holding in IONOS after the 2023 listing.",
+        "source": "https://www.united-internet.de/fileadmin/user_upload/"
+                  "United_Internet_Consolidated_Financial_Statements_FY_2024.pdf",
+    },
+    "OVHcloud": {
+        "parent": "OVH Groupe",
+        "value_m": 1084.6,
+        "currency": "EUR",
+        "period": "FY2025, ended 31 August 2025",
+        "main_business": "Cloud -- no business outside it",
+        "note": "OVH Groupe is the listed holding company for the cloud business and "
+                "essentially nothing else, so its revenue is the cloud revenue. "
+                "Klaba family held 79.0 per cent of capital at 5 December 2025.",
+        "source": "https://corporate.ovhcloud.com/en/newsroom/news/financial-results-fy25/",
+    },
+}

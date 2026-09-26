@@ -1,0 +1,249 @@
+{
+  "key": "IONOS",
+  "entity": "IONOS Group SE",
+  "entity_note": "IONOS Group SE was carved out of United Internet's Business Applications segment and listed on 8 February 2023. United Internet AG remains the majority shareholder, so the parent and the cloud arm are both separately reported and the parent figure already contains the cloud figure.",
+  "parent": {
+    "name": "United Internet AG",
+    "relationship": "Majority shareholder of IONOS Group SE; IONOS is fully consolidated into United Internet's accounts."
+  },
+  "currency": "EUR",
+  "unit": "million",
+  "fiscal_year_end": "31 December",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": 3715.7,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "predecessor_segment": null,
+      "predecessor_status": "not_located"
+    },
+    {
+      "year": 2016,
+      "parent": 3808.1,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "predecessor_segment": 638.9,
+      "predecessor_status": "reported",
+      "predecessor_source": "S2"
+    },
+    {
+      "year": 2017,
+      "parent": 4206.3,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "predecessor_segment": 762.1,
+      "predecessor_status": "reported",
+      "predecessor_source": "S2"
+    },
+    {
+      "year": 2018,
+      "parent": 5102.9,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "predecessor_segment": 841.8,
+      "predecessor_status": "reported",
+      "predecessor_source": "S2"
+    },
+    {
+      "year": 2019,
+      "parent": 5194.1,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "not_applicable",
+      "cloud_source": null,
+      "predecessor_segment": 890.6,
+      "predecessor_status": "reported",
+      "predecessor_source": "S2"
+    },
+    {
+      "year": 2020,
+      "parent": 5367.2,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": 988.3,
+      "cloud_status": "reported",
+      "cloud_source": "S4",
+      "predecessor_segment": 948.6,
+      "predecessor_status": "reported",
+      "predecessor_source": "S2"
+    },
+    {
+      "year": 2021,
+      "parent": 5646.2,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 1103.3,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2022,
+      "parent": 5915.1,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 1293.0,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2023,
+      "parent": 6185.9,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 1423.7,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2024,
+      "parent": 5990.8,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 1560.3,
+      "cloud_status": "reported",
+      "cloud_source": "S4",
+      "cloud_restated": 1248.1,
+      "cloud_restated_source": "S5"
+    },
+    {
+      "year": 2025,
+      "parent": 6103.8,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 1316.9,
+      "cloud_status": "reported",
+      "cloud_source": "S5",
+      "cloud_basis": "continuing operations, AdTech excluded under IFRS 5"
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_yet_reported",
+      "cloud_source": null
+    }
+  ],
+  "proxy": {
+    "field": "predecessor_segment",
+    "label": "United Internet Business Applications segment",
+    "short_label": "Business Applications",
+    "bound": "different perimeter",
+    "explanation": "The segment IONOS was carved out of. It neither contains IONOS Group SE nor sits inside it: in 2020, where both are published, the segment reports 948.6 against IONOS Group SE's 988.3. The two are differently drawn businesses, so this figure says nothing about how large or small IONOS is.",
+    "in_plain_words": "a differently drawn business; it says nothing about the cloud arm's size"
+  },
+  "europe": {
+    "kind": "floor only",
+    "measure": "domestic (German) revenue as a share of segment revenue",
+    "note": "United Internet splits revenue into domestic and foreign, not into Europe and the rest. Its foreign revenue mixes European countries with the United States, where IONOS Inc. operates out of Philadelphia, so no European share can be read off it. What the split does establish is that Germany alone accounts for around nine tenths of revenue, so the European share is at least that. The chart shows it as a floor rather than as a value.",
+    "series": {
+      "2020": {
+        "pct": 91.5,
+        "kind": "floor",
+        "source": "E1"
+      },
+      "2025": {
+        "pct": 90.4,
+        "kind": "floor",
+        "source": "E2"
+      }
+    },
+    "sources": [
+      {
+        "id": "E1",
+        "title": "United Internet AG Annual Report 2020, segment reporting: group segment revenue 5,367.2, thereof domestic 4,908.7",
+        "url": "https://report.united-internet.de/fileadmin/geschaeftsbericht/2020/UI_Annual_Report_2020.pdf",
+        "covers": "2020",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E2",
+        "title": "United Internet AG Annual Report 2025, segment reporting: group segment revenue 6,119.9, thereof domestic 5,534.2",
+        "url": "https://www.united-internet.de/fileadmin/user_upload/Annual_Report_2025_e.pdf",
+        "covers": "2025",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "United Internet AG Annual Report 2019 — Multi-period overview of key figures for the Group (sales 2015–2019)",
+      "publisher": "United Internet AG",
+      "date": "2020-03",
+      "url": "https://report.united-internet.de/fileadmin/2019/en/downloads/United_Internet_Annual_report_2019.pdf",
+      "covers": "parent 2015–2019; Business Applications segment 2016–2019",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "United Internet AG Annual Report 2020 — Multi-period overview of key figures for the Group, and Business Applications segment key figures",
+      "publisher": "United Internet AG",
+      "date": "2021-03",
+      "url": "https://report.united-internet.de/fileadmin/geschaeftsbericht/2020/UI_Annual_Report_2020.pdf",
+      "covers": "parent 2016–2020; Business Applications segment 2016–2020",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "United Internet AG Annual Report 2025 — Multi-period overview of key figures for the Group (sales 2021–2025)",
+      "publisher": "United Internet AG",
+      "date": "2026-03",
+      "url": "https://www.united-internet.de/fileadmin/user_upload/Annual_Report_2025_e.pdf",
+      "covers": "parent 2021–2025",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "IONOS Group SE Annual Report 2024 — Multi-year overview: development of key revenue and earnings figures (2020–2024)",
+      "publisher": "IONOS Group SE",
+      "date": "2025-03",
+      "url": "https://www.ionos-group.com/fileadmin/Publications/Berichte/IONOS_Annual_Report_2024.pdf",
+      "covers": "IONOS 2020–2024 as reported",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "IONOS Group SE Annual Report 2025 — Multi-year overview: development of key revenue and earnings figures (2021–2025, 2024 restated)",
+      "publisher": "IONOS Group SE",
+      "date": "2026-03",
+      "url": "https://www.ionos-group.com/fileadmin/Publications/Berichte/FY_2025/IONOS_Annual_Report_2025.pdf",
+      "covers": "IONOS 2021–2025, continuing-operations basis",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "Two different perimeters exist for the years before 2020 and must not be mixed. IONOS Group SE first reports its own revenue for 2020. For 2016 to 2019 the nearest published series is United Internet's Business Applications segment, carried here in a separate 'predecessor_segment' field, never in the 'cloud' field.",
+    "Even in 2020, where both exist, the two differ: IONOS Group SE reports 988.3 while United Internet's Business Applications segment reports 948.6. The perimeters are not identical, which is the reason the two are kept apart.",
+    "IONOS classified its AdTech division as a discontinued operation under IFRS 5 as of 30 September 2025 and restated 2024. The 2024 row therefore carries both figures: 1,560.3 as originally reported and 1,248.1 restated. A chart that plots 1,560.3 for 2024 next to 1,316.9 for 2025 shows a fall that is an accounting reclassification, not a loss of business.",
+    "United Internet's 2024 sales of 5,990.8 are the comparable figure stated in the 2025 annual report, which is why 2023 (6,185.9) is higher.",
+    "Business Applications segment revenue for 2015 was not found in the 2019 or 2020 annual reports, whose multi-period tables begin at 2016."
+  ]
+}

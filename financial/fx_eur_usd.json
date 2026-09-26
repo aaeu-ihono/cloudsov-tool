@@ -1,0 +1,55 @@
+{
+  "series": "ECB euro reference exchange rate, US dollar (EXR.A.USD.EUR.SP00.A)",
+  "frequency": "annual average of daily reference rates",
+  "note": "usd_per_eur is the rate as the ECB publishes it. eur_per_usd is its reciprocal and is what converts a US-dollar figure into euro. Each year uses its own rate: applying one year's rate across an eleven-year series moves the euro heights by several per cent for reasons that have nothing to do with the company.",
+  "publisher": "European Central Bank",
+  "url": "https://data-api.ecb.europa.eu/service/data/EXR/A.USD.EUR.SP00.A?format=csvdata",
+  "portal": "https://data.ecb.europa.eu/data/datasets/EXR",
+  "accessed": "2026-09-26",
+  "rates": {
+    "2015": {
+      "usd_per_eur": 1.109513,
+      "eur_per_usd": 0.901296
+    },
+    "2016": {
+      "usd_per_eur": 1.106903,
+      "eur_per_usd": 0.903421
+    },
+    "2017": {
+      "usd_per_eur": 1.129681,
+      "eur_per_usd": 0.885206
+    },
+    "2018": {
+      "usd_per_eur": 1.180955,
+      "eur_per_usd": 0.846773
+    },
+    "2019": {
+      "usd_per_eur": 1.119475,
+      "eur_per_usd": 0.893276
+    },
+    "2020": {
+      "usd_per_eur": 1.142196,
+      "eur_per_usd": 0.875506
+    },
+    "2021": {
+      "usd_per_eur": 1.18274,
+      "eur_per_usd": 0.845494
+    },
+    "2022": {
+      "usd_per_eur": 1.053049,
+      "eur_per_usd": 0.949624
+    },
+    "2023": {
+      "usd_per_eur": 1.081269,
+      "eur_per_usd": 0.92484
+    },
+    "2024": {
+      "usd_per_eur": 1.08238,
+      "eur_per_usd": 0.92389
+    },
+    "2025": {
+      "usd_per_eur": 1.129983,
+      "eur_per_usd": 0.884969
+    }
+  }
+}

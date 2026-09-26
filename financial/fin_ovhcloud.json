@@ -1,0 +1,261 @@
+{
+  "key": "OVHcloud",
+  "entity": "OVH Groupe S.A. (trading as OVHcloud)",
+  "entity_note": "OVHcloud is not a subsidiary of a larger trading group. OVH Groupe S.A. is itself the listed parent, and its entire consolidated revenue is the cloud business. The parent-minus-cloud component of the stacked bar is therefore zero by construction, not missing.",
+  "parent": {
+    "name": "OVH Groupe S.A.",
+    "relationship": "Same entity. Listed on Euronext Paris since 15 October 2021; controlled by the Klaba family through holding companies."
+  },
+  "currency": "EUR",
+  "unit": "million",
+  "fiscal_year_end": "31 August",
+  "fiscal_year_note": "FY2025 means the twelve months ended 31 August 2025. Figures are therefore not calendar years and are offset roughly four months behind the other providers.",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date",
+    "approximate": "the only company statement gives a rounded or qualified figure"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": null,
+      "parent_status": "not_located",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_located",
+      "cloud_source": null
+    },
+    {
+      "year": 2016,
+      "parent": null,
+      "parent_status": "not_located",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_located",
+      "cloud_source": null
+    },
+    {
+      "year": 2017,
+      "parent": 400,
+      "parent_status": "approximate",
+      "parent_source": "S1",
+      "cloud": 400,
+      "cloud_status": "approximate",
+      "cloud_source": "S1"
+    },
+    {
+      "year": 2018,
+      "parent": 511.7,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": 511.7,
+      "cloud_status": "reported",
+      "cloud_source": "S2"
+    },
+    {
+      "year": 2019,
+      "parent": 580.4,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": 580.4,
+      "cloud_status": "reported",
+      "cloud_source": "S2"
+    },
+    {
+      "year": 2020,
+      "parent": 632.1,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 632.1,
+      "cloud_status": "reported",
+      "cloud_source": "S3"
+    },
+    {
+      "year": 2021,
+      "parent": 663.3,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 663.3,
+      "cloud_status": "reported",
+      "cloud_source": "S3"
+    },
+    {
+      "year": 2022,
+      "parent": 788.0,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": 788.0,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2023,
+      "parent": 897.3,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": 897.3,
+      "cloud_status": "reported",
+      "cloud_source": "S5"
+    },
+    {
+      "year": 2024,
+      "parent": 993.1,
+      "parent_status": "reported",
+      "parent_source": "S6",
+      "cloud": 993.1,
+      "cloud_status": "reported",
+      "cloud_source": "S6"
+    },
+    {
+      "year": 2025,
+      "parent": 1084.6,
+      "parent_status": "reported",
+      "parent_source": "S6",
+      "cloud": 1084.6,
+      "cloud_status": "reported",
+      "cloud_source": "S6"
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_yet_reported",
+      "cloud_source": null
+    }
+  ],
+  "europe": {
+    "kind": "exact",
+    "measure": "France plus Europe excluding France, over total revenue",
+    "note": "OVHcloud publishes a three-way region table every year. From FY2025 the split is based on the entity that manages the customer relationship rather than the customer's location; the company restated FY2024 onto the new basis, which moves the European share from 79.0 to 77.7.",
+    "series": {
+      "2020": {
+        "pct": 80.5,
+        "kind": "exact",
+        "source": "E1"
+      },
+      "2021": {
+        "pct": 80.8,
+        "kind": "exact",
+        "source": "E1"
+      },
+      "2022": {
+        "pct": 77.8,
+        "kind": "exact",
+        "source": "E2"
+      },
+      "2023": {
+        "pct": 78.1,
+        "kind": "exact",
+        "source": "E2"
+      },
+      "2024": {
+        "pct": 79.0,
+        "kind": "exact",
+        "source": "E3",
+        "restated_pct": 77.7,
+        "basis": "pre-FY2025 basis"
+      },
+      "2025": {
+        "pct": 77.2,
+        "kind": "exact",
+        "source": "E3",
+        "basis": "FY2025 basis, by managing entity"
+      }
+    },
+    "sources": [
+      {
+        "id": "E1",
+        "title": "OVHcloud FY2021 annual results press release, Revenue by geographic region",
+        "url": "https://corporate.ovhcloud.com/sites/default/files/2021-11/2021%2011%2016%20%20-%20OVHcloud%20-%20Annual%20Results%20FY2021%20Vdef.pdf",
+        "covers": "FY2020, FY2021",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E2",
+        "title": "OVH Groupe 2023 Universal Registration Document, Revenue by region",
+        "url": "https://corporate.ovhcloud.com/sites/default/files/2023-11/ovh-groupe-urd-fy23.pdf",
+        "covers": "FY2022, FY2023",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E3",
+        "title": "OVH Groupe 2025 Universal Registration Document, Revenue by geographical area",
+        "url": "https://corporate.ovhcloud.com/sites/default/files/2025-11/ovh_urd_2025_en_mel_25_11_14.pdf",
+        "covers": "FY2024 as reported and restated, FY2025",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "OVH raises 400 million euros to support its strategic development",
+      "publisher": "OVHcloud newsroom",
+      "date": "2017-06-29",
+      "url": "https://corporate.ovhcloud.com/fr-ca/newsroom/news/ovh-raises-400-million-support-its-strategic-development/",
+      "quote": "a généré un chiffre d'affaires proche de 400 millions d'euros sur l'exercice 2016/2017",
+      "covers": "FY2017 (approximate)",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "OVH Groupe S.A. Registration Document (IPO), section 8 — Operating and financial review, Group total revenues by U.S. / non-U.S. entities",
+      "publisher": "OVHcloud / Autorité des marchés financiers",
+      "date": "2021-09",
+      "url": "https://corporate.ovhcloud.com/sites/default/files/2021-09/OVH%20Groupe%20-%20Registration%20Document%20%28final%29.pdf",
+      "covers": "FY2018, FY2019, FY2020",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "Press release — FY2021 financial performance at the high end of the guidance (consolidated income statement: revenue 663,312k / 632,116k)",
+      "publisher": "OVHcloud",
+      "date": "2021-11-16",
+      "url": "https://corporate.ovhcloud.com/sites/default/files/2021-11/2021%2011%2016%20%20-%20OVHcloud%20-%20Annual%20Results%20FY2021%20Vdef.pdf",
+      "covers": "FY2020, FY2021",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "OVH Groupe S.A. 2022 Universal Registration Document — revenue 663.3 / 788.0",
+      "publisher": "OVHcloud / AMF",
+      "date": "2022-12",
+      "url": "https://corporate.ovhcloud.com/sites/default/files/2022-12/ovh-groupe-urd-2022-vdef.pdf",
+      "covers": "FY2021, FY2022",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "OVH Groupe S.A. 2023 Universal Registration Document — consolidated income statement: revenue 787,998k / 897,299k",
+      "publisher": "OVHcloud / AMF",
+      "date": "2023-11",
+      "url": "https://corporate.ovhcloud.com/sites/default/files/2023-11/ovh-groupe-urd-fy23.pdf",
+      "covers": "FY2022, FY2023",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S6",
+      "title": "OVH Groupe S.A. 2025 Universal Registration Document — revenue 993.1 / 1,084.6",
+      "publisher": "OVHcloud / AMF",
+      "date": "2025-11-14",
+      "url": "https://corporate.ovhcloud.com/sites/default/files/2025-11/ovh_urd_2025_en_mel_25_11_14.pdf",
+      "covers": "FY2024, FY2025",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "OVHcloud was privately held until October 2021 and published no audited group revenue for FY2015 and FY2016. The FY2017 figure is the company's own wording, 'close to 400 million euros', given in a funding press release two months before that fiscal year closed; it is a rounded company statement, not an audited figure, and is flagged 'approximate'.",
+    "The IPO registration document gives the FY2018 to FY2020 series split into U.S. and non-U.S. entities; the group totals used here (511.7 / 580.4 / 632.1) were checked by adding the two components.",
+    "FY2026 ended 31 August 2026. OVHcloud publishes annual results in late October, so FY2026 was not yet available on the compile date."
+  ]
+}
