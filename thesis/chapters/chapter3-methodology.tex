@@ -1644,6 +1644,302 @@ stock-market regulator on the point, and publishes one worldwide turnover figure
 year and nothing more \cite{Schwarz_Figures_FY2025}.
 
 
+\subsection{Investments and commitments}
+
+The parity speed of \Cref{fig:parity-projection} says how fast capability has been
+added. It says nothing about what was paid to add it. Before the earnings of these
+businesses are examined, it is worth asking a blunter question: how much money has
+been put behind each of them, where did that money come from, and how much of it
+has a deadline that has already arrived?
+
+\Cref{fig:investment-timeline} is the whole answer in one picture, and the rest of
+this section walks through it. Each row is a provider. Each circle is one
+commitment, placed in the year it was announced, with the area of the circle
+standing for the amount. A dashed, open circle is a commitment that was announced
+without a figure: something was committed, but how much was never said, so no size
+can be meant.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.95\textwidth, height=7.4cm,
+      xmin=2014.3, xmax=2026.9,
+      xtick={2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026},
+      xticklabel style={font=\scriptsize, rotate=45, anchor=north east,
+                        /pgf/number format/1000 sep={}},
+      ymin=0.4, ymax=6.6,
+      ytick={1,2,3,4,5,6},
+      yticklabels={STACKIT,Scaleway,{T-Cloud Public},IONOS,OVHcloud,{\acs{AWS} in Europe}},
+      yticklabel style={font=\scriptsize},
+      xmajorgrids=true, ymajorgrids=true, grid style={gray!20},
+      axis lines*=left,
+      clip=false,
+    ]
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2026.00,6) circle[radius=8.11pt];
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2023.55,6) circle[radius=7.66pt];
+      \draw[fill=cProvE, fill opacity=0.75, draw=cProvE!65!black, line width=0.4pt] (axis cs:2025.00,1) circle[radius=6.64pt];
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2024.00,6) circle[radius=6.09pt];
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2023.00,6) circle[radius=5.82pt];
+      \draw[fill=cProvE, fill opacity=0.75, draw=cProvE!65!black, line width=0.4pt] (axis cs:2026.00,1) circle[radius=5.14pt];
+      \draw[fill=cProvA, fill opacity=0.75, draw=cProvA!65!black, line width=0.4pt] (axis cs:2025.00,2) circle[radius=4.14pt];
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2022.00,6) circle[radius=3.64pt];
+      \draw[fill=cBase, fill opacity=0.75, draw=cBase!65!black, line width=0.4pt] (axis cs:2024.45,6) circle[radius=3.13pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2025.00,5) circle[radius=3.10pt];
+      \draw[fill=cProvC, fill opacity=0.75, draw=cProvC!65!black, line width=0.4pt] (axis cs:2025.00,3) circle[radius=2.98pt];
+      \draw[fill=cProvD, fill opacity=0.75, draw=cProvD!65!black, line width=0.4pt] (axis cs:2022.72,4) circle[radius=2.81pt];
+      \draw[fill=cProvE, fill opacity=0.75, draw=cProvE!65!black, line width=0.4pt] (axis cs:2021.00,1) circle[radius=2.62pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2021.00,5) circle[radius=2.46pt];
+      \draw[fill=cProvD, fill opacity=0.75, draw=cProvD!65!black, line width=0.4pt] (axis cs:2017.00,4) circle[radius=2.46pt];
+      \draw[fill=cProvD, fill opacity=0.75, draw=cProvD!65!black, line width=0.4pt] (axis cs:2023.00,4) circle[radius=2.46pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2017.00,5) circle[radius=2.40pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2015.00,5) circle[radius=2.22pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2016.00,5) circle[radius=2.19pt];
+      \draw[fill=cProvC, fill opacity=0.75, draw=cProvC!65!black, line width=0.4pt] (axis cs:2024.00,3) circle[radius=2.16pt];
+      \draw[fill=cProvC, fill opacity=0.75, draw=cProvC!65!black, line width=0.4pt] (axis cs:2022.85,3) circle[radius=2.12pt];
+      \draw[fill=cProvB, fill opacity=0.75, draw=cProvB!65!black, line width=0.4pt] (axis cs:2022.00,5) circle[radius=2.11pt];
+      \draw[fill=cProvA, fill opacity=0.75, draw=cProvA!65!black, line width=0.4pt] (axis cs:2023.00,2) circle[radius=2.01pt];
+      \draw[fill=cProvC, fill opacity=0.75, draw=cProvC!65!black, line width=0.4pt] (axis cs:2016.00,3) circle[radius=1.90pt];
+      \draw[fill=cProvD, fill opacity=0.75, draw=cProvD!65!black, line width=0.4pt] (axis cs:2023.28,4) circle[radius=1.61pt];
+      \draw[fill=cProvC!8, draw=cProvC!70!black, line width=0.6pt, dash pattern=on 1.6pt off 1.2pt] (axis cs:2021.00,3) circle[radius=2.30pt];
+      \draw[fill=cProvC!8, draw=cProvC!70!black, line width=0.6pt, dash pattern=on 1.6pt off 1.2pt] (axis cs:2023.20,3) circle[radius=2.30pt];
+    \end{axis}
+  \end{tikzpicture}
+
+  \vspace{2pt}
+  {\footnotesize\raggedright
+  Circle area is proportional to the amount committed. A dashed, open circle is a
+  commitment announced without a figure and is drawn at a fixed small size, which
+  carries no meaning. Where a provider made several commitments in one year the
+  circles are spread across that year so each stays visible.\par}
+  \caption{Capital commitments year by year, 2015--2026.}
+  \label{fig:investment-timeline}
+\end{figure}
+
+\Cref{tab:study3-milestones} lists every circle on the chart.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Every capital commitment on the timeline, 2015--2026, in millions of euros.}
+  \label{tab:study3-milestones}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\textwidth}{@{}l X l r l@{}}
+    \toprule
+    Year & What & From & Amount & Timetable given \\
+    \midrule
+    \multicolumn{5}{@{}l}{\textit{\acs{AWS} in Europe}} \\
+    2022 & \acs{AWS} Europe (Milan) Region            & Amazon & 2\,000  & None given \\
+    2023 & European Sovereign Cloud, Brandenburg      & Amazon & 7\,800  & To 2040 \\
+    2024 & \acs{AWS} Europe (Frankfurt) Region        & Amazon & 8\,800  & 2024--2026 \\
+    2024 & \acs{AWS} Europe (Spain) Region, Arag\'on  & Amazon & 15\,700 & Over a decade \\
+    2024 & Milan Region expansion                     & Amazon & 1\,200  & Five years \\
+    2026 & Spain increase                             & Amazon & 18\,000 & To 2035 \\
+    \addlinespace
+    \multicolumn{5}{@{}l}{\textit{OVHcloud}} \\
+    2015 & First syndicated debt                      & Debt   &    267  & None given \\
+    2016 & KKR and TowerBrook stake                   & Equity &    250  & None given \\
+    2017 & Syndicated loan                            & Debt   &    400  & None given \\
+    2021 & Euronext Paris listing                     & Equity &    450  & None given \\
+    2022 & \acs{EIB} green loan                       & Debt   &    200  & None given \\
+    2025 & High-yield bond and green loan             & Debt   & 1\,150  & None given \\
+    \addlinespace
+    \multicolumn{5}{@{}l}{\textit{IONOS}} \\
+    2017 & Warburg Pincus, 33.3\,\% of the business   & Equity &    450  & None given \\
+    2023 & Frankfurt listing                          & Equity &    447  & None given \\
+    2023 & Syndicated loan                            & Debt   &    800  & None given \\
+    2023 & \acs{IPCEI}-CIS, granted portion           & \acs{EU} &   17  & None given \\
+    \addlinespace
+    \multicolumn{5}{@{}l}{\textit{T-Cloud Public}} \\
+    2016 & Biere phase 2 syndicated loan              & Debt   &    100  & None given \\
+    2021 & Amsterdam twin data centre                 & Deutsche Telekom & --- & Not published \\
+    2023 & Systems Solutions cash capex\,$^{a}$       & Deutsche Telekom & 210 & Reported spending \\
+    2023 & \acs{IPCEI}-CIS participation              & \acs{EU} & --- & Not published \\
+    2024 & Systems Solutions cash capex\,$^{a}$       & Deutsche Telekom & 229 & Reported spending \\
+    2025 & Industrial \acs{AI} Cloud Munich, with NVIDIA & Deutsche Telekom & 1\,000 & None given \\
+    \addlinespace
+    \multicolumn{5}{@{}l}{\textit{Scaleway}} \\
+    2023 & \acs{IPCEI}-CIS grant                      & \acs{EU} &  150  & None given \\
+    2025 & iliad \acs{AI} commitment\,$^{b}$          & iliad  & 3\,000  & None given \\
+    \addlinespace
+    \multicolumn{5}{@{}l}{\textit{STACKIT}} \\
+    2021 & XM~Cyber acquisition\,$^{c}$               & Schwarz &   592  & None given \\
+    2025 & L\"ubbenau data centre                     & Schwarz & 11\,000 & Phase 1 by 2027 \\
+    2026 & Dummerstorf data centre                    & Schwarz & 5\,600  & To 2033 \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{4pt}
+  {\footnotesize\raggedright
+  $^{a}$~capital spending for the whole Systems Solutions segment, which contains
+  the cloud arm; Deutsche Telekom publishes no figure for Open Telekom Cloud
+  alone, so the true figure for the cloud business is smaller. \quad
+  $^{b}$~across Scaleway, OpCore and the Kyutai research laboratory; no completion
+  date was stated. \quad
+  $^{c}$~security software rather than cloud infrastructure; 700 million US
+  dollars converted at the 2021 rate.\par
+  \vspace{2pt}
+  The last column records only what each announcement itself said about timing.
+  \enquote{None given} means no completion date was stated, which is also the
+  case for every one-off raising. Two rows read \enquote{reported spending}
+  because they come from an annual report as money laid out, not from an
+  announcement of an intention. Nothing here records what has actually been
+  built: none of these companies publishes that.\par
+  \vspace{2pt}
+  Sources. \cite{AWS_SovereignCloud_Investment_2024,AWS_Frankfurt_Investment_2024,%
+  Amazon_Spain_Investment_2026,OVHcloud_IPO,OVHcloud_RegDoc_2021,OVHcloud_URD_2025,%
+  IONOS_AR_2025,UnitedInternet_AR_2025,IPCEI_CIS_2023,DT_AR_2025,%
+  Iliad_AIInvestment_2025,Schwarz_XMCyber_2021,SchwarzDigits_Luebbenau_2025,%
+  SchwarzDigits_Dummerstorf_2026}.\par}
+\end{table}
+
+Four things are visible before any number is quoted.
+
+\textbf{The rows have two different shapes.} OVHcloud and IONOS are lines of small
+circles: six and four separate raisings, none larger than 1.2 billion euros,
+spread across ten years. T-Cloud Public looks similar. STACKIT and Scaleway are
+the opposite --- almost nothing for years, then one very large circle near the
+right-hand edge. Those two shapes are two different ways of paying for a cloud
+business, and the difference runs through the rest of this section.
+
+\textbf{Every large circle is recent.} Nothing above 3 billion euros was announced
+before 2023. The biggest circles on the \acs{EU} rows all belong to the last two
+years, and as \Cref{tab:study3-milestones} shows, not one of them has yet reached
+the date its own announcement set: they run to 2027, to 2033, to 2040, or to no
+stated date at all.
+
+\textbf{The two open circles are both on one row.} Deutsche Telekom is the only
+owner that has announced capital commitments without saying how large they were:
+the Amsterdam twin data centre in 2021 and its part in the \acs{IPCEI}-CIS
+programme in 2023. Nothing can be added up for either.
+
+\textbf{The \acs{AWS} row is the same shape as STACKIT's, larger and earlier.} It
+is not a different kind of behaviour. It is the same behaviour with a bigger
+parent behind it.
+
+\subsubsection*{Scope of what is counted as capital}
+
+Four kinds of announcement were kept off \Cref{fig:investment-timeline}, and the
+reasons matter as much as the figures that remain. Every one of them is an
+announcement about money that a reader might reasonably expect to see.
+
+A \emph{contract won} is earnings, not capital. When the German Federal IT Centre
+awarded IONOS a five-year framework in April 2024, the widely reported 410 million
+euros was a ceiling with no acceptance guarantee, and IONOS itself put the revenue
+it expects in the low three-digit millions \cite{IONOS_ITZBund_2024}. T-Systems'
+share of the German federal \acs{AI} cloud contract is the same kind of number.
+Both are money these providers hope to earn from the public sector, which says
+something about their standing but is not capital they committed.
+
+A \emph{sale} is not an investment either. When iliad sold half of its data-centre
+subsidiary OpCore to InfraVia in 2025, the 440 million euros it received was cash
+from parting with an asset \cite{Iliad_Results_FY2025}.
+
+A figure that was never published cannot be used at all. In April 2026 the
+European Commission awarded four sovereign cloud contracts in parallel, three of
+them to providers in this study, under a ceiling of 180 million euros over six
+years for all four together. No value was published for any individual contract
+\cite{EC_SovereignCloudTender_2026}. Dividing the ceiling by four would produce a
+number that looks precise and is invented.
+
+The fourth exclusion is the largest number in the whole study. Amazon spent about
+77 billion euros on property and equipment in 2024, and that figure is often set
+beside European providers to show the scale of the gap. It should not be. It covers
+the whole of Amazon worldwide --- warehouses, delivery vehicles and retail as much
+as cloud --- Amazon does not break capital spending down by segment, and it is one
+year of spending rather than a commitment to a project \cite{Amazon_10K_2025}.
+Placed on \Cref{fig:investment-timeline} it would be four times the largest circle
+there and would flatten everything else, for a reason that has nothing to do with
+cloud. What can fairly be compared is what \acs{AWS} has committed to cloud
+infrastructure \emph{in Europe}, which Amazon announces project by project, and
+that is what the top row shows.
+
+\subsubsection*{Sources of capital behind each provider}
+
+The column headed \enquote{From} in \Cref{tab:study3-milestones} explains the two
+shapes on the chart. OVHcloud and IONOS raised their money on the open market:
+bonds, bank facilities, a stock-market listing, private investors. Every circle on
+those two rows had to be agreed with somebody outside the company, which is why
+there are many of them and why none is very large. STACKIT, Scaleway and T-Cloud
+Public are funded by a parent --- Schwarz, iliad and Deutsche Telekom. Only the
+Biere loan of 2016 keeps T-Cloud Public from being wholly parent-funded.
+
+Neither route is the sovereign one. Market money has to be repaid, or it was
+raised by selling part of the company to whoever bought it: Warburg Pincus, an
+American firm, took a third of IONOS in 2017, and shares on Euronext and in
+Frankfurt can be bought by anyone anywhere. Parent money carries no such
+condition, but it arrives and can be withdrawn on a single decision that no
+customer can see coming. European public money appears twice on the whole chart,
+for 167 million euros in total.
+
+Added up, and keeping the two kinds of circle apart, the totals are those of
+\Cref{tab:study3-investment}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Capital behind each cloud business, 2015--2026, in millions of euros.}
+  \label{tab:study3-investment}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{@{}l r r r l@{}}
+    \toprule
+                   & Total    & Of which still & & \\
+    Provider       & announced & within its deadline & Rest & Where the money comes from \\
+    \midrule
+    \acs{AWS} in Europe & 53\,500 & 42\,700 & 10\,800 & Amazon, project by project \\
+    STACKIT        & 17\,192 & 16\,600 &    592 & Schwarz Group \\
+    Scaleway       &  3\,150 &  3\,000 &    150 & iliad, and one \acs{EU} grant \\
+    OVHcloud       &  2\,717 &       0 & 2\,717 & Borrowing, listing, private capital \\
+    IONOS          &  1\,714 &       0 & 1\,714 & Borrowing, listing, private capital \\
+    T-Cloud Public &  1\,539 &       0 & 1\,539 & Deutsche Telekom, as yearly budget \\
+    \midrule
+    The five \acs{EU} providers & 26\,312 & 19\,600 & 6\,712 & \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{4pt}
+  {\footnotesize\raggedright
+  Computed from \Cref{tab:study3-milestones} and the sources listed there. The
+  middle column is money whose announcement set a completion date that has not
+  yet arrived. Whether any of it has been spent is not something these companies
+  publish, so no claim about spending is made here; the rest is money raised or
+  committed under a timetable that has already run out.\par}
+\end{table}
+
+Two readings follow, and they point in opposite directions.
+
+\textbf{Most of the money is still inside its own deadline.} Of the 26.3 billion
+euros announced behind the five \acs{EU} providers, 19.6 billion --- three quarters
+--- belongs to commitments whose completion date has not yet arrived, and 16.6
+billion of that is STACKIT alone. Take the L\"ubbenau and Dummerstorf
+announcements away and 6.7 billion remains, raised or committed under timetables
+that have already run out. What none of this says is how much has been spent.
+These companies publish announcements, not construction accounts, so the large
+circles at the right-hand edge of \Cref{fig:investment-timeline} record intent on
+a stated schedule and nothing more.
+
+\textbf{On European cloud investment the baseline is not out of reach.} This is
+the one place in this study where \acs{AWS} and the \acs{EU} providers are within
+sight of one another. \acs{AWS} has announced 53.5 billion euros for cloud
+infrastructure in Europe, twice the 26.3 billion of the five combined. Counting
+only what falls outside a running deadline, the figures are 10.8 billion against
+6.7 billion --- a factor of 1.6. Set beside the hundredfold gap in revenue
+reported later in \Cref{tab:study3-growth}, that is a different order of problem.
+\acs{AWS} sits the same way round as the \acs{EU} providers, too: four fifths of
+its European total is still inside its deadline, running to 2035 for Spain and
+2040 for the European Sovereign Cloud
+\cite{AWS_SovereignCloud_Investment_2024,Amazon_Spain_Investment_2026}.
+
+Deutsche Telekom is the weakest row of the six, and in two separate ways. Its two
+open circles are commitments whose size was never stated, so they add nothing to
+any total. The figures it does publish are no better than they look: capital
+spending is reported for the whole Systems Solutions segment rather than for Open
+Telekom Cloud, so the 1.5 billion recorded here contains the cloud arm rather than
+being it \cite{DT_AR_2025}. The direction of that error is known --- the true
+figure for the cloud business is smaller --- which means that row of
+\Cref{fig:investment-timeline} is if anything drawn too generously.
+
+
 \subsection{Revenue --- What each company earns Globally, and from cloud}
 
 A provider that cannot pay for its own growth will not close the gap described
@@ -2069,6 +2365,219 @@ That fact does not by itself disqualify the service, and it says nothing about
 where the data sits, but it belongs in a sovereignty assessment rather than
 outside one.
 
+\subsection{Addressing the research questions}
+
+Two questions were set for this study at the outset. Both are about money and
+sovereign capability together, and both can now be put to the figures assembled
+above.
+
+\subsubsection*{Capital efficiency and the readiness gap}
+
+The first question is whether \acs{EU} providers get meaningful sovereign
+readiness out of every euro committed, or whether size settles the matter on its
+own. \Cref{fig:capital-gap} puts the two side by side: money committed along the
+bottom, on a scale where each step multiplies rather than adds, and readiness up
+the side, measured against \acs{AWS} at 100.
+
+The two axes are measured independently, and neither is worked out from the other.
+Money is not an input to the readiness score, which comes from the service and
+sovereignty assessment of \Cref{sec:method-study1}. That independence is the point
+of the figure: it sets two separate measurements beside one another rather than
+deriving one from the other, so any relationship between them has to be read off
+the chart rather than built into it.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{semilogxaxis}[
+      width=0.92\textwidth, height=7.2cm,
+      xmin=95, xmax=95000,
+      xtick={200,500,1000,2000,5000,10000,20000,50000},
+      xticklabels={200,500,{1\,000},{2\,000},{5\,000},{10\,000},{20\,000},{50\,000}},
+      xticklabel style={font=\scriptsize},
+      xlabel={Money committed, millions of euros},
+      ymin=0, ymax=118,
+      ytick={0,20,40,60,80,100},
+      yticklabel style={font=\scriptsize},
+      ylabel={Readiness, \acs{AWS}${}=100$},
+      label style={font=\scriptsize},
+      xmajorgrids=true, ymajorgrids=true, grid style={gray!20},
+      axis lines*=left,
+      clip=false,
+    ]
+      \draw[gray!55, dashed] (axis cs:110,100) -- (axis cs:90000,100);
+
+      % providers with a commitment still inside its deadline: a second point
+      % further right, and an arrow for the room that money leaves to climb
+      \draw[cBase!70!black, dashed, line width=0.7pt]
+        (axis cs:10800,100) -- (axis cs:53500,100);
+      \draw[cProvE!70!black, dashed, line width=0.7pt]
+        (axis cs:592,44.1) -- (axis cs:17192,44.1);
+      \draw[cProvA!70!black, dashed, line width=0.7pt]
+        (axis cs:150,40.3) -- (axis cs:3150,40.3);
+
+      \draw[->, cProvE!75!black, line width=0.9pt]
+        (axis cs:17192,48) -- (axis cs:17192,64);
+      \draw[->, cProvA!75!black, line width=0.9pt]
+        (axis cs:3150,46) -- (axis cs:3150,61);
+
+      % money outside any running deadline
+      \draw[fill=cBase,  draw=cBase!65!black]  (axis cs:10800,100) circle[radius=3.2pt];
+      \draw[fill=cProvC, draw=cProvC!65!black] (axis cs:1539,72.1) circle[radius=3.2pt];
+      \draw[fill=cProvB, draw=cProvB!65!black] (axis cs:2717,56.2) circle[radius=3.2pt];
+      \draw[fill=cProvE, draw=cProvE!65!black] (axis cs:592,44.1)  circle[radius=3.2pt];
+      \draw[fill=cProvA, draw=cProvA!65!black] (axis cs:150,40.3)  circle[radius=3.2pt];
+      \draw[fill=cProvD, draw=cProvD!65!black] (axis cs:1714,26.8) circle[radius=3.2pt];
+
+      % the same provider counting everything announced
+      \draw[fill=white, draw=cBase!75!black,  line width=0.8pt, dash pattern=on 1.6pt off 1.2pt]
+        (axis cs:53500,100) circle[radius=3.2pt];
+      \draw[fill=white, draw=cProvE!75!black, line width=0.8pt, dash pattern=on 1.6pt off 1.2pt]
+        (axis cs:17192,44.1) circle[radius=3.2pt];
+      \draw[fill=white, draw=cProvA!75!black, line width=0.8pt, dash pattern=on 1.6pt off 1.2pt]
+        (axis cs:3150,40.3) circle[radius=3.2pt];
+
+      \node[anchor=south, font=\scriptsize, cBase!65!black]  at (axis cs:10800,102) {\acs{AWS}};
+      \node[anchor=south, font=\scriptsize, cProvC!65!black] at (axis cs:1539,74)   {T-Cloud Public};
+      \node[anchor=south, font=\scriptsize, cProvB!65!black] at (axis cs:2717,58)   {OVHcloud};
+      \node[anchor=south, font=\scriptsize, cProvE!65!black] at (axis cs:592,46.5)  {STACKIT};
+      \node[anchor=north, font=\scriptsize, cProvA!65!black] at (axis cs:150,38.2)  {Scaleway};
+      \node[anchor=north, font=\scriptsize, cProvD!65!black] at (axis cs:1714,24.5) {IONOS};
+    \end{semilogxaxis}
+  \end{tikzpicture}
+
+  \vspace{2pt}
+  {\footnotesize\raggedright
+  A solid circle is money committed under a timetable that has already run out. A
+  dashed circle adds that provider's commitments whose stated deadline has not yet
+  arrived, and the arrow marks room to climb once they are built --- no height is
+  claimed for it, because nothing in this data fixes one. A provider that has
+  announced nothing new has a single circle and does not move.\par}
+  \caption{Money committed against the gap to \acs{AWS}.}
+  \label{fig:capital-gap}
+\end{figure}
+
+Read as an answer, the chart says \emph{no} to both halves of the question, and
+the second \emph{no} is the more interesting.
+
+Scale does not decide. If it did, the circles would climb from left to right, and
+they do not. T-Cloud Public sits at 72 on the smallest committed sum of the five.
+IONOS sits at 27 on more money than T-Cloud Public has. STACKIT, with the largest
+\acs{EU} total on the chart by a factor of six, sits at 44 --- below two providers
+that have committed a fraction of it. Between 150 and 2\,700 million euros the
+readiness scores run from 27 to 72 in no particular order.
+
+Nor does the euro buy readiness in any steady way. The obvious next step would be
+to divide readiness by money and call the result efficiency, and that step should
+not be taken. Doing it gives STACKIT 64 readiness points per billion euros and
+\acs{AWS} 1.1, which would make STACKIT some fifty times the more efficient
+builder. The figure is an artefact: the denominator means something different for
+each provider. OVHcloud's is money it raised, IONOS's money it raised, Deutsche
+Telekom's money its parent reported spending, STACKIT's and Scaleway's money a
+parent has promised and not yet delivered. A ratio built on a denominator that
+changes meaning down the column measures nothing, and the chart therefore shows
+the two quantities side by side and leaves them unmultiplied.
+
+What the chart does establish is narrower and firmer. Readiness has been reached
+at very different costs, the ordering of money and the ordering of capability do
+not match, and the largest \acs{EU} commitment belongs to a provider that is
+currently mid-table. Money is not sufficient. Whether it is necessary cannot be
+settled here, because the three providers with the most money promised are also
+the three that have not yet built with it.
+
+\subsubsection*{Capital structure and sovereign control}
+
+The second question is whether capital structure --- funding won on the open
+market against funding supplied by a parent --- shapes the path to sovereignty.
+\Cref{fig:capital-structure} answers the factual half of it directly: it stacks
+each provider's capital by the source it came from.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.92\textwidth, height=6.2cm,
+      ybar stacked,
+      bar width=22pt,
+      symbolic x coords={OVHcloud,IONOS,TCloud,Scaleway,STACKIT},
+      xticklabels={OVHcloud,IONOS,{T-Cloud Public},Scaleway,STACKIT},
+      xtick=data,
+      ymin=0, ymax=18500,
+      ytick={0,5000,10000,15000},
+      yticklabels={0,{5\,000},{10\,000},{15\,000}},
+      scaled y ticks=false,
+      ylabel={Capital, millions of euros},
+      tick label style={font=\scriptsize},
+      label style={font=\scriptsize},
+      legend style={font=\scriptsize, at={(0.5,-0.20)}, anchor=north,
+                    legend columns=4, draw=none, column sep=1.1em},
+      ymajorgrids=true, grid style={gray!20},
+      axis lines*=left,
+    ]
+      \addplot+[fill=cProvC, draw=cProvC!60!black] coordinates {
+        (OVHcloud,0) (IONOS,0) (TCloud,1439) (Scaleway,3000) (STACKIT,17192)};
+      \addplot+[fill=cProvB, draw=cProvB!60!black] coordinates {
+        (OVHcloud,2017) (IONOS,800) (TCloud,100) (Scaleway,0) (STACKIT,0)};
+      \addplot+[fill=cProvD, draw=cProvD!60!black] coordinates {
+        (OVHcloud,700) (IONOS,897) (TCloud,0) (Scaleway,0) (STACKIT,0)};
+      \addplot+[fill=cBase, draw=cBase!60!black] coordinates {
+        (OVHcloud,0) (IONOS,17) (TCloud,0) (Scaleway,150) (STACKIT,0)};
+      \legend{Parent, Borrowing, Shares sold, \acs{EU} programmes}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Where each provider's capital came from.}
+  \label{fig:capital-structure}
+\end{figure}
+
+The five divide almost perfectly in two. OVHcloud and IONOS raised everything on
+the open market: borrowing accounts for 74 and 47 per cent of their capital, and
+shares sold for 26 and 52 per cent. STACKIT, Scaleway and T-Cloud Public are
+funded by a parent: 100, 95 and 94 per cent respectively. The only crossing is the
+syndicated loan T-Systems took for the Biere site in 2016. European public money
+appears twice and comes to 167 million euros, about half a per cent of the total.
+
+The two routes carry different risks, and neither is the sovereign one.
+
+Money raised on the market has to be repaid, or was raised by selling part of the
+company to whoever was willing to buy. That buyer need not be European and need
+not stay. Warburg Pincus, an American firm, held a third of IONOS from 2017; the
+shares OVHcloud and IONOS listed on Euronext and in Frankfurt can be bought by
+anyone anywhere. A provider funded this way answers to owners it does not choose,
+which is a sovereignty exposure of exactly the kind this study is concerned with,
+sitting in the ownership rather than in the infrastructure.
+
+Parent funding avoids that and introduces a different exposure. Schwarz, iliad and
+Deutsche Telekom can fund through years of losses and build at a scale the cloud
+business could never support alone, which is how STACKIT came to hold the largest
+\acs{EU} commitment in this study from a standing start. The same concentration
+works in reverse. Sixteen point six of STACKIT's seventeen point two billion euros
+rests on two announcements by one privately held company that publishes no segment
+accounts and answers to no stock-market regulator on the point
+\cite{Schwarz_Figures_FY2025}. What one decision granted, one decision can revise,
+and a customer would have no way of seeing it coming.
+
+So the honest answer to the second question is that capital structure shapes the
+\emph{kind} of exposure rather than the amount of it. The market-funded providers
+are exposed through who may come to own them; the parent-funded ones through who
+already does. \Cref{fig:capital-gap} shows the two groups interleaved on the
+readiness axis rather than separated --- market-funded IONOS lowest, parent-funded
+T-Cloud Public highest, the rest in between --- so on what these figures show,
+neither structure has produced a capability advantage over the other.
+
+\subsubsection*{Limits of the published record}
+
+Both answers are limited in the same way, and the limit should be stated plainly
+rather than left for a reader to infer. Three quarters of the \acs{EU} money in
+\Cref{tab:study3-investment} sits inside a deadline that has not arrived. The
+L\"ubbenau campus is due in phases from 2027, Dummerstorf by 2033, and iliad's
+commitment carries no date at all. None of these companies publishes what it has
+built against what it announced. Study~3 can therefore establish what has been
+committed, from where, and on what stated timetable, and it can set that beside
+measured capability --- but the question of whether the money now inside those
+deadlines will convert into readiness is one that the published record cannot yet
+answer for any provider on the chart, including \acs{AWS}.
+
+
 \section{Study 4 --- Technical Benchmarking}
 \label{sec:method-study4}
 
@@ -2077,24 +2586,8 @@ pts/compress-7zip, pts/postmark, pts/apache, iperf3, boot time, setup time.
 Identical 2\,vCPU\,/\,8\,GB tier, Ubuntu 22.04, minimum three runs. State
 which providers you measured yourself.}
 
-\section{Normalisation and Aggregation}
-\label{sec:normalisation}
 
-\todo{Per-metric normalisation to 0--100 where the column leader scores 100;
-inverted for boot and setup time where lower is better. Unweighted mean across
-the eight metrics gives the composite. Reference \cref{eq:normalisation}.}
-
-\begin{equation}
-  \label{eq:normalisation}
-  \text{norm}(x_p) =
-  \begin{cases}
-    \dfrac{x_p}{\max_q x_q} \times 100 & \text{higher is better}\\[1.2em]
-    \dfrac{\min_q x_q}{x_p} \times 100 & \text{lower is better}
-  \end{cases}
-\end{equation}
-
-
-\section{Limitations of the Research Design}
+\section{Limitations of these Research Studies}
 \label{sec:design-limitations}
 
 \todo{State limitations HERE, not only in the conclusion. Self-reported

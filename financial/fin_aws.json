@@ -153,6 +153,134 @@
       }
     ]
   },
+  "eu_investments": {
+    "note": "AWS commitments to cloud infrastructure only. Amazon's wider European announcements, such as more than 5 billion for Poland in 2026 and 1.2 billion for France, cover fulfilment centres, logistics and Prime Video and are not included here.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": "Brandenburg",
+        "amount_m": 7800,
+        "currency": "EUR",
+        "announced": "2023-10",
+        "horizon": "through 2040",
+        "source": "V1",
+        "label": "European Sovereign Cloud",
+        "detail": "Reaffirmed on 15 January 2026 when the sovereign cloud went live."
+      },
+      {
+        "country": "Germany",
+        "site": null,
+        "amount_m": 8800,
+        "currency": "EUR",
+        "announced": "2024-07",
+        "horizon": "by 2026",
+        "source": "V2",
+        "label": "AWS cloud infrastructure in Germany"
+      },
+      {
+        "country": "Spain",
+        "site": "Aragón",
+        "amount_m": 15700,
+        "currency": "EUR",
+        "announced": "2024-07",
+        "horizon": "over a decade",
+        "source": "V2",
+        "label": "AWS Europe (Spain) Region"
+      },
+      {
+        "country": "Spain",
+        "site": "Aragón",
+        "amount_m": 18000,
+        "currency": "EUR",
+        "announced": "2026-03",
+        "horizon": "through 2035",
+        "source": "V3",
+        "label": "Increase, taking the Spanish total to 33.7 billion"
+      },
+      {
+        "country": "Italy",
+        "site": "Milan",
+        "amount_m": 2000,
+        "currency": "EUR",
+        "announced": "2022",
+        "horizon": null,
+        "source": "V4",
+        "label": "AWS Europe (Milan) Region launch"
+      },
+      {
+        "country": "Italy",
+        "site": "Milan",
+        "amount_m": 1200,
+        "currency": "EUR",
+        "announced": "2024-12",
+        "horizon": "five years",
+        "source": "V4",
+        "label": "Milan Region expansion"
+      },
+      {
+        "country": "Belgium",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      },
+      {
+        "country": "Netherlands",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      },
+      {
+        "country": "Portugal",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "AWS plans to invest 7.8bn into the AWS European Sovereign Cloud",
+        "url": "https://aws.amazon.com/blogs/security/aws-plans-to-invest-e7-8b-into-the-aws-european-sovereign-cloud-set-to-launch-by-the-end-of-2025/",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V2",
+        "title": "Amazon announces billions of euros in European investments (11 July 2024)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-announces-billions-of-euros-in-european-investments-and-the-creation-of-thousands-of-new-jobs",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V3",
+        "title": "Amazon increases investment in Spain to 33.7 billion euros (MWC, March 2026)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V4",
+        "title": "AWS invests 1.2 billion to expand cloud infrastructure in Italy (5 December 2024)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/aws-invests-1-2-billion-to-expand-cloud-infrastructure-in-italy",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V5",
+        "title": "AWS launches the AWS European Sovereign Cloud and announces expansion across Europe (15 January 2026)",
+        "url": "https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

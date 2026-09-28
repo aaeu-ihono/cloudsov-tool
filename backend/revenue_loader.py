@@ -54,6 +54,7 @@ def load_revenue(financial_dir, usd_to_eur: float) -> dict:
     path = Path(financial_dir)
     fx = _load_fx(financial_dir)
     europe_raw: dict[str, dict] = {}
+    euinv_raw: dict[str, dict] = {}
     providers: list[dict] = []
     cells: dict[str, dict] = {}
     years: set[int] = set()
@@ -90,6 +91,7 @@ def load_revenue(financial_dir, usd_to_eur: float) -> dict:
             "proxy":             doc.get("proxy"),
         })
         europe_raw[key]   = doc.get("europe") or {}
+        euinv_raw[key]    = doc.get("eu_investments") or {}
         proxy_field       = (doc.get("proxy") or {}).get("field")
         proxy_basis_field = (doc.get("proxy") or {}).get("basis_field")
 
@@ -288,6 +290,35 @@ def load_revenue(financial_dir, usd_to_eur: float) -> dict:
             "reasons":    sorted(reasons),
         })
 
+
+    # Announced cloud investment inside the EU/EEA. Each entry is a commitment
+    # made on a date with a horizon the company stated, not money spent in a
+    # year, so it is kept as a flat list rather than forced into a time series.
+    eu_investment = {"items": [], "providers": [], "unplaceable": []}
+    for p in providers:
+        key = p["key"]
+        blk = euinv_raw.get(key) or {}
+        eu_investment["providers"].append({
+            "key": key, "note": blk.get("note"), "sources": blk.get("sources", []),
+        })
+        for it in blk.get("items", []):
+            rec = dict(it)
+            rec["provider"] = key
+            yr = (it.get("announced") or "")[:4]
+            rec["year"] = int(yr) if yr.isdigit() else None
+            if it.get("unplaceable") or not it.get("country"):
+                eu_investment["unplaceable"].append(rec)
+            else:
+                eu_investment["items"].append(rec)
+
+    # Countries ordered by the total committed to them, so the busiest row sits
+    # at the top of the chart rather than wherever the alphabet puts it.
+    totals: dict[str, float] = {}
+    for it in eu_investment["items"]:
+        totals[it["country"]] = totals.get(it["country"], 0) + (it.get("amount_m") or 0)
+    eu_investment["countries"] = sorted(totals, key=lambda c: -totals[c])
+    eu_investment["country_totals"] = {c: round(v, 1) for c, v in totals.items()}
+
     return {
         "fx":             {"eur_per_usd": fx,
                            "source": "ECB euro reference exchange rate, annual average (EXR.A.USD.EUR.SP00.A)"},
@@ -297,4 +328,5 @@ def load_revenue(financial_dir, usd_to_eur: float) -> dict:
         "share_coverage": share_coverage,
         "growth":         growth,
         "europe":         europe,
+        "eu_investment":  eu_investment,
     }

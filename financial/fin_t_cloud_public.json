@@ -290,6 +290,34 @@
       }
     ]
   },
+  "eu_investments": {
+    "note": "The one billion is a joint Deutsche Telekom and NVIDIA figure, not Deutsche Telekom's alone.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": "Munich",
+        "amount_m": 1000,
+        "currency": "EUR",
+        "announced": "2025-11-04",
+        "horizon": "live in the first quarter of 2026",
+        "source": "V1",
+        "label": "Industrial AI Cloud, with NVIDIA",
+        "joint_with": "NVIDIA",
+        "detail": "Over a thousand NVIDIA DGX B200 systems and RTX PRO servers, up to 10,000 Blackwell GPUs, in a renovated Munich data centre."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "For a sovereign Germany: Deutsche Telekom launches Industrial AI Cloud with NVIDIA",
+        "publisher": "Deutsche Telekom",
+        "date": "2025-11-04",
+        "quote": "Deutsche Telekom and NVIDIA have jointly built the world's first Industrial AI Cloud - a one-billion-euro partnership",
+        "url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2025/11/for-a-sovereign-germany",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

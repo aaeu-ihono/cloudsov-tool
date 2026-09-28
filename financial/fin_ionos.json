@@ -192,6 +192,31 @@
       }
     ]
   },
+  "eu_investments": {
+    "note": "IONOS announces no commitment on the scale of the others. Its new Frankfurt cloud data centre opened in 2025 without a published figure.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": null,
+        "amount_m": 16.9,
+        "currency": "EUR",
+        "announced": "2023",
+        "horizon": null,
+        "source": "V1",
+        "label": "IPCEI-CIS sub-project",
+        "detail": "Of the 16.9 million, 6.8 million is German federal funding rather than company money."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "IPCEI-CIS: IONOS takes part in EU project to develop modern cloud and edge computing technologies",
+        "publisher": "IONOS Group SE",
+        "url": "https://www.ionos-group.com/investor-relations/newsroom/ipcei-cis-ionos-ist-partner-bei-eu-projekt-zur-entwicklung-moderner-cloud-und-edge-computing-technologien.html",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

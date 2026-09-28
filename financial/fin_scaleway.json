@@ -230,6 +230,32 @@
       }
     ]
   },
+  "eu_investments": {
+    "note": "The three billion covers AI infrastructure, research and application layers across three iliad entities, of which Scaleway is one. It is not a Scaleway figure and is not tied to a single site.",
+    "items": [
+      {
+        "country": "France",
+        "site": null,
+        "amount_m": 3000,
+        "currency": "EUR",
+        "announced": "2025-02",
+        "horizon": null,
+        "source": "V1",
+        "label": "iliad AI commitment across OpCore, Scaleway and Kyutai",
+        "detail": "Announced at the Artificial Intelligence Action Summit in Paris. iliad sold 50 per cent of OpCore, its data-centre subsidiary, to InfraVia in a deal completed on 31 March 2025."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "iliad FY 2024 results press release, 25 March 2025",
+        "publisher": "iliad S.A.",
+        "quote": "It has allocated a total of 3 billion to invest in AI-dedicated infrastructure, AI research and AI application layers through its various entities: OpCore ... Scaleway ... and Kyutai",
+        "url": "https://www.iliad.fr/media/CP_250325_Eng_48c22962e7.pdf",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

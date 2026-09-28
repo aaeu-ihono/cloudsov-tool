@@ -196,6 +196,31 @@
       }
     ]
   },
+  "eu_investments": {
+    "note": "OVHcloud funds its data centres from annual capital expenditure rather than headline commitments, so it has almost nothing of this kind to report. The European Investment Bank loan is finance raised for European investment and is not allocated to a country, so it cannot be placed on the map.",
+    "items": [
+      {
+        "country": null,
+        "site": "Europe, unallocated",
+        "amount_m": 200,
+        "currency": "EUR",
+        "announced": null,
+        "horizon": null,
+        "source": "V1",
+        "label": "European Investment Bank loan for European investment",
+        "unplaceable": true
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "EIB supports the development of OVHcloud with a loan of 200 million euros dedicated to its European investments",
+        "publisher": "OVHcloud",
+        "url": "https://corporate.ovhcloud.com/asia/newsroom/news/eib-loan/",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

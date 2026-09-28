@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ReferenceDot, ReferenceArea,
-  ScatterChart, Scatter, ZAxis,
+  ScatterChart, Scatter,
   BarChart, Bar, Cell, LabelList, ComposedChart,
   ResponsiveContainer,
 } from 'recharts'
@@ -267,39 +267,27 @@ function CustomTooltip({ active, payload, label }) {
   )
 }
 
-function RevTooltip({ active, payload, label }) {
-  if (!active || !payload?.length) return null
-  const fmt = v => v >= 1000 ? `€${(v / 1000).toFixed(1)}B` : `€${v}M`
-  return (
-    <div style={{ background:'var(--tt-bg)', border:'1px solid var(--tt-border)', borderRadius:6, padding:'8px 12px', fontSize:12 }}>
-      <div style={{ fontWeight:600, marginBottom:4, color:'var(--tt-head)' }}>{label}</div>
-      {payload.filter(p => p.value != null).map(p => (
-        <div key={p.dataKey} style={{ color: REV_COLORS[p.dataKey] ?? '#555', marginBottom:2 }}>
-          {p.dataKey}: {fmt(p.value)}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const fmtRev  = v => v == null ? '—' : v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`
-const fmtTick = v => v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`
-
 /* ── Funding mix constants ───────────────────────────────────────── */
+/* This chart asks where a provider's money came from, so every category has to
+   name a source. Capex and acquisitions describe what money was spent on, not
+   where it came from: T-Systems' cash capex is Deutsche Telekom's spending and
+   the XM Cyber purchase was Schwarz's, so both sit under the parent that paid.
+   The same holds for AWS region commitments, which Amazon funds. */
 const TYPE_TO_GROUP = {
-  Capex: 'Capex', Region: 'Capex',
+  Parent: 'Parent', Capex: 'Parent', Region: 'Parent', Acquisition: 'Parent',
   Debt: 'Debt', 'EU Debt': 'Debt',
   IPO: 'Market Capital', 'PE/VC': 'Market Capital',
-  Parent: 'Parent',
+  /* Selling half of OpCore to an infrastructure fund raised capital from the
+     same kind of investor as a PE round, so it belongs with market capital. */
+  Disposal: 'Market Capital',
   'EU Grant': 'EU Programmes', 'EU Tender': 'EU Programmes',
-  Infrastructure: 'Other', Acquisition: 'Other', Contract: 'Other',
+  Infrastructure: 'Other', Contract: 'Other',
 }
-const FUNDING_GROUPS  = ['Capex', 'Debt', 'Market Capital', 'Parent', 'EU Programmes', 'Other']
+const FUNDING_GROUPS  = ['Parent', 'Debt', 'Market Capital', 'EU Programmes', 'Other']
 const FUNDING_COLORS  = {
-  Capex:            '#3b82f6',
+  Parent:           '#0891b2',
   Debt:             '#f97316',
   'Market Capital': '#8b5cf6',
-  Parent:           '#0891b2',
   'EU Programmes':  '#10b981',
   Other:            '#9ca3af',
 }
@@ -310,13 +298,20 @@ const PROVIDER_Y = {
 }
 const PROVIDER_ROW_LABELS = ['STACKIT', 'IONOS', 'T-Cloud Public', 'Scaleway', 'OVHcloud', 'AWS']
 
+/* Amounts run from €17m to €76,360m — four thousandfold — so a true area
+   scale would leave most bubbles too small to see. These steps keep the
+   ordering readable and cap the largest at something a row can hold. */
 const dotRadius = amount_m => {
-  if (amount_m == null) return 12
-  if (amount_m === 0)   return 6
-  if (amount_m < 100)   return 18
-  if (amount_m < 500)   return 24
-  if (amount_m < 2000)  return 30
-  return 40
+  if (amount_m == null)  return 10
+  if (amount_m === 0)    return 5
+  if (amount_m < 100)    return 12
+  if (amount_m < 500)    return 15
+  if (amount_m < 1000)   return 17
+  if (amount_m < 2500)   return 19
+  if (amount_m < 6000)   return 21
+  if (amount_m < 12000)  return 23
+  if (amount_m < 30000)  return 25
+  return 28
 }
 
 function MilestoneTooltip({ active, payload }) {
@@ -353,60 +348,123 @@ function MilestoneDot({ cx, cy, payload }) {
   if (!payload || cx == null || cy == null) return null
   const fill        = REV_COLORS[payload.provider] ?? '#888'
   const undisclosed = payload.amount_m == null
-  const isLaunch    = payload.amount_m === 0
   const r           = dotRadius(payload.amount_m)
-  const fontSize    = r >= 30 ? 9 : 7.5
   return (
     <g>
+      {/* a white ring keeps fanned bubbles apart where they still touch */}
       <circle cx={cx} cy={cy} r={r}
         fill={fill} fillOpacity={undisclosed ? 0.18 : 0.78}
-        stroke={fill} strokeWidth={2}
+        stroke="#fff" strokeWidth={3.5} />
+      <circle cx={cx} cy={cy} r={r}
+        fill={fill} fillOpacity={undisclosed ? 0.18 : 0.78}
+        stroke={fill} strokeWidth={1.8}
         strokeDasharray={undisclosed ? '4 2' : undefined} />
-      {!undisclosed && !isLaunch && (
-        <text x={cx} y={cy} textAnchor="middle" dominantBaseline="central"
-          fontSize={fontSize} fontWeight="700" fill="white"
-          style={{ pointerEvents:'none', userSelect:'none' }}>
-          {fmtBubble(payload.amount_m)}
-        </text>
-      )}
     </g>
   )
 }
 
-/* ── Investment Efficiency scatter components ────────────────────── */
-function EfficiencyDot({ cx, cy, payload }) {
+/* Figures are drawn in a pass of their own, after every circle, so a bubble
+   fanned into a neighbour cannot paint over the neighbour's figure. Amounts
+   too small to hold text inside the bubble are written just beneath it. */
+function MilestoneValue({ cx, cy, payload }) {
+  if (!payload || cx == null || cy == null) return null
+  if (payload.amount_m == null || payload.amount_m === 0) return null
+  const fill   = REV_COLORS[payload.provider] ?? '#888'
+  const r      = dotRadius(payload.amount_m)
+  const inside = r >= 15
+  return (
+    <text x={cx} y={inside ? cy : cy + r + 9}
+      textAnchor="middle" dominantBaseline={inside ? 'central' : 'auto'}
+      fontSize={inside ? (r >= 21 ? 8.5 : 7.5) : 7.5} fontWeight="700"
+      fill={inside ? '#fff' : fill}
+      style={{ pointerEvents:'none', userSelect:'none' }}>
+      {fmtBubble(payload.amount_m)}
+    </text>
+  )
+}
+
+/* ── Money committed against the gap to AWS ───────────────────────────
+   The two axes are measured independently and neither is derived from the
+   other: money is not an input to the readiness score. A filled dot is a
+   provider as it stands — money it has put in, at the readiness it has
+   reached. A hollow dot adds the money it has announced but not yet built.
+   The arrow above a hollow dot marks room to rise once that money is spent;
+   it asserts no amount, because nothing in the data fixes one. A provider
+   with nothing announced has no second dot — there is nothing to move it.
+   ─────────────────────────────────────────────────────────────────────── */
+const fmtEur = v => v >= 1000 ? `€${(v / 1000).toFixed(1)}B` : `€${Math.round(v)}M`
+
+/* STACKIT and Scaleway sit almost on top of each other — €689M against €635M
+   is a few pixels apart on a log axis — so one name goes below its dot. */
+const CG_LABEL_BELOW = new Set(['Scaleway'])
+
+function SpentDot({ cx, cy, payload }) {
   if (!payload || cx == null || cy == null) return null
   const fill = REV_COLORS[payload.provider] ?? '#888'
+  const below = CG_LABEL_BELOW.has(payload.provider)
   return (
     <g>
-      <circle cx={cx} cy={cy} r={10} fill={fill} fillOpacity={0.85} stroke="#fff" strokeWidth={2} />
-      <text x={cx} y={cy - 18} textAnchor="middle" fontSize={9.5} fontWeight={700} fill={fill}>
+      <circle cx={cx} cy={cy} r={9} fill={fill} fillOpacity={0.9} stroke="#fff" strokeWidth={2} />
+      <text x={cx} y={below ? cy + 22 : cy - 16} textAnchor="middle" fontSize={9.5} fontWeight={700} fill={fill}>
         {payload.provider}
       </text>
-      {payload.pts_per_bn != null && (
-        <text x={cx} y={cy + 24} textAnchor="middle" fontSize={8} fill="#6b7280">
-          {payload.pts_per_bn} pts/€B
+      {/* the amount is only legible where a provider has no second dot crowding it */}
+      {payload.pledged_m === 0 && (
+        <text x={cx} y={cy + 22} textAnchor="middle" fontSize={8} fill="#6b7280">
+          {fmtEur(payload.spent_m)}
         </text>
       )}
     </g>
   )
 }
 
-function EfficiencyTooltip({ active, payload }) {
+function PledgedDot({ cx, cy, payload }) {
+  if (!payload || cx == null || cy == null) return null
+  const col = REV_COLORS[payload.provider] ?? '#888'
+  /* No arrow on AWS: it defines the 100 line, so there is nothing above it
+     to rise into. Its hollow dot still shows the money it has yet to build. */
+  const canRise = payload.score < 100
+  const head = cy - 38
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={9} fill="none" stroke={col} strokeWidth={2} strokeDasharray="3 2" />
+      {canRise && (
+        <>
+          <line x1={cx} y1={cy - 14} x2={cx} y2={head + 7} stroke={col} strokeWidth={2} strokeLinecap="round" />
+          <polygon points={`${cx},${head} ${cx - 5},${head + 8} ${cx + 5},${head + 8}`} fill={col} />
+        </>
+      )}
+      <text x={cx} y={CG_LABEL_BELOW.has(payload.provider) ? cy + 34 : cy + 22}
+            textAnchor="middle" fontSize={8} fill="#6b7280">
+        {fmtEur(payload.total_m)}
+      </text>
+    </g>
+  )
+}
+
+function CapitalGapTooltip({ active, payload }) {
   if (!active || !payload?.length) return null
   const d = payload[0]?.payload
   if (!d) return null
   const col = REV_COLORS[d.provider] ?? '#888'
-  const fmtM = v => v >= 1000 ? `€${(v / 1000).toFixed(1)}B` : `€${v}M`
   return (
-    <div style={{ background:'var(--tt-bg)', border:`2px solid ${col}`, borderRadius:8, padding:'10px 14px', fontSize:12, minWidth:200 }}>
+    <div style={{ background:'var(--tt-bg)', border:`2px solid ${col}`, borderRadius:8, padding:'10px 14px', fontSize:12, minWidth:245 }}>
       <div style={{ fontWeight:700, color:col, marginBottom:7 }}>{d.provider}</div>
-      <div style={{ color:'#374151', marginBottom:3 }}>Readiness: <strong>{d.score_now}</strong> / 100</div>
-      <div style={{ color:'#374151', marginBottom:3 }}>Cumulative (disclosed): <strong>{fmtM(d.cumulative_m)}</strong></div>
-      <div style={{ color:'#374151', marginBottom:3 }}>Efficiency: <strong>{d.pts_per_bn} pts / €B</strong></div>
+      <div style={{ color:'#374151', marginBottom:3 }}>Readiness today: <strong>{d.score}</strong> / 100</div>
+      <div style={{ color:'#374151', marginBottom:3 }}>
+        Money already put in: <strong>{fmtEur(d.spent_actual_m ?? d.spent_m)}</strong>
+      </div>
+      <div style={{ color:'#374151', marginBottom:3 }}>
+        Announced, not yet built: <strong>{d.pledged_m > 0 ? fmtEur(d.pledged_m) : 'nothing'}</strong>
+      </div>
+      {d.pledged_m > 0 && (
+        <div style={{ color:'#6b7280', marginTop:6, paddingTop:5, borderTop:'1px solid #f0f0f0' }}>
+          Room to rise once this is built. How far is not yet known.
+        </div>
+      )}
       {d.undisclosed_count > 0 && (
         <div style={{ color:'#9ca3af', fontSize:10, marginTop:6, borderTop:'1px solid #f0f0f0', paddingTop:5 }}>
-          +{d.undisclosed_count} undisclosed event(s) not counted in total
+          +{d.undisclosed_count} announcement(s) with no figure given, not counted
         </div>
       )}
     </div>
@@ -418,14 +476,17 @@ function FundingTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   const items = payload.filter(p => p.value != null && p.value > 0)
   const total = items.reduce((s, p) => s + p.value, 0)
-  const fmtM = v => v >= 1000 ? `€${(v / 1000).toFixed(1)}B` : `€${v}M`
+  const fmtM  = v => v >= 1000 ? `€${(v / 1000).toFixed(1)}B` : `€${v}M`
   return (
-    <div style={{ background:'var(--tt-bg)', border:'1px solid var(--tt-border)', borderRadius:8, padding:'10px 14px', fontSize:12 }}>
+    <div style={{ background:'var(--tt-bg)', border:'1px solid var(--tt-border)', borderRadius:8, padding:'10px 14px', fontSize:12, minWidth:210 }}>
       <div style={{ fontWeight:700, color:'var(--tt-head)', marginBottom:7 }}>{label}</div>
       {items.map(p => (
         <div key={p.dataKey} style={{ display:'flex', justifyContent:'space-between', gap:20, marginBottom:3 }}>
           <span style={{ color: FUNDING_COLORS[p.dataKey] ?? '#555', fontWeight:600 }}>{p.dataKey}</span>
-          <span style={{ color:'#374151' }}>{fmtM(p.value)}</span>
+          <span style={{ color:'#374151' }}>
+            {fmtM(p.value)}
+            <span style={{ color:'#9ca3af' }}> · {Math.round(p.value / total * 100)}%</span>
+          </span>
         </div>
       ))}
       <div style={{ borderTop:'1px solid #f0f0f0', paddingTop:5, marginTop:5, display:'flex', justifyContent:'space-between', fontWeight:700, color:'#374151' }}>
@@ -474,36 +535,69 @@ export default function FinancialConsideration() {
     </div>
   )
 
-  const { providers, chart_data, revenue_chart_data, revenue_summary, milestones } = data
-
-  /* lookup table for revenue chart inline labels */
-  const revByYear = Object.fromEntries(revenue_chart_data.map(r => [r.year, r]))
+  const { providers, chart_data, milestones } = data
 
   /* milestone bubble data — attach y-position and size */
-  const milestonePoints = milestones.map(m => ({
-    ...m,
-    y: PROVIDER_Y[m.provider] ?? 0,
-  }))
+  /* The timeline starts at 2015. Only the 2006 launches of AWS and OVHcloud
+     fall outside it, and neither carries a figure, so no money is lost. */
+  const MILESTONE_FROM_YEAR = 2015
+  /* Six provider-years hold more than one event — AWS 2024 holds four — and
+     drawn on the raw year they sit exactly on top of one another, hiding all
+     but the last. Fan them across the year instead, largest first so it is
+     drawn behind the rest. */
+  const milestoneSlots = milestones
+    .filter(m => m.year >= MILESTONE_FROM_YEAR)
+    .reduce((acc, m) => {
+      const k = `${m.provider}__${m.year}`
+      ;(acc[k] ??= []).push(m)
+      return acc
+    }, {})
+  const FAN_SPREAD = 0.68
+  const milestonePoints = Object.values(milestoneSlots).flatMap(group => {
+    const sorted = [...group].sort((a, b) => (b.amount_m ?? -1) - (a.amount_m ?? -1))
+    const step = sorted.length > 1 ? FAN_SPREAD / (sorted.length - 1) : 0
+    return sorted.map((m, i) => ({
+      ...m,
+      y:  PROVIDER_Y[m.provider] ?? 0,
+      x:  m.year + (i - (sorted.length - 1) / 2) * step,
+    }))
+  })
   const milestoneByProvider = PROVIDER_ROW_LABELS.reduce((acc, k) => {
     acc[k] = milestonePoints.filter(m => m.provider === k)
     return acc
   }, {})
 
-  /* investment efficiency — cumulative disclosed capital vs readiness */
-  const efficiencyData = providers.map(p => {
-    const ms = milestones.filter(m => m.provider === p.key && m.amount_m != null && m.amount_m > 0)
-    const cumulative_m = ms.reduce((s, m) => s + m.amount_m, 0)
-    const undisclosed_count = milestones.filter(m => m.provider === p.key && m.amount_m == null).length
-    const pts_per_bn = cumulative_m > 0 ? +(p.score_now / cumulative_m * 1000).toFixed(1) : null
-    return { provider: p.key, cumulative_m, score_now: p.score_now, pts_per_bn, undisclosed_count }
-  })
+  /* money committed against the gap to AWS — AWS is the 100 reference and is
+     not in providers[], so its score is supplied here */
+  const capitalGapScores = providers.reduce((acc, p) => { acc[p.key] = p.score_now; return acc }, { AWS: 100 })
+  /* Contracts won and assets sold are milestones, but they are money coming in
+     rather than capital committed, so they are left out of every total here. */
+  const isInvestment = m => m.counts_as_investment !== false
+  const capitalGapData = GLOBAL_REV_ORDER.map(key => {
+    const ms = milestones.filter(m => m.provider === key && isInvestment(m) && m.amount_m != null && m.amount_m > 0)
+    const total_m   = ms.reduce((s, m) => s + m.amount_m, 0)
+    const pledged_m = ms.filter(m => m.delivered === false).reduce((s, m) => s + m.amount_m, 0)
+    return {
+      provider: key,
+      score: capitalGapScores[key],
+      spent_m: total_m - pledged_m,
+      pledged_m,
+      total_m,
+      undisclosed_count: milestones.filter(m => m.provider === key && m.amount_m == null).length,
+    }
+  }).filter(d => d.score != null && d.spent_m > 0)
+  /* The x-axis reads spent_m for every series, so the second dot carries the
+     running total under that key to land further right. */
+  const capitalGapPledged = capitalGapData
+    .filter(d => d.pledged_m > 0)
+    .map(d => ({ ...d, spent_m: d.total_m, spent_actual_m: d.spent_m }))
 
-  /* capital structure — group milestones by consolidated funding type */
+  /* capital structure — where each provider's money came from, in euros */
   const fundingMixData = providers.map(p => {
     const row = { provider: p.key, score_now: p.score_now }
     FUNDING_GROUPS.forEach(g => { row[g] = 0 })
     milestones
-      .filter(m => m.provider === p.key && m.amount_m != null && m.amount_m > 0)
+      .filter(m => m.provider === p.key && isInvestment(m) && m.amount_m != null && m.amount_m > 0)
       .forEach(m => {
         const grp = TYPE_TO_GROUP[m.type]
         if (grp) row[grp] += m.amount_m
@@ -524,726 +618,693 @@ export default function FinancialConsideration() {
         </div>
       </div>
 
-      {/* ══ ROW 1 — two charts side by side ═════════════════════════════════ */}
+      {/* ══ BAND 1 — readiness beside the investment timeline ═══════════════ */}
       <div className="fc-row">
 
-        {/* ── Left column: Gap Closure ── */}
         <div className="fc-col">
-          <div className="fc-chart-wrap">
-            <div className="fc-chart-title">Readiness Gap Closure — EU Providers vs AWS (2006 – 2050)</div>
-            <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'2px 6px 8px', fontStyle:'italic' }}>
-              velocity (pts/yr) = score ÷ (2026 − launch year) &nbsp;·&nbsp; 
-              <br /> parity ≈ 2026 + (100 − score) ÷ velocity
-            </div>
-
-            {/* Velocity strip — compact, inside the white card */}
-            <div className="fc-strip fc-strip--compact">
-              {providers.map(p => (
-                <div key={p.key} className="fc-strip-item" style={{ borderLeft:`3px solid ${COLORS[p.key]}` }}>
-                  <span className="fc-strip-name">{p.key}</span>
-                  <span className="fc-strip-score" style={{ color:COLORS[p.key] }}>{p.score_now}</span>
-                  <span className="fc-strip-meta">{p.velocity.toFixed(1)} pts/yr · ~{p.parity_year ? Math.ceil(p.parity_year) : '—'}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="fc-legend">
-              {providers.map(p => (
-                <div key={p.key} className="fc-legend-item">
-                  <svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke={COLORS[p.key]} strokeWidth="2.5"/></svg>
-                  <span style={{ color: COLORS[p.key] }}>{p.key}</span>
-                </div>
-              ))}
-              <div className="fc-legend-item">
-                <svg width="22" height="10">
-                  <line x1="0" y1="5" x2="22" y2="5" stroke="#374151" strokeWidth="2" strokeDasharray="5 3"/>
-                </svg>
-                <span style={{ color:'#374151' }}>AWS (target = 100)</span>
+          <div className="fc-band">
+            <div className="fc-band-head">Readiness gap</div>
+            <div className="fc-chart-wrap">
+              <div className="fc-chart-title">Readiness Gap Closure — EU Providers vs AWS (2006 – 2050)</div>
+              <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'2px 6px 8px', fontStyle:'italic' }}>
+                velocity (pts/yr) = score ÷ (2026 − launch year) &nbsp;·&nbsp; 
+                <br /> parity ≈ 2026 + (100 − score) ÷ velocity
               </div>
-              <div className="fc-legend-item fc-legend-zone">
-                <span className="fc-legend-box" />
-                <span style={{ color:'#64748b' }}>Projected zone</span>
-              </div>
-            </div>
 
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={chart_data} margin={{ top:14, right:16, bottom:8, left:0 }}>
-                <ReferenceArea x1={2026} x2={2050} fill="#e0e7ff" fillOpacity={0.35} />
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="year" type="number" domain={[2006, 2050]}
-                  ticks={[2006,2010,2015,2020,2026,2030,2035,2040,2045,2050]}
-                  tick={{ fontSize:10 }} />
-                <YAxis domain={[0,100]} tickCount={6} tick={{ fontSize:10 }}
-                  label={{ value:'Readiness score', angle:-90, position:'insideLeft', offset:14, fontSize:10 }} />
-                <Tooltip content={<CustomTooltip />} />
-                <ReferenceLine y={100} stroke="#374151" strokeWidth={1.5} strokeDasharray="5 3" />
-                <ReferenceLine x={2026} stroke="#64748b" strokeWidth={1.5} strokeDasharray="4 3"
-                  label={{ value:'Now', position:'insideTopLeft', fontSize:9, fill:'#64748b' }} />
-                <ReferenceLine x={2030} stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 3"
-                  label={{ value:'EC Digital Decade', position:'insideTopLeft', fontSize:9, fill:'#b45309' }} />
+              {/* Velocity strip — compact, inside the white card */}
+              <div className="fc-strip fc-strip--compact">
                 {providers.map(p => (
-                  <Line key={p.key+'_h'} dataKey={p.key} name={p.key}
-                    stroke={COLORS[p.key]} strokeWidth={2.5}
-                    dot={false} connectNulls={false} legendType="none" />
-                ))}
-                {providers.map(p => (
-                  <Line key={p.key+'_p'} dataKey={p.key+'_proj'} name={p.key+'_proj'}
-                    stroke={COLORS[p.key]} strokeWidth={2} strokeDasharray="5 4"
-                    dot={false} connectNulls={false} legendType="none" />
-                ))}
-                {providers.map(p => (
-                  <ReferenceDot key={p.key+'_dot'} x={2026} y={p.score_now}
-                    r={4} fill={COLORS[p.key]} stroke="#fff" strokeWidth={2} />
-                ))}
-                {/* Names written in the running lines */}
-                {providers.map(p => {
-                  const launch   = p.launch_year
-                  const midYr    = Math.round(launch + (2026 - launch) * 0.4)
-                  const midScore = parseFloat((p.velocity * (midYr - launch)).toFixed(1))
-                  return (
-                    <ReferenceDot key={p.key+'_lbl'} x={midYr} y={midScore}
-                      r={0} fill="none" stroke="none"
-                      label={<InlineLabel value={`${p.key} `} fill={COLORS[p.key]} />} />
-                  )
-                })}
-              </LineChart>
-            </ResponsiveContainer>
-          <div className="fc-analysis-block">
-            <div className="fc-analysis-heading">Considering the launch date</div>
-            <p>
-              Each line starts at zero at the provider's cloud launch year and climbs toward
-              AWS at 100. The shaded zone is projection — each provider continues at the same
-              annual rate observed historically. <strong>T-Cloud Public</strong> and <strong>STACKIT</strong> are
-              on track to close the gap around 2030. The other three converge between 2040 and 2048.
-            </p>
-          </div>
-          </div>
-
-        </div>
-
-        {/* ── Right column: Revenue Scale ── */}
-        <div className="fc-col">
-          <div className="fc-chart-wrap">
-            <div className="fc-chart-title">Annual Revenue (EUR) — EU Providers vs AWS, 2019–2024</div>
-
-            {/* Revenue strip — compact, inside the white card */}
-            <div className="fc-strip fc-strip--compact">
-              {revenue_summary.map(p => (
-                <div key={p.key} className="fc-strip-item" style={{ borderLeft:`3px solid ${REV_COLORS[p.key]}` }}>
-                  <span className="fc-strip-name">{p.key}</span>
-                  <span className="fc-strip-score" style={{ color:REV_COLORS[p.key] }}>{fmtRev(p.revenue_latest_m)}</span>
-                  <span className="fc-strip-meta">{p.cagr_5yr != null ? `${p.cagr_5yr}% CAGR` : 'est.'}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="fc-legend">
-              {revenue_summary.map(p => (
-                <div key={p.key} className="fc-legend-item">
-                  <svg width="22" height="10">
-                    <line x1="0" y1="5" x2="22" y2="5"
-                      stroke={REV_COLORS[p.key]} strokeWidth="2.5"
-                      strokeDasharray={p.key === 'AWS' ? '6 3' : undefined}/>
-                  </svg>
-                  <span style={{ color: REV_COLORS[p.key] }}>{p.key}</span>
-                </div>
-              ))}
-            </div>
-
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={revenue_chart_data} margin={{ top:14, right:16, bottom:8, left:4 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="year" type="number" domain={[2019, 2024]}
-                  ticks={[2019,2020,2021,2022,2023,2024]}
-                  tick={{ fontSize:10 }} />
-                <YAxis scale="log" domain={[50, 200000]}
-                  ticks={[100, 500, 1000, 5000, 10000, 50000, 100000]}
-                  tickFormatter={fmtTick}
-                  tick={{ fontSize:9 }}
-                  label={{ value:'Revenue (EUR m, log)', angle:-90, position:'insideLeft', offset:14, fontSize:10 }} />
-                <Tooltip content={<RevTooltip />} />
-                {revenue_summary.map(p => (
-                  <Line key={p.key} dataKey={p.key} name={p.key}
-                    stroke={REV_COLORS[p.key]}
-                    strokeWidth={p.key === 'AWS' ? 2 : 2.5}
-                    strokeDasharray={p.key === 'AWS' ? '6 3' : undefined}
-                    dot={false} connectNulls={false} legendType="none" />
-                ))}
-                {/* Names written in the running lines */}
-                {revenue_summary.map(p => {
-                  const startYr = p.key === 'STACKIT' ? 2022 : 2019
-                  const midYr   = p.key === 'STACKIT' ? 2023 : 2021
-                  const midVal  = revByYear[midYr]?.[p.key]
-                  if (midVal == null) return null
-                  return (
-                    <ReferenceDot key={p.key+'_lbl'} x={midYr} y={midVal}
-                      r={0} fill="none" stroke="none"
-                      label={<InlineLabel value={p.key} fill={REV_COLORS[p.key]} />} />
-                  )
-                })}
-              </LineChart>
-            </ResponsiveContainer>
-          <div className="fc-analysis-block">
-            <div className="fc-analysis-heading">The financial gap</div>
-            <p>
-              AWS cloud revenue in 2024 reached <strong>~€99B</strong> — roughly <strong>74×</strong> larger
-              than IONOS (€1.3B), the highest-revenue EU provider shown. The log scale is the only way
-              to show all providers on the same axis. Despite strong growth in STACKIT and Scaleway,
-              closing this financial gap is a multi-decade undertaking.
-            </p>
-          </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* ══ ROW 2 — Investment & Funding Timeline ════════════════════════════ */}
-      <div style={{ marginTop:28 }}>
-        <div className="fc-chart-wrap">
-          <div className="fc-chart-title">Investment &amp; Funding Milestones — EU Providers &amp; AWS (2006 – 2026)</div>
-          <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 8px', lineHeight:1.6 }}>
-            Bubble size proportional to capital committed. Dashed outline = amount undisclosed. Hover any bubble for the full story.
-          </div>
-
-          {/* Legend */}
-          <div className="fc-legend" style={{ paddingBottom:10 }}>
-            {PROVIDER_ROW_LABELS.map(k => (
-              <div key={k} className="fc-legend-item">
-                <span style={{ display:'inline-block', width:10, height:10, borderRadius:'50%', background:REV_COLORS[k], flexShrink:0 }} />
-                <span style={{ color:REV_COLORS[k] }}>{k}</span>
-              </div>
-            ))}
-            <div className="fc-legend-item">
-              <span style={{ display:'inline-block', width:10, height:10, borderRadius:'50%', border:'1.5px dashed #9ca3af', flexShrink:0 }} />
-              <span style={{ color:'#9ca3af' }}>Undisclosed</span>
-            </div>
-          </div>
-
-          <ResponsiveContainer width="100%" height={420}>
-            <ScatterChart margin={{ top:50, right:30, bottom:10, left:110 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
-              <XAxis dataKey="year" type="number" domain={[2005, 2027]}
-                ticks={[2006,2008,2010,2012,2014,2016,2018,2020,2022,2024,2026]}
-                tick={{ fontSize:10 }} name="Year" />
-              <YAxis dataKey="y" type="number" domain={[0.5, 6.5]}
-                ticks={[1,2,3,4,5,6]}
-                tickFormatter={v => PROVIDER_ROW_LABELS[v - 1] ?? ''}
-                tick={{ fontSize:10, fontWeight:600 }}
-                width={108} axisLine={false} tickLine={false} />
-              <Tooltip content={<MilestoneTooltip />} cursor={false} />
-              {PROVIDER_ROW_LABELS.map(k => (
-                <Scatter key={k} data={milestoneByProvider[k] ?? []}
-                  shape={<MilestoneDot />} legendType="none" />
-              ))}
-            </ScatterChart>
-          </ResponsiveContainer>
-        <div className="fc-analysis-block" style={{ marginTop:12 }}>
-          <div className="fc-analysis-heading">Reading the timeline</div>
-          <p>
-            Each bubble marks a capital event — IPO, parent commitment, government grant, or annual capex.
-            AWS operates at a scale no EU provider approaches: its FY2024 group capex (~€76B) exceeds
-            the total cumulative investment of all five EU providers combined.
-            STACKIT's €11B Lübbenau data centre commitment is the single largest EU sovereign cloud
-            infrastructure pledge to date, yet still represents less than one quarter of AWS's annual capex.
-          </p>
-        </div>
-        </div>
-
-      </div>
-
-      {/* ══ ROW 3+4 — Efficiency & Capital Structure (two columns) ════════ */}
-      <div className="fc-row" style={{ marginTop:28 }}>
-
-        {/* ── Left: Investment Efficiency Scatter ── */}
-        <div className="fc-col">
-          <div className="fc-chart-wrap">
-            <div className="fc-thesis-q">
-              Do EU providers extract meaningful sovereign readiness from each euro invested — or does scale ultimately decide?
-            <br /> <i>(for every €1 invested, how is that closing the gap from AWS?)</i>
-            </div>
-            <div className="fc-chart-title">Investment Efficiency — Cumulative Capital vs Technical Readiness</div>
-            <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'2px 6px 4px' }}>
-              X = total disclosed capital committed (log scale) · Y = current readiness score (AWS = 100) · Label = pts/€B
-            </div>
-            <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'0 6px 10px', fontStyle:'italic' }}>
-              pts/€B = readiness score ÷ total disclosed capital (€B)
-            </div>
-
-            <ResponsiveContainer width="100%" height={320}>
-              <ScatterChart margin={{ top:30, right:60, bottom:52, left:50 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="cumulative_m" type="number" name="Cumulative Investment"
-                  scale="log" domain={[500, 20000]}
-                  ticks={[500, 1000, 2000, 5000, 10000]}
-                  tickFormatter={v => v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`}
-                  tick={{ fontSize:9 }}
-                  label={{ value:'Cumulative Disclosed Capital (log scale)', position:'insideBottom', offset:-32, fontSize:10, fill:'#6b7280' }} />
-                <YAxis dataKey="score_now" type="number" domain={[0, 100]}
-                  tick={{ fontSize:9 }}
-                  label={{ value:'Readiness Score', angle:-90, position:'insideLeft', offset:14, fontSize:10, fill:'#6b7280' }} />
-                <Tooltip content={<EfficiencyTooltip />} />
-                <Scatter data={efficiencyData} shape={<EfficiencyDot />} legendType="none" />
-              </ScatterChart>
-            </ResponsiveContainer>
-
-            <div className="fc-analysis-block" style={{ marginTop:8 }}>
-              <div className="fc-analysis-heading">Reading efficiency</div>
-              <p>
-                Providers top-left — high readiness, low cumulative capital — are the most efficient.
-                <strong> T-Cloud Public</strong> and <strong>IONOS</strong> both sit there: Deutsche Telekom
-                runs targeted data-centre capex; IONOS has converted IPO and PE capital directly into cloud infrastructure.
-                <strong> STACKIT</strong> appears capital-heavy because the <strong>€11B Lübbenau commitment</strong> is counted
-                in full even though Phase 1 completes in 2027 — the readiness gain will materialise post-2027.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Right: Capital Structure Stacked Bar ── */}
-        <div className="fc-col">
-          <div className="fc-chart-wrap">
-            <div className="fc-thesis-q">
-              How does capital structure — market-funded independence vs parent-subsidised scale — shape each provider's path to sovereignty?
-              <br /> <i>(where the money to build each provider's cloud came from?)</i>
-            </div>
-            <div className="fc-chart-title">Capital Structure by Source — EU Providers (Disclosed Only)</div>
-            <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'2px 6px 6px' }}>
-              Stacked by funding category. Undisclosed events excluded. STACKIT dominated by the €11B Lübbenau parent commitment.
-            </div>
-
-            <div className="fc-legend" style={{ paddingBottom:8 }}>
-              {FUNDING_GROUPS.map(g => (
-                <div key={g} className="fc-legend-item">
-                  <span style={{ display:'inline-block', width:12, height:12, borderRadius:2, background:FUNDING_COLORS[g], flexShrink:0 }} />
-                  <span style={{ color:'#374151' }}>{g}</span>
-                </div>
-              ))}
-            </div>
-
-            <ResponsiveContainer width="100%" height={320}>
-              <BarChart data={fundingMixData} margin={{ top:14, right:16, bottom:8, left:50 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={true} vertical={false} />
-                <XAxis dataKey="provider" tick={{ fontSize:10, fontWeight:600 }} />
-                <YAxis
-                  tickFormatter={v => v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`}
-                  tick={{ fontSize:9 }}
-                  label={{ value:'Capital (€M)', angle:-90, position:'insideLeft', offset:14, fontSize:10, fill:'#6b7280' }} />
-                <Tooltip content={<FundingTooltip />} />
-                {FUNDING_GROUPS.map(g => (
-                  <Bar key={g} dataKey={g} stackId="mix" fill={FUNDING_COLORS[g]} name={g} />
-                ))}
-              </BarChart>
-            </ResponsiveContainer>
-
-            <div className="fc-analysis-block" style={{ marginTop:12 }}>
-              <div className="fc-analysis-heading">Capital independence as a sovereignty signal</div>
-              <p>
-                <strong>OVHcloud</strong> and <strong>IONOS</strong> are the most market-funded EU providers —
-                their IPOs and PE capital mean growth is validated by external investors rather than subsidised
-                by a parent. <strong>Scaleway</strong> and <strong>STACKIT</strong> are overwhelmingly
-                parent-funded: Iliad's €3B and Schwarz's €11B Lübbenau come from Europe's largest retail groups.
-                <strong> EU Programmes</strong> remain small — public funding has catalysed, not carried, EU sovereign cloud.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ══ ROW 5 — Global revenue: parent group and cloud arm ═══════════════ */}
-      {rev && rev.rows?.length > 0 && (
-        <div style={{ marginTop:28 }}>
-          <HatchDefs />
-          <div className="fc-chart-wrap">
-            <div className="fc-chart-title">Global Revenue — Parent Group and Cloud Arm, 2015–2026</div>
-            <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 10px', lineHeight:1.6 }}>
-              Each bar is the parent group's total revenue for that year. The solid coloured part is the
-              cloud arm inside it; the grey part is everything else the group does. A hatched bar means the
-              group's revenue is published but the cloud arm's is not, so the split cannot be drawn.
-              A dashed line inside a hatched bar is the closest figure the provider does publish —
-              usually a larger business the cloud arm sits inside. It is not the cloud arm; it only
-              says how big the cloud arm could be. Each panel has its own scale — Amazon and OVHcloud differ by
-              three orders of magnitude and cannot share an axis. Figures are EUR millions; Amazon is
-              converted year by year at the ECB annual average reference rate, from{' '}
-              {rev.fx?.eur_per_usd?.['2015']?.toFixed(3)} in 2015 to{' '}
-              {rev.fx?.eur_per_usd?.['2025']?.toFixed(3)} in 2025.
-            </div>
-
-            <div className="fc-legend" style={{ paddingBottom:12 }}>
-              <div className="fc-legend-item">
-                <span style={{ display:'inline-block', width:12, height:12, background:PARENT_FILL, flexShrink:0 }} />
-                <span style={{ color:'#6b7280' }}>Parent group, excluding the cloud arm</span>
-              </div>
-              <div className="fc-legend-item">
-                <span style={{ display:'inline-block', width:12, height:12, background:'#374151', flexShrink:0 }} />
-                <span style={{ color:'#374151' }}>Cloud arm (published)</span>
-              </div>
-              <div className="fc-legend-item">
-                <span style={{ display:'inline-block', width:12, height:12, flexShrink:0,
-                  background:'repeating-linear-gradient(45deg, #9ca3af 0 2px, #f1f3f7 2px 6px)' }} />
-                <span style={{ color:'#9ca3af' }}>Cloud arm undisclosed — split cannot be drawn</span>
-              </div>
-              <div className="fc-legend-item">
-                <span style={{ color:'#9ca3af' }}>No bar = no published group figure for that year</span>
-              </div>
-            </div>
-
-            <div className="fc-revsplit">
-            <div className="fc-revsplit-left">
-            <div className="fc-smallmult">
-              {GLOBAL_REV_ORDER.map(pkey => {
-                const meta  = rev.providers.find(p => p.key === pkey)
-                const rows  = rev.rows.map(r => ({
-                  year:      r.year,
-                  parent_ex: r[`${pkey}__parent_ex`],
-                  cloud:     r[`${pkey}__cloud`],
-                  proxy:     r[`${pkey}__proxy`],
-                  status:    r[`${pkey}__cloud_status`],
-                }))
-                /* A year with no bar is either still open or was never found.
-                   The two are different things and are labelled differently. */
-                const gaps = rows
-                  .filter(r => r.parent_ex == null)
-                  .map(r => ({ year: r.year, why: rev.cells?.[pkey]?.[r.year]?.parent_status }))
-                const missing = gaps.filter(g => g.why !== 'not_yet_reported').map(g => g.year)
-                const pending = gaps.filter(g => g.why === 'not_yet_reported').map(g => g.year)
-                const hasCloudEver = rows.some(r => r.cloud != null)
-                return (
-                  <div key={pkey} className="fc-sm-panel">
-                    <div className="fc-sm-head">
-                      <span className="fc-sm-name" style={{ color:REV_COLORS[pkey] }}>{pkey}</span>
-                      <span className="fc-sm-parent">{meta?.parent_name}</span>
-                    </div>
-                    <ResponsiveContainer width="100%" height={190}>
-                      <ComposedChart data={rows} margin={{ top:6, right:6, bottom:0, left:-6 }} barCategoryGap="18%">
-                        <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
-                        <XAxis dataKey="year" tick={{ fontSize:9 }} interval={1} tickLine={false} />
-                        <YAxis tick={{ fontSize:9 }} width={46} tickLine={false} axisLine={false}
-                          tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}B` : `${v}M`} />
-                        <Tooltip cursor={{ fill:'rgba(0,0,0,0.03)' }}
-                          content={<GlobalRevTooltip cells={rev.cells} pkey={pkey} proxy={meta?.proxy} />} />
-                        <Bar dataKey="parent_ex" stackId="a" isAnimationActive={false}>
-                          {rows.map(r => (
-                            <Cell key={r.year}
-                              fill={r.cloud == null
-                                ? `url(#hatch-${pkey.replace(/\W/g, '')})`
-                                : PARENT_FILL} />
-                          ))}
-                        </Bar>
-                        <Bar dataKey="cloud" stackId="a" fill={REV_COLORS[pkey]} isAnimationActive={false} />
-                        {/* The closest figure this provider does publish. Not
-                            the cloud arm: usually a larger business the cloud
-                            arm sits inside, occasionally only one part of it. */}
-                        {meta?.proxy && (
-                          <Line type="stepAfter" dataKey="proxy" stroke={REV_COLORS[pkey]}
-                            strokeWidth={1.6} strokeDasharray="4 3" dot={false}
-                            connectNulls={false} isAnimationActive={false} legendType="none" />
-                        )}
-                      </ComposedChart>
-                    </ResponsiveContainer>
-                    <div className="fc-sm-note">
-                      {meta?.proxy && (
-                        <span style={{ color:REV_COLORS[pkey] }}>
-                          ┄ {meta.proxy.short_label}
-                          {` — ${BOUND_TEXT[meta.proxy.bound]?.short ?? PERIMETER_TEXT}. `}
-                        </span>
-                      )}
-                      {!hasCloudEver && <span>Cloud arm revenue never published. </span>}
-                      {missing.length > 0 && <span>No group figure found: {missing.join(', ')}. </span>}
-                      {pending.length > 0 && <span>{pending.join(', ')} not yet reported.</span>}
-                    </div>
+                  <div key={p.key} className="fc-strip-item" style={{ borderLeft:`3px solid ${COLORS[p.key]}` }}>
+                    <span className="fc-strip-name">{p.key}</span>
+                    <span className="fc-strip-score" style={{ color:COLORS[p.key] }}>{p.score_now}</span>
+                    <span className="fc-strip-meta">{p.velocity.toFixed(1)} pts/yr · ~{p.parity_year ? Math.ceil(p.parity_year) : '—'}</span>
                   </div>
-                )
-              })}
-            </div>
-            </div>
-
-            {/* ── Right: the one measure that puts all six on a single axis ── */}
-            <div className="fc-revsplit-right">
-              <div className="fc-sm-head" style={{ padding:'0 0 2px' }}>
-                <span className="fc-sm-name" style={{ color:'#1a1a2e' }}>
-                  Cloud arm as a share of its group
-                </span>
-                <span className="fc-sm-parent">
-                  The six groups span a factor of 608 in size, so a euro axis cannot hold them. A share can.
-                </span>
+                ))}
               </div>
 
-              <ResponsiveContainer width="100%" height={430}>
-                <LineChart data={rev.rows} margin={{ top:14, right:56, bottom:4, left:-8 }}>
+              <div className="fc-legend">
+                {providers.map(p => (
+                  <div key={p.key} className="fc-legend-item">
+                    <svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke={COLORS[p.key]} strokeWidth="2.5"/></svg>
+                    <span style={{ color: COLORS[p.key] }}>{p.key}</span>
+                  </div>
+                ))}
+                <div className="fc-legend-item">
+                  <svg width="22" height="10">
+                    <line x1="0" y1="5" x2="22" y2="5" stroke="#374151" strokeWidth="2" strokeDasharray="5 3"/>
+                  </svg>
+                  <span style={{ color:'#374151' }}>AWS (target = 100)</span>
+                </div>
+                <div className="fc-legend-item fc-legend-zone">
+                  <span className="fc-legend-box" />
+                  <span style={{ color:'#64748b' }}>Projected zone</span>
+                </div>
+              </div>
+
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={chart_data} margin={{ top:14, right:16, bottom:8, left:0 }}>
+                  <ReferenceArea x1={2026} x2={2050} fill="#e0e7ff" fillOpacity={0.35} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis dataKey="year" type="number" domain={[2006, 2050]}
+                    ticks={[2006,2010,2015,2020,2026,2030,2035,2040,2045,2050]}
+                    tick={{ fontSize:10 }} />
+                  <YAxis domain={[0,100]} tickCount={6} tick={{ fontSize:10 }}
+                    label={{ value:'Readiness score', angle:-90, position:'insideLeft', offset:14, fontSize:10 }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <ReferenceLine y={100} stroke="#374151" strokeWidth={1.5} strokeDasharray="5 3" />
+                  <ReferenceLine x={2026} stroke="#64748b" strokeWidth={1.5} strokeDasharray="4 3"
+                    label={{ value:'Now', position:'insideTopLeft', fontSize:9, fill:'#64748b' }} />
+                  <ReferenceLine x={2030} stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 3"
+                    label={{ value:'EC Digital Decade', position:'insideTopLeft', fontSize:9, fill:'#b45309' }} />
+                  {providers.map(p => (
+                    <Line key={p.key+'_h'} dataKey={p.key} name={p.key}
+                      stroke={COLORS[p.key]} strokeWidth={2.5}
+                      dot={false} connectNulls={false} legendType="none" />
+                  ))}
+                  {providers.map(p => (
+                    <Line key={p.key+'_p'} dataKey={p.key+'_proj'} name={p.key+'_proj'}
+                      stroke={COLORS[p.key]} strokeWidth={2} strokeDasharray="5 4"
+                      dot={false} connectNulls={false} legendType="none" />
+                  ))}
+                  {providers.map(p => (
+                    <ReferenceDot key={p.key+'_dot'} x={2026} y={p.score_now}
+                      r={4} fill={COLORS[p.key]} stroke="#fff" strokeWidth={2} />
+                  ))}
+                  {/* Names written in the running lines */}
+                  {providers.map(p => {
+                    const launch   = p.launch_year
+                    const midYr    = Math.round(launch + (2026 - launch) * 0.4)
+                    const midScore = parseFloat((p.velocity * (midYr - launch)).toFixed(1))
+                    return (
+                      <ReferenceDot key={p.key+'_lbl'} x={midYr} y={midScore}
+                        r={0} fill="none" stroke="none"
+                        label={<InlineLabel value={`${p.key} `} fill={COLORS[p.key]} />} />
+                    )
+                  })}
+                </LineChart>
+              </ResponsiveContainer>
+            <div className="fc-analysis-block">
+              <div className="fc-analysis-heading">Considering the launch date</div>
+              <p>
+                Each line starts at zero at the provider's cloud launch year and climbs toward
+                AWS at 100. The shaded zone is projection — each provider continues at the same
+                annual rate observed historically. <strong>T-Cloud Public</strong> and <strong>STACKIT</strong> are
+                on track to close the gap around 2030. The other three converge between 2040 and 2048.
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="fc-col">
+          <div className="fc-band">
+            <div className="fc-band-head">Investment</div>
+          {/* ══ ROW 2 — Investment & Funding Timeline ════════════════════════════ */}
+          <div style={{ marginTop:28 }}>
+            <div className="fc-chart-wrap">
+              <div className="fc-chart-title">Investment &amp; Funding Milestones — EU Providers &amp; AWS (2015 – 2026)</div>
+              <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 8px', lineHeight:1.6 }}>
+                Bubble size proportional to capital committed. Dashed outline = amount undisclosed. Hover any bubble for the full story.
+              </div>
+
+              {/* Legend */}
+              <div className="fc-legend" style={{ paddingBottom:10 }}>
+                {PROVIDER_ROW_LABELS.map(k => (
+                  <div key={k} className="fc-legend-item">
+                    <span style={{ display:'inline-block', width:10, height:10, borderRadius:'50%', background:REV_COLORS[k], flexShrink:0 }} />
+                    <span style={{ color:REV_COLORS[k] }}>{k}</span>
+                  </div>
+                ))}
+                <div className="fc-legend-item">
+                  <span style={{ display:'inline-block', width:10, height:10, borderRadius:'50%', border:'1.5px dashed #9ca3af', flexShrink:0 }} />
+                  <span style={{ color:'#9ca3af' }}>Undisclosed</span>
+                </div>
+              </div>
+
+              <ResponsiveContainer width="100%" height={470}>
+                {/* left margin stays small: the YAxis already reserves 108px
+                    for the provider names, so a wide margin doubles the gap */}
+                <ScatterChart margin={{ top:26, right:34, bottom:10, left:2 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
-                  <XAxis dataKey="year" tick={{ fontSize:10 }} interval={1} tickLine={false} />
-                  <YAxis domain={[0, 100]} ticks={[0, 20, 40, 60, 80, 100]}
-                    tick={{ fontSize:10 }} width={40} tickLine={false} axisLine={false}
-                    tickFormatter={v => `${v}%`} />
-                  <Tooltip content={<ShareTooltip cells={rev.cells} />} />
-                  {GLOBAL_REV_ORDER.map(pkey => {
-                    const key = `${pkey}__share`
-                    /* Index of the last year that has a value, so the series
-                       can be named at the end of its own line instead of in a
-                       legend box the reader has to look back and forth to. */
+                  {/* Starts at 2015: every disclosed euro falls in 2015 or later.
+                      The only earlier entries are the 2006 launches of AWS and
+                      OVHcloud, neither carrying a figure. */}
+                  <XAxis dataKey="x" type="number" domain={[2014.4, 2026.7]}
+                    ticks={[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}
+                    tickFormatter={v => Math.round(v)}
+                    tick={{ fontSize:10 }} name="Year" />
+                  <YAxis dataKey="y" type="number" domain={[0.5, 6.5]}
+                    ticks={[1,2,3,4,5,6]}
+                    tickFormatter={v => PROVIDER_ROW_LABELS[v - 1] ?? ''}
+                    tick={{ fontSize:10, fontWeight:600 }}
+                    width={108} axisLine={false} tickLine={false} />
+                  <Tooltip content={<MilestoneTooltip />} cursor={false} />
+                  {PROVIDER_ROW_LABELS.map(k => (
+                    <Scatter key={k} data={milestoneByProvider[k] ?? []}
+                      shape={<MilestoneDot />} legendType="none" isAnimationActive={false} />
+                  ))}
+                  {/* second pass — every figure sits above every circle */}
+                  {PROVIDER_ROW_LABELS.map(k => (
+                    <Scatter key={`${k}__value`} data={milestoneByProvider[k] ?? []}
+                      shape={<MilestoneValue />} legendType="none" isAnimationActive={false} />
+                  ))}
+                </ScatterChart>
+              </ResponsiveContainer>
+            <div className="fc-analysis-block" style={{ marginTop:12 }}>
+              <div className="fc-analysis-heading">Reading the timeline</div>
+              <p>
+                Each bubble marks a capital event — IPO, parent commitment, government grant, or annual capex.
+                AWS operates at a scale no EU provider approaches: its FY2024 group capex (~€76B) exceeds
+                the total cumulative investment of all five EU providers combined.
+                STACKIT's €11B Lübbenau data centre commitment is the single largest EU sovereign cloud
+                infrastructure pledge to date, yet still represents less than one quarter of AWS's annual capex.
+              </p>
+            </div>
+            </div>
+
+          </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ══ BAND 2 — revenue ════════════════════════════════════════════════ */}
+      <div className="fc-band">
+          <div className="fc-band-head">Revenue</div>
+        {/* ══ ROW 5 — Global revenue: parent group and cloud arm ═══════════════ */}
+        {rev && rev.rows?.length > 0 && (
+          <div style={{ marginTop:28 }}>
+            <HatchDefs />
+            <div className="fc-chart-wrap">
+              <div className="fc-chart-title">Global Revenue — Parent Group and Cloud Arm, 2015–2026</div>
+              <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 10px', lineHeight:1.6 }}>
+                Each bar is a parent group's total revenue, with its cloud arm shown inside it.
+                A dashed line in a hatched bar is the closest figure that provider does publish —
+                a larger business the cloud arm sits within, so it caps how big the arm could be
+                rather than stating it. Panels have their own scales; Amazon and OVHcloud differ by
+                three orders of magnitude. EUR millions, Amazon converted at the ECB annual average
+                rate ({rev.fx?.eur_per_usd?.['2015']?.toFixed(3)} in 2015,{' '}
+                {rev.fx?.eur_per_usd?.['2025']?.toFixed(3)} in 2025).
+              </div>
+
+              <div className="fc-legend" style={{ paddingBottom:12 }}>
+                <div className="fc-legend-item">
+                  <span style={{ display:'inline-block', width:12, height:12, background:PARENT_FILL, flexShrink:0 }} />
+                  <span style={{ color:'#6b7280' }}>Parent group, excluding the cloud arm</span>
+                </div>
+                <div className="fc-legend-item">
+                  <span style={{ display:'inline-block', width:12, height:12, background:'#374151', flexShrink:0 }} />
+                  <span style={{ color:'#374151' }}>Cloud arm (published)</span>
+                </div>
+                <div className="fc-legend-item">
+                  <span style={{ display:'inline-block', width:12, height:12, flexShrink:0,
+                    background:'repeating-linear-gradient(45deg, #9ca3af 0 2px, #f1f3f7 2px 6px)' }} />
+                  <span style={{ color:'#9ca3af' }}>Cloud arm undisclosed — split cannot be drawn</span>
+                </div>
+                <div className="fc-legend-item">
+                  <span style={{ color:'#9ca3af' }}>No bar = no published group figure for that year</span>
+                </div>
+              </div>
+
+              <div className="fc-revsplit">
+              <div className="fc-revsplit-left">
+              <div className="fc-smallmult">
+                {GLOBAL_REV_ORDER.map(pkey => {
+                  const meta  = rev.providers.find(p => p.key === pkey)
+                  const rows  = rev.rows.map(r => ({
+                    year:      r.year,
+                    parent_ex: r[`${pkey}__parent_ex`],
+                    cloud:     r[`${pkey}__cloud`],
+                    proxy:     r[`${pkey}__proxy`],
+                    status:    r[`${pkey}__cloud_status`],
+                  }))
+                  /* A year with no bar is either still open or was never found.
+                     The two are different things and are labelled differently. */
+                  const gaps = rows
+                    .filter(r => r.parent_ex == null)
+                    .map(r => ({ year: r.year, why: rev.cells?.[pkey]?.[r.year]?.parent_status }))
+                  const missing = gaps.filter(g => g.why !== 'not_yet_reported').map(g => g.year)
+                  const pending = gaps.filter(g => g.why === 'not_yet_reported').map(g => g.year)
+                  const hasCloudEver = rows.some(r => r.cloud != null)
+                  return (
+                    <div key={pkey} className="fc-sm-panel">
+                      <div className="fc-sm-head">
+                        <span className="fc-sm-name" style={{ color:REV_COLORS[pkey] }}>{pkey}</span>
+                        <span className="fc-sm-parent">{meta?.parent_name}</span>
+                      </div>
+                      <ResponsiveContainer width="100%" height={190}>
+                        <ComposedChart data={rows} margin={{ top:6, right:6, bottom:0, left:-6 }} barCategoryGap="18%">
+                          <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
+                          <XAxis dataKey="year" tick={{ fontSize:9 }} interval={1} tickLine={false} />
+                          <YAxis tick={{ fontSize:9 }} width={46} tickLine={false} axisLine={false}
+                            tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}B` : `${v}M`} />
+                          <Tooltip cursor={{ fill:'rgba(0,0,0,0.03)' }}
+                            content={<GlobalRevTooltip cells={rev.cells} pkey={pkey} proxy={meta?.proxy} />} />
+                          <Bar dataKey="parent_ex" stackId="a" isAnimationActive={false}>
+                            {rows.map(r => (
+                              <Cell key={r.year}
+                                fill={r.cloud == null
+                                  ? `url(#hatch-${pkey.replace(/\W/g, '')})`
+                                  : PARENT_FILL} />
+                            ))}
+                          </Bar>
+                          <Bar dataKey="cloud" stackId="a" fill={REV_COLORS[pkey]} isAnimationActive={false} />
+                          {/* The closest figure this provider does publish. Not
+                              the cloud arm: usually a larger business the cloud
+                              arm sits inside, occasionally only one part of it. */}
+                          {meta?.proxy && (
+                            <Line type="stepAfter" dataKey="proxy" stroke={REV_COLORS[pkey]}
+                              strokeWidth={1.6} strokeDasharray="4 3" dot={false}
+                              connectNulls={false} isAnimationActive={false} legendType="none" />
+                          )}
+                        </ComposedChart>
+                      </ResponsiveContainer>
+                      <div className="fc-sm-note">
+                        {meta?.proxy && (
+                          <span style={{ color:REV_COLORS[pkey] }}>
+                            ┄ {meta.proxy.short_label}
+                            {` — ${BOUND_TEXT[meta.proxy.bound]?.short ?? PERIMETER_TEXT}. `}
+                          </span>
+                        )}
+                        {!hasCloudEver && <span>Cloud arm revenue never published. </span>}
+                        {missing.length > 0 && <span>No group figure found: {missing.join(', ')}. </span>}
+                        {pending.length > 0 && <span>{pending.join(', ')} not yet reported.</span>}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              </div>
+
+              {/* ── Right: the one measure that puts all six on a single axis ── */}
+              <div className="fc-revsplit-right">
+                <div className="fc-sm-head" style={{ padding:'0 0 2px' }}>
+                  <span className="fc-sm-name" style={{ color:'#1a1a2e' }}>
+                    Cloud arm as a share of its group
+                  </span>
+                  <span className="fc-sm-parent">
+                    The six groups span a factor of 608 in size, so a euro axis cannot hold them. A share can.
+                  </span>
+                </div>
+
+                <ResponsiveContainer width="100%" height={430}>
+                  <LineChart data={rev.rows} margin={{ top:14, right:56, bottom:4, left:-8 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
+                    <XAxis dataKey="year" tick={{ fontSize:10 }} interval={1} tickLine={false} />
+                    <YAxis domain={[0, 100]} ticks={[0, 20, 40, 60, 80, 100]}
+                      tick={{ fontSize:10 }} width={40} tickLine={false} axisLine={false}
+                      tickFormatter={v => `${v}%`} />
+                    <Tooltip content={<ShareTooltip cells={rev.cells} />} />
+                    {GLOBAL_REV_ORDER.map(pkey => {
+                      const key = `${pkey}__share`
+                      /* Index of the last year that has a value, so the series
+                         can be named at the end of its own line instead of in a
+                         legend box the reader has to look back and forth to. */
+                      let lastIdx = -1
+                      rev.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
+                      if (lastIdx < 0) return null
+                      return (
+                        <Line key={pkey} type="monotone" dataKey={key}
+                          stroke={REV_COLORS[pkey]} strokeWidth={2}
+                          dot={{ r: 2.5, strokeWidth: 0, fill: REV_COLORS[pkey] }}
+                          activeDot={{ r: 4 }} connectNulls={false} isAnimationActive={false}>
+                          <LabelList dataKey={key}
+                            content={<EndLabel name={pkey} lastIdx={lastIdx} />} />
+                        </Line>
+                      )
+                    })}
+                    {/* The closest figure these providers do publish. Dashed,
+                        because it says how big the cloud arm could be rather
+                        than how big it is. */}
+                    {GLOBAL_REV_ORDER.map(pkey => {
+                      const meta = rev.providers.find(p => p.key === pkey)
+                      if (!meta?.proxy) return null
+                      const key = `${pkey}__proxy_share`
+                      if (!rev.rows.some(r => r[key] != null)) return null
+                      let lastIdx = -1
+                      rev.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
+                      return (
+                        <Line key={`${pkey}-proxy`} type="stepAfter" dataKey={key}
+                          stroke={REV_COLORS[pkey]} strokeWidth={1.4} strokeDasharray="4 3"
+                          dot={false} connectNulls={false} isAnimationActive={false}>
+                          <LabelList dataKey={key}
+                            content={<EndLabel name={pkey} lastIdx={lastIdx} suffix="⌈" muted />} />
+                        </Line>
+                      )
+                    })}
+                    {/* IONOS moved AdTech to discontinued operations at 30 Sep 2025.
+                        The 2024 to 2025 step is that reclassification, not a movement. */}
+                    <ReferenceDot x={2025} y={21.6} r={5} fill="none"
+                      stroke="#b45309" strokeWidth={1.5} strokeDasharray="2 2" />
+                  </LineChart>
+                </ResponsiveContainer>
+
+                <div className="fc-share-absent">
+                  {rev.share_coverage
+                    ?.filter(s => s.years.length === 0)
+                    .map(s => (
+                      <div key={s.key} className="fc-share-absent-row">
+                        <span style={{ color:REV_COLORS[s.key], fontWeight:600 }}>{s.key}</span>
+                        <span>no line — {NO_SHARE_TEXT[s.reasons[s.reasons.length - 1]] ?? s.reasons.join(', ')}</span>
+                      </div>
+                    ))}
+                  <div className="fc-share-absent-row" style={{ color:'#b45309' }}>
+                    <span style={{ fontWeight:600 }}>◌ 2025</span>
+                    <span>IONOS step is the AdTech reclassification under IFRS 5, not a real change</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+              {/* ── Growth of the cloud arm against its owner, and the size of
+                     the gap to AWS in the same year and currency. ── */}
+              <div className="fc-growth-table">
+                <div className="fc-growth-row fc-growth-head">
+                  <span>Provider</span>
+                  <span>Parent group</span>
+                  <span>Cloud arm</span>
+                  <span>Outgrowing its owner?</span>
+                  <span>AWS cloud arm is</span>
+                </div>
+                {GLOBAL_REV_ORDER.map(pkey => {
+                  const g = rev.growth?.find(x => x.key === pkey)
+                  if (!g) return null
+                  const meta  = rev.providers.find(p => p.key === pkey)
+                  const inner = g.cloud ?? g.proxy
+                  const isProxy = !g.cloud && !!g.proxy
+                  const last  = [...rev.rows].reverse().find(r => r[`${pkey}__vs_aws`] != null)
+                  const mult  = last?.[`${pkey}__vs_aws`]
+                  const kind  = last?.[`${pkey}__vs_aws_kind`]
+                  /* If the known figure caps the cloud arm, dividing by it gives
+                     the narrowest the gap could be. If it only props the cloud
+                     arm up, dividing by it gives the widest. */
+                  const bt    = BOUND_TEXT[kind]
+                  const faster = g.cloud && g.parent && g.cloud.pct > g.parent.pct
+                  return (
+                    <div key={pkey} className="fc-growth-row">
+                      <span style={{ color:REV_COLORS[pkey], fontWeight:700 }}>{pkey}</span>
+                      <span>{g.parent ? `${g.parent.pct}%/yr` : '—'}
+                        <em>{g.parent ? `${g.parent.from}–${g.parent.to}` : ''}</em></span>
+                      <span style={{ color: isProxy ? '#9ca3af' : REV_COLORS[pkey] }}>
+                        {inner ? `${inner.pct}%/yr` : '—'}
+                        <em>{inner
+                          ? (isProxy ? `${meta.proxy.short_label}, ${inner.from}–${inner.to}` : `${inner.from}–${inner.to}`)
+                          : 'undisclosed'}</em>
+                      </span>
+                      <span>
+                        {!g.cloud ? <span style={{ color:'#9ca3af' }}>cannot be said</span>
+                          : pkey === 'OVHcloud' ? <span style={{ color:'#9ca3af' }}>same company</span>
+                          : faster ? <strong style={{ color:'#15803d' }}>yes, by {(g.cloud.pct - g.parent.pct).toFixed(1)} pts</strong>
+                          : <span>no</span>}
+                      </span>
+                      <span>
+                        {pkey === 'AWS' ? <span style={{ color:'#9ca3af' }}>—</span>
+                          : mult ? (
+                            <>
+                              <strong>{bt ? bt.mult(Math.round(mult)) : `${mult}× bigger`}</strong>
+                              <em>{last.year}{bt ? ` · ${bt.multWhy}` : ''}</em>
+                            </>
+                          ) : <span style={{ color:'#9ca3af' }}>—</span>}
+                      </span>
+                    </div>
+                  )
+                })}
+                <div className="fc-growth-foot">
+                  Growth is compound annual, over each figure's own available years, which differ.
+                  Where a provider does not publish its cloud revenue, the nearest figure it does
+                  publish is used instead and shown in grey. That substitute is sometimes a larger
+                  business the cloud arm sits inside, in which case the real gap to AWS can only be
+                  wider than shown; and sometimes only one national company out of several, in which
+                  case the real gap can only be narrower. Each row says which.
+                </div>
+              </div>
+
+              <div className="fc-analysis-block" style={{ marginTop:14 }}>
+                <div className="fc-analysis-heading">Reading the panels</div>
+                <p>
+                  Only one of the six splits for the whole window. Amazon reports AWS as a segment in its
+                  10-K, so the cloud arm is visible every year, growing from 7.4% of group revenue in 2015
+                  to 18.0% in 2025. IONOS splits from 2020, when it first reported separately after being
+                  carved out of United Internet's Business Applications segment. OVHcloud is one solid bar:
+                  parent and cloud business are the same company.
+                </p>
+                <p>
+                  The three hatched panels are the finding, not a gap in the research. Deutsche Telekom has
+                  never published Open Telekom Cloud revenue, iliad never Scaleway's, the Schwarz Group
+                  never STACKIT's. In each, the cloud business sits inside a group dominated by something
+                  else — telecommunications twice, grocery retail once — and is small enough that the group
+                  need not report it separately.
+                </p>
+                <p>
+                  The nearest businesses they do report are themselves small: Systems Solutions at 3.4% of
+                  Deutsche Telekom in 2025, down from 12.4% in 2015, and Schwarz Digits at 1.2% of group
+                  turnover. Each contains the cloud arm, so the arm is smaller again. Scaleway runs the
+                  other way — its published accounts cover the French company alone, leaving out the
+                  Italian and US ones, so the whole is larger than shown.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ══ ROW 6 — How European the revenue actually is ════════════════════ */}
+        {rev?.europe?.rows?.length > 0 && (
+          <div style={{ marginTop:28 }}>
+            <div className="fc-chart-wrap">
+              <div className="fc-chart-title">Share of Revenue Earned in Europe, 2015–2025</div>
+              <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 10px', lineHeight:1.6 }}>
+                The <strong>parent group's</strong> European share, not the cloud arm's — geography is
+                disclosed at group level only. For OVHcloud the two coincide, the group being the cloud
+                business. The question is not how big these providers are but how European: whether a
+                sovereign cloud offer sits inside a European business or a global one.
+              </div>
+
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart data={rev.europe.rows} margin={{ top:16, right:132, bottom:4, left:0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
+                  <XAxis dataKey="year" tick={{ fontSize:10 }} tickLine={false} />
+                  <YAxis domain={[0, 100]} ticks={[0, 20, 40, 60, 80, 100]} tick={{ fontSize:10 }}
+                    width={46} tickLine={false} axisLine={false} tickFormatter={v => `${v}%`} />
+                  <Tooltip content={<EuropeTooltip meta={rev.europe.providers} />} />
+                  {rev.europe.providers.map(ep => {
+                    if (!ep.years.length) return null
+                    const key = `${ep.key}__eu`
+                    /* A floor is known for two scattered years only. Joining them
+                       would claim the years in between, so it is drawn as marks. */
+                    const isFloor = ep.kind === 'floor only'
                     let lastIdx = -1
-                    rev.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
-                    if (lastIdx < 0) return null
+                    rev.europe.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
                     return (
-                      <Line key={pkey} type="monotone" dataKey={key}
-                        stroke={REV_COLORS[pkey]} strokeWidth={2}
-                        dot={{ r: 2.5, strokeWidth: 0, fill: REV_COLORS[pkey] }}
-                        activeDot={{ r: 4 }} connectNulls={false} isAnimationActive={false}>
+                      <Line key={ep.key} type="linear" dataKey={key}
+                        stroke={isFloor ? 'none' : REV_COLORS[ep.key]} strokeWidth={2}
+                        dot={{ r: isFloor ? 5 : 3, strokeWidth: 0, fill: REV_COLORS[ep.key] }}
+                        activeDot={{ r: 5 }} connectNulls={false} isAnimationActive={false}>
                         <LabelList dataKey={key}
-                          content={<EndLabel name={pkey} lastIdx={lastIdx} />} />
+                          content={<EuropeLabel name={ep.key} lastIdx={lastIdx} floor={isFloor} />} />
                       </Line>
                     )
                   })}
-                  {/* The closest figure these providers do publish. Dashed,
-                      because it says how big the cloud arm could be rather
-                      than how big it is. */}
-                  {GLOBAL_REV_ORDER.map(pkey => {
-                    const meta = rev.providers.find(p => p.key === pkey)
-                    if (!meta?.proxy) return null
-                    const key = `${pkey}__proxy_share`
-                    if (!rev.rows.some(r => r[key] != null)) return null
-                    let lastIdx = -1
-                    rev.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
-                    return (
-                      <Line key={`${pkey}-proxy`} type="stepAfter" dataKey={key}
-                        stroke={REV_COLORS[pkey]} strokeWidth={1.4} strokeDasharray="4 3"
-                        dot={false} connectNulls={false} isAnimationActive={false}>
-                        <LabelList dataKey={key}
-                          content={<EndLabel name={pkey} lastIdx={lastIdx} suffix="⌈" muted />} />
-                      </Line>
-                    )
-                  })}
-                  {/* IONOS moved AdTech to discontinued operations at 30 Sep 2025.
-                      The 2024 to 2025 step is that reclassification, not a movement. */}
-                  <ReferenceDot x={2025} y={21.6} r={5} fill="none"
-                    stroke="#b45309" strokeWidth={1.5} strokeDasharray="2 2" />
                 </LineChart>
               </ResponsiveContainer>
 
-              <div className="fc-share-absent">
-                {rev.share_coverage
-                  ?.filter(s => s.years.length === 0)
-                  .map(s => (
-                    <div key={s.key} className="fc-share-absent-row">
-                      <span style={{ color:REV_COLORS[s.key], fontWeight:600 }}>{s.key}</span>
-                      <span>no line — {NO_SHARE_TEXT[s.reasons[s.reasons.length - 1]] ?? s.reasons.join(', ')}</span>
-                    </div>
-                  ))}
-                <div className="fc-share-absent-row" style={{ color:'#b45309' }}>
-                  <span style={{ fontWeight:600 }}>◌ 2025</span>
-                  <span>IONOS step is the AdTech reclassification under IFRS 5, not a real change</span>
+              <div className="fc-growth-table" style={{ marginTop:14 }}>
+                <div className="fc-growth-row fc-eu-row fc-growth-head">
+                  <span>Provider</span><span>Parent group</span>
+                  <span>What the parent publishes</span><span>Latest</span>
                 </div>
-              </div>
-            </div>
-            </div>
-
-            {/* ── Growth of the cloud arm against its owner, and the size of
-                   the gap to AWS in the same year and currency. ── */}
-            <div className="fc-growth-table">
-              <div className="fc-growth-row fc-growth-head">
-                <span>Provider</span>
-                <span>Parent group</span>
-                <span>Cloud arm</span>
-                <span>Outgrowing its owner?</span>
-                <span>AWS cloud arm is</span>
-              </div>
-              {GLOBAL_REV_ORDER.map(pkey => {
-                const g = rev.growth?.find(x => x.key === pkey)
-                if (!g) return null
-                const meta  = rev.providers.find(p => p.key === pkey)
-                const inner = g.cloud ?? g.proxy
-                const isProxy = !g.cloud && !!g.proxy
-                const last  = [...rev.rows].reverse().find(r => r[`${pkey}__vs_aws`] != null)
-                const mult  = last?.[`${pkey}__vs_aws`]
-                const kind  = last?.[`${pkey}__vs_aws_kind`]
-                /* If the known figure caps the cloud arm, dividing by it gives
-                   the narrowest the gap could be. If it only props the cloud
-                   arm up, dividing by it gives the widest. */
-                const bt    = BOUND_TEXT[kind]
-                const faster = g.cloud && g.parent && g.cloud.pct > g.parent.pct
-                return (
-                  <div key={pkey} className="fc-growth-row">
-                    <span style={{ color:REV_COLORS[pkey], fontWeight:700 }}>{pkey}</span>
-                    <span>{g.parent ? `${g.parent.pct}%/yr` : '—'}
-                      <em>{g.parent ? `${g.parent.from}–${g.parent.to}` : ''}</em></span>
-                    <span style={{ color: isProxy ? '#9ca3af' : REV_COLORS[pkey] }}>
-                      {inner ? `${inner.pct}%/yr` : '—'}
-                      <em>{inner
-                        ? (isProxy ? `${meta.proxy.short_label}, ${inner.from}–${inner.to}` : `${inner.from}–${inner.to}`)
-                        : 'undisclosed'}</em>
-                    </span>
-                    <span>
-                      {!g.cloud ? <span style={{ color:'#9ca3af' }}>cannot be said</span>
-                        : pkey === 'OVHcloud' ? <span style={{ color:'#9ca3af' }}>same company</span>
-                        : faster ? <strong style={{ color:'#15803d' }}>yes, by {(g.cloud.pct - g.parent.pct).toFixed(1)} pts</strong>
-                        : <span>no</span>}
-                    </span>
-                    <span>
-                      {pkey === 'AWS' ? <span style={{ color:'#9ca3af' }}>—</span>
-                        : mult ? (
-                          <>
-                            <strong>{bt ? bt.mult(Math.round(mult)) : `${mult}× bigger`}</strong>
-                            <em>{last.year}{bt ? ` · ${bt.multWhy}` : ''}</em>
-                          </>
-                        ) : <span style={{ color:'#9ca3af' }}>—</span>}
-                    </span>
-                  </div>
-                )
-              })}
-              <div className="fc-growth-foot">
-                Growth is compound annual, over each figure's own available years, which differ.
-                Where a provider does not publish its cloud revenue, the nearest figure it does
-                publish is used instead and shown in grey. That substitute is sometimes a larger
-                business the cloud arm sits inside, in which case the real gap to AWS can only be
-                wider than shown; and sometimes only one national company out of several, in which
-                case the real gap can only be narrower. Each row says which.
-              </div>
-            </div>
-
-            <div className="fc-analysis-block" style={{ marginTop:14 }}>
-              <div className="fc-analysis-heading">Reading the panels</div>
-              <p>
-                Only one of the six can be split for the whole window. Amazon reports AWS as one of three
-                segments in its 10-K, so the cloud arm is visible in every year and grows from 7.4% of
-                group revenue in 2015 to 18.0% in 2025. IONOS splits only from 2020 onwards, when it
-                first reported its own revenue after being carved out of United Internet's Business
-                Applications segment; before that its bar is hatched because the group figure exists but
-                the cloud figure does not. OVHcloud is a single solid bar with no grey part at all: the
-                parent and the cloud business are the same company, so there is nothing else to shade.
-              </p>
-              <p>
-                The three hatched panels are the finding, not a gap in the research. Deutsche Telekom has
-                never published Open Telekom Cloud revenue, iliad has never published Scaleway revenue,
-                and the Schwarz Group has never published STACKIT revenue. In each case a European
-                provider's cloud business sits inside a group whose revenue is dominated by something
-                else entirely — telecommunications in two cases, grocery retail in the third — and the
-                cloud line is small enough that the group is not required to report it separately.
-              </p>
-              <p>
-                Something can still be said about those three, by looking at the smallest business each
-                group does report that has the cloud arm inside it. For Deutsche Telekom that is the
-                Systems Solutions segment, 3.4% of group revenue in 2025, down from 12.4% in 2015. For
-                the Schwarz Group it is Schwarz Digits, 1.2% of group turnover. Neither figure is the
-                cloud arm — each is a larger business that contains it — so the cloud arm has to be
-                smaller again. Scaleway is the one case that works the other way: its published accounts
-                cover only the French company and leave out the Italian and US ones, so the whole of
-                Scaleway must be larger than the figure shown, not smaller.
-              </p>
-              <p>
-                Put together, that is a firmer statement than a blank cell. In two of Europe's largest
-                groups, the entire division that the sovereign cloud offer belongs to is under one
-                thirtieth of the business — and the cloud offer itself is only a part of that division.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ══ ROW 6 — How European the revenue actually is ════════════════════ */}
-      {rev?.europe?.rows?.length > 0 && (
-        <div style={{ marginTop:28 }}>
-          <div className="fc-chart-wrap">
-            <div className="fc-chart-title">Share of Revenue Earned in Europe, 2015–2025</div>
-            <div style={{ fontSize:'0.72rem', color:'#6b7280', padding:'2px 6px 10px', lineHeight:1.6 }}>
-              This is the <strong>parent group's</strong> European share, not the cloud arm's — geography is
-              disclosed at group level only. For OVHcloud the two are the same thing, because the group is
-              the cloud business. The question here is not how big these providers are but how European
-              they are: whether a European sovereign cloud offer sits inside a European business or inside
-              a global one.
-            </div>
-
-            <ResponsiveContainer width="100%" height={340}>
-              <LineChart data={rev.europe.rows} margin={{ top:16, right:132, bottom:4, left:0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
-                <XAxis dataKey="year" tick={{ fontSize:10 }} tickLine={false} />
-                <YAxis domain={[0, 100]} ticks={[0, 20, 40, 60, 80, 100]} tick={{ fontSize:10 }}
-                  width={46} tickLine={false} axisLine={false} tickFormatter={v => `${v}%`} />
-                <Tooltip content={<EuropeTooltip meta={rev.europe.providers} />} />
-                {rev.europe.providers.map(ep => {
-                  if (!ep.years.length) return null
-                  const key = `${ep.key}__eu`
-                  /* A floor is known for two scattered years only. Joining them
-                     would claim the years in between, so it is drawn as marks. */
-                  const isFloor = ep.kind === 'floor only'
-                  let lastIdx = -1
-                  rev.europe.rows.forEach((r, i) => { if (r[key] != null) lastIdx = i })
+                {GLOBAL_REV_ORDER.map(pkey => {
+                  const ep   = rev.europe.providers.find(p => p.key === pkey)
+                  const meta = rev.providers.find(p => p.key === pkey)
+                  if (!ep) return null
+                  const last = [...rev.europe.rows].reverse().find(r => r[`${pkey}__eu`] != null)
                   return (
-                    <Line key={ep.key} type="linear" dataKey={key}
-                      stroke={isFloor ? 'none' : REV_COLORS[ep.key]} strokeWidth={2}
-                      dot={{ r: isFloor ? 5 : 3, strokeWidth: 0, fill: REV_COLORS[ep.key] }}
-                      activeDot={{ r: 5 }} connectNulls={false} isAnimationActive={false}>
-                      <LabelList dataKey={key}
-                        content={<EuropeLabel name={ep.key} lastIdx={lastIdx} floor={isFloor} />} />
-                    </Line>
+                    <div key={pkey} className="fc-growth-row fc-eu-row">
+                      <span style={{ color:REV_COLORS[pkey], fontWeight:700 }}>{pkey}</span>
+                      <span>{meta?.parent_name}</span>
+                      <span>{EU_KIND_TEXT[ep.kind] ?? ep.kind}
+                        <em>{ep.years.length ? `${ep.years[0]}–${ep.years[ep.years.length - 1]}` : 'nothing to plot'}</em></span>
+                      <span>
+                        {last
+                          ? <><strong>{ep.kind === 'floor only' ? 'at least ' : ''}{last[`${pkey}__eu`]}%</strong>
+                              <em>{last.year}{last[`${pkey}__eu_countries`] ? ` · ${last[`${pkey}__eu_countries`]}` : ''}</em></>
+                          : <span style={{ color:'#9ca3af' }}>—</span>}
+                      </span>
+                    </div>
                   )
                 })}
-              </LineChart>
-            </ResponsiveContainer>
-
-            <div className="fc-growth-table" style={{ marginTop:14 }}>
-              <div className="fc-growth-row fc-eu-row fc-growth-head">
-                <span>Provider</span><span>Parent group</span>
-                <span>What the parent publishes</span><span>Latest</span>
               </div>
-              {GLOBAL_REV_ORDER.map(pkey => {
-                const ep   = rev.europe.providers.find(p => p.key === pkey)
-                const meta = rev.providers.find(p => p.key === pkey)
-                if (!ep) return null
-                const last = [...rev.europe.rows].reverse().find(r => r[`${pkey}__eu`] != null)
-                return (
-                  <div key={pkey} className="fc-growth-row fc-eu-row">
-                    <span style={{ color:REV_COLORS[pkey], fontWeight:700 }}>{pkey}</span>
-                    <span>{meta?.parent_name}</span>
-                    <span>{EU_KIND_TEXT[ep.kind] ?? ep.kind}
-                      <em>{ep.years.length ? `${ep.years[0]}–${ep.years[ep.years.length - 1]}` : 'nothing to plot'}</em></span>
-                    <span>
-                      {last
-                        ? <><strong>{ep.kind === 'floor only' ? 'at least ' : ''}{last[`${pkey}__eu`]}%</strong>
-                            <em>{last.year}{last[`${pkey}__eu_countries`] ? ` · ${last[`${pkey}__eu_countries`]}` : ''}</em></>
-                        : <span style={{ color:'#9ca3af' }}>—</span>}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
 
-            <div className="fc-analysis-block" style={{ marginTop:14 }}>
-              <div className="fc-analysis-heading">Why AWS is not on this chart</div>
-              <p>
-                Amazon reports AWS as a single worldwide segment and publishes no geographic split of it.
-                Its revenue-by-country note covers the retail business. An AWS entity for the region does
-                exist and does file accounts — Amazon Web Services EMEA SARL in Luxembourg, RCS B186284,
-                filing since 2016 — but its territory is EMEA, which takes in Bahrain, Israel, Kuwait,
-                Saudi Arabia and the United Arab Emirates alongside the United Kingdom and Switzerland.
-                It is also an intra-group reselling entity, so its turnover is a transfer-pricing figure
-                rather than customer revenue. Setting it against OVHcloud's European revenue would
-                compare two different maps and two different kinds of number, so the chart leaves AWS out
-                and says so.
-              </p>
-              <div className="fc-analysis-heading" style={{ marginTop:10 }}>What the four show</div>
-              <p>
-                They do not cluster. iliad earns every euro in France, Italy and Poland, so Scaleway sits
-                inside a wholly European business. OVHcloud earns just over three quarters in Europe and
-                has drifted down as its American and Asian regions grew. United Internet takes about nine
-                tenths of revenue in Germany alone, so IONOS also sits inside a business that is European
-                by any reading — though the exact share cannot be given, because United Internet reports
-                only domestic against foreign and its foreign revenue mixes European countries with
-                IONOS Inc. in Philadelphia.
-              </p>
-              <p>
-                Deutsche Telekom is the outlier, and the movement is the point. Europe was 50.8% of its
-                revenue in 2018 and is 34.0% in 2025, because T-Mobile US grew into two thirds of the
-                group. Open Telekom Cloud is therefore a European sovereign cloud offer owned by a group
-                that now earns most of its money in the United States — a fact that belongs in a
-                sovereignty assessment whatever one concludes from it. The Schwarz Group publishes no
-                geographic breakdown at all, so STACKIT cannot be placed on this axis either.
-              </p>
+              <div className="fc-analysis-block" style={{ marginTop:14 }}>
+                <div className="fc-analysis-heading">Why AWS is not on this chart</div>
+                <p>
+                  Amazon reports AWS as one worldwide segment with no geographic split; its
+                  revenue-by-country note covers retail. A regional entity does file accounts — Amazon Web
+                  Services EMEA SARL, Luxembourg, RCS B186284, since 2016 — but its territory is EMEA,
+                  taking in Bahrain, Israel, Kuwait, Saudi Arabia and the UAE, and it is an intra-group
+                  reseller, so its turnover is a transfer-pricing figure rather than customer revenue.
+                  Against OVHcloud's European revenue that would compare two different maps and two
+                  different kinds of number.
+                </p>
+                <div className="fc-analysis-heading" style={{ marginTop:10 }}>What the four show</div>
+                <p>
+                  They do not cluster. iliad earns every euro in France, Italy and Poland, so Scaleway sits
+                  inside a wholly European business. OVHcloud earns just over three quarters in Europe,
+                  drifting down as its American and Asian regions grew. United Internet takes about nine
+                  tenths in Germany alone — though no exact share is available, as it reports only domestic
+                  against foreign, and its foreign revenue mixes European countries with IONOS Inc. in
+                  Philadelphia.
+                </p>
+                <p>
+                  Deutsche Telekom is the outlier, and the movement is the point: Europe was 50.8% of its
+                  revenue in 2018 and 34.0% in 2025, as T-Mobile US grew into two thirds of the group. Open
+                  Telekom Cloud is a European sovereign cloud offer owned by a group now earning most of
+                  its money in the United States. The Schwarz Group publishes no geographic breakdown, so
+                  STACKIT cannot be placed on this axis.
+                </p>
+              </div>
             </div>
           </div>
+        )}
+      </div>
+
+      {/* ══ BAND 3 — the thesis questions ═══════════════════════════════════ */}
+      <div className="fc-band">
+        <div className="fc-band-head">Thesis questions</div>
+        {/* ══ ROW 3+4 — Efficiency & Capital Structure (two columns) ════════ */}
+        <div className="fc-row" style={{ marginTop:28 }}>
+
+          {/* ── Left: Investment Efficiency Scatter ── */}
+          <div className="fc-col">
+            <div className="fc-chart-wrap">
+              <div className="fc-thesis-q">
+                Do EU providers extract meaningful sovereign readiness from each euro invested — or does scale ultimately decide?
+              <br /> <i>(for every €1 invested, how is that closing the gap from AWS?)</i>
+              </div>
+              <div className="fc-chart-title">Money Committed and the Gap to AWS</div>
+
+              {/* legend — hand-built, the two dot kinds are not Recharts series */}
+              <div style={{ display:'flex', flexWrap:'wrap', gap:'14px', alignItems:'center',
+                            fontSize:'0.7rem', color:'#6b7280', padding:'4px 6px 10px' }}>
+                <span style={{ display:'flex', alignItems:'center', gap:5 }}>
+                  <svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="#6b7280" fillOpacity="0.9" stroke="#fff" strokeWidth="1.5" /></svg>
+                  money already put in
+                </span>
+                <span style={{ display:'flex', alignItems:'center', gap:5 }}>
+                  <svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="none" stroke="#6b7280" strokeWidth="1.6" strokeDasharray="3 2" /></svg>
+                  with money announced but not yet built
+                </span>
+                <span style={{ display:'flex', alignItems:'center', gap:5 }}>
+                  <svg width="16" height="16"><line x1="8" y1="14" x2="8" y2="5" stroke="#6b7280" strokeWidth="1.6" /><polygon points="8,1 4,7 12,7" fill="#6b7280" /></svg>
+                  room to rise once it is spent
+                </span>
+              </div>
+
+              <ResponsiveContainer width="100%" height={340}>
+                <ScatterChart margin={{ top:30, right:80, bottom:52, left:50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis dataKey="spent_m" type="number" name="Money committed"
+                    scale="log" domain={[450, 220000]}
+                    ticks={[500, 1000, 5000, 10000, 50000, 100000]}
+                    tickFormatter={v => v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`}
+                    tick={{ fontSize:9 }}
+                    label={{ value:'Money committed (log scale)', position:'insideBottom', offset:-32, fontSize:10, fill:'#6b7280' }} />
+                  <YAxis dataKey="score" type="number" domain={[0, 108]} ticks={[0, 20, 40, 60, 80, 100]}
+                    tick={{ fontSize:9 }}
+                    label={{ value:'Readiness (AWS = 100)', angle:-90, position:'insideLeft', offset:14, fontSize:10, fill:'#6b7280' }} />
+                  <ReferenceLine y={100} stroke="#9ca3af" strokeDasharray="4 3" />
+                  {/* a provider's two dots sit at the same height — the move is rightward */}
+                  {capitalGapData.filter(d => d.pledged_m > 0).map(d => (
+                    <ReferenceLine key={d.provider} stroke={REV_COLORS[d.provider] ?? '#888'}
+                      strokeWidth={1.5} strokeDasharray="4 3" ifOverflow="extendDomain"
+                      segment={[{ x: d.spent_m, y: d.score }, { x: d.total_m, y: d.score }]} />
+                  ))}
+                  <Tooltip content={<CapitalGapTooltip />} />
+                  <Scatter data={capitalGapPledged} dataKey="total_m" shape={<PledgedDot />} legendType="none" isAnimationActive={false} />
+                  <Scatter data={capitalGapData} shape={<SpentDot />} legendType="none" isAnimationActive={false} />
+                </ScatterChart>
+              </ResponsiveContainer>
+
+              <div className="fc-analysis-block" style={{ marginTop:8 }}>
+                <div className="fc-analysis-heading">Reading this chart</div>
+                <p>
+                  Money is not part of the readiness score, so the two axes are measured separately and neither
+                  is calculated from the other. The chart puts them side by side rather than deriving one from
+                  the other: a dot's position across shows what a provider has committed, its height shows how
+                  far it has got.
+                </p>
+                <p>
+                  Three providers have announced money they have not yet built — <strong>STACKIT</strong> (€16.6B
+                  across Lübbenau and Dummerstorf), <strong>Scaleway</strong> (iliad's €3B) and <strong>AWS</strong> (€42.7B
+                  across the European Sovereign Cloud, Spain and Milan). Their hollow dot sits further right and
+                  carries an arrow: that money is a chance to climb, once it is spent. How far it climbs is not
+                  something this data can say. The other three — <strong>T-Cloud Public</strong>,
+                  <strong> OVHcloud</strong> and <strong>IONOS</strong> — have announced nothing new, so they have
+                  one dot and stay where they are.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Right: Capital Structure Stacked Bar ── */}
+          <div className="fc-col">
+            <div className="fc-chart-wrap">
+              <div className="fc-thesis-q">
+                How does capital structure — market-funded independence vs parent-subsidised scale — shape each provider's path to sovereignty?
+                <br /> <i>(where the money to build each provider's cloud came from?)</i>
+              </div>
+              <div className="fc-chart-title">Where Each Provider's Capital Came From</div>
+              <div style={{ fontSize:'0.7rem', color:'#6b7280', padding:'2px 6px 6px' }}>
+                Stacked by source of the money. Contracts won, assets sold and announcements
+                without a figure are excluded. Each source's share is in the tooltip.
+              </div>
+
+              <div className="fc-legend" style={{ paddingBottom:8 }}>
+                {FUNDING_GROUPS.map(g => (
+                  <div key={g} className="fc-legend-item">
+                    <span style={{ display:'inline-block', width:12, height:12, borderRadius:2, background:FUNDING_COLORS[g], flexShrink:0 }} />
+                    <span style={{ color:'#374151' }}>{g}</span>
+                  </div>
+                ))}
+              </div>
+
+              <ResponsiveContainer width="100%" height={320}>
+                <BarChart data={fundingMixData} margin={{ top:14, right:16, bottom:8, left:50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={true} vertical={false} />
+                  <XAxis dataKey="provider" tick={{ fontSize:10, fontWeight:600 }} />
+                  <YAxis
+                    tickFormatter={v => v >= 1000 ? `€${(v / 1000).toFixed(0)}B` : `€${v}M`}
+                    tick={{ fontSize:9 }}
+                    label={{ value:'Capital (€M)', angle:-90, position:'insideLeft', offset:14, fontSize:10, fill:'#6b7280' }} />
+                  <Tooltip content={<FundingTooltip />} />
+                  {FUNDING_GROUPS.map(g => (
+                    <Bar key={g} dataKey={g} stackId="mix" fill={FUNDING_COLORS[g]} name={g} />
+                  ))}
+                </BarChart>
+              </ResponsiveContainer>
+
+              <div className="fc-analysis-block" style={{ marginTop:12 }}>
+                <div className="fc-analysis-heading">Capital independence as a sovereignty signal</div>
+                <p>
+                  The five split cleanly in two. <strong>OVHcloud</strong> and <strong>IONOS</strong> raised
+                  effectively all of their capital on the open market — bonds, bank facilities, a stock-market
+                  listing, private investors — so their growth had to satisfy someone outside the company.
+                  <strong> STACKIT</strong>, <strong>Scaleway</strong> and <strong>T-Cloud Public</strong> are
+                  funded by a parent: Schwarz, iliad and Deutsche Telekom respectively. Only a syndicated loan
+                  for the Biere site keeps T-Cloud Public from being wholly parent-funded.
+                </p>
+                <p>
+                  Neither route is the sovereign one. Market funding has to be repaid or was sold in exchange
+                  for part of the company, which puts the owner beyond the provider's control; parent funding
+                  can be withdrawn by a single decision no customer can see coming.
+                  <strong> EU Programmes</strong> are barely visible at either provider that received them,
+                  which places the question of who ultimately controls these businesses outside public hands.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
-      )}
+      </div>
 
       {/* ══ Methodology legend ═════════════════════════════════════════════ */}
       <div className="legend" style={{ marginTop:28 }}>
@@ -1277,16 +1338,20 @@ export default function FinancialConsideration() {
             </div>
 
             <div>
-              <div className="legend-heading">Investment efficiency (pts/€B)</div>
+              <div className="legend-heading">Money committed and the gap to AWS</div>
               <p className="ra-legend-text">
-                Efficiency measures how much readiness each provider has extracted from its disclosed capital base:
-              </p>
-              <p className="ra-legend-text" style={{ fontFamily:'monospace', background:'#f3f4f6', padding:'4px 8px', borderRadius:4, margin:'4px 0' }}>
-                pts/€B = score ÷ cumulative disclosed capital (€B)
+                Each provider's money is split in two. <strong>Money already put in</strong> is everything with a
+                published figure whose stated completion date has passed. <strong>Money announced but not yet
+                built</strong> is everything still within its stated horizon: STACKIT's Lübbenau and Dummerstorf
+                campuses, iliad's €3B for Scaleway, and the AWS commitments to the European Sovereign Cloud,
+                Spain and Milan. Announcements made without a figure are excluded from both, and counted
+                separately in the tooltip.
               </p>
               <p className="ra-legend-text">
-                Only capital events with a publicly confirmed amount are counted. Undisclosed rounds are shown as dashed bubbles in the milestone timeline but excluded from the cumulative total.
-                A <strong>higher pts/€B</strong> means the provider achieved a stronger technical position relative to what it has disclosed investing — not that it is operationally cheaper overall. Providers with large committed-but-unspent capital (e.g. STACKIT's €11B Lübbenau pledge) will appear less efficient until the resulting readiness gains materialise.
+                Money is <strong>not</strong> an input to the readiness score, so the second dot is placed at the
+                same height as the first. It moves rightward only. The arrow marks room to rise once that money
+                is spent; no amount is claimed, because nothing in this data fixes one. A provider that has
+                announced nothing new has a single dot.
               </p>
               <div className="legend-heading" style={{ marginTop:12 }}>Capital structure categories</div>
               <p className="ra-legend-text">

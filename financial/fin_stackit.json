@@ -172,6 +172,52 @@
     "series": {},
     "sources": []
   },
+  "eu_investments": {
+    "note": "Both commitments are Schwarz Digits, the division STACKIT belongs to. Together they come to 16.6 billion euros, the same figure AWS has committed to German cloud infrastructure.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": "Lübbenau, Brandenburg",
+        "amount_m": 11000,
+        "currency": "EUR",
+        "announced": "2025-11-17",
+        "horizon": "complete by end 2027",
+        "source": "V1",
+        "label": "Datacenter Lübbenau",
+        "detail": "Around 200 megawatts of connected load, capacity for up to 100,000 GPUs; described by Schwarz Digits as the largest single investment in its history."
+      },
+      {
+        "country": "Germany",
+        "site": "Dummerstorf, Mecklenburg-Vorpommern",
+        "amount_m": 5600,
+        "currency": "EUR",
+        "announced": "2026-08-27",
+        "horizon": "by 2033",
+        "source": "V2",
+        "label": "Dummerstorf data centre",
+        "detail": "240 megawatts by 2033, with an expansion prospect of a 1 gigawatt grid connection by 2045."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "Datacenter Lübbenau: Schwarz Digits investiert in digitale Souveränität",
+        "publisher": "Schwarz Digits",
+        "quote": "Schwarz Digits tätigt mit der Investition von elf Milliarden Euro in das neue Rechenzentrum in Lübbenau die größte Einzelinvestition in der Unternehmensgeschichte.",
+        "url": "https://schwarz-digits.de/schwarz-digits-datacenter-luebbenau",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V2",
+        "title": "Mecklenburg-Vorpommern and the Companies of Schwarz Group Form Groundbreaking Partnership",
+        "publisher": "Schwarz Group",
+        "date": "2026-08-27",
+        "quote": "The companies of Schwarz Group aim to invest up to 5.6 billion euros by 2033 in the construction of a data center",
+        "url": "https://gruppe.schwarz/en/press/archive/2026/mecklenburg-vorpommern-and-the-companies-of-schwarz-group-form-groundbreaking-partnership",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
   "sources": [
     {
       "id": "S1",

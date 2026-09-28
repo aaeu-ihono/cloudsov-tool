@@ -362,8 +362,24 @@ tr.seal-subrow td { border-bottom: 2px solid #64748b !important; }
 /* section divider placeholder */
 .fc-section-divider { margin-top: 28px; padding: 18px; background: #f8f9fb; border: 1px dashed #d1d5db; border-radius: 6px; font-size: 0.75rem; color: #9ca3af; text-align: center; letter-spacing: 0.04em; }
 
+/* ── Financial Consideration — banded sections ──────────────────────────── */
+/* Each band is one bordered card carrying one subject, so readiness, revenue,
+   investment and the thesis questions read as separate pieces of the page. */
+.fc-band { border: 1px solid #d5dae2; border-radius: 10px; background: #fcfdfe;
+           padding: 0 14px 16px; margin-top: 26px; }
+.fc-band-head { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.09em;
+                text-transform: uppercase; color: #111827; padding: 13px 2px 9px;
+                border-bottom: 2px solid #111827; margin-bottom: 2px; }
+/* a band sitting inside a column carries the column's whole height */
+.fc-col > .fc-band { margin-top: 0; flex: 1; }
+.fc-band > .fc-chart-wrap:first-of-type { margin-top: 12px; }
+
 /* ── Financial Consideration — two-column row layout ────────────────────── */
 .fc-row { display: flex; gap: 0; align-items: flex-start; margin-top: 8px; }
+/* bands carry their own borders, so columns holding one need no divider */
+.fc-row:has(> .fc-col > .fc-band) { gap: 18px; align-items: stretch; }
+.fc-row:has(> .fc-col > .fc-band) > .fc-col:not(:last-child) { padding-right: 0; border-right: none; }
+.fc-row:has(> .fc-col > .fc-band) > .fc-col:not(:first-child) { padding-left: 0; }
 .fc-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .fc-col:not(:last-child) { padding-right: 24px; border-right: 2px solid #e5e7eb; }
 .fc-col:not(:first-child) { padding-left: 24px; }
