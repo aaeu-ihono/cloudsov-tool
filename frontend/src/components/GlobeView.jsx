@@ -8,7 +8,7 @@ export const GLOBE_PROVIDERS = [
   { id: 'OVHcloud', name: 'OVHcloud',      lon:  -8, lat: 48,  color: '#60a5fa', price: 0.060, instance: 'b3-8',         region: 'GRA · Gravelines, France',     vcpu: 2, ram: 8, eu: true  },
   { id: 'IONOS',    name: 'IONOS',          lon:  52, lat: 14,  color: '#c084fc', price: 0.041, instance: '2 vCPU / 8 GB',region: 'DE1 · Frankfurt, Germany',     vcpu: 2, ram: 8, eu: true  },
   { id: 'STACKIT',  name: 'STACKIT',        lon: 118, lat: -28, color: '#4ade80', price: 0.098, instance: 'g1a.2d',       region: 'EU01 · Heilbronn, Germany',    vcpu: 2, ram: 8, eu: true  },
-  { id: 'TCloud',   name: 'T-Cloud Public', lon: 178, lat: 32,  color: '#22d3ee', price: 0.114, instance: 's3.large.4',   region: 'EU-DE · Frankfurt, Germany',   vcpu: 2, ram: 8, eu: true  },
+  { id: 'TCloud',   name: 'T-Cloud Public', lon: 178, lat: 32,  color: '#22d3ee', price: 0.114, instance: 's3.large.4',   region: 'EU-DE · Magdeburg & Biere, DE',  vcpu: 2, ram: 8, eu: true  },
   { id: 'AWS',      name: 'AWS',            lon:-118, lat: -16, color: '#f87171', price: 0.106, instance: 'm6i.large',    region: 'eu-central-1 · Frankfurt, DE', vcpu: 2, ram: 8, eu: false },
   { id: 'Scaleway', name: 'Scaleway',       lon: -62, lat: 43,  color: '#fbbf24', price: 0.074, instance: 'POP2-2C-8G',   region: 'PAR · Paris, France',          vcpu: 2, ram: 8, eu: true  },
 ]

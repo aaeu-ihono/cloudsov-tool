@@ -1219,3 +1219,174 @@
                   US dollars, converted in this study at the ECB annual average
                   rate for 2021 of 0.845494 euro to the dollar}
 }
+
+@misc{PhoronixTestSuite,
+  author       = {{Phoronix Media}},
+  title        = {Phoronix Test Suite},
+  howpublished = {Open-source benchmarking platform},
+  url          = {https://www.phoronix-test-suite.com/},
+  note         = {Accessed September 2026}
+}
+
+@misc{OpenBenchmarking_org,
+  author       = {{Phoronix Media}},
+  title        = {{OpenBenchmarking.org}},
+  howpublished = {Public repository of Phoronix Test Suite profiles and results},
+  url          = {https://openbenchmarking.org/},
+  note         = {Accessed September 2026. Hosts the test profiles pts/stream,
+                  pts/hint, pts/compress-7zip, pts/postmark and pts/apache}
+}
+
+@misc{McCalpin_STREAM,
+  author       = {McCalpin, John D.},
+  title        = {{STREAM}: Sustainable Memory Bandwidth in High Performance Computers},
+  howpublished = {University of Virginia},
+  url          = {https://www.cs.virginia.edu/stream/},
+  note         = {Accessed September 2026}
+}
+
+@misc{iperf3_ESnet,
+  author       = {{Energy Sciences Network}},
+  title        = {iperf3},
+  howpublished = {Network bandwidth measurement tool},
+  url          = {https://software.es.net/iperf/},
+  note         = {Accessed September 2026}
+}
+
+@misc{ApacheBench,
+  author       = {{Apache Software Foundation}},
+  title        = {ab --- {Apache} {HTTP} server benchmarking tool},
+  howpublished = {Apache HTTP Server 2.4 documentation},
+  url          = {https://httpd.apache.org/docs/2.4/programs/ab.html},
+  note         = {Accessed September 2026}
+}
+
+@misc{CloudInit,
+  author       = {{Canonical}},
+  title        = {cloud-init documentation},
+  url          = {https://cloudinit.readthedocs.io/en/latest/},
+  note         = {Accessed September 2026}
+}
+
+@misc{AWS_T3,
+  author       = {{Amazon Web Services}},
+  title        = {Amazon {EC2} {T3} Instances},
+  url          = {https://aws.amazon.com/ec2/instance-types/t3/},
+  note         = {Accessed September 2026. T3 instances provide a baseline level of
+                  CPU performance, track usage above it with credits, start in
+                  Unlimited mode by default, and charge 0.05 US dollars per vCPU-hour
+                  when high CPU use is sustained beyond the baseline}
+}
+
+@misc{CloudMercato_AWS_m6i,
+  author       = {{Cloud Mercato}},
+  title        = {Amazon Web Services m6i.large: network bandwidth},
+  howpublished = {Public Cloud Reference},
+  url          = {https://pcr.cloud-mercato.com/providers/aws/flavors/m6i.large/performance/network-bandwidth},
+  note         = {Accessed September 2026. iperf3 between two instances in the same
+                  zone, 80 runs in each direction with one to four threads; instance
+                  network specified at 12\,500 Mbps}
+}
+
+@misc{CloudMercato_Scaleway_POP2,
+  author       = {{Cloud Mercato}},
+  title        = {Scaleway {POP2-2C-8G}: network bandwidth},
+  howpublished = {Public Cloud Reference},
+  url          = {https://pcr.cloud-mercato.com/providers/scaleway/flavors/pop2-2c-8g/performance/network-bandwidth},
+  note         = {Accessed September 2026. iperf3 between two instances in the same
+                  zone, 20 runs in each direction with two threads; instance network
+                  specified at 381 Mbps}
+}
+
+@misc{CloudMercato_TSystems_s3,
+  author       = {{Cloud Mercato}},
+  title        = {{T-Systems} s3.large.4: network bandwidth},
+  howpublished = {Public Cloud Reference},
+  url          = {https://pcr.cloud-mercato.com/providers/t-systems/flavors/s3.large.4/performance/network-bandwidth},
+  note         = {Accessed September 2026. iperf3 between two instances in the same
+                  zone, 50 runs in each direction with one, two and four threads}
+}
+
+@article{Papadopoulos_Principles_2021,
+  author  = {Papadopoulos, Alessandro Vittorio and Versluis, Laurens and Bauer, Andr{\'e} and Herbst, Nikolas and von Kistowski, Joakim and Ali-Eldin, Ahmed and Abad, Cristina L. and Amaral, Jos{\'e} Nelson and T{\r{u}}ma, Petr and Iosup, Alexandru},
+  title   = {Methodological Principles for Reproducible Performance Evaluation in Cloud Computing},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {47},
+  number  = {8},
+  pages   = {1528--1543},
+  year    = {2021},
+  url     = {https://atlarge-research.com/pdfs/TSE_2018_Cloud_Benchmarking_Methodology.pdf},
+  note    = {Accessed September 2026. Proposes eight principles: repeated
+             experiments, workload and configuration coverage, experimental setup
+             description, open access artefact, probabilistic result description,
+             statistical evaluation, measurement units and cost. A review of
+             studies from 2012 to 2017 found that more than two-thirds performed
+             no repeated experiments or long runs, and only 21 per cent did both}
+}
+
+@article{LeitnerCito_Chaos_2016,
+  author  = {Leitner, Philipp and Cito, J{\"u}rgen},
+  title   = {Patterns in the Chaos --- A Study of Performance Variation and Predictability in Public {IaaS} Clouds},
+  journal = {ACM Transactions on Internet Technology},
+  volume  = {16},
+  number  = {3},
+  year    = {2016},
+  doi     = {10.1145/2885497},
+  note    = {Accessed September 2026. Formulates 15 hypotheses from a literature
+             review and tests them on Amazon EC2, Google Compute Engine, Microsoft
+             Azure and IBM Softlayer; finds substantial differences between
+             providers, less hardware heterogeneity than earlier research reported,
+             and a strong effect of multi-tenancy at some providers only}
+}
+
+@article{Schad_Runtime_2010,
+  author  = {Schad, J{\"o}rg and Dittrich, Jens and Quian{\'e}-Ruiz, Jorge-Arnulfo},
+  title   = {Runtime Measurements in the Cloud: Observing, Analyzing, and Reducing Variance},
+  journal = {Proceedings of the VLDB Endowment},
+  volume  = {3},
+  number  = {1--2},
+  pages   = {460--471},
+  year    = {2010},
+  url     = {https://www.comp.nus.edu.sg/~vldb2010/proceedings/files/papers/E02.pdf},
+  note    = {Accessed September 2026. A month of measurements on Amazon EC2 found
+             performance often falling into two bands corresponding to different
+             underlying system types, and variance high enough that wall-clock
+             experiments could only be performed with considerable care}
+}
+
+@article{Iosup_ManyTasks_2011,
+  author  = {Iosup, Alexandru and Ostermann, Simon and Yigitbasi, Nezih and Prodan, Radu and Fahringer, Thomas and Epema, Dick H. J.},
+  title   = {Performance Analysis of Cloud Computing Services for Many-Tasks Scientific Computing},
+  journal = {IEEE Transactions on Parallel and Distributed Systems},
+  volume  = {22},
+  number  = {6},
+  pages   = {931--945},
+  year    = {2011},
+  doi     = {10.1109/TPDS.2011.66},
+  note    = {Accessed September 2026. Evaluates four commercial cloud services,
+             including Amazon EC2, and concludes that clouds needed an order of
+             magnitude in performance improvement to be useful to the scientific
+             community}
+}
+
+@inproceedings{ScheunerLeitner_MicroBench_2018,
+  author    = {Scheuner, Joel and Leitner, Philipp},
+  title     = {Estimating Cloud Application Performance Based on Micro-Benchmark Profiling},
+  booktitle = {Proceedings of the 11th IEEE International Conference on Cloud Computing (CLOUD)},
+  pages     = {90--97},
+  year      = {2018},
+  doi       = {10.1109/CLOUD.2018.00019},
+  note      = {Accessed September 2026. On Amazon EC2, 38 metrics from 23
+               micro-benchmarks estimated the duration of a scientific computing
+               application within 10 per cent and the response time of a web
+               application within 10 to 20 per cent; cloud service performance
+               showed remarkably low variability}
+}
+
+@book{Bermbach_CloudServiceBenchmarking_2017,
+  author    = {Bermbach, David and Wittern, Erik and Tai, Stefan},
+  title     = {Cloud Service Benchmarking: Measuring Quality of Cloud Services from a Client Perspective},
+  publisher = {Springer},
+  year      = {2017},
+  isbn      = {9783319554822}
+}

@@ -18,8 +18,9 @@ const COLORS = {
 }
 const PROVIDERS = ['OVHcloud', 'Scaleway', 'IONOS', 'STACKIT', 'T-Cloud Public', 'AWS']
 
-// Providers shown with strikethrough in the instance table (data not self-collected)
-const STRUCK = new Set(['STACKIT'])
+// Providers shown with strikethrough in the instance table (data not self-collected).
+// Empty: every provider's instance results were measured directly.
+const STRUCK = new Set([])
 
 const METRICS = [
   {
@@ -515,7 +516,7 @@ function NetworkTab({ d }) {
         <div className="fc-chart-title">iperf3 — Network bandwidth (Gillam: Network)</div>
         <div className="fc-chart-note">
           Two same-zone instances, private network. iperf3 multi-thread. Unit: Mbit/s. Higher = better.<br/>
-          <span style={{ color: '#d97706', fontSize: '0.67rem' }}>AWS note: Cloud Mercato tested 1–4 thread counts producing multimodal clusters. The ~4,728 Mbit/s 2-thread cluster is the fair comparison; the 4,607 Mbit/s avg mixes all thread counts.</span>
+          <span style={{ color: '#d97706', fontSize: '0.67rem' }}>AWS, Scaleway and T-Cloud Public: Cloud Mercato data. AWS note: 80 runs with 1–4 threads; every thread count produced results from about 760 to over 9,000 Mbit/s, so the 4,607 Mbit/s average summarises a highly variable result.</span>
         </div>
         <ResponsiveContainer width="100%" height={280}>
           <BarChart layout="vertical" data={iperfData} margin={{ left: 4, right: 40, top: 4, bottom: 4 }}>
