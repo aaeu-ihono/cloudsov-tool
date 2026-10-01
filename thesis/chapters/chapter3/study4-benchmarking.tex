@@ -142,9 +142,9 @@ study. Everything else had to be measured. Assembling partial results from
 several sources would have reproduced the difficulty Gillam et al.\ describe, of
 combining tests run separately with different settings, some stated and some not,
 into a comparison that cannot be relied upon \cite{Gillam_FairBenchmarking_2013}.
-The remaining measurements were therefore taken by the author on 10 August 2026,
-on machines provisioned for the purpose at each provider, with the same operating
-system and the same tests throughout.
+The remaining measurements that could not be found elsewhere, were therefore measured on 10 August 2026,
+by spinning up multiple machines provisioned at each provider, with the same operating
+system and the same tests run throughout.
 
 
 \subsection{Test environment}
@@ -201,58 +201,60 @@ standard benchmarks in a uniform way on any Linux machine
 \cite{PhoronixTestSuite}; the other three measure the network and the time a
 machine takes to become usable.
 
-\paragraph{Memory.} The rate at which a processor can exchange data with memory
-limits many workloads regardless of the processor's speed, yet no provider
-publishes it. STREAM measures the bandwidth that can be sustained, rather than a
-theoretical peak, using four operations on arrays larger than the processor's
-cache: COPY moves data unchanged, SCALE multiplies it by a constant, ADD combines
-two arrays, and TRIAD combines a multiplication with an addition
-\cite{McCalpin_STREAM,Gillam_FairBenchmarking_2013}. TRIAD is the most demanding
-of the four and the closest to real workloads, and it is the one carried into the
-overall comparison.
+\begin{enumerate}
+  \item \textbf{Memory (\texttt{pts/stream}).} The rate at which a processor can exchange data with memory
+  limits many workloads regardless of the processor's speed, yet no provider
+  publishes it. STREAM measures the bandwidth that can be sustained, rather than a
+  theoretical peak, using four operations on arrays larger than the processor's
+  cache: COPY moves data unchanged, SCALE multiplies it by a constant, ADD combines
+  two arrays, and TRIAD combines a multiplication with an addition
+  \cite{McCalpin_STREAM,Gillam_FairBenchmarking_2013}. TRIAD is the most demanding
+  of the four and the closest to real workloads, and it is the one carried into the
+  overall comparison.
 
-\paragraph{Processor, single core.} Much real work --- serving one request,
-running a script, working through a chain of dependent calculations --- runs on
-one core at a time, and additional cores do nothing to speed it up. HINT
-(Hierarchical INTegration) isolates the speed of a single core by computing
-progressively finer estimates of an integral and counting the operations it
-completes per second, reported here in millions.
+  \item \textbf{Processor, single core (\texttt{pts/hint}).} Much real work --- serving one request,
+  running a script, working through a chain of dependent calculations --- runs on
+  one core at a time, and additional cores do nothing to speed it up. HINT
+  (Hierarchical INTegration) isolates the speed of a single core by computing
+  progressively finer estimates of an integral and counting the operations it
+  completes per second, reported here in millions.
 
-\paragraph{Processor, multiple cores.} A server handling many tasks at once uses
-all its cores together, and the question is whether they deliver their combined
-capacity or compete for shared resources. The 7-Zip benchmark compresses and
-decompresses data on every core simultaneously and reports the millions of
-instructions completed per second (MIPS). The compression figure is carried into
-the overall comparison.
+  \item \textbf{Processor, multiple cores (\texttt{pts/compress-7zip}).} A server handling many tasks at once uses
+  all its cores together, and the question is whether they deliver their combined
+  capacity or compete for shared resources. The 7-Zip benchmark compresses and
+  decompresses data on every core simultaneously and reports the millions of
+  instructions completed per second (MIPS). The compression figure is carried into
+  the overall comparison.
 
-\paragraph{Disk.} Databases, mail servers and any application that handles many
-small files depend on the speed of storage, which providers describe by capacity
-rather than by rate \cite{Gillam_FairBenchmarking_2013}. PostMark creates a pool
-of small files and performs a mixture of reads, writes, appends and deletions on
-them, reporting the transactions completed per second.
+  \item \textbf{Disk (\texttt{pts/postmark}).} Databases, mail servers and any application that handles many
+  small files depend on the speed of storage, which providers describe by capacity
+  rather than by rate \cite{Gillam_FairBenchmarking_2013}. PostMark creates a pool
+  of small files and performs a mixture of reads, writes, appends and deletions on
+  them, reporting the transactions completed per second.
 
-\paragraph{Application.} A web server under load draws on the processor, the
-operating system's networking and its management of processes at the same time.
-The Apache benchmark starts an Apache web server on the machine and uses Apache
-Bench to send it requests from many simultaneous clients, reporting the number of
-requests served per second \cite{ApacheBench}. The result indicates how many
-users a machine of this size could serve before its responses begin to slow.
+  \item \textbf{Application (\texttt{pts/apache}).} A web server under load draws on the processor, the
+  operating system's networking and its management of processes at the same time.
+  The Apache benchmark starts an Apache web server on the machine and uses Apache
+  Bench to send it requests from many simultaneous clients, reporting the number of
+  requests served per second \cite{ApacheBench}. The result indicates how many
+  users a machine of this size could serve before its responses begin to slow.
 
-\paragraph{Network.} Any application built from more than one machine depends on
-how quickly those machines can exchange data. iperf3 measures this by running as
-a server on one machine and as a client on a second machine in the same zone,
-sending data across the private network and recording the throughput in each
-direction \cite{iperf3_ESnet,Gillam_FairBenchmarking_2013}.
+  \item \textbf{Network (\texttt{iperf3}).} Any application built from more than one machine depends on
+  how quickly those machines can exchange data. iperf3 measures this by running as
+  a server on one machine and as a client on a second machine in the same zone,
+  sending data across the private network and recording the throughput in each
+  direction \cite{iperf3_ESnet,Gillam_FairBenchmarking_2013}.
 
-\paragraph{Provisioning.} Gillam et al.\ describe the use of a cloud machine as a
-sequence --- request, boot, set-up, run and release --- in which charging
-typically begins as soon as the request is received
-\cite{Gillam_FairBenchmarking_2013}. The time spent booting and setting up is
-therefore paid for while producing no work. Boot time is measured from the
-request to create the machine until it first accepts a secure-shell (SSH)
-connection. Set-up time is measured from that point until cloud-init, the
-component that configures a Linux machine on its first start, has finished
-initialising the operating system \cite{CloudInit}.
+  \item \textbf{Provisioning (boot and set-up time).} Gillam et al.\ describe the use of a cloud machine as a
+  sequence --- request, boot, set-up, run and release --- in which charging
+  typically begins as soon as the request is received
+  \cite{Gillam_FairBenchmarking_2013}. The time spent booting and setting up is
+  therefore paid for while producing no work. Boot time is measured from the
+  request to create the machine until it first accepts a secure-shell (SSH)
+  connection. Set-up time is measured from that point until cloud-init, the
+  component that configures a Linux machine on its first start, has finished
+  initialising the operating system \cite{CloudInit}.
+\end{enumerate}
 
 \Cref{tab:bench-profiles} summarises the eight measurements.
 
@@ -386,9 +388,11 @@ OVHcloud, and that \acs{AWS} is second by a margin of less than half of one per
 cent. Once every core is working, as in \cref{fig:bench-7zip}, the spread widens:
 OVHcloud compresses 26 per cent faster than IONOS, and \acs{AWS} falls to fifth of
 the six, behind OVHcloud, T-Cloud Public, Scaleway and STACKIT. Decompression
-places the providers in the same order. The European providers therefore match
-the baseline on single-core speed and, with the exception of IONOS, exceed it
-when all cores are used together.
+places the providers in the same order. On a single core, then, the European
+providers are close to \acs{AWS}: OVHcloud is slightly faster, and the others are
+between 1 and 6 per cent slower. When all cores are used together, OVHcloud,
+T-Cloud Public, Scaleway and STACKIT are all faster than \acs{AWS}, and IONOS
+is the only European provider slower than it.
 
 \subsubsection{Disk and application performance}
 \label{sec:bench-disk}
@@ -456,21 +460,22 @@ second and \acs{AWS} third.
 
 Network bandwidth separates the providers more than any other measurement.
 \Cref{fig:bench-iperf} shows \acs{AWS} at 4\,607 Mbit/s, followed by STACKIT at 2\,872 and
-IONOS at 2\,465; T-Cloud Public reaches 1\,548, OVHcloud 940, and Scaleway 401, so that the
-fastest result is 11.5 times the slowest. Upload and download are almost identical
+IONOS at 2\,465; T-Cloud Public reaches 1\,548, OVHcloud 940, and Scaleway 401. The
+bandwidth of \acs{AWS}, the fastest, is 11.5 times that of Scaleway, the slowest.
+Upload and download are almost identical
 for every provider.
 
-Three of these results come from Cloud Mercato rather than from this study's own
+Four of these results come from Cloud Mercato rather than from this study's own
 measurements, and they were obtained differently. Cloud Mercato ran iperf3
 between two machines in the same zone many times, varying the number of parallel
 streams: 80 runs in each direction with one to four streams for \acs{AWS}, 50 with
-one, two and four for T-Cloud Public, and 20 with two for Scaleway
+one, two and four for T-Cloud Public, and 20 with two for Scaleway and StackIT
 \cite{CloudMercato_AWS_m6i,CloudMercato_TSystems_s3,CloudMercato_Scaleway_POP2}.
-The other three providers were measured in this study with three runs each. The
+The other two providers were measured in this study with three runs each. The
 two sets are comparable in what they measure, but not in the number of runs
 behind each figure.
 
-The \acs{AWS} figure is the least stable of any in this study. Its 80 runs range
+The \acs{AWS} figure is the least stable of any in this study. The reported 80 runs range
 from 758 to 11\,271 Mbit/s, and the spread does not follow the number of streams: with
 one, two, three or four streams alike, results ran from about 760 to more than
 9\,000 Mbit/s \cite{CloudMercato_AWS_m6i}. The average of 4\,607 Mbit/s therefore summarises a

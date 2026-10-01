@@ -1,9 +1,9 @@
 \chapter{Provider Evaluation}
 \label{ch:evaluation}
 
-\todo{Chapter preamble: this chapter answers "which EU provider should we buy
-from?". Each study presents its results and interprets them in place; the
-cross-study findings follow in \cref{sec:tradeoff,sec:combined-ranking}.}
+\todo{Which EU provider an enterprise should buy from. The results and
+interpretation of each study, followed by the findings across studies in
+\cref{sec:tradeoff,sec:combined-ranking}.}
 
 % ============================================================
 \section{Study 1 --- Sovereignty Scoring}
@@ -12,23 +12,21 @@ cross-study findings follow in \cref{sec:tradeoff,sec:combined-ranking}.}
 \subsection{Results}
 \label{subsec:study1-results}
 
-\todo{Scores for all 18 providers plus the AWS baseline. Per-objective
-breakdown. Which providers clear which seal levels.}
+\todo{Scores for all 18 providers and the AWS baseline, broken down by objective,
+and which providers reach which assurance level.}
 
 \subsection{The Huawei Problem and Deutsche Telekom's Response}
 \label{subsec:huawei}
 
-\todo{Salvage from \texttt{overleaf\_latex/chapters/chapter8-Discussion.tex},
-section "The Huawei Problem" and its six subsections — legal exposure under
-SOV-2, hardware/firmware exposure under SOV-5, DT's strategic response, what
-the assessment captured, and the OTC vs T-Cloud Public intra-provider
-comparison. It belongs here, next to the scores it explains.}
+\todo{The legal exposure and the hardware and firmware exposure that come with
+Huawei, Deutsche Telekom's response, and how Open Telekom Cloud compares with
+T-Cloud Public.}
 
 \subsection{Interpretation}
 \label{subsec:study1-interpretation}
 
-\todo{What the sovereignty scores mean for provider selection. Where the
-instrument itself has blind spots.}
+\todo{What the sovereignty scores mean for choosing a provider, and where the
+framework has blind spots.}
 
 % ============================================================
 \section{Study 2 --- Capability Gap Analysis}
@@ -37,14 +35,14 @@ instrument itself has blind spots.}
 \subsection{Results}
 \label{subsec:study2-results}
 
-\todo{Dimension scores across providers against the AWS baseline. Which
-service categories show the widest deficit.}
+\todo{Dimension scores for each provider against the AWS baseline, and the
+service categories with the widest gaps.}
 
 \subsection{Interpretation}
 \label{subsec:study2-interpretation}
 
-\todo{Which gaps are structural (no EU HPC silicon, no comparable AI/ML
-catalogue) versus which are simply immaturity that investment can close.}
+\todo{Which gaps are structural, such as the lack of European HPC chips or of a
+comparable AI catalogue, and which investment can close.}
 
 % ============================================================
 \section{Study 3 --- Financial Viability}
@@ -53,23 +51,18 @@ catalogue) versus which are simply immaturity that investment can close.}
 \subsection{Results}
 \label{subsec:study3-results}
 
-\todo{Revenue series, growth rates, investment milestones, projected parity
-years.}
+\todo{Revenue, growth, investment and projected parity years.}
 
 \subsection{The Revenue Chasm and Capital Efficiency}
 \label{subsec:revenue-chasm}
 
-\todo{Salvage the whole "Financial Landscape and Capital Efficiency" block
-from \texttt{chapter8-Discussion.tex} (7 subsections, roughly 240 lines) plus
-"Timeline and Investment: AWS versus EU Providers". Includes the scale
-asymmetry, gap-closure timelines, capital structure, and capital source as a
-direct sovereignty determinant — the sharpest argument in the financial study.}
+\todo{The scale gap between AWS and the EU providers, how long it would take to
+close, and capital structure as a factor in sovereignty.}
 
 \subsection{Interpretation}
 \label{subsec:study3-interpretation}
 
-\todo{Which providers are viable five-year bets and why. Be explicit that the
-projection illustrates velocity rather than forecasting an outcome.}
+\todo{Which providers are sound choices for a five-year commitment, and why.}
 
 % ============================================================
 \section{Study 4 --- Technical Benchmarking}
@@ -78,49 +71,37 @@ projection illustrates velocity rather than forecasting an outcome.}
 \subsection{Results}
 \label{subsec:study4-results}
 
-\todo{Eight metrics across the six-provider subset. Generate every figure
-here with pgfplots from \texttt{benchmarking/data/*.json} — do not paste
-screenshots of the React charts.}
-
-\todo{DATA INTEGRITY: replace the placeholder figures in the JSON with your
-real PTS runs before writing this section. Only OVHcloud was self-measured in
-the current data set.}
+\todo{The eight benchmark measurements for the six providers.}
 
 \subsection{Price--Performance}
 \label{subsec:price-performance}
 
-\todo{Composite score per euro per hour. Note the storage asymmetry —
-OVHcloud b3-8 uses local NVMe while the others use network block storage,
-which materially affects the disk I/O column.}
+\todo{Performance per euro, and the effect of OVHcloud's local storage on the
+disk results.}
 
 \subsection{Interpretation}
 \label{subsec:study4-interpretation}
 
-\todo{Where EU providers are genuinely competitive and where they are not.
-The flat non-bursting network caps versus AWS credit-based bursting.}
+\todo{Where the EU providers are competitive and where they are not, including
+network bandwidth.}
 
 % ============================================================
 \section{The Sovereignty--Readiness Trade-off}
 \label{sec:tradeoff}
 
-\todo{Cross-study finding from Study~1 $\times$ Study~2 — it exists only
-because both were run, which is why it sits here rather than inside either.
-Salvage the existing section of the same name from
-\texttt{chapter8-Discussion.tex}, plus "Performance vs.\ Sovereignty:
-Structural Constraints" (SOV-6 Q4 no EU HPC silicon, SOV-5 Q2 non-EU
-firmware). Directly answers RQ3.}
+\todo{How sovereignty and readiness trade off against each other, drawing on
+Studies~1 and~2, and the structural limits behind it, such as the lack of
+European HPC chips and non-EU firmware. This answers RQ3.}
 
 % ============================================================
 \section{Combined Provider Ranking}
 \label{sec:combined-ranking}
 
-\todo{NOT YET WRITTEN ANYWHERE — required by the approved scope. Aggregate
-sovereignty score, readiness assessment and benchmark composite into a single
-ranking. State the weighting and justify it.}
+\todo{A single ranking that combines the sovereignty score, the readiness
+assessment and the benchmark results, with the weighting and why it was
+chosen.}
 
 \subsection{Sensitivity Analysis}
 \label{subsec:sensitivity}
 
-\todo{Does the ranking survive different weightings? Cheap to produce from
-data you already have, and the first thing an examiner will probe. Do not
-skip it.}
+\todo{Whether the ranking holds under different weightings.}

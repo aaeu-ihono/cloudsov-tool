@@ -13,8 +13,9 @@ instruments that determine which jurisdiction may compel access to cloud-hosted
 data. \Cref{sec:full-stack} then extends the question from law to system
 architecture, showing that sovereignty claimed at one layer of a platform
 depends on the layers beneath it, and \cref{sec:technical-foundations}
-introduces the virtualization and platform concepts required in
-\cref{ch:build}. Finally, \cref{sec:related-work} reviews related work.
+introduces the virtualization and platform concepts on which the benchmarking
+study in \cref{sec:method-study4} relies. Finally, \cref{sec:related-work}
+reviews related work.
 
 \section{Data Sovereignty: Definition and Dimensions}
 \label{sec:sovereignty-definition}
@@ -82,8 +83,7 @@ satisfied.
 \textbf{Technological sovereignty} concerns the stack itself: whether the
 hardware, firmware and software can be audited, modified and operated without
 dependence on a single foreign supplier. We return to this property in
-\cref{sec:full-stack}, and it is the constraint that bounds the build
-alternative examined in \cref{ch:build}.
+\cref{sec:full-stack}.
 
 \subsection{Why Location Alone Does Not Guarantee Sovereignty}
 \label{subsec:location-jurisdiction}
@@ -511,32 +511,28 @@ measure of Europeanness.
 \section{Sovereignty as a Full-Stack Property}
 \label{sec:full-stack}
 
-\todo{Hardware $\rightarrow$ OS $\rightarrow$ virtualization $\rightarrow$
-networking $\rightarrow$ storage $\rightarrow$ observability $\rightarrow$
-application. A sovereign application on a non-sovereign layer is not
-sovereign. This section sets up \cref{ch:build}.}
+\todo{The layers of a cloud platform, from hardware through the operating
+system, virtualization, networking, storage and observability to the
+application, and why an application running on a non-sovereign layer is not
+itself sovereign.}
 
-\section{Four cloud models }
-4 Cloud models 
-Explore the architectural philosophy
-Centralized (AWS, GCP, Azure)
-Decentralized (P2P, blockchain)
-Federated (Gaia-X, Catena X)
-Self hosting 
+\section{Four Cloud Models}
+
+\todo{The architectural philosophy behind four cloud models: centralised (AWS,
+GCP, Azure), decentralised (peer-to-peer, blockchain), federated (Gaia-X,
+Catena-X) and self-hosted.}
 
 
 \section{Technical Foundations of Cloud Infrastructure}
 \label{sec:technical-foundations}
 
-\todo{Kernel and privileged access; the three virtualization techniques
-(full, para-, hardware-assisted); Type 1 vs Type 2 hypervisors; why KVM
-became the industry centre of gravity. Keep it short — only what
-\cref{ch:build} actually needs.}
+\todo{Kernel and privileged access, the three virtualization techniques (full,
+para- and hardware-assisted), Type 1 and Type 2 hypervisors, and why KVM became
+the industry standard.}
 
 \section{Related Work}
 \label{sec:related-work}
 
-\todo{Gillam et al.\ (2013) on fair cloud benchmarking — the protocol used in
-\cref{sec:study4}. Blancato (2023) on the EU cloud sovereignty nexus. EC DG
-DIGIT Cloud Sovereignty Framework v1.2.1. State what this thesis adds that
-they do not cover.}
+\todo{Gillam et al.\ (2013) on fair cloud benchmarking, Blancato (2023) on the
+EU cloud sovereignty nexus, and the EC DG DIGIT Cloud Sovereignty Framework,
+and what this thesis adds to them.}

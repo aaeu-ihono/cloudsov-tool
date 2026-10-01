@@ -29,34 +29,20 @@ of money is still gone. This is why the four are assessed separately in this
 thesis, and why they are not combined into a single figure until the end ---
 merging them early would hide the very trade-offs the choice depends on.
 
-And if no provider passes all four? Then the question changes: could the
-enterprise build and run the infrastructure itself? That is a different kind of
-question, and it has a chapter of its own (\cref{ch:build}).
-
 The rest of this chapter sets out how each of these assessments was carried out,
 and describes the tool built for the purpose.
 
 \section{Research Design}
 \label{sec:research-design}
 
-The four questions are answered by four separate studies, and a fifth study
-answers the question that follows if none of the providers is satisfactory. Each
-study is carried out on the same set of providers, to the same standards, so that
-the results can be set beside one another.
-
-The five do not all work the same way. The first four examine providers that
-already exist: they gather data about them and report what it shows. The fifth does the opposite. It designs a system that does
-not exist and asks whether that design could be built and run under the
-constraints the organisation actually faces. The difference matters when reading
-the results, because a measurement and a design estimate carry different kinds of
-uncertainty.
-
-\Cref{tab:study-overview} sets out the five, the question each answers and what
-each was carried out in order to establish.
+The four questions are answered by four separate studies. Each is carried out on
+the same set of providers, to the same standards, so that the results can be set
+beside one another. \Cref{tab:study-overview} sets out the four, the question
+each answers and what each was carried out in order to establish.
 
 \begin{table}[htbp]
   \centering
-  \caption{The five studies, the question each answers, and what each was
+  \caption{The four studies, the question each answers, and what each was
            carried out to establish.}
   \label{tab:study-overview}
   \small
@@ -64,7 +50,6 @@ each was carried out in order to establish.
     \toprule
     \textbf{\#} & \textbf{Study} & \textbf{Question} & \textbf{Goal} \\
     \midrule
-    \multicolumn{4}{@{}l}{\textit{Assessing providers that exist}}\\[0.25em]
     1 & Sovereignty Scoring
       & Can the provider lawfully protect the data it holds?
       & Identify which providers can hold regulated data, and where each falls
@@ -80,19 +65,15 @@ each was carried out in order to establish.
     4 & Technical Benchmarking
       & Is it fast enough, at a price worth paying?
       & Establish whether European performance is competitive, and what it costs
-        \\[0.5em]
-    \multicolumn{4}{@{}l}{\textit{Assessing the alternative}}\\[0.25em]
-    5 & Build Feasibility
-      & What would it take to build and run it ourselves?
-      & Test whether building is a realistic alternative to buying \\
+        \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
 The studies do not draw on data of equal strength. Only the benchmarking figures
-were measured directly. The sovereignty and capability assessments depend on what
-providers and regulators have published, the financial study on reported
-accounts, and the build study on a design that exists only on paper. These cannot
+were measured directly, apart from three network results taken from a published
+source. The sovereignty and capability assessments depend on what providers and
+regulators have published, and the financial study on reported accounts. These cannot
 be treated as equally solid, and \cref{sec:evidence-standards} sets out how each
 kind is marked so that a reader can tell them apart at the point of use.
 
@@ -325,6 +306,6 @@ came from, and every source is recorded and cited.
 \section{Limitations of these Research Studies}
 \label{sec:design-limitations}
 
-\todo{State limitations HERE, not only in the conclusion. Self-reported
-evidence base, static snapshot, AWS baseline bias, requirements tailored to one
-enterprise, no SLA or operational-quality dimension.}
+\todo{The limitations of the four studies: evidence reported by the providers
+themselves, a single point in time, AWS as the baseline, requirements drawn from
+one enterprise, and no assessment of service levels or operational quality.}
