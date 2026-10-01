@@ -30,7 +30,7 @@ thesis, and why they are not combined into a single figure until the end ---
 merging them early would hide the very trade-offs the choice depends on.
 
 The rest of this chapter sets out how each of these assessments was carried out,
-and describes the tool built for the purpose.
+and describes CloudSov, the evaluation environment built for the purpose.
 
 \section{Research Design}
 \label{sec:research-design}
@@ -90,14 +90,14 @@ is assessed separately and any difference between them is reported. A gap betwee
 two platforms under the same owner is a finding in itself, not an inconsistency to
 be averaged away.
 
-\section{The CloudSov Tool}
+\section{The CloudSov Evaluation Environment}
 \label{sec:cloudsov-tool}
 
 Four studies, nineteen providers, and several hundred individual judgements have
 to be recorded, scored and compared. Done in spreadsheets, that work is difficult
-to check and almost impossible for anyone else to repeat. It was therefore built
-as a small open-source application, CloudSov, which holds the data, applies the
-scoring rules to it, and presents the results side by side.
+to check and almost impossible for anyone else to repeat. It was therefore carried
+out in CloudSov, a small open-source evaluation environment that holds the data,
+applies the scoring rules to it, and presents the results side by side.
 
 \begin{quote}
 \textit{Repository:} \texttt{https://github.com/aaeu-ihono/cloudsov-tool.git}\\
@@ -105,12 +105,12 @@ scoring rules to it, and presents the results side by side.
 \textit{Online Access:}  \texttt{https://cloudsov.onrender.com}\\
 \end{quote}
 
-Each judgement compiled for this tool is recorded with the source it came from,
+Each judgement in CloudSov is recorded with the source it came from,
 and the verdicts, scores and analysis are all worked out from those records. The
 weightings and thresholds are settings rather than fixed rules, so the same
 data can be scored again under different assumptions.
 
-\subsection*{Running the tool locally}
+\subsection*{Running CloudSov locally}
 
 The application runs locally and needs no cloud account, paid subscription, API
 key or environment variable. It requires Python~3.10 or later, Node.js~18 or
@@ -154,13 +154,13 @@ benchmarking. \Cref{fig:tool-sovscore,fig:tool-readiness} show the first two.
   \label{fig:tool-readiness}
 \end{figure}
 
-The tool provides a working environment in which every provider is assessed
-against the same conditions, from sources recorded alongside each judgement. This
+In CloudSov, every provider is assessed against the same conditions, from
+sources recorded alongside each judgement. This
 keeps the treatment consistent across all eighteen, so that no provider is scored
 on a different basis from another, which makes the results reproducible: anyone
 with access to the repository can run the same computation and arrive at the same
 figures, or at best the same conclusions. The providers, the examined factors and the weightings can all be changed
-without altering the tool itself, so the assessments of each study or module can be extended or repeated
+without altering CloudSov itself, so the assessments of each study or module can be extended or repeated
 when circumstances change.
 
 \section{Provider Selection}
