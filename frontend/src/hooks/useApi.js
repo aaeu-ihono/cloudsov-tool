@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-
-const API = 'http://localhost:8000'
+import { API_BASE_URL as API } from '../config'
 
 export function useFramework() {
   const [framework, setFramework] = useState(null)

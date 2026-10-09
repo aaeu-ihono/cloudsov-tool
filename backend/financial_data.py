@@ -33,32 +33,73 @@ FINANCIAL_PROVIDERS = {
                 "description": "Amazon launched S3 and EC2 as public services, entirely self-funded from operating cash flow — no external capital raise.",
             },
             {
-                "year": 2016,
-                "amount_m": 1470,
-                "type": "Capex",
-                "label": "$1.6B EU Data Centre Commitment",
-                "description": "Amazon announced $1.6B (≈€1.5B) investment in European data centres across Germany, UK, and Ireland to meet growing cloud demand.",
-            },
-            {
                 "year": 2023,
-                "amount_m": 7176,
+                "amount_m": 7800,
                 "type": "Region",
-                "label": "€7.8B Germany Expansion",
-                "description": "Amazon announced €7.8B investment for a new AWS Region in Germany and $7.8B in Spain — part of a European data sovereignty commitment.",
+                "label": "€7.8B European Sovereign Cloud",
+                "delivered": False,
+                "horizon": "through 2040",
+                "description": "AWS committed €7.8B through 2040 to the AWS European Sovereign Cloud, whose first region is in Brandenburg, Germany. Reaffirmed on 15 January 2026 when the sovereign cloud went live.",
             },
             {
                 "year": 2024,
-                "amount_m": 76360,
+                "amount_m": 8800,
+                "type": "Region",
+                "label": "€8.8B AWS Europe (Frankfurt) Region",
+                "description": "Announced 19 June 2024: €8.8B in the existing AWS Europe (Frankfurt) Region over 2024 to 2026, to meet demand for cloud services in Germany. This is separate from the European Sovereign Cloud; the two together bring AWS commitments to German cloud infrastructure to €16.6B.",
+            },
+            {
+                "year": 2022,
+                "amount_m": 2000,
+                "type": "Region",
+                "label": "€2B AWS Europe (Milan) Region",
+                "description": "Initial planned investment to launch the AWS Europe (Milan) Region in Italy.",
+            },
+            {
+                "year": 2024,
+                "amount_m": 1200,
+                "type": "Region",
+                "label": "€1.2B Milan Region expansion",
+                "delivered": False,
+                "horizon": "five years from 2024",
+                "description": "Announced 5 December 2024: more than €1.2B over five years to expand cloud infrastructure in the Milan Region, on top of the original €2B.",
+            },
+            {
+                "year": 2024,
+                "amount_m": 15700,
+                "type": "Region",
+                "label": "€15.7B AWS Europe (Spain) Region",
+                "delivered": False,
+                "horizon": "over a decade from 2024",
+                "description": "Announced July 2024: €15.7B over a decade for the AWS Europe (Spain) Region in Aragón.",
+            },
+            {
+                "year": 2026,
+                "amount_m": 18000,
+                "type": "Region",
+                "label": "€18B Spain increase",
+                "delivered": False,
+                "horizon": "through 2035",
+                "description": "Announced at MWC in March 2026, taking Amazon's planned Spanish data-centre investment to €33.7B through 2035. The largest single-country cloud commitment in Europe by any provider in this study.",
+            },
+            {
+                "year": 2024,
+                "amount_m": 76682,
                 "type": "Capex",
-                "label": "$83B Group Capex",
-                "description": "Amazon FY2024 group capex reached $83B (≈€76B), predominantly for AWS data centre infrastructure. FY2025 guided at over $100B.",
+                "counts_as_investment": False,
+                "label": "Amazon group capex — worldwide, all businesses",
+                "description": "Amazon purchases of property and equipment were 82,999 million US dollars in 2024, converted at the ECB annual average rate for 2024 of 0.92389 euro to the dollar. This is the whole of Amazon worldwide, covering retail and fulfilment as well as AWS, and it is one year of spending rather than a multi-year commitment like the others on this chart. Amazon does not split capital expenditure by segment; it states only that the majority of its technology infrastructure investment supports AWS. Source: Amazon Form 10-K 2024.",
             },
         ],
     },
     "OVHcloud": {
         "display_name": "OVHcloud",
         "currency": "EUR",
-        "cloud_launch_year": 2006,
+        # First external sale, not first construction. OVH was founded in 1999 as
+        # a web host and began building its own data centres in 2006, but sold no
+        # cloud product until the Hosted Private Cloud in 2010.
+        # https://corporate.ovhcloud.com/en/company/history/
+        "cloud_launch_year": 2010,
         "revenue_disclosed": True,
         "bucket": "A",
         "revenue_series": {
@@ -124,17 +165,23 @@ FINANCIAL_PROVIDERS = {
             },
             {
                 "year": 2026,
-                "amount_m": 45,
+                "amount_m": None,
                 "type": "EU Tender",
-                "label": "EC Sovereign Cloud Tender — Lot 1",
-                "description": "OVHcloud (consortium with Post Telecom & CleverCloud) won Lot 1 of the European Commission's €180M Sovereign Cloud Tender (April 2026).",
+                "counts_as_investment": False,
+                "label": "EC Sovereign Cloud framework contract",
+                "description": "One of four contracts the European Commission awarded in parallel on 17 April 2026, letting EU institutions buy sovereign cloud services for up to €180M over six years. OVHcloud is part of the Post Telecom consortium with CleverCloud. The Commission published no value for any individual contract, so no figure is shown. This is a contract to supply, not capital the provider committed.",
             },
         ],
     },
     "IONOS": {
         "display_name": "IONOS",
         "currency": "EUR",
-        "cloud_launch_year": 2018,
+        # First external sale, not the rebrand. IONOS Cloud is ProfitBricks,
+        # founded in Berlin in 2010 and generally available from 2012. 1&1
+        # acquired it in 2017 and renamed it IONOS in 2018, so 2018 dates the
+        # name rather than the platform.
+        # https://www.datacenterknowledge.com/archives/2012/12/13/profitbricks-looks-to-be-the-2nd-generation-of-iaas
+        "cloud_launch_year": 2012,
         "revenue_disclosed": True,
         "bucket": "A",
         "revenue_series": {
@@ -174,7 +221,7 @@ FINANCIAL_PROVIDERS = {
                 "year": 2023,
                 "amount_m": 17,
                 "type": "EU Grant",
-                "label": "IPCEI-CIS Grant €16.9M",
+                "label": "IPCEI-CIS project €16.9M, €6.8M granted",
                 "description": "IONOS confirmed IPCEI-CIS beneficiary (approved December 5, 2023): €16.9M total project value, €6.8M German Federal grant. Focus: energy-efficient data centres and distributed cloud-edge infrastructure.",
             },
             {
@@ -188,8 +235,9 @@ FINANCIAL_PROVIDERS = {
                 "year": 2024,
                 "amount_m": 410,
                 "type": "Contract",
-                "label": "ITZBund Federal Cloud Contract €410M",
-                "description": "ITZBund (German Federal IT Centre) awarded IONOS a 5-year framework contract (cap €410M) to build an air-gapped enterprise cloud for 200 federal authorities.",
+                "counts_as_investment": False,
+                "label": "ITZBund federal cloud framework, €410M ceiling",
+                "description": "The German Federal IT Centre awarded IONOS a five-year framework contract on 2 April 2024 for an air-gapped private enterprise cloud, certified by the BSI and run inside ITZBund data centres. €410M is a ceiling, not an order: the contract carries no acceptance guarantee, and IONOS states it expects revenue in the low three-digit million range. This is money IONOS earns, not capital it commits.",
             },
         ],
     },
@@ -226,25 +274,29 @@ FINANCIAL_PROVIDERS = {
                 "description": "Scaleway confirmed as IPCEI-CIS beneficiary (EC approval December 5, 2023): ~€150M from France's €300M national IPCEI allocation (PIA 4 / France Recovery Plan), covering the GPU cluster at Vitry-sur-Seine — the largest external GPU cluster in France.",
             },
             {
-                "year": 2024,
+                "year": 2025,
                 "amount_m": 3000,
                 "type": "Parent",
-                "label": "Iliad €3B Cloud Commitment",
+                "label": "iliad €3B AI Commitment",
+                "delivered": False,
+                "horizon": "no completion date stated",
                 "description": "Iliad Group announced a €3B investment commitment across Scaleway, OpCore (data centres), and Kyutai AI lab — the largest single EU cloud parent commitment to date.",
             },
             {
                 "year": 2025,
-                "amount_m": 430,
-                "type": "Infrastructure",
-                "label": "OpCore Stake Sale €430M",
-                "description": "Iliad sold 50% of OpCore to InfraVia Capital Partners at an €860M enterprise value (deal agreed December 2024, closed April 2025). InfraVia and Iliad jointly committed €2.5B+ over 10 years to build a European hyperscale platform.",
+                "amount_m": 440,
+                "type": "Disposal",
+                "counts_as_investment": False,
+                "label": "OpCore stake sale — €440M proceeds",
+                "description": "iliad sold 50% of OpCore, its data-centre subsidiary, to InfraVia. Announced 4 December 2024, completed 31 March 2025. This is cash received, not money invested: iliad's H1 2025 results state equity free cash flow of €620M 'before OpCore €440M proceeds and spectrum'. The same slide gives €0.7B of capex financing to add more than 100 MW of capacity. Source: iliad H1 2025 results presentation, 28 August 2025.",
             },
             {
                 "year": 2026,
-                "amount_m": 45,
+                "amount_m": None,
                 "type": "EU Tender",
-                "label": "EC Sovereign Cloud Tender — Lot 3",
-                "description": "Scaleway won Lot 3 of the European Commission's €180M Sovereign Cloud Tender (April 2026), strengthening its institutional cloud credentials.",
+                "counts_as_investment": False,
+                "label": "EC Sovereign Cloud framework contract",
+                "description": "One of four contracts the European Commission awarded in parallel on 17 April 2026, under a ceiling of €180M over six years for all four together. No individual contract value was published. This is a contract to supply, not capital the provider committed.",
             },
         ],
     },
@@ -266,10 +318,10 @@ FINANCIAL_PROVIDERS = {
         "investment_milestones": [
             {
                 "year": 2021,
-                "amount_m": 644,
+                "amount_m": 592,
                 "type": "Acquisition",
-                "label": "XM Cyber Acquisition $700M",
-                "description": "Schwarz Group acquired Israeli cybersecurity firm XM Cyber for $700M (~€644M) — first major external digital acquisition, signalling ambition to compete with hyperscalers before STACKIT's public launch.",
+                "label": "XM Cyber acquisition, €592M",
+                "description": "Schwarz Group acquired the Israeli security firm XM Cyber for 700 million US dollars, announced 22 November 2021. Converted at the ECB annual average rate for 2021, 0.845494 euro to the dollar. Its first large external digital acquisition, made before STACKIT launched publicly. This is security software rather than cloud infrastructure.",
             },
             {
                 "year": 2022,
@@ -279,18 +331,30 @@ FINANCIAL_PROVIDERS = {
                 "description": "Schwarz Group (Lidl/Kaufland parent) launched STACKIT commercially under the new Schwarz Digits division. Entirely self-funded — no external investors ever.",
             },
             {
-                "year": 2024,
+                "year": 2025,
                 "amount_m": 11000,
                 "type": "Parent",
                 "label": "€11B Lübbenau Data Center",
+                "delivered": False,
+                "horizon": "first phase complete end 2027",
                 "description": "Schwarz Group committed €11B to Europe's largest private cloud campus in Lübbenau, Brandenburg: €2.5B construction + €8.5B IT/compute. 200MW, up to 100,000 GPUs. Phase 1 complete end-2027.",
             },
             {
                 "year": 2026,
-                "amount_m": 45,
+                "amount_m": 5600,
+                "type": "Parent",
+                "label": "€5.6B Dummerstorf Data Center",
+                "delivered": False,
+                "horizon": "240 MW by 2033, 1 GW prospect by 2045",
+                "description": "Announced 27 August 2026 with the state of Mecklenburg-Vorpommern: up to €5.6B by 2033 for a 240 MW data centre, with an expansion prospect of a 1 GW grid connection by 2045. With Lübbenau this takes Schwarz Digits to €16.6B, the same figure AWS has committed to German cloud infrastructure.",
+            },
+            {
+                "year": 2026,
+                "amount_m": None,
                 "type": "EU Tender",
-                "label": "EC Sovereign Cloud Tender — Lot 2",
-                "description": "STACKIT won Lot 2 of the EC's €180M Sovereign Cloud Tender (April 2026) as the only standalone (non-consortium) winner among all EU providers.",
+                "counts_as_investment": False,
+                "label": "EC Sovereign Cloud framework contract",
+                "description": "One of four contracts the European Commission awarded in parallel on 17 April 2026, under a ceiling of €180M over six years for all four together. STACKIT bid alone rather than as a consortium. No individual contract value was published. This is a contract to supply, not capital the provider committed.",
             },
         ],
     },
@@ -328,10 +392,10 @@ FINANCIAL_PROVIDERS = {
             },
             {
                 "year": 2021,
-                "amount_m": 100,
+                "amount_m": None,
                 "type": "Capex",
-                "label": "Amsterdam Twin Data Centres",
-                "description": "Deutsche Telekom opened two new data centres in Amsterdam (combined 21,000 m²) under the 'Cloud First' strategy, adding T-Cloud Public's second European region. 'Triple-digit million euro' capex.",
+                "label": "Amsterdam twin data centre — amount not published",
+                "description": "Deutsche Telekom opened a twin data centre at Aalsmeer and Almere near Amsterdam, 21,000 square metres, in productive operation from June 2021. It became Open Telekom Cloud second region, mirroring Biere and Magdeburg about 500 km away. Deutsche Telekom published no cost for it. A figure of 100 million previously shown here came from a statement that the wider Cloud First strategy would top three-digit million euros, which is a programme-wide range and not this site.",
             },
             {
                 "year": 2023,
@@ -344,28 +408,29 @@ FINANCIAL_PROVIDERS = {
                 "year": 2023,
                 "amount_m": 210,
                 "type": "Capex",
-                "label": "€210M Cloud Capex 2023",
-                "description": "T-Systems allocated €210M to cloud portfolio capex in 2023, focused on sovereign infrastructure and Open Telekom Cloud capacity expansion.",
+                "label": "€210M Systems Solutions cash capex",
+                "description": "Cash capex before spectrum investment for the whole Systems Solutions segment, not for cloud alone. Deutsche Telekom publishes no capex figure for Open Telekom Cloud. Source: Deutsche Telekom Annual Report 2024, Systems Solutions segment.",
             },
             {
                 "year": 2024,
                 "amount_m": 229,
                 "type": "Capex",
-                "label": "€229M Cloud Capex 2024",
-                "description": "T-Systems cloud capex grew to €229M in 2024. Deutsche Telekom group capex reached ~€18B including T-Mobile US, providing a substantial parent capital buffer.",
+                "label": "€229M Systems Solutions cash capex",
+                "description": "Cash capex before spectrum investment for the whole Systems Solutions segment. Deutsche Telekom attributes the rise to 'higher cash capex in the Cloud portfolio area' but publishes no cloud figure of its own. Source: Deutsche Telekom Annual Report 2024, Systems Solutions segment.",
             },
             {
-                "year": 2026,
+                "year": 2025,
                 "amount_m": 1000,
                 "type": "Capex",
-                "label": "~€1B Industrial AI Cloud Munich",
+                "label": "€1B Industrial AI Cloud Munich, with NVIDIA",
                 "description": "Deutsche Telekom + T-Systems + NVIDIA investing ~€1B in a Munich Tucherpark data centre: 1,000+ NVIDIA DGX B200 systems, up to 10,000 Blackwell GPUs (0.5 EFLOPS). Partners: SAP, Siemens, Perplexity. Opens Q1 2026.",
             },
             {
                 "year": 2026,
                 "amount_m": 125,
                 "type": "Contract",
-                "label": "German Federal AI Cloud >€125M",
+                "counts_as_investment": False,
+                "label": "German federal AI cloud, >€125M share",
                 "description": "T-Systems + SAP won the German federal government's €250M central AI cloud contract. T-Systems leads with >€125M share, deploying the 'KIPITZ' AI platform for 200+ federal agencies over 4 years.",
             },
         ],
@@ -399,4 +464,89 @@ MARKET_2030 = {
     "optimistic_eur_m": 40000,
     "aws_2030_est_eur_m": 250000,
     "eu_market_2024_eur_m": 8500,
+}
+
+
+# ---------------------------------------------------------------------------
+# Parent company revenue.
+#
+# Every provider sits inside a parent. This records what that parent earns, so
+# the backing behind a provider can be seen separately from the provider's own
+# cloud business. The two are never mixed: a parent figure is never used as a
+# substitute for a cloud figure.
+#
+# Every value below was read from the primary document, not from a summary.
+# Fiscal years do not align -- Schwarz closes in February, OVH Groupe in
+# August, and iliad's most recent published actual is 2023 -- so `period`
+# records what each figure actually covers.
+# ---------------------------------------------------------------------------
+PARENT_REVENUE = {
+    "AWS": {
+        "parent": "Amazon.com, Inc.",
+        "value_m": 637959,
+        "currency": "USD",
+        "period": "FY2024 (calendar)",
+        "main_business": "Retail",
+        "note": "Consolidated net sales. North America 387,497 plus International "
+                "142,906 plus AWS 107,556. AWS is 16.9 per cent of the total.",
+        "source": "https://s2.q4cdn.com/299287126/files/doc_financials/2025/ar/"
+                  "Amazon-2024-Annual-Report.pdf",
+    },
+    "STACKIT": {
+        "parent": "Schwarz Group",
+        "value_m": 185600,
+        "currency": "EUR",
+        "period": "FY2025, ended 28 February 2026",
+        "main_business": "Retail",
+        "note": "Prior year 175.4bn. Group plans investments of more than 10bn in "
+                "the current year, about 5bn of it in Germany.",
+        "source": "https://gruppe.schwarz/en/press/archive/2026/companies-of-schwarz-"
+                  "group-generate-185.6-billion-euros-in-revenue-and-drive-growth-"
+                  "with-investments-in-excess-of-10-billion-euros",
+    },
+    "T-Cloud Public": {
+        "parent": "Deutsche Telekom AG",
+        "value_m": 115769,
+        "currency": "EUR",
+        "period": "FY2024 (calendar)",
+        "main_business": "Telecommunications",
+        "note": "Net revenue, up 3.4 per cent from 111,985 in 2023. Service revenue "
+                "was 96.5bn of the total.",
+        "source": "https://report.telekom.com/annual-report-2024/management-report/"
+                  "development-of-business-in-the-group/results-of-operations-of-the-group.html",
+    },
+    "Scaleway": {
+        "parent": "iliad Group",
+        "value_m": 9240,
+        "currency": "EUR",
+        "period": "FY2023 (calendar)",
+        "main_business": "Telecommunications",
+        "note": "Consolidated revenues, up 10.4 per cent. The group targeted 10bn "
+                "for 2024, but that is guidance rather than a reported actual. "
+                "iliad was delisted in 2022-23 and reports for bond covenants only.",
+        "source": "https://www.globenewswire.com/news-release/2024/03/14/2845988/0/en/"
+                  "Press-Release-A-year-of-exceptional-growth.html",
+    },
+    "IONOS": {
+        "parent": "United Internet AG",
+        "value_m": 6329.2,
+        "currency": "EUR",
+        "period": "FY2024 (calendar)",
+        "main_business": "Telecommunications and web services",
+        "note": "Total group sales, against 6,213.2 in 2023. United Internet retains "
+                "a majority holding in IONOS after the 2023 listing.",
+        "source": "https://www.united-internet.de/fileadmin/user_upload/"
+                  "United_Internet_Consolidated_Financial_Statements_FY_2024.pdf",
+    },
+    "OVHcloud": {
+        "parent": "OVH Groupe",
+        "value_m": 1084.6,
+        "currency": "EUR",
+        "period": "FY2025, ended 31 August 2025",
+        "main_business": "Cloud -- no business outside it",
+        "note": "OVH Groupe is the listed holding company for the cloud business and "
+                "essentially nothing else, so its revenue is the cloud revenue. "
+                "Klaba family held 79.0 per cent of capital at 5 December 2025.",
+        "source": "https://corporate.ovhcloud.com/en/newsroom/news/financial-results-fy25/",
+    },
 }

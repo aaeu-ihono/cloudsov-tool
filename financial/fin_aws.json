@@ -1,0 +1,338 @@
+{
+  "key": "AWS",
+  "entity": "Amazon Web Services",
+  "entity_note": "AWS is a reportable segment of Amazon.com, Inc. It has no separate legal accounts; its revenue is the segment net sales line in the Amazon 10-K.",
+  "parent": {
+    "name": "Amazon.com, Inc.",
+    "relationship": "AWS is one of three reportable segments (North America, International, AWS)."
+  },
+  "currency": "USD",
+  "unit": "million",
+  "fiscal_year_end": "31 December",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": 107006,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": 7880,
+      "cloud_status": "reported",
+      "cloud_source": "S1"
+    },
+    {
+      "year": 2016,
+      "parent": 135987,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": 12219,
+      "cloud_status": "reported",
+      "cloud_source": "S1"
+    },
+    {
+      "year": 2017,
+      "parent": 177866,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": 17459,
+      "cloud_status": "reported",
+      "cloud_source": "S1"
+    },
+    {
+      "year": 2018,
+      "parent": 232887,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": 25655,
+      "cloud_status": "reported",
+      "cloud_source": "S2"
+    },
+    {
+      "year": 2019,
+      "parent": 280522,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": 35026,
+      "cloud_status": "reported",
+      "cloud_source": "S2"
+    },
+    {
+      "year": 2020,
+      "parent": 386064,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 45370,
+      "cloud_status": "reported",
+      "cloud_source": "S3"
+    },
+    {
+      "year": 2021,
+      "parent": 469822,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": 62202,
+      "cloud_status": "reported",
+      "cloud_source": "S3"
+    },
+    {
+      "year": 2022,
+      "parent": 513983,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": 80096,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2023,
+      "parent": 574785,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": 90757,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2024,
+      "parent": 637959,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": 107556,
+      "cloud_status": "reported",
+      "cloud_source": "S4"
+    },
+    {
+      "year": 2025,
+      "parent": 716924,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": 128725,
+      "cloud_status": "reported",
+      "cloud_source": "S5"
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_yet_reported",
+      "cloud_source": null
+    }
+  ],
+  "europe": {
+    "kind": "not disclosed",
+    "measure": null,
+    "note": "Amazon reports AWS as one worldwide segment and gives no geographic split of it. Amazon's own revenue-by-country note covers the retail business, not AWS. Amazon Web Services EMEA SARL (Luxembourg, RCS B186284) has filed accounts since 2016, but its territory is EMEA, including Bahrain, Israel, Kuwait, Saudi Arabia and the United Arab Emirates alongside the United Kingdom and Switzerland, and as an intra-group reselling entity its turnover is not comparable with a segment revenue line. There is therefore no AWS figure for Europe that can stand beside the European providers.",
+    "series": {},
+    "sources": [
+      {
+        "id": "E1",
+        "title": "Amazon Web Services EMEA SARL, Luxembourg RCS B186284, filing history",
+        "url": "https://www.northdata.com/Amazon%20Web%20Services%20Emea%20S%C3%A0rl,%20Luxembourg/B186284",
+        "covers": "confirms accounts are filed for 2016 to 2025; the figures themselves are not public",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E2",
+        "title": "AWS Europe FAQs, listing the countries AWS EMEA SARL contracts through",
+        "url": "https://aws.amazon.com/legal/aws-emea/",
+        "covers": "territory of the Luxembourg entity",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "eu_investments": {
+    "note": "AWS commitments to cloud infrastructure only. Amazon's wider European announcements, such as more than 5 billion for Poland in 2026 and 1.2 billion for France, cover fulfilment centres, logistics and Prime Video and are not included here.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": "Brandenburg",
+        "amount_m": 7800,
+        "currency": "EUR",
+        "announced": "2023-10",
+        "horizon": "through 2040",
+        "source": "V1",
+        "label": "European Sovereign Cloud",
+        "detail": "Reaffirmed on 15 January 2026 when the sovereign cloud went live."
+      },
+      {
+        "country": "Germany",
+        "site": null,
+        "amount_m": 8800,
+        "currency": "EUR",
+        "announced": "2024-07",
+        "horizon": "by 2026",
+        "source": "V2",
+        "label": "AWS cloud infrastructure in Germany"
+      },
+      {
+        "country": "Spain",
+        "site": "Aragón",
+        "amount_m": 15700,
+        "currency": "EUR",
+        "announced": "2024-07",
+        "horizon": "over a decade",
+        "source": "V2",
+        "label": "AWS Europe (Spain) Region"
+      },
+      {
+        "country": "Spain",
+        "site": "Aragón",
+        "amount_m": 18000,
+        "currency": "EUR",
+        "announced": "2026-03",
+        "horizon": "through 2035",
+        "source": "V3",
+        "label": "Increase, taking the Spanish total to 33.7 billion"
+      },
+      {
+        "country": "Italy",
+        "site": "Milan",
+        "amount_m": 2000,
+        "currency": "EUR",
+        "announced": "2022",
+        "horizon": null,
+        "source": "V4",
+        "label": "AWS Europe (Milan) Region launch"
+      },
+      {
+        "country": "Italy",
+        "site": "Milan",
+        "amount_m": 1200,
+        "currency": "EUR",
+        "announced": "2024-12",
+        "horizon": "five years",
+        "source": "V4",
+        "label": "Milan Region expansion"
+      },
+      {
+        "country": "Belgium",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      },
+      {
+        "country": "Netherlands",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      },
+      {
+        "country": "Portugal",
+        "site": null,
+        "amount_m": null,
+        "currency": "EUR",
+        "announced": "2026-01",
+        "horizon": null,
+        "source": "V5",
+        "label": "Sovereign Cloud expansion, no figure published"
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "AWS plans to invest 7.8bn into the AWS European Sovereign Cloud",
+        "url": "https://aws.amazon.com/blogs/security/aws-plans-to-invest-e7-8b-into-the-aws-european-sovereign-cloud-set-to-launch-by-the-end-of-2025/",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V2",
+        "title": "Amazon announces billions of euros in European investments (11 July 2024)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-announces-billions-of-euros-in-european-investments-and-the-creation-of-thousands-of-new-jobs",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V3",
+        "title": "Amazon increases investment in Spain to 33.7 billion euros (MWC, March 2026)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/amazon-investment-spain-2026",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V4",
+        "title": "AWS invests 1.2 billion to expand cloud infrastructure in Italy (5 December 2024)",
+        "url": "https://www.aboutamazon.eu/news/job-creation-and-investment/aws-invests-1-2-billion-to-expand-cloud-infrastructure-in-italy",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "V5",
+        "title": "AWS launches the AWS European Sovereign Cloud and announces expansion across Europe (15 January 2026)",
+        "url": "https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Amazon.com, Inc. Form 10-K for the fiscal year ended 31 December 2017, Note 10 — Segment Information",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR)",
+      "accession": "0001018724-18-000005",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872418000005/amzn-20171231x10k.htm",
+      "covers": "2015, 2016, 2017",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "Amazon.com, Inc. Form 10-K for the fiscal year ended 31 December 2019, Note 10 — Segment Information",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR)",
+      "accession": "0001018724-20-000004",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872420000004/amzn-20191231x10k.htm",
+      "covers": "2017, 2018, 2019",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "Amazon.com, Inc. Form 10-K for the fiscal year ended 31 December 2021, Note 10 — Segment Information",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR)",
+      "accession": "0001018724-22-000005",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872422000005/amzn-20211231.htm",
+      "covers": "2019, 2020, 2021",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "Amazon.com, Inc. Form 10-K for the fiscal year ended 31 December 2024, Note 10 — Segment Information",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR)",
+      "accession": "0001018724-25-000004",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+      "covers": "2022, 2023, 2024",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "Amazon.com, Inc. Form 10-K for the fiscal year ended 31 December 2025, Note 10 — Segment Information",
+      "publisher": "U.S. Securities and Exchange Commission (EDGAR)",
+      "accession": "0001018724-26-000004",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "covers": "2023, 2024, 2025",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "Every figure is the segment net sales line taken from the audited 10-K segment note, not from a press release or a summary page.",
+    "Each segment table was checked by adding the three segments to the consolidated total; all eleven years reconcile.",
+    "AWS 2022 is 80,096, as printed in both the 2022 and 2024 10-K segment notes. A figure of 79,383 appears in the project's earlier working notes; it is not an Amazon figure and should not be used.",
+    "No restatement of AWS segment net sales occurred over the window: the 2024 10-K repeats 2022 and 2023 unchanged, and the 2025 10-K repeats 2023 and 2024 unchanged.",
+    "FY2026 closes on 31 December 2026, after the compile date."
+  ]
+}

@@ -4,6 +4,7 @@ Step 1: serves framework + pre-loaded provider data + stateless scoring
 """
 
 import math
+import os
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,8 +14,9 @@ from sov_data import SOV_OBJECTIVES, SEAL_DESCRIPTIONS, compute_results
 from sov_loader import load_survey
 from readiness_data import READINESS_CATEGORIES, CHART_DIMENSIONS
 from readiness_loader import load_readiness
-from financial_data import FINANCIAL_PROVIDERS, USD_TO_EUR
+from financial_data import FINANCIAL_PROVIDERS, USD_TO_EUR, PARENT_REVENUE
 from benchmark_loader import load_benchmarks
+from revenue_loader import load_revenue
 
 
 # ---------------------------------------------------------------------------
@@ -23,6 +25,7 @@ from benchmark_loader import load_benchmarks
 BASE_DIR = Path(__file__).parent.parent          # /cloudsov
 SURVEY_DIR = BASE_DIR / "sovscore"
 READINESS_DIR = BASE_DIR / "readiness"
+FINANCIAL_DIR = BASE_DIR / "financial"
 
 
 # ---------------------------------------------------------------------------
@@ -30,6 +33,7 @@ READINESS_DIR = BASE_DIR / "readiness"
 # ---------------------------------------------------------------------------
 _SURVEY: dict[str, dict] = load_survey(SURVEY_DIR)
 _BENCHMARKS: dict[str, dict] = load_benchmarks()
+_REVENUE: dict = load_revenue(FINANCIAL_DIR, USD_TO_EUR)
 
 # Pre-compute initial scores for all loaded providers
 _DEFAULT_MIN_SEALS = {k: v["default_min_seal"] for k, v in SOV_OBJECTIVES.items()}
@@ -42,10 +46,20 @@ _INITIAL_SCORES = compute_results(_INITIAL_ANSWERS, _DEFAULT_MIN_SEALS)
 # ---------------------------------------------------------------------------
 app = FastAPI(title="CloudSov API", version="0.1.0")
 
-# Allow Vite dev server (localhost:5173) during development
+# Allow the Vite dev server plus the deployed frontend(s) on Render.
+# Both onrender.com URLs are listed since the site has been served under each name.
+_allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://cloudsov-frontend.onrender.com",
+    "https://cloudsov.onrender.com",
+]
+if _frontend_url := os.environ.get("FRONTEND_URL"):
+    _allowed_origins.append(_frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=_allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -229,13 +243,48 @@ def get_financial():
         for m in pdata.get("investment_milestones", []):
             milestones.append({**m, "provider": pk})
 
+    # Parent company revenue, converted to EUR so the six are on one axis.
+    # Each carries the period it covers, because the fiscal years do not align.
+    parent_revenue = []
+    for key, p in PARENT_REVENUE.items():
+        val = p["value_m"]
+        if p["currency"] == "USD":
+            val = round(val * USD_TO_EUR, 1)
+        parent_revenue.append({
+            "key":           key,
+            "parent":        p["parent"],
+            "value_eur_m":   val,
+            "original":      p["value_m"],
+            "currency":      p["currency"],
+            "period":        p["period"],
+            "main_business": p["main_business"],
+            "note":          p["note"],
+            "source":        p["source"],
+        })
+    parent_revenue.sort(key=lambda r: -r["value_eur_m"])
+
     return {
         "providers":          providers,
         "chart_data":         chart_data,
         "revenue_chart_data": revenue_chart_data,
         "revenue_summary":    revenue_summary,
         "milestones":         milestones,
+        "parent_revenue":     parent_revenue,
     }
+
+
+
+@app.get("/api/revenue")
+def get_revenue():
+    """
+    Global revenue history 2015-2026, parent company and cloud arm, compiled
+    from primary company filings in /financial/fin_*.json.
+
+    rows are ready for a stacked bar chart: <key>__parent_ex and <key>__cloud
+    add up to <key>__parent. <key>__cloud_status says why a cloud figure is
+    missing when it is, so the chart can mark it rather than draw a zero.
+    """
+    return _REVENUE
 
 
 @app.get("/api/benchmarks")

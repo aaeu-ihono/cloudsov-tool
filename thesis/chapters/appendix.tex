@@ -1,0 +1,80 @@
+\chapter{Alps Alpine Infrastructure Requirements Checklist}
+\label{app:checklist}
+
+\clearpage
+\newgeometry{left=1.3cm, right=1.3cm, top=1.6cm, bottom=1.6cm}
+\begin{figure}[H]
+  \centering
+  \rotatebox{90}{%
+    \begin{minipage}{0.97\textheight}
+      \centering
+      \includegraphics[width=\linewidth, height=16.4cm, keepaspectratio]%
+                      {Alps Alpine Cloud Infrastructure sketch.drawio.png}
+      \small
+      \caption{Alps Alpine Cloud Infrastructure --- Local Product Department:
+               services in use, under investigation, or anticipated, arranged in
+               six stages from foundation to user interface
+               \cite{AlpsAlpine_Checklist}.}
+      \label{fig:alps-infrastructure}
+    \end{minipage}}
+\end{figure}
+\clearpage
+\restoregeometry
+
+\chapter{The CloudSov Evaluation Environment}
+\label{app:cloudsov}
+
+\section*{Running CloudSov locally}
+
+The application runs locally and needs no cloud account, paid subscription, API
+key or environment variable. It requires Python~3.10 or later, Node.js~18 or
+later, and \texttt{npm}.
+
+\begin{enumerate}
+  \item Clone the repository:\\
+        \texttt{git clone https://github.com/aaeu-ihono/cloudsov-tool.git}
+  \item Start the backend:\\
+        \texttt{cd backend \&\& pip install -r requirements.txt \&\& uvicorn main:app --reload}
+  \item Start the frontend:\\
+        \texttt{cd frontend \&\& npm install \&\& npm run dev}
+  \item Open a browser at \texttt{http://localhost:5173}
+\end{enumerate}
+
+All provider data ships with the repository, so the assessment can be reproduced
+from a clean checkout with no further setup.
+
+\section*{What the interface shows}
+
+The application presents one module per study, reached from the navigation bar:
+sovereignty scoring, readiness assessment, financial viability and technical
+benchmarking. \Cref{fig:tool-sovscore,fig:tool-readiness} show the first two.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{sovereignty_scoring_module.png}
+  \caption{The sovereignty scoring module. Each of the eight objectives is a
+           column group carrying its weight and its minimum seal level; each
+           provider is a row of recorded verdicts, with the seal reached shown
+           beneath and the weighted score on the right.}
+  \label{fig:tool-sovscore}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{readiness_assessment_module.png}
+  \caption{The readiness assessment module. Selected providers are drawn against
+           the \acs{AWS} baseline, by dimension and as an overall shape, with the
+           remaining gap to that baseline ranked beneath.}
+  \label{fig:tool-readiness}
+\end{figure}
+
+\chapter{Sovereignty Assessment Evidence}
+\label{app:sov-evidence}
+
+\todo{The verdict, source and note for each provider on all 45 questions.}
+
+\chapter{Benchmark Raw Results}
+\label{app:benchmark-raw}
+
+\todo{Every individual run behind the benchmark averages, with the instance,
+region and operating system for each provider.}

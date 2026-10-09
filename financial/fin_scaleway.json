@@ -1,0 +1,321 @@
+{
+  "key": "Scaleway",
+  "entity": "Scaleway S.A.S.",
+  "entity_note": "Scaleway is a wholly owned subsidiary of the iliad Group. iliad does not break out Scaleway revenue in its consolidated reporting, so the cloud arm is undisclosed in every year. The only figures that exist are the French statutory accounts of Scaleway S.A.S. filed with the commercial court registry.",
+  "parent": {
+    "name": "iliad S.A. (iliad Group)",
+    "relationship": "Scaleway S.A.S. is 99.56% held by iliad and fully consolidated. iliad was delisted from Euronext Paris in 2021 but continues to publish audited group accounts as a bond issuer."
+  },
+  "currency": "EUR",
+  "unit": "million",
+  "fiscal_year_end": "31 December",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date",
+    "rounded": "the only company statement gives the figure rounded"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": 4414.4,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2016,
+      "parent": 4722.1,
+      "parent_status": "reported",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2017,
+      "parent": 4987.5,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2018,
+      "parent": 4890,
+      "parent_status": "rounded",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2019,
+      "parent": 5330,
+      "parent_status": "rounded",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "statutory_entity_revenue": 76.5,
+      "statutory_entity_source": "S6"
+    },
+    {
+      "year": 2020,
+      "parent": 5870,
+      "parent_status": "rounded",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "statutory_entity_revenue": 82.0,
+      "statutory_entity_source": "S6"
+    },
+    {
+      "year": 2021,
+      "parent": 7587,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "statutory_entity_revenue": 94.1,
+      "statutory_entity_source": "S6"
+    },
+    {
+      "year": 2022,
+      "parent": 8369,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "statutory_entity_revenue": 103.0,
+      "statutory_entity_source": "S6"
+    },
+    {
+      "year": 2023,
+      "parent": 9241,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2024,
+      "parent": 10024,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2025,
+      "parent": 10349,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "not_yet_reported",
+      "cloud_source": null
+    }
+  ],
+  "proxy": {
+    "field": "statutory_entity_revenue",
+    "label": "Scaleway S.A.S. statutory accounts (France only)",
+    "short_label": "Scaleway S.A.S.",
+    "bound": "lower",
+    "explanation": "The filing covers only the French company and leaves out the Italian and US subsidiaries. It is one part of Scaleway, so the whole of Scaleway must be larger than this figure, not smaller.",
+    "in_plain_words": "this figure is inside the cloud arm, so the cloud arm is bigger"
+  },
+  "europe": {
+    "kind": "derived from the published country breakdown",
+    "measure": "sum of the countries iliad reports revenue in, all of which are in Europe",
+    "note": "iliad publishes no European-share figure. It does publish revenue country by country, and every country is European: France throughout, Italy from 2018 and Poland from 2020. In 2025, France 6,626 plus Italy 1,249 plus Poland 2,487 reconciles to group revenue of 10,349 after eliminations. The 100 per cent is read off the country table rather than assumed. Note that iliad Holding, one level above, holds stakes in Millicom and Tele2 that sit outside iliad S.A. consolidated revenue and so outside this figure.",
+    "series": {
+      "2015": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France"
+      },
+      "2016": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France"
+      },
+      "2017": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France"
+      },
+      "2018": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy"
+      },
+      "2019": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy"
+      },
+      "2020": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      },
+      "2021": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      },
+      "2022": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      },
+      "2023": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      },
+      "2024": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      },
+      "2025": {
+        "pct": 100.0,
+        "kind": "derived",
+        "source": "E1",
+        "countries": "France, Italy, Poland"
+      }
+    },
+    "sources": [
+      {
+        "id": "E1",
+        "title": "iliad Group 2025 Annual Financial Report, revenue by country (France 6,626 / Italy 1,249 / Poland 2,487)",
+        "url": "https://www.iliad.fr/media/Annual_Financial_Report_iliad_Group_2025_990365b485.pdf",
+        "covers": "2024 and 2025; the earlier years rest on the registration documents already cited for group revenue",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "eu_investments": {
+    "note": "The three billion covers AI infrastructure, research and application layers across three iliad entities, of which Scaleway is one. It is not a Scaleway figure and is not tied to a single site.",
+    "items": [
+      {
+        "country": "France",
+        "site": null,
+        "amount_m": 3000,
+        "currency": "EUR",
+        "announced": "2025-02",
+        "horizon": null,
+        "source": "V1",
+        "label": "iliad AI commitment across OpCore, Scaleway and Kyutai",
+        "detail": "Announced at the Artificial Intelligence Action Summit in Paris. iliad sold 50 per cent of OpCore, its data-centre subsidiary, to InfraVia in a deal completed on 31 March 2025."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "iliad FY 2024 results press release, 25 March 2025",
+        "publisher": "iliad S.A.",
+        "quote": "It has allocated a total of 3 billion to invest in AI-dedicated infrastructure, AI research and AI application layers through its various entities: OpCore ... Scaleway ... and Kyutai",
+        "url": "https://www.iliad.fr/media/CP_250325_Eng_48c22962e7.pdf",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "iliad 2016 Registration Document, Consolidated revenues 4,722.1 / 4,414.4",
+      "publisher": "iliad S.A. / AMF",
+      "date": "2017-04-07",
+      "url": "https://www.iliad.fr/media/Iliad_registration_document_2016.pdf",
+      "covers": "2015, 2016",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "iliad Document de reference 2017, Chiffre d affaires consolide 4,987.5 / 4,722.1",
+      "publisher": "iliad S.A. / AMF",
+      "date": "2018-04",
+      "url": "https://www.iliad.fr/media/Iliad_Documentdereference2017.pdf",
+      "covers": "2016, 2017",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "iliad press release, FY 2022 results, Consolidated revenues 8,369 / 7,587",
+      "publisher": "iliad S.A.",
+      "date": "2023-03-16",
+      "url": "https://www.iliad.fr/media/CP_160323_Eng_bc3f713eeb.pdf",
+      "covers": "2021, 2022",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "iliad FY 2025 results presentation, 24 March 2026, Group revenues by quarter and year",
+      "publisher": "iliad S.A.",
+      "date": "2026-03-24",
+      "url": "https://www.iliad.fr/media/slideshow_240326_718437541b.pdf",
+      "covers": "2023, 2024, 2025",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "iliad Group Impact Report 2025, revenue chart 2018 to 2024 in billions of euros",
+      "publisher": "iliad Group / Scaleway",
+      "date": "2025",
+      "url": "https://www-uploads.scaleway.com/Impact_Report2025_22ee3a8232.pdf",
+      "covers": "2018, 2019, 2020 (rounded to 0.01 billion)",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S6",
+      "title": "SCALEWAY, SIREN 433 115 904, comptes sociaux filed with the greffe du tribunal de commerce, as republished by Pappers",
+      "publisher": "Greffe du tribunal de commerce (via pappers.fr)",
+      "url": "https://www.pappers.fr/entreprise/scaleway-433115904",
+      "covers": "statutory revenue 2019, 2020, 2021, 2022",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "iliad does not disclose Scaleway revenue. It appears in no annual financial report, no universal registration document and no results presentation checked for this window, including the 2024 universal registration document and the FY2024 and FY2025 results packs.",
+    "The statutory_entity_revenue field is the revenue of the single French company Scaleway S.A.S. as filed at the commercial court registry. It is not a consolidated Scaleway group revenue, since Scaleway has separate subsidiaries in Italy and the United States, and it is kept out of the cloud field for that reason.",
+    "No statutory filing was found for 2015 to 2018 or for 2023 to 2025.",
+    "A figure of 175 million euros for 2024, growing 28 per cent, circulates in trade press. No iliad or Scaleway publication stating it was found, so it is recorded here as unsourced and is not used as a value.",
+    "The 2018, 2019 and 2020 parent figures are read off the revenue chart in the iliad Group Impact Report and are rounded to 0.01 billion. The same chart's 2021 to 2024 values were checked against the exact figures in the results releases and agree, which is why the chart is treated as reliable for the three earlier years."
+  ]
+}

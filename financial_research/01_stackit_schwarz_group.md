@@ -144,7 +144,27 @@
 
 ---
 
-## 11. Summary Assessment for Thesis
+## 11. Launch Date Used in Study 3
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Development | 2018 | Founded to run Lidl and Kaufland workloads internally. Not purchasable by anyone outside the Schwarz group | [gruppe.schwarz](https://gruppe.schwarz/en/content/story-digitalisierung-stackit) |
+| **First external sale** | **2022** | Opened to external customers and the public sector | [gruppe.schwarz press release](https://gruppe.schwarz/en/press/archive/2022/schwarz-group-opens-german-cloud-stackit) |
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **Sensitivity — the case that prompted the rule.** StackIT is the only provider with two widely cited dates, and the gap between them changes its headline result. With capability 44.1 of 100 and a gap of 55.9 points, reference year 2026:
+>
+> | Start year | Years operating | Rate | Projected parity |
+> |---|---|---|---|
+> | **2022** (rule above) | 4 | 11.0 pts/yr | **2031** |
+> | 2018 (internal founding) | 8 | 5.5 pts/yr | 2036 |
+>
+> On 2022, StackIT is the fastest-improving provider in the study and one of only two projected to reach parity near the EU Digital Decade 2030 target. On 2018 it is mid-field and misses 2030 by six years. The rule resolves this without special pleading: StackIT's four internal years are excluded exactly as AWS's three are excluded for AWS. **Report the alternative in the thesis rather than concealing the choice inside a single number.**
+
+---
+
+## 12. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|

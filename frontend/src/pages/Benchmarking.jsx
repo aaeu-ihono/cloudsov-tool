@@ -4,6 +4,8 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import GlobeView from '../components/GlobeView'
+import LoadingSpinner from '../components/LoadingSpinner'
+import { API_BASE_URL } from '../config'
 
 // ── Provider palette (matches FinancialConsideration.jsx) ─────────
 const COLORS = {
@@ -16,8 +18,9 @@ const COLORS = {
 }
 const PROVIDERS = ['OVHcloud', 'Scaleway', 'IONOS', 'STACKIT', 'T-Cloud Public', 'AWS']
 
-// Providers shown with strikethrough in the instance table (data not self-collected)
-const STRUCK = new Set(['STACKIT'])
+// Providers shown with strikethrough in the instance table (data not self-collected).
+// Empty: every provider's instance results were measured directly.
+const STRUCK = new Set([])
 
 const METRICS = [
   {
@@ -336,7 +339,7 @@ function OverviewTab({ d }) {
       <InstanceTable d={d} />
       <PerformanceHeatmap d={d} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         <div>
           <div className="fc-chart-wrap">
             <div className="fc-chart-title">Composite performance score (avg of 8 normalized metrics)</div>
@@ -390,7 +393,7 @@ function MemoryTab({ d }) {
       <p style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 16, lineHeight: 1.6 }}>
         <strong>pts/stream</strong> — Memory bandwidth benchmark (Gillam: Memory IO). Four operations measure how fast the CPU can interact with RAM. Higher MB/s indicates less memory bottleneck.
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         {ops.map(op => {
           const data = PROVIDERS.map(p => ({ provider: p, value: STREAM[p][op] }))
           return (
@@ -462,7 +465,7 @@ function DiskWebTab({ d }) {
   const postData   = hbar(POSTMARK)
   const apacheData = hbar(APACHE)
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
       <div className="fc-chart-wrap">
         <div className="fc-chart-title">pts/postmark — Disk IO (Gillam: Disk IO)</div>
         <div className="fc-chart-note">
@@ -513,7 +516,7 @@ function NetworkTab({ d }) {
         <div className="fc-chart-title">iperf3 — Network bandwidth (Gillam: Network)</div>
         <div className="fc-chart-note">
           Two same-zone instances, private network. iperf3 multi-thread. Unit: Mbit/s. Higher = better.<br/>
-          <span style={{ color: '#d97706', fontSize: '0.67rem' }}>AWS note: Cloud Mercato tested 1–4 thread counts producing multimodal clusters. The ~4,728 Mbit/s 2-thread cluster is the fair comparison; the 4,607 Mbit/s avg mixes all thread counts.</span>
+          <span style={{ color: '#d97706', fontSize: '0.67rem' }}>AWS, Scaleway and T-Cloud Public: Cloud Mercato data. AWS note: 80 runs with 1–4 threads; every thread count produced results from about 760 to over 9,000 Mbit/s, so the 4,607 Mbit/s average summarises a highly variable result.</span>
         </div>
         <ResponsiveContainer width="100%" height={280}>
           <BarChart layout="vertical" data={iperfData} margin={{ left: 4, right: 40, top: 4, bottom: 4 }}>
@@ -544,7 +547,7 @@ function LifecycleTab({ d }) {
       <p style={{ fontSize: '0.78rem', color: '#6b7280', marginBottom: 16, lineHeight: 1.6 }}>
         Gillam et al.'s lifecycle model measures the time between requesting a VM and it being ready to serve workloads. <strong>Boot time</strong> = VM reaches SSH. <strong>Setup time</strong> = OS-level initialization completes. Lower is better.
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
         <div className="fc-chart-wrap">
           <div className="fc-chart-title">Boot time — VM reaches SSH</div>
           <div className="fc-chart-note">Unit: seconds. Lower = better.</div>
@@ -636,7 +639,7 @@ function ValueTab({ d }) {
         </ResponsiveContainer>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
         {perMetric.map(({ label, key, data }) => (
           <div key={key} className="fc-chart-wrap" style={{ padding: '10px 8px 8px' }}>
             <div className="fc-chart-title" style={{ fontSize: '0.75rem' }}>{label}</div>
@@ -677,7 +680,7 @@ export default function Benchmarking() {
   const [fetchErr, setFetchErr] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/benchmarks')
+    fetch(`${API_BASE_URL}/api/benchmarks`)
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
       .then(data => { setRawData(data); setLoading(false) })
       .catch(e  => { setFetchErr(e.message); setLoading(false) })
@@ -686,9 +689,7 @@ export default function Benchmarking() {
   if (loading) {
     return (
       <div className="content">
-        <div style={{ padding: 40, textAlign: 'center', color: '#6b7280', fontSize: '0.85rem' }}>
-          Loading benchmark data…
-        </div>
+        <LoadingSpinner message="Loading benchmark data…" />
       </div>
     )
   }
@@ -698,7 +699,7 @@ export default function Benchmarking() {
       <div className="content">
         <div style={{ padding: 24, background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 6, color: '#991b1b', fontSize: '0.82rem' }}>
           <strong>Could not load benchmark data:</strong> {fetchErr}<br/>
-          Make sure the backend is running on port 8000.
+          The backend may still be waking up — try refreshing in a minute.
         </div>
       </div>
     )

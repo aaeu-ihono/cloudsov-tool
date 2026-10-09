@@ -8,7 +8,7 @@ export const GLOBE_PROVIDERS = [
   { id: 'OVHcloud', name: 'OVHcloud',      lon:  -8, lat: 48,  color: '#60a5fa', price: 0.060, instance: 'b3-8',         region: 'GRA · Gravelines, France',     vcpu: 2, ram: 8, eu: true  },
   { id: 'IONOS',    name: 'IONOS',          lon:  52, lat: 14,  color: '#c084fc', price: 0.041, instance: '2 vCPU / 8 GB',region: 'DE1 · Frankfurt, Germany',     vcpu: 2, ram: 8, eu: true  },
   { id: 'STACKIT',  name: 'STACKIT',        lon: 118, lat: -28, color: '#4ade80', price: 0.098, instance: 'g1a.2d',       region: 'EU01 · Heilbronn, Germany',    vcpu: 2, ram: 8, eu: true  },
-  { id: 'TCloud',   name: 'T-Cloud Public', lon: 178, lat: 32,  color: '#22d3ee', price: 0.114, instance: 's3.large.4',   region: 'EU-DE · Frankfurt, Germany',   vcpu: 2, ram: 8, eu: true  },
+  { id: 'TCloud',   name: 'T-Cloud Public', lon: 178, lat: 32,  color: '#22d3ee', price: 0.114, instance: 's3.large.4',   region: 'EU-DE · Magdeburg & Biere, DE',  vcpu: 2, ram: 8, eu: true  },
   { id: 'AWS',      name: 'AWS',            lon:-118, lat: -16, color: '#f87171', price: 0.106, instance: 'm6i.large',    region: 'eu-central-1 · Frankfurt, DE', vcpu: 2, ram: 8, eu: false },
   { id: 'Scaleway', name: 'Scaleway',       lon: -62, lat: 43,  color: '#fbbf24', price: 0.074, instance: 'POP2-2C-8G',   region: 'PAR · Paris, France',          vcpu: 2, ram: 8, eu: true  },
 ]
@@ -357,11 +357,11 @@ export default function GlobeView() {
   function handleMouseLeave() { st.current.hovId = null; setHovered(null) }
 
   return (
-    <div style={{ display:'flex', gap:24, background:'#060916', borderRadius:14, padding:'22px 26px', border:'1px solid #141e38', boxShadow:'0 8px 48px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.04)', alignItems:'flex-start' }}>
-      <div style={{ position:'relative', flexShrink:0 }}>
+    <div style={{ display:'flex', flexWrap:'wrap', gap:24, background:'#060916', borderRadius:14, padding:'22px 26px', border:'1px solid #141e38', boxShadow:'0 8px 48px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.04)', alignItems:'flex-start' }}>
+      <div style={{ position:'relative', flex:'0 1 460px', maxWidth:'100%' }}>
         <canvas
           ref={canvasRef} width={460} height={440}
-          style={{ borderRadius:10, display:'block', cursor: hovered ? 'crosshair' : 'default' }}
+          style={{ borderRadius:10, display:'block', cursor: hovered ? 'crosshair' : 'default', width:'100%', height:'auto' }}
           onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}
         />
         <div style={{ position:'absolute', bottom:14, left:'50%', transform:'translateX(-50%)', display:'flex', gap:14, alignItems:'center', background:'rgba(3,8,18,0.78)', backdropFilter:'blur(8px)', borderRadius:20, padding:'4px 16px', border:'1px solid rgba(60,120,255,0.18)', whiteSpace:'nowrap' }}>
@@ -391,7 +391,7 @@ function PinCard({ prov }) {
           <div style={{ fontSize:'0.58rem', color:'#5a7ea0' }}>per hour</div>
         </div>
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'14px 22px', marginBottom:18 }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:'14px 22px', marginBottom:18 }}>
         {[
           ['Instance',    prov.instance],
           ['vCPU',        `${prov.vcpu} virtual cores`],

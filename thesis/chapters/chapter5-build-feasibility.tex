@@ -1,0 +1,79 @@
+\chapter{Build Feasibility --- The Build Branch}
+\label{ch:build}
+
+\todo{Chapter preamble: this chapter answers "what would it take to build
+sovereign infrastructure ourselves?". It is a feasibility study, not an
+evaluation — say so. Primary source: Canonical sovereignty event, July 2026,
+plus own research. Nothing here has been written yet.}
+
+\section{Starting Conditions}
+\label{sec:starting-conditions}
+
+\todo{Three decisions before racking a server: define Customer Zero (the
+anchor tenant, whose requirements set the minimum viable cluster size); rent
+certified Tier~III+ colocation rather than building a facility; commit to the
+open-source stack. Frame Customer Zero as Alps Alpine's own workload.}
+
+\section{Reference Architecture}
+\label{sec:reference-architecture}
+
+\todo{OpenStack + Ceph + KVM, deployed with Kolla-Ansible. Node roles:
+control plane $\times$3, Ceph storage $\times$4, KVM compute $\times$4,
+network/edge $\times$2. Explain why each count is a minimum rather than a
+choice.}
+
+\subsection{Hardware Bill of Materials}
+\label{subsec:hardware-bom}
+
+\todo{Roughly 15 servers, 5 network devices, 2 racks at the example scale.
+Present as a table, not a figure. Include the out-of-band management switch —
+it is what lets an SRE reach a server whose OS is down.}
+
+\subsection{Hardware Supply-Chain Sovereignty}
+\label{subsec:hardware-sovereignty}
+
+\todo{Connect back to \cref{sec:full-stack}: if the silicon and firmware are
+non-EU, the stack above them is not fully sovereign either. This is the same
+constraint that caps every provider in \cref{sec:tradeoff} — the build branch
+does not escape it.}
+
+\section{Network Design}
+\label{sec:network-design}
+
+\todo{VLAN segmentation by traffic class: management/OOB, control plane,
+Ceph replication, tenant east-west, external north-south. Why storage
+replication must never share a lane with tenant traffic. DE-CIX peering.}
+
+\section{Deployment Sequence}
+\label{sec:deployment-sequence}
+
+\todo{Kolla-Ansible install order and why the dependency chain is forced:
+Keystone (identity) $\rightarrow$ Glance (images) $\rightarrow$ Neutron
+(networking) $\rightarrow$ Nova (compute) $\rightarrow$ Cinder (block
+storage). Then first boot and Customer Zero onboarding.}
+
+\section{Organisational Feasibility}
+\label{sec:organisational-feasibility}
+
+\todo{The six engineer profiles: platform, Ceph storage, SDN/network,
+deployment \& automation, SRE, security \& compliance. THE KEY FINDING OF
+THIS CHAPTER: the scarcity of certified OpenStack and Ceph operators in
+Europe is itself a sovereignty constraint — you cannot operate sovereign
+infrastructure without sovereign operators. Give this room; it is original
+and it is the argument that makes the build branch fail or succeed.}
+
+\section{Cost Model}
+\label{sec:cost-model}
+
+\todo{CAPEX (hardware, racks) plus OPEX (colocation, power, six salaries,
+support contracts), amortised to a per-vCPU-hour figure so it is directly
+comparable with the provider pricing in \cref{subsec:price-performance}.
+Without this the chapter cannot be compared to Part~I and becomes a separate
+essay.}
+
+\section{Feasibility Verdict}
+\label{sec:feasibility-verdict}
+
+\todo{Is building viable for an organisation of Alps Alpine's size? Answer
+plainly. Then the build-versus-buy comparison against the ranking in
+\cref{sec:combined-ranking}, on cost, risk, time-to-capability, and control.}

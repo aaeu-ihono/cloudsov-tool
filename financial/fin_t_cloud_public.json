@@ -1,0 +1,375 @@
+{
+  "key": "T-Cloud Public",
+  "entity": "Open Telekom Cloud / T-Cloud Public (T-Systems International GmbH)",
+  "entity_note": "Open Telekom Cloud is a product line inside T-Systems, which is itself part of Deutsche Telekom's Systems Solutions operating segment. Deutsche Telekom publishes revenue at segment level only, so the cloud arm has no published revenue in any year of the window.",
+  "parent": {
+    "name": "Deutsche Telekom AG",
+    "relationship": "T-Systems International GmbH is a wholly owned subsidiary; its results form the Systems Solutions operating segment."
+  },
+  "currency": "EUR",
+  "unit": "million",
+  "fiscal_year_end": "31 December",
+  "window": {
+    "from": 2015,
+    "to": 2026,
+    "compiled_on": "2026-09-26"
+  },
+  "status_vocabulary": {
+    "reported": "figure published by the entity itself",
+    "undisclosed": "the entity does not publish this figure",
+    "not_located": "published at the time but not found in an accessible source in this pass",
+    "not_applicable": "the entity or reporting unit did not exist in this period",
+    "not_yet_reported": "period not closed, or results not yet published as at the compile date",
+    "rounded": "the only company statement gives the figure rounded"
+  },
+  "series": [
+    {
+      "year": 2015,
+      "parent": 69200,
+      "parent_status": "rounded",
+      "parent_source": "S1",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 8592,
+      "segment_source": "S1",
+      "segment_basis": "A"
+    },
+    {
+      "year": 2016,
+      "parent": 73095,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 6993,
+      "segment_source": "S2",
+      "segment_basis": "A"
+    },
+    {
+      "year": 2017,
+      "parent": 74947,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 6918,
+      "segment_source": "S2",
+      "segment_basis": "A"
+    },
+    {
+      "year": 2018,
+      "parent": 75656,
+      "parent_status": "reported",
+      "parent_source": "S2",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 4474,
+      "segment_source": "S3",
+      "segment_basis": "B",
+      "segment_as_first_reported": 6936
+    },
+    {
+      "year": 2019,
+      "parent": 80531,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 4424,
+      "segment_source": "S3",
+      "segment_basis": "B"
+    },
+    {
+      "year": 2020,
+      "parent": 100999,
+      "parent_status": "reported",
+      "parent_source": "S3",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 3911,
+      "segment_source": "S4",
+      "segment_basis": "C",
+      "segment_as_first_reported": 4178
+    },
+    {
+      "year": 2021,
+      "parent": 107811,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 3759,
+      "segment_source": "S4",
+      "segment_basis": "C"
+    },
+    {
+      "year": 2022,
+      "parent": 114413,
+      "parent_status": "reported",
+      "parent_source": "S4",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 3811,
+      "segment_source": "S4",
+      "segment_basis": "C"
+    },
+    {
+      "year": 2023,
+      "parent": 111985,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 3896,
+      "segment_source": "S5",
+      "segment_basis": "C"
+    },
+    {
+      "year": 2024,
+      "parent": 115769,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 4004,
+      "segment_source": "S5",
+      "segment_basis": "C"
+    },
+    {
+      "year": 2025,
+      "parent": 119081,
+      "parent_status": "reported",
+      "parent_source": "S5",
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": 4103,
+      "segment_source": "S5",
+      "segment_basis": "C"
+    },
+    {
+      "year": 2026,
+      "parent": null,
+      "parent_status": "not_yet_reported",
+      "parent_source": null,
+      "cloud": null,
+      "cloud_status": "undisclosed",
+      "cloud_source": null,
+      "segment_systems_solutions": null,
+      "segment_source": null,
+      "segment_basis": null
+    }
+  ],
+  "segment_bases": {
+    "A": "Systems Solutions as defined before the 2020 reorganisation, when the segment still carried the B2B telecommunications business.",
+    "B": "Systems Solutions as restated in the 2020 annual report, after the B2B telecommunications business moved to the Germany segment.",
+    "C": "Systems Solutions as restated from the 2022 annual report onwards, after Telekom Security and the security business in Germany, Austria, Switzerland, Hungary and Slovakia moved to the Germany segment on 1 July 2022."
+  },
+  "proxy": {
+    "field": "segment_systems_solutions",
+    "label": "T-Systems (Systems Solutions segment)",
+    "short_label": "T-Systems segment",
+    "bound": "upper",
+    "explanation": "The segment contains Open Telekom Cloud together with the rest of T-Systems. The cloud arm is one part of it, so it must be smaller than this figure. The segment's own definition changed twice inside the window, so the series is not comparable end to end.",
+    "basis_field": "segment_basis",
+    "basis_note": "Deutsche Telekom redefined the segment twice inside the window, so the series has three incompatible bases. Any growth rate must be taken within one basis: across all eleven years it reads as a 7% annual decline that is entirely an artefact of the reorganisations.",
+    "in_plain_words": "the cloud arm is inside this figure, so it is smaller"
+  },
+  "europe": {
+    "kind": "exact",
+    "measure": "Germany plus Europe excluding Germany, from the published Breakdown of revenue by region",
+    "note": "Deutsche Telekom publishes the region split as percentages of group revenue. Europe here is the whole of the group's German and European revenue, not the cloud arm's. Each year was cross-checked two ways, as Germany plus Europe excluding Germany, and as 100 minus North America minus Other countries. The two agree in every year.",
+    "series": {
+      "2018": {
+        "pct": 50.8,
+        "kind": "exact",
+        "source": "E1"
+      },
+      "2019": {
+        "pct": 49.0,
+        "kind": "exact",
+        "source": "E2"
+      },
+      "2020": {
+        "pct": 38.9,
+        "kind": "exact",
+        "source": "E3"
+      },
+      "2021": {
+        "pct": 36.7,
+        "kind": "exact",
+        "source": "E4"
+      },
+      "2022": {
+        "pct": 33.6,
+        "kind": "exact",
+        "source": "E5"
+      },
+      "2023": {
+        "pct": 34.9,
+        "kind": "exact",
+        "source": "E6"
+      },
+      "2024": {
+        "pct": 34.6,
+        "kind": "exact",
+        "source": "E7"
+      },
+      "2025": {
+        "pct": 34.0,
+        "kind": "exact",
+        "source": "E8"
+      }
+    },
+    "sources": [
+      {
+        "id": "E1",
+        "title": "Deutsche Telekom Annual Report 2018, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2018/servicepages/downloads/files/entire_dtag_ar18.pdf",
+        "covers": "2018",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E2",
+        "title": "Deutsche Telekom Annual Report 2019, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2019/servicepages/downloads/files/entire_dtag_ar19.pdf",
+        "covers": "2019",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E3",
+        "title": "Deutsche Telekom Annual Report 2020, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2020/_assets/downloads/entire-dtag-ar20.pdf",
+        "covers": "2020",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E4",
+        "title": "Deutsche Telekom Annual Report 2021, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2021/_assets/downloads/entire-dtag-ar21.pdf",
+        "covers": "2021",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E5",
+        "title": "Deutsche Telekom Annual Report 2022, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2022/_assets/downloads/entire-dtag-ar22.pdf",
+        "covers": "2022",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E6",
+        "title": "Deutsche Telekom Annual Report 2023, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2023/_assets/downloads/entire-dtag-ar23.pdf",
+        "covers": "2023",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E7",
+        "title": "Deutsche Telekom Annual Report 2024, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2024/_assets/downloads/entire-dtag-ar24.pdf",
+        "covers": "2024",
+        "accessed": "2026-09-26"
+      },
+      {
+        "id": "E8",
+        "title": "Deutsche Telekom Annual Report 2025, Breakdown of revenue by region",
+        "url": "https://report.telekom.com/annual-report-2025/_assets/downloads/entire-dtag-ar25.pdf",
+        "covers": "2025",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "eu_investments": {
+    "note": "The one billion is a joint Deutsche Telekom and NVIDIA figure, not Deutsche Telekom's alone.",
+    "items": [
+      {
+        "country": "Germany",
+        "site": "Munich",
+        "amount_m": 1000,
+        "currency": "EUR",
+        "announced": "2025-11-04",
+        "horizon": "live in the first quarter of 2026",
+        "source": "V1",
+        "label": "Industrial AI Cloud, with NVIDIA",
+        "joint_with": "NVIDIA",
+        "detail": "Over a thousand NVIDIA DGX B200 systems and RTX PRO servers, up to 10,000 Blackwell GPUs, in a renovated Munich data centre."
+      }
+    ],
+    "sources": [
+      {
+        "id": "V1",
+        "title": "For a sovereign Germany: Deutsche Telekom launches Industrial AI Cloud with NVIDIA",
+        "publisher": "Deutsche Telekom",
+        "date": "2025-11-04",
+        "quote": "Deutsche Telekom and NVIDIA have jointly built the world's first Industrial AI Cloud - a one-billion-euro partnership",
+        "url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2025/11/for-a-sovereign-germany",
+        "accessed": "2026-09-26"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Deutsche Telekom enjoys double-digit growth in 2015 (media information)",
+      "publisher": "Deutsche Telekom AG",
+      "date": "2016-02-25",
+      "url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2016/2/deutsche-telekom-enjoys-double-digit-growth-in-2015",
+      "covers": "group net revenue 2015 (stated as 69.2 billion euros); Systems Solutions segment 2015 (8,592)",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "Deutsche Telekom Annual Report 2018 - Contribution of the segments to net revenue (2016, 2017, 2018)",
+      "publisher": "Deutsche Telekom AG",
+      "date": "2019-02",
+      "url": "https://report.telekom.com/annual-report-2018/servicepages/downloads/files/entire_dtag_ar18.pdf",
+      "covers": "2016, 2017, 2018",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S3",
+      "title": "Deutsche Telekom Annual Report 2020 - Contribution of the segments to net revenue (2018, 2019, 2020)",
+      "publisher": "Deutsche Telekom AG",
+      "date": "2021-02",
+      "url": "https://report.telekom.com/annual-report-2020/_assets/downloads/entire-dtag-ar20.pdf",
+      "covers": "2018, 2019, 2020",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S4",
+      "title": "Deutsche Telekom Annual Report 2022 - Contribution of the segments to net revenue (2020, 2021, 2022)",
+      "publisher": "Deutsche Telekom AG",
+      "date": "2023-02",
+      "url": "https://report.telekom.com/annual-report-2022/_assets/downloads/entire-dtag-ar22.pdf",
+      "covers": "2020, 2021, 2022",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "S5",
+      "title": "Deutsche Telekom Annual Report 2025 - Results of operations of the Group and Contribution of the segments to net revenue (2023, 2024, 2025)",
+      "publisher": "Deutsche Telekom AG",
+      "date": "2026-02",
+      "url": "https://report.telekom.com/annual-report-2025/_assets/downloads/entire-dtag-ar25.pdf",
+      "covers": "2023, 2024, 2025",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "notes": [
+    "Open Telekom Cloud revenue is undisclosed in every year of the window. Deutsche Telekom has never published it, so the cloud component of the stacked bar is empty for this provider by fact, not by omission.",
+    "The Systems Solutions segment figure is carried as context only. It is the whole of T-Systems, of which the public cloud is a small part, and it must not be charted as cloud revenue.",
+    "The segment series is not comparable end to end. Deutsche Telekom redefined Systems Solutions twice inside the window, which is why the segment drops from 6,936 in 2018 on the old basis to 4,474 on the 2020 basis, and again from 4,178 in 2020 to 3,911 on the 2022 basis. Each row records which basis its figure belongs to.",
+    "Group net revenue for 2020 is also affected: the 2020 annual report gives 100,999 and the 2022 annual report restates it to 100,139. The as-first-reported figure is used here, consistent with the other years.",
+    "The 2015 group figure is the company's own rounded statement, 69.2 billion euros. The exact figure to the million was not found in an accessible Deutsche Telekom document."
+  ]
+}

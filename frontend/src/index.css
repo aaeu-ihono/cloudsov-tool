@@ -1,20 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: #f4f5f7; color: #1a1a2e; min-height: 100vh; }
+html { overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; background: #f4f5f7; color: #1a1a2e; min-height: 100vh; overflow-x: hidden; }
 
 /* ── Topbar ── */
-.topbar { display: flex; align-items: center; justify-content: space-between; background: #1e3a5f; height: 50px; padding: 0 24px; position: sticky; top: 0; z-index: 200; box-shadow: 0 1px 4px rgba(0,0,0,0.18); }
-.logo { font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
-.topbar-nav { display: flex; gap: 4px; }
-.nav-link { color: #b8cce4; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 5px 14px; border-radius: 4px; transition: background 0.13s, color 0.13s; }
+.topbar { display: flex; align-items: center; justify-content: space-between; background: #1e3a5f; height: 50px; padding: 0 24px; position: sticky; top: 0; z-index: 200; box-shadow: 0 1px 4px rgba(0,0,0,0.18); gap: 12px; }
+.logo { font-size: 0.95rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; flex-shrink: 0; }
+.topbar-nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.topbar-nav::-webkit-scrollbar { display: none; }
+.nav-link { color: #b8cce4; text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 5px 14px; border-radius: 4px; transition: background 0.13s, color 0.13s; white-space: nowrap; flex-shrink: 0; }
 .nav-link:hover, .nav-link.active { background: #2d5a8e; color: #fff; }
+
+@media (max-width: 480px) {
+  .topbar { padding: 0 12px; }
+  .logo { font-size: 0.85rem; }
+  .nav-link { font-size: 0.78rem; padding: 5px 10px; }
+}
 
 /* ── Content ── */
 .content { padding: 24px 28px 48px; }
+@media (max-width: 600px) { .content { padding: 16px 14px 32px; } }
+
+/* ── Loading spinner ── */
+.loading-spinner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 80px 24px; text-align: center; }
+.spinner { width: 34px; height: 34px; border: 3px solid #d1d5db; border-top-color: #1e3a5f; border-radius: 50%; animation: spin 0.8s linear infinite; }
+.loading-msg { font-size: 0.9rem; font-weight: 600; color: #1a1a2e; }
+.loading-detail { font-size: 0.78rem; color: #6b7280; max-width: 360px; line-height: 1.4; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── SovScore header ── */
-.ss-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; gap: 12px; }
+.ss-header { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; gap: 12px; }
 .ss-title { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; }
 .ss-sub { font-size: 0.78rem; color: #6b7280; margin-top: 2px; }
 .ctrl-select { font-size: 0.72rem; border: 1px solid #d1d5db; border-radius: 4px; padding: 3px 7px; background: #fff; color: #374151; }
@@ -346,8 +362,24 @@ tr.seal-subrow td { border-bottom: 2px solid #64748b !important; }
 /* section divider placeholder */
 .fc-section-divider { margin-top: 28px; padding: 18px; background: #f8f9fb; border: 1px dashed #d1d5db; border-radius: 6px; font-size: 0.75rem; color: #9ca3af; text-align: center; letter-spacing: 0.04em; }
 
+/* ── Financial Consideration — banded sections ──────────────────────────── */
+/* Each band is one bordered card carrying one subject, so readiness, revenue,
+   investment and the thesis questions read as separate pieces of the page. */
+.fc-band { border: 1px solid #d5dae2; border-radius: 10px; background: #fcfdfe;
+           padding: 0 14px 16px; margin-top: 26px; }
+.fc-band-head { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.09em;
+                text-transform: uppercase; color: #111827; padding: 13px 2px 9px;
+                border-bottom: 2px solid #111827; margin-bottom: 2px; }
+/* a band sitting inside a column carries the column's whole height */
+.fc-col > .fc-band { margin-top: 0; flex: 1; }
+.fc-band > .fc-chart-wrap:first-of-type { margin-top: 12px; }
+
 /* ── Financial Consideration — two-column row layout ────────────────────── */
 .fc-row { display: flex; gap: 0; align-items: flex-start; margin-top: 8px; }
+/* bands carry their own borders, so columns holding one need no divider */
+.fc-row:has(> .fc-col > .fc-band) { gap: 18px; align-items: stretch; }
+.fc-row:has(> .fc-col > .fc-band) > .fc-col:not(:last-child) { padding-right: 0; border-right: none; }
+.fc-row:has(> .fc-col > .fc-band) > .fc-col:not(:first-child) { padding-left: 0; }
 .fc-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .fc-col:not(:last-child) { padding-right: 24px; border-right: 2px solid #e5e7eb; }
 .fc-col:not(:first-child) { padding-left: 24px; }
@@ -392,3 +424,51 @@ tr.seal-subrow td { border-bottom: 2px solid #64748b !important; }
 .fc-legend { display: flex; flex-wrap: wrap; gap: 12px; padding: 6px 8px 10px; align-items: center; }
 .fc-legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 500; white-space: nowrap; }
 .fc-legend-box { display: inline-block; width: 14px; height: 10px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 2px; }
+
+/* ── Global revenue small multiples ──────────────────────────────────────── */
+/* One panel per provider, each with its own y-axis: the six groups span three
+   orders of magnitude and cannot share a scale. */
+.fc-smallmult { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 12px; padding: 0 4px; }
+.fc-sm-panel { border: 1px solid #eef0f4; border-radius: 6px; padding: 8px 4px 6px; background: #fff; min-width: 0; }
+.fc-sm-head { display: flex; flex-direction: column; gap: 1px; padding: 0 8px 4px; }
+.fc-sm-name { font-size: 0.8rem; font-weight: 700; letter-spacing: -0.01em; }
+.fc-sm-parent { font-size: 0.68rem; color: #9ca3af; font-weight: 500; }
+.fc-sm-note { font-size: 0.66rem; color: #9ca3af; font-style: italic; line-height: 1.5; padding: 4px 8px 0; min-height: 1.2em; }
+
+/* Per-provider panels on the left, the one shared-axis chart on the right. */
+.fc-revsplit { display: flex; gap: 0; align-items: stretch; }
+.fc-revsplit-left { flex: 0 0 58%; min-width: 0; padding-right: 20px; border-right: 2px solid #e5e7eb; }
+.fc-revsplit-right { flex: 1 1 42%; min-width: 0; padding-left: 20px; display: flex; flex-direction: column; }
+.fc-revsplit-left .fc-smallmult { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Cloud-arm growth against its owner, and the size of the gap to AWS. */
+.fc-growth-table { margin-top: 16px; border: 1px solid #eef0f4; border-radius: 6px; overflow: hidden; }
+.fc-growth-row { display: grid; grid-template-columns: 1.1fr 1fr 1.5fr 1.3fr 1.2fr; gap: 10px; padding: 7px 12px; font-size: 0.74rem; align-items: baseline; border-top: 1px solid #f3f4f6; }
+.fc-growth-row:first-child { border-top: none; }
+.fc-growth-row em { display: block; font-style: normal; font-size: 0.62rem; color: #9ca3af; margin-top: 1px; }
+.fc-growth-head { background: #fafbfc; font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #6b7280; }
+.fc-growth-foot { padding: 7px 12px; background: #fafbfc; border-top: 1px solid #f3f4f6; font-size: 0.66rem; color: #9ca3af; line-height: 1.6; font-style: italic; }
+@media (max-width: 820px) {
+  .fc-growth-row { grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+  .fc-growth-head { display: none; }
+  .fc-growth-row > span:first-child { grid-column: 1 / -1; }
+}
+
+.fc-share-absent { margin-top: 8px; padding: 8px 10px; background: #fafbfc; border: 1px solid #eef0f4; border-radius: 6px; }
+.fc-share-absent-row { display: flex; gap: 8px; align-items: baseline; font-size: 0.68rem; color: #9ca3af; line-height: 1.7; }
+.fc-share-absent-row > span:first-child { flex: 0 0 110px; }
+
+@media (max-width: 1250px) {
+  .fc-revsplit { flex-direction: column; }
+  .fc-revsplit-left { flex: 1 1 auto; padding-right: 0; border-right: none; padding-bottom: 20px; border-bottom: 2px solid #e5e7eb; }
+  .fc-revsplit-right { padding-left: 0; padding-top: 16px; }
+  .fc-revsplit-left .fc-smallmult { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 1100px) { .fc-smallmult, .fc-revsplit-left .fc-smallmult { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px)  { .fc-smallmult, .fc-revsplit-left .fc-smallmult { grid-template-columns: 1fr; }
+  .fc-share-absent-row { flex-direction: column; gap: 0; }
+  .fc-share-absent-row > span:first-child { flex: none; } }
+
+/* Four columns for the European-share table, which has no growth pair. */
+.fc-eu-row { grid-template-columns: 1.1fr 1.4fr 1.8fr 1.1fr; }
+@media (max-width: 820px) { .fc-eu-row { grid-template-columns: 1fr 1fr; } }

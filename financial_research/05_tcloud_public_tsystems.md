@@ -184,7 +184,21 @@
 
 ---
 
-## 12. Summary Assessment for Thesis
+## 12. Launch Date Used in Study 3
+
+| Phase | Year | What happened | Source |
+|-------|------|---------------|--------|
+| Origin | 2000 | T-Systems founded as Deutsche Telekom's B2B IT services arm — not a cloud platform | §10 timeline |
+| Development | 2015 | Partnership agreed with Huawei to supply the cloud OS and hardware for the future public cloud platform. The platform did not yet exist for customers | §10 timeline |
+| **First external sale** | **2016** | Open Telekom Cloud launched, built on Huawei FusionSphere OpenStack | §10 timeline |
+
+> **Rule applied across all providers in Study 3:** the start year is the year the cloud platform first went on sale to customers outside the company that built it. Only years from that date are counted. The capability score in Study 2 counts services a customer can buy, so the denominator must count only years in which there was something to buy.
+
+> **No correction required.** The launch year already in use matches the rule. T-Cloud Public is one of only two providers in the study dated from a genuine public cloud launch rather than a rebrand or an internal milestone.
+
+---
+
+## 13. Summary Assessment for Thesis
 
 | Dimension | Assessment |
 |-----------|------------|
