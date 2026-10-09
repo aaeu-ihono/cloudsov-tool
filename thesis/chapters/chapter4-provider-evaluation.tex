@@ -1,107 +1,498 @@
 \chapter{Provider Evaluation}
 \label{ch:evaluation}
 
-\todo{Which EU provider an enterprise should buy from. The results and
-interpretation of each study, followed by the findings across studies in
-\cref{sec:tradeoff,sec:combined-ranking}.}
+The four studies in \cref{ch:methodology} rank the providers differently. STACKIT
+scores highest on sovereignty, Deutsche Telekom's platform offers the most
+services, OVHcloud has the fastest machines among the European providers, and
+STACKIT again has the largest financial commitment behind it. This chapter
+discusses the results of each study in turn, explains why the providers rank as
+they do, and then combines the four studies to identify the strongest candidates
+for an enterprise such as Alps Alpine.
 
 % ============================================================
 \section{Study 1 --- Sovereignty Scoring}
 \label{sec:study1}
 
-\subsection{Results}
+\subsection{What the questions reveal}
 \label{subsec:study1-results}
 
-\todo{Scores for all 18 providers and the AWS baseline, broken down by objective,
-and which providers reach which assurance level.}
+Only five of the eighteen providers clear every minimum the framework sets:
+STACKIT, Cyso Cloud, Cleura, Elastx and plusserver (\cref{tab:sov-seals}). The
+rest mostly fall in the same two columns of that table, the legal objective and
+the supply chain, and the reason only becomes clear one level down, in the
+answers to the individual questions.
+
+Those answers divide the market cleanly in two. Wherever a question concerns how
+a provider runs its own business, nearly every provider answers well. Almost all
+of them use open interfaces, let customers leave without being locked in, staff
+their operations from within Europe, report security breaches under European
+rules, and invest and employ in Europe. On everything a provider can decide for
+itself, the European market is already in good shape.
+
+The trouble starts lower down, among the machines, where the questions turn from
+how a service is run to what it is built from. There the positive answers thin
+out quickly and on some questions disappear altogether. No provider could show
+that it is free of reliance on vendors outside Europe, and none that its supply
+chain can be audited from end to end.
+
+No provider runs on firmware of European origin, the low-level code built into
+every server to control its hardware, and none is free of high-performance chips
+made outside the Union. All eighteen answered no to both. Because every provider
+gives the same answer, the cause is not any single provider but the European
+industry that supplies them. The European Union states the same in its Chips Act,
+which names a strong dependence on countries outside the Union for both the
+design and the manufacture of chips \cite{EU_ChipsAct_2023}. The results of this
+study are therefore consistent with the Union's own assessment.
+
+OVHcloud, the only provider to answer yes on hardware, shows the extent of this
+dependence. It builds its own servers at a factory in Croix in northern France, which no
+other provider in the set does, yet the motherboards, processors, memory and
+drives that go into them are bought from other suppliers
+\cite{NextInk_OVHCroix_2023}. Building servers in Europe is a real achievement,
+and the framework credits it, but the parts inside still come from elsewhere, and
+OVHcloud answers no on firmware like everyone else.
+
+This dependence also explains why no provider reaches above the middle of the
+scale on the supply chain, or the top level on technology. As long as Europe
+produces neither its own chips nor its own firmware, no provider can reach these
+levels, and the strongest providers are already at the highest level currently
+possible.
+Artificial intelligence sits in the same place. No provider could show that its
+\acs{AI} models are built, trained and governed entirely under European control.
+
+Between what every provider does and what none can do lies a narrower band, the
+questions only a handful answered yes although the answer lies in each provider's
+own hands. UpCloud alone keeps all its critical suppliers and subcontractors under
+European law. Four providers can keep running securely if an authority outside the
+Union cuts off a supplier's support, four can prove that a customer's deleted data
+is gone for good, and two run energy-efficient data centres against published
+targets. None of this depends on chips or firmware. It depends on how a provider
+chooses its partners, prepares for being cut off and records what it does, and for
+most providers it is the only ground left within their reach.
+
+That ground would be enough. Every provider that fails could clear all the
+minimums by improving answers within its own control, and none is held back by
+the chips and the firmware. For some the distance is short. Hetzner fails on a
+single objective, the protection of data, and one better answer would carry it
+through. noris network fails only on the supply chain, where buying part of its
+servers from a trusted source would suffice. Scaleway is two steps away, one on
+the legal side and one on the supply chain. Had these three closed those few gaps,
+eight providers would pass instead of five.
+
+For the large providers the distance is far greater, and almost all of it lies in
+the law. OVHcloud and T-Cloud Public would need nearly every legal answer to turn
+to yes, and the circumstance behind that is a business reaching well beyond
+Europe. OVHcloud runs subsidiaries in the United States and Canada, and its
+American arm states plainly that a request under the \acs{CLOUD Act} could include
+data stored outside the United States \cite{OVHUS_CloudAct}. That exposure has
+already been tested. A Canadian court has ordered OVHcloud to hand the Canadian
+police customer data held on servers in France, Britain and Australia, over the
+company's objection that French law forbids it, and OVHcloud has appealed
+\cite{Heise_OVHCanada_2025}. IONOS has an American subsidiary in Philadelphia
+\cite{UnitedInternet_AR_2025}, and Deutsche Telekom now earns about two thirds of
+its revenue in the United States \cite{DT_AR_2025}. Hetzner's one weak objective
+carries a trace of the same pattern, since its cloud offers locations in the
+United States and Singapore on the same platform as its European ones
+\cite{Hetzner_Locations}, and data stays in Europe only if the customer chooses
+so.
+
+This connects the sovereignty results with the financial study. Expanding abroad
+is one way a provider grows its revenue, and \cref{fig:europe-share} shows that
+OVHcloud and Deutsche Telekom have done so. Each expansion outside Europe,
+however, makes the provider subject to another country's laws, which lowers its
+result on the legal objective. For a European provider, international growth and
+sovereignty therefore work against each other.
 
 \subsection{The Huawei Problem and Deutsche Telekom's Response}
 \label{subsec:huawei}
 
-\todo{The legal exposure and the hardware and firmware exposure that come with
-Huawei, Deutsche Telekom's response, and how Open Telekom Cloud compares with
-T-Cloud Public.}
+Deutsche Telekom appears twice in the results, and its two entries show the lower
+layers at work more clearly than any other case. Open Telekom Cloud went live in
+2016 on hardware and software from Huawei \cite{OTC_GoesLive_2016}, under an
+agreement of 2015 in which Huawei supplies both \cite{LightReading_DT_2025}. Its
+owner is German and its data centres stand in Germany, yet its equipment comes
+from a company in a country whose laws, as \cref{subsec:other-jurisdictions}
+described, can require organisations to cooperate with state intelligence work.
+It is the only provider in the set with nothing at all on the supply chain, and it
+finishes last overall.
 
-\subsection{Interpretation}
+Renamed T-Cloud Public, the same platform climbs twenty points to the middle of
+\cref{fig:sov-ranking}. Deutsche Telekom presents it as \enquote{the next
+evolution of the Open Telekom Cloud} and assures existing customers that
+\enquote{nothing changes regarding the services they are used to}
+\cite{TCloudPublic_2026}. \Cref{tab:otc-tcloud} shows where the platform moved up.
+
+\begin{table}[htbp]
+  \centering
+  \caption{The level reached by Open Telekom Cloud and T-Cloud Public on the
+           objectives where they differ.}
+  \label{tab:otc-tcloud}
+  \small
+  \begin{tabularx}{\textwidth}{@{}l c c X@{}}
+    \toprule
+    \textbf{Objective} & \textbf{OTC} & \textbf{T-Cloud}
+      & \textbf{Questions whose answer improved} \\
+    \midrule
+    SOV-1 Strategic     & 2 & 4 & Decisive authority in the \acs{EU};
+                                  financed from the \acs{EU}; active in
+                                  \acs{EU} sovereignty work; survives
+                                  vendor withdrawal \\
+    SOV-5 Supply chain  & 0 & 1 & Hardware from trusted jurisdictions \\
+    SOV-4 Operational   & 2 & 3 & Run by \acs{EU} operators alone;
+                                  support from the \acs{EU} \\
+    SOV-2 Legal         & 1 & 2 & No channel for compelled access \\
+    SOV-8 Environmental & 3 & 4 & Carbon and water use published \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+The biggest step, on strategy, has little to do with the platform. It rests on
+Deutsche Telekom as a company, on who controls it, where its money comes from and
+its part in European sovereignty initiatives, and the carbon reporting behind the
+environmental step is published for the group as a whole. All of it was just as
+true when the cloud still carried its old name.
+
+The operational and legal steps rest on firmer ground, the way the platform is
+run. Only T-Systems employees manage it. Huawei supplies the cloud operating
+system but has no access to the hardware or software while it runs, its
+engineers help only by video conference when called on, and T-Systems reviews
+every fix before it is installed \cite{TCloudPublic_SecureCloud}. The step on the
+supply chain comes from the hardware, now bought from Western manufacturers as
+well as from Huawei, with processors and graphics cards from Intel and Nvidia
+\cite{TCloudPublic_SecureCloud,LightReading_DT_2025}. For its newer Industrial
+\acs{AI} Cloud in Munich, Deutsche Telekom went further and left Huawei out
+altogether \cite{LightReading_DT_2026}.
+
+The dates tell a different story from the rename. T-Systems described this way of
+running the platform, and its Western hardware, on a page dated July 2020, four
+years after launch and long before the new name \cite{TCloudPublic_SecureCloud}.
+Most of what lifted the score was therefore already in place, and already
+published, while the platform was still Open Telekom Cloud. One answer even moved
+backwards: customer oversight of security monitoring was rated yes under the old
+name and only partly under the new. The twenty points record above all how much
+more clearly Deutsche Telekom now describes its platform. The Huawei operating
+system at its core is still in use.
+
+For providers that run software from outside Europe, Deutsche Telekom's path
+still holds a lesson. The way a platform is operated can make up for part of
+what it is built from. Keeping the foreign supplier away from the running
+system, staffing operations with European employees and checking every update
+lifted its legal and operational standing without replacing a single component,
+and buying hardware from more than one source moved its supply chain off the
+floor. Saying all of this openly mattered as well, because the framework can only
+credit what it can see. The same fact should make buyers careful: a score can
+rise while the platform stays the same, and comparing the two Deutsche Telekom
+entries comes down to comparing two descriptions of one system. Providers that
+already pass, such as STACKIT, Cyso Cloud and Cleura, gain little from this path,
+because what separates them from the top of the scale is the firmware and the
+chips that no European provider can yet replace.
+
+\subsection{Interpreting the sovereignty scores}
 \label{subsec:study1-interpretation}
 
-\todo{What the sovereignty scores mean for choosing a provider, and where the
-framework has blind spots.}
+A buyer who simply picks the highest score in \cref{fig:sov-ranking} can pick
+wrongly. noris network scores above plusserver, yet noris network fails a
+minimum supply chain sovereignty objective (SOV-5) and plusserver passes all objectives. For a regulated workload the pass decides, and the
+score only orders the providers that have already passed.
+
+The providers that pass are, apart from STACKIT, smaller and mostly independent
+companies, while the large European names, OVHcloud, IONOS and Deutsche Telekom,
+all fall short somewhere. A European address and a large business do not by
+themselves make a provider sovereign. And because the scores measure only what a
+provider shows from outside, a low score can reflect a provider that explains
+itself poorly as much as one that protects data poorly, as
+\cref{sec:design-limitations} noted and the Deutsche Telekom case has shown. The
+scores make a sound shortlist, and the questions they leave open are the ones a
+buyer still has to put to each provider on it.
 
 % ============================================================
 \section{Study 2 --- Capability Gap Analysis}
 \label{sec:study2}
 
-\subsection{Results}
+\subsection{How far the catalogue reaches}
 \label{subsec:study2-results}
 
-\todo{Dimension scores for each provider against the AWS baseline, and the
-service categories with the widest gaps.}
+No European provider can yet take over everything Alps Alpine runs on \acs{AWS}
+(\cref{fig:readiness-ranking}). Deutsche Telekom's platform comes closest,
+covering a little under three quarters of the catalogue. OVHcloud covers just
+over half, and STACKIT and Scaleway well under half. After those four the bars
+drop sharply, and the remaining twelve providers cover around a quarter each.
 
-\subsection{Interpretation}
+The gaps are far from even (\cref{tab:readiness-matrix}). Plain computing power
+is where the European providers come closest to \acs{AWS}, with storage and
+networking at about half. Artificial intelligence and web and app hosting are
+almost empty columns, and six services, the managed language-model service among
+them, are offered by no provider at all. The leading providers in
+\cref{fig:readiness-radar} trace the same shape, bulging towards \acs{AWS} on
+computing and networking and collapsing inwards on artificial intelligence,
+messaging and the developer tools.
+
+\subsection{What lies behind the gap}
 \label{subsec:study2-interpretation}
 
-\todo{Which gaps are structural, such as the lack of European HPC chips or of a
-comparable AI catalogue, and which investment can close.}
+The shape of the gap reflects the kind of companies these are. European providers
+sell the basic building blocks well, the machines, disks and networks. What they
+mostly lack are the finished services built on top, the ones that spare a
+customer the work of building and running things itself, and
+\cref{fig:readiness-verdicts} shows how many of those are missing even at the
+leading providers. These finished services are where a customer's own effort is
+invested, so they are also where moving becomes hard. A plain server has an
+equivalent everywhere. A system built around a managed \acs{AWS} service with no
+European counterpart has to be rebuilt in that part before it can move at all.
+
+Much of this gap could close quickly, because much of it has already been closed
+somewhere in Europe. If each provider added only the services that some other
+European provider already offers in full, every one of the sixteen would arrive at
+roughly three quarters of the catalogue, almost exactly where Deutsche Telekom's
+platform stands today. The smaller providers would gain the most, above all in the
+Internet of Things, messaging and the developer tools, where one or two European
+providers have already shown it can be done. The European market as a whole
+already covers about three quarters of what Alps Alpine uses. What no single
+provider offers, the providers between them largely do.
+
+The last quarter is another matter. Twenty-four of the sixty services are offered
+in full by no European provider, and six of them not even in part, among them the
+managed key-value and time-series databases, the high-performance relational
+database, workflow orchestration and the managed language-model service. Closing
+that quarter means building what Europe does not yet have, not copying what a
+neighbour already sells. Most of it is software, which a provider can build given
+money and time, and \cref{sec:study3} turns to that money. Artificial intelligence
+is harder. Its services depend on specialised high-performance processors, and
+dependence on such processors from outside the Union is one of the two questions
+that every provider failed in Study~1. The weakest area of the catalogue and the
+hardest limit on sovereignty sit in the same layer of the stack. For Alps Alpine,
+whose search for alternatives began with public \acs{AI} services, this matters
+more than any other result of the study: the work it most wants to move is the
+work for which the European offer is thinnest.
 
 % ============================================================
 \section{Study 3 --- Financial Viability}
 \label{sec:study3}
 
-\subsection{Results}
+\subsection{The money and the progress}
 \label{subsec:study3-results}
 
-\todo{Revenue, growth, investment and projected parity years.}
+More money has not bought more capability (\cref{fig:capital-gap}). T-Cloud
+Public reaches the highest capability on the smallest commitment of the five,
+while STACKIT, with by far the largest, sits in the middle. The reason is that
+most of the money has not yet become anything a customer can use. Three quarters
+of the European commitments sit inside deadlines that have not yet arrived, with
+STACKIT's new campus at L\"ubbenau due only in phases from 2027
+(\cref{sec:study3-investment}), and some of what was counted bought something
+other than cloud services, such as the security software company that the Schwarz
+Group acquired. IONOS shows the opposite case, a large commitment behind a
+business that mostly sells hosting and domains, so its capability stays low
+however much is spent. Capability follows what the money has already built and
+what the provider chooses to build with it, not the size of the cheque. The money also comes
+from two quite different places. The bars for OVHcloud and IONOS in
+\cref{fig:capital-structure} are made of loans and of shares sold to investors,
+while those for STACKIT, Scaleway and T-Cloud Public are filled almost entirely by
+their owners.
+
+The pace of progress varies just as widely (\cref{fig:parity-projection}).
+STACKIT, the youngest provider, has the steepest line of all and meets the
+\acs{AWS} line around 2031, a year after T-Cloud Public. OVHcloud and Scaleway
+arrive only around 2040, and IONOS not within any period a contract would cover.
 
 \subsection{The Revenue Chasm and Capital Efficiency}
 \label{subsec:revenue-chasm}
 
-\todo{The scale gap between AWS and the EU providers, how long it would take to
-close, and capital structure as a factor in sovereignty.}
+The catch-up years in \cref{fig:parity-projection} treat \acs{AWS} as standing
+still at the catalogue it offered in 2026, and \cref{fig:global-revenue-common}
+shows that it does not. Over ten years Amazon's line climbs steeply away from
+every other owner, and the dashed line for its cloud business alone rises until,
+by 2025, it nearly matches the whole of Deutsche Telekom. The owners of Scaleway,
+IONOS and OVHcloud remain at the bottom of the chart throughout. Over the decade
+the gap has grown, not narrowed.
 
-\subsection{Interpretation}
+A company that earns so much more each year can also spend far more each year on
+new services, so the catalogue the European providers are chasing keeps moving
+away from them. Matching \acs{AWS} service for service is beyond the reach of any
+of them. Covering the particular services one customer needs is not, because that
+list is far shorter, and the two fastest providers, STACKIT and T-Cloud Public,
+could plausibly cover it within the life of a contract signed today.
+
+Where the money comes from matters for sovereignty as much as how much there is.
+A provider funded by investors may one day belong to whoever buys its shares,
+while a provider funded by its owner lives on that owner's continued interest.
+STACKIT is the clearest case of the second kind: almost all of its committed money
+rests on announcements by one privately held company that publishes no figures
+for its cloud business \cite{Schwarz_Figures_FY2025}. Deutsche Telekom shows
+another side of the same question. Its line in \cref{fig:europe-share} falls
+steadily, and the group now earns about two thirds of its revenue in the United
+States \cite{DT_AR_2025}, even though its cloud platform is European.
+
+\subsection{What this means for a long contract}
 \label{subsec:study3-interpretation}
 
-\todo{Which providers are sound choices for a five-year commitment, and why.}
+All five providers are either sizeable companies in their own right or part of
+much larger groups, and none looks likely to disappear within a five-year
+contract. They differ instead in how much a customer can see and in whose
+decision their future rests on. OVHcloud is the most open of the five. Its cloud
+business is the whole company, its accounts are public, and its risk, which lies
+with its lenders and shareholders, is in plain view. STACKIT is the least open but
+has the deepest backing, and its risk lies in a single owner's continued
+commitment. T-Cloud Public and Scaleway sit between the two. OVHcloud and STACKIT
+are therefore both sound choices for a long commitment, for opposite reasons, and
+choosing between them means choosing which kind of risk a buyer would rather keep
+an eye on.
 
 % ============================================================
 \section{Study 4 --- Technical Benchmarking}
 \label{sec:study4}
 
-\subsection{Results}
+\subsection{Speed on the same machine}
 \label{subsec:study4-results}
 
-\todo{The eight benchmark measurements for the six providers.}
+On machines of the same size, the European providers keep pace with \acs{AWS}
+(\cref{fig:bench-composite}). The six bars sit close together, and OVHcloud's is
+almost as long as that of \acs{AWS}. The heatmap in \cref{tab:bench-heatmap}
+shows how the order arises. OVHcloud holds the best result in most columns, and
+four European providers beat \acs{AWS} when all processor cores work together.
+\acs{AWS} owes its first place to a single column, the network, where its cell is
+the only deep green and every European provider falls into the warmer colours.
+Without that column OVHcloud would come first.
 
-\subsection{Price--Performance}
+\subsection{Price and Performance}
 \label{subsec:price-performance}
 
-\todo{Performance per euro, and the effect of OVHcloud's local storage on the
-disk results.}
+Once price is counted, the order almost turns upside down (\cref{fig:bench-value}).
+IONOS, the cheapest, gives the most performance for the money, more than twice
+what \acs{AWS} gives, with OVHcloud next. T-Cloud Public, the most expensive
+machine in the test, gives the least. OVHcloud matches or beats \acs{AWS} on most
+tests for a little over half its hourly price.
 
-\subsection{Interpretation}
+OVHcloud's long bar in the disk test (\cref{fig:bench-postmark}) has a particular
+cause. Its disk sits inside the same server, while every other provider,
+\acs{AWS} included, keeps the disk on a separate storage system reached over the
+network (\cref{sec:bench-disk}). The local disk is faster, but the network disk is
+easier to copy and protect. The two are different products, and the faster one is
+not simply the better.
+
+\subsection{What lies behind the measurements}
 \label{subsec:study4-interpretation}
 
-\todo{Where the EU providers are competitive and where they are not, including
-network bandwidth.}
+The gaps of the earlier studies vanish here because a single machine cannot show
+them. Europe's cloud providers can build a fast server and sell it cheaply. What
+they cannot yet offer is the range of services around it and the scale behind it,
+which is what Studies~2 and~3 measured.
+
+The network is the one exception (\cref{fig:bench-iperf}). \acs{AWS} transfers
+data between machines considerably faster than every European provider, and many
+times faster than Scaleway. A single application on one machine would hardly notice, but a
+system spread across many machines that constantly exchange data would, and
+systems of that kind are common in large enterprises. These results describe one
+size of machine measured over a short period (\cref{sec:bench-findings}). European
+performance is competitive today; whether it stays so, and whether every machine a
+customer rents performs alike, the measurements cannot say.
 
 % ============================================================
 \section{The Sovereignty--Readiness Trade-off}
 \label{sec:tradeoff}
 
-\todo{How sovereignty and readiness trade off against each other, drawing on
-Studies~1 and~2, and the structural limits behind it, such as the lack of
-European HPC chips and non-EU firmware. This answers RQ3.}
+Set side by side, the sovereignty ranking in \cref{fig:sov-ranking} and the
+capability ranking in \cref{fig:readiness-ranking} run in almost opposite
+directions. Of the four providers with the broadest catalogues, only STACKIT
+passes the sovereignty minimums, and the other four that pass sit among the
+providers offering the fewest services. Deutsche Telekom's platform offers the
+most and, under its old name, scored the least on sovereignty. noris network sits
+near the top of one chart and near the bottom of the other.
+
+The two ends of the pattern explain it. The platform with the broadest catalogue
+was built on Huawei's hardware and software
+\cite{OTC_GoesLive_2016,LightReading_DT_2025}, and the providers that pass every
+minimum are, STACKIT apart, smaller companies offering far less. Beneath both lies
+the same limit, the servers, chips and firmware at the bottom of the stack that no
+European provider makes for itself (\cref{sec:full-stack}). It is the layer that
+leaves artificial intelligence almost empty in Study~2, and the one that keeps
+every provider below the top of the sovereignty scale, so the trade-off and the
+capability gap have the same cause.
+
+STACKIT shows that the trade-off is real but not fixed. It leads on sovereignty,
+comes third on services and has added services faster than any other provider in
+the set, so a provider can grow without giving up control. It has not yet shown
+that a sovereign provider can reach the breadth an enterprise like Alps Alpine
+needs, because it still covers less than half of it. The realistic choice for an
+enterprise is therefore not one provider over another but a balance struck for
+each kind of work: sensitive data where sovereignty is strongest, accepting a
+shorter list of services there, and less sensitive work where the services are
+broadest.
 
 % ============================================================
 \section{Combined Provider Ranking}
 \label{sec:combined-ranking}
 
-\todo{A single ranking that combines the sovereignty score, the readiness
-assessment and the benchmark results, with the weighting and why it was
-chosen.}
+Five providers took part in all four studies, and \cref{tab:combined-ranking}
+brings their results together. \acs{AWS} is left out because it was not assessed
+for sovereignty, and finance stays in the discussion rather than in the table,
+because the providers differ in the kind of risk they carry rather than in an
+amount that could be compared.
+
+\begin{table}[htbp]
+  \centering
+  \caption{The five providers assessed in all four studies: their three scores,
+           their combined score, and their rank depending on which score is
+           given the most weight.}
+  \label{tab:combined-ranking}
+  \small
+  \begin{tabular}{@{}l r r r r c c c c c@{}}
+    \toprule
+    & & & & & \multicolumn{5}{c}{\textbf{Rank when the weight falls on}} \\
+    \cmidrule(l){6-10}
+    \textbf{Provider} & \textbf{Sov.} & \textbf{Cap.} & \textbf{Perf.}
+      & \textbf{Combined} & \textbf{Equal} & \textbf{Sov.} & \textbf{Cap.}
+      & \textbf{Perf.} & \textbf{Sov.\ + Cap.} \\
+    \midrule
+    T-Cloud Public & 66.2 & 72 & 76.0 & 71.4 & 1 & 2 & 1 & 2 & 1 \\
+    STACKIT        & 82.5 & 44 & 82.8 & 69.8 & 2 & 1 & 3 & 1 & 2 \\
+    OVHcloud       & 58.8 & 56 & 87.4 & 67.4 & 3 & 3 & 2 & 3 & 3 \\
+    Scaleway       & 72.5 & 40 & 74.6 & 62.4 & 4 & 4 & 4 & 4 & 4 \\
+    IONOS          & 52.5 & 27 & 78.0 & 52.5 & 5 & 5 & 5 & 5 & 5 \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{4pt}
+  {\footnotesize\raggedright
+  Sovereignty from \cref{tab:sov-seals}, capability from
+  \cref{tab:readiness-matrix} and performance from \cref{tab:bench-heatmap}. The
+  combined score gives the three equal weight. Only STACKIT clears every
+  sovereignty minimum.\par}
+\end{table}
+
+At equal weight T-Cloud Public and STACKIT finish almost level at the top, with
+OVHcloud just behind and Scaleway and IONOS some way back. The more important fact
+in the table, though, is not the order. Of the five, only STACKIT passes the
+sovereignty minimums, and for data that must be protected from access outside the
+Union it is the one provider here that can be recommended without conditions,
+wherever it stands in the combined order.
 
 \subsection{Sensitivity Analysis}
 \label{subsec:sensitivity}
 
-\todo{Whether the ranking holds under different weightings.}
+The top of the order shifts with what a buyer values most, as the right-hand
+columns of \cref{tab:combined-ranking} show. A buyer who puts services first
+would choose T-Cloud Public, with OVHcloud rising to second; a buyer who puts
+sovereignty first would choose STACKIT; and when performance matters most the
+first three are almost tied. The bottom of the order never moves. Scaleway stays
+fourth and IONOS fifth whatever the buyer values. Judged by its old name rather
+than its new one, Deutsche Telekom's platform falls from first to third, a
+reminder of how much its position rests on the way it is described.
+
+The sovereignty minimums were set for this study rather than by the framework
+(\cref{tab:sov-objectives}), so each was raised and lowered in turn. A slightly
+looser bar on data or on the supply chain would let in Hetzner or noris network,
+the two providers already closest to passing. A stricter bar on strategy,
+technology or security would remove some of the five that pass, and a stricter bar
+on data or the supply chain would remove every one of them, because of the limit
+described in \cref{subsec:study1-results}. A looser legal bar on its
+own lets in nobody, because every provider that fails on law also fails somewhere
+else. Through all of these changes STACKIT is never excluded unless every provider
+is.
+
+Taken together, the four studies lead to a consistent result. STACKIT and T-Cloud Public
+are the two strongest European candidates, with OVHcloud close behind, and which
+of the first two leads depends on what a buyer values most. Only STACKIT meets the
+sovereignty requirements, under every weighting and every reasonable reading of
+the framework. In every study, the main limitation is the same: Europe does not
+yet produce its own chips and firmware, which limits both how sovereign any
+provider can become and how many services it can offer.
