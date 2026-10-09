@@ -100,6 +100,7 @@
 % duplicate-hyperref-destination warning on page 1.
 \pagenumbering{roman}
 
+\input{Affidavit}
 \input{Abstract}
 \input{Acknowledgement}
 
@@ -118,6 +119,9 @@
 \include{chapters/chapter6-conclusion}
 
 \appendix
+\crefalias{chapter}{appendix}
+\Crefname{appendix}{Appendix}{Appendices}
+\crefname{appendix}{Appendix}{Appendices}
 \include{chapters/appendix}
 
 \bibliographystyle{IEEEtran}

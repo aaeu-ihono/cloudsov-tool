@@ -15,6 +15,14 @@ const DISPLAY_NAMES = {
 }
 function displayName(p) { return DISPLAY_NAMES[p] ?? p }
 
+// Dimension labels shown to the reader. The data keeps its own keys; only the
+// name on screen changes. "Application" read too broadly, so the dimension is
+// named for what it holds: managed web and app hosting (AWS Amplify).
+const DIMENSION_NAMES = {
+  'Application': 'Web and App Hosting',
+}
+function dimName(d) { return DIMENSION_NAMES[d] ?? d }
+
 // ── Country flags ──────────────────────────────────────────────────────────
 const PROVIDER_COUNTRY = {
   // Germany
@@ -94,7 +102,7 @@ function CustomTooltip({ active, payload, label, details, categories }) {
 
   return (
     <div className="ra-tooltip">
-      <div className="ra-tooltip-label">{label}</div>
+      <div className="ra-tooltip-label">{dimName(label)}</div>
       {sorted.map(entry => {
         const provKey = entry.dataKey ?? entry.name
         const catData = isCat ? (details[provKey]?.[label] ?? {}) : null
@@ -157,7 +165,7 @@ function DetailPanel({ provider, dimension, details, categories }) {
     const key = dimension === 'Scalability' ? 'scalability' : 'performance'
     return (
       <div className="ra-detail">
-        <div className="ra-detail-title">{provider} — {dimension}</div>
+        <div className="ra-detail-title">{provider} — {dimName(dimension)}</div>
         <div className="ra-detail-score">Score: {meta[`${key}_score`] ?? '—'}%</div>
         <div className="ra-detail-note">{meta[`${key}_note`] ?? ''}</div>
         {meta[`${key}_source`] && (
@@ -173,7 +181,7 @@ function DetailPanel({ provider, dimension, details, categories }) {
   const catData = details[provider]?.[dimension] ?? {}
   return (
     <div className="ra-detail">
-      <div className="ra-detail-title">{provider} — {dimension}</div>
+      <div className="ra-detail-title">{provider} — {dimName(dimension)}</div>
       <table className="ra-detail-table">
         <thead>
           <tr>
@@ -270,7 +278,7 @@ function ReadinessLegend({ categories }) {
               <div className="ra-legend-cat-chips">
                 {catEntries.map(([cat, svcs]) => (
                   <span key={cat} className="ra-legend-chip">
-                    {cat} <span className="ra-legend-chip-count">{svcs.length}</span>
+                    {dimName(cat)} <span className="ra-legend-chip-count">{svcs.length}</span>
                   </span>
                 ))}
               </div>
@@ -281,7 +289,7 @@ function ReadinessLegend({ categories }) {
                 {catEntries.map(([cat, svcs]) => (
                   <div key={cat} className="ra-legend-cat">
                     <div className="ra-legend-cat-name">
-                      {cat} <span className="ra-legend-cat-count">{svcs.length} services</span>
+                      {dimName(cat)} <span className="ra-legend-cat-count">{svcs.length} services</span>
                     </div>
                     <div className="ra-legend-svc-list">
                       {svcs.map(svc => (
@@ -423,6 +431,7 @@ export default function ReadinessAssessment() {
                 <PolarGrid stroke="#e5e7eb" />
                 <PolarAngleAxis
                   dataKey="dimension"
+                  tickFormatter={dimName}
                   tick={{ fontSize: 11, fill: '#374151', fontWeight: 500 }}
                 />
                 <PolarRadiusAxis
@@ -473,6 +482,7 @@ export default function ReadinessAssessment() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis
                   dataKey="dimension"
+                  tickFormatter={dimName}
                   angle={-40}
                   textAnchor="end"
                   interval={0}
@@ -533,7 +543,7 @@ export default function ReadinessAssessment() {
             className={`ra-dim-btn${selected.dimension === dim ? ' active' : ''}`}
             onClick={() => setSelected(s => ({ ...s, dimension: dim }))}
           >
-            {dim}
+            {dimName(dim)}
           </button>
         ))}
       </div>
@@ -618,7 +628,7 @@ export default function ReadinessAssessment() {
                             const catData = details[row.name]?.[cat] ?? {}
                             return (
                               <div key={cat} className="ra-expand-cat">
-                                <div className="ra-expand-cat-name">{cat}</div>
+                                <div className="ra-expand-cat-name">{dimName(cat)}</div>
                                 <div className="ra-expand-svc-list">
                                   {svcs.map(svc => {
                                     const d = catData[svc] ?? {}

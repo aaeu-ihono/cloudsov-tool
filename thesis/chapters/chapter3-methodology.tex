@@ -108,51 +108,10 @@ applies the scoring rules to it, and presents the results side by side.
 Each judgement in CloudSov is recorded with the source it came from,
 and the verdicts, scores and analysis are all worked out from those records. The
 weightings and thresholds are settings rather than fixed rules, so the same
-data can be scored again under different assumptions.
-
-\subsection*{Running CloudSov locally}
-
-The application runs locally and needs no cloud account, paid subscription, API
-key or environment variable. It requires Python~3.10 or later, Node.js~18 or
-later, and \texttt{npm}.
-
-\begin{enumerate}
-  \item Clone the repository:\\
-        \texttt{git clone https://github.com/aaeu-ihono/cloudsov-tool.git}
-  \item Start the backend:\\
-        \texttt{cd backend \&\& pip install -r requirements.txt \&\& uvicorn main:app --reload}
-  \item Start the frontend:\\
-        \texttt{cd frontend \&\& npm install \&\& npm run dev}
-  \item Open a browser at \texttt{http://localhost:5173}
-\end{enumerate}
-
-All provider data ships with the repository, so the assessment can be reproduced
-from a clean checkout with no further setup.
-
-\subsection*{What the interface shows}
-
-The application presents one module per study, reached from the navigation bar:
-sovereignty scoring, readiness assessment, financial viability and technical
-benchmarking. \Cref{fig:tool-sovscore,fig:tool-readiness} show the first two.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{sovereignty_scoring_module.png}
-  \caption{The sovereignty scoring module. Each of the eight objectives is a
-           column group carrying its weight and its minimum seal level; each
-           provider is a row of recorded verdicts, with the seal reached shown
-           beneath and the weighted score on the right.}
-  \label{fig:tool-sovscore}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.92\textwidth]{readiness_assessment_module.png}
-  \caption{The readiness assessment module. Selected providers are drawn against
-           the \acs{AWS} baseline, by dimension and as an overall shape, with the
-           remaining gap to that baseline ranked beneath.}
-  \label{fig:tool-readiness}
-\end{figure}
+data can be scored again under different assumptions. CloudSov presents one module
+per study: sovereignty scoring, readiness assessment, financial viability and
+technical benchmarking. \Cref{app:cloudsov} shows the modules and explains how to
+run CloudSov locally.
 
 In CloudSov, every provider is assessed against the same conditions, from
 sources recorded alongside each judgement. This
@@ -306,6 +265,79 @@ came from, and every source is recorded and cited.
 \section{Limitations of these Research Studies}
 \label{sec:design-limitations}
 
-\todo{The limitations of the four studies: evidence reported by the providers
-themselves, a single point in time, AWS as the baseline, requirements drawn from
-one enterprise, and no assessment of service levels or operational quality.}
+Every study in this chapter had to work with what could be found, read or
+measured from the outside. That brought limits of its own, and some of them were
+a real struggle throughout the research. They are set out here so that the
+results that follow can be read with them in mind.
+
+\subsection*{Relying on what the providers publish}
+
+The sovereignty and capability studies could only be as good as the documents
+behind them. Most providers do not set out in one place who owns them, which laws
+apply to them, or exactly which services they offer. That information had to be
+pieced together from websites, product pages, certificates and company filings,
+often written for marketing rather than for checking. Where a provider published
+little, there was little to assess, and its score suffered for it. A low score in
+these studies can therefore mean that a provider explains itself poorly, not
+necessarily that it protects data poorly. It also means that the studies record
+what providers say about themselves. Whether they behave that way in practice
+could not be tested from the outside.
+
+\subsection*{Missing financial figures}
+
+The financial study met the same problem in a sharper form. Several of the cloud
+businesses studied belong to much larger groups, and those groups report their
+results as a whole. They do not say how much their cloud business earns on its
+own. For T-Cloud Public, STACKIT and Scaleway, the nearest published figure had
+to stand in for the cloud business, and for Scaleway the last such figure is from
+2022 (\cref{tab:study3-growth}). Comparisons with \acs{AWS} for these providers can
+therefore only be given as a range, not as a single number. The investment
+announcements raised a similar difficulty. A company can announce that it will
+invest a sum by a given year, but whether that money is actually spent cannot be
+seen from outside. The study could only record what was promised and by when.
+
+\subsection*{A single moment in time}
+
+Cloud providers change quickly. During this research alone, Deutsche Telekom
+renamed its public cloud \cite{TCloudPublic_2026}. Every result in this chapter describes the providers as they were when the data
+was collected. A provider that scored poorly may since have closed some of its
+gaps, and the opposite is also possible. The figures are a snapshot, not a
+permanent verdict, which is one reason CloudSov was built so that the assessments
+can be repeated.
+
+\subsection*{Measuring against \acs{AWS}}
+
+The capability study measures each European provider against the services that
+\acs{AWS} offers. This makes the comparison clear, because it asks how much of
+what an enterprise already uses could be replaced. It also has a cost. A provider
+that offers something \acs{AWS} does not receive no credit for it, so the study
+shows how close each provider comes to \acs{AWS}, not everything each provider is
+good at.
+
+\subsection*{The needs of one company}
+
+The requirements behind the capability study come from one enterprise, Alps
+Alpine, and its current systems. Another company, with different systems or in a
+different industry, would need a different set of services and could reach a
+different conclusion about the same providers. The method can be applied to any
+company, but the results in this chapter answer the question for this one.
+
+\subsection*{Limits of the performance tests}
+
+The performance tests were the only part of the research that could be measured
+directly, and even they had limits. Each provider was tested with one comparable
+machine, in one location, and the tests were run over a short period rather than
+weeks or months. Each test was repeated three times, which shows roughly how
+steady a result is but is too few to prove that small differences between
+providers are real (\cref{sec:bench-findings}). For three
+network results, figures published by Cloud Mercato were used instead, and these
+rest on a different number of runs from the rest.
+
+\subsection*{What was not assessed}
+
+Finally, some things that matter a great deal to a customer lay outside what this
+research could measure. How quickly a provider responds when something goes
+wrong, how often its services fail, how good its support is, and how easy it is
+to leave all depend on experience over time, from inside a working relationship.
+None of these could be assessed fairly from published material or from a short
+test, so none of them is included in the results.
