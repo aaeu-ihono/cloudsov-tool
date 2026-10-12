@@ -1,40 +1,33 @@
 \chapter{Foundations}
 \label{ch:foundations}
 
-In this chapter it is important to first evaluate why data sovereignty cannot be
-established by the location of a data centre alone. We therefore explore the
-various conceptual, legal and technical foundations on which the evaluation in
-the following chapters depends.
-
-We begin in \cref{sec:sovereignty-definition} by defining data sovereignty and
-separating it from the terms with which it is commonly conflated. In
-\cref{sec:legal-landscape} we explore the European and United States legal
-instruments that determine which jurisdiction may compel access to cloud-hosted
-data. \Cref{sec:full-stack} then extends the question from law to system
-architecture, showing that sovereignty claimed at one layer of a platform
-depends on the layers beneath it, and \cref{sec:technical-foundations}
-introduces the virtualization and platform concepts on which the benchmarking
-study in \cref{sec:method-study4} relies. Finally, \cref{sec:related-work}
-reviews related work.
+When an enterprise asks a cloud provider where its data will be kept, the answer
+usually comes as a place: a data centre in Frankfurt, in Paris, in Amsterdam. It
+is tempting to stop there and conclude that data kept in Europe is protected by
+European law. This chapter explains why that conclusion does not hold. It begins
+with what sovereignty actually means, follows the question through the laws of
+Europe, the United States and China, and then down through the layers of
+technology on which every cloud service is built. Each step adds a reason why the
+location of a data centre is only the beginning of the answer, and together they
+explain how the providers are assessed in the chapters that follow.
 
 \section{Data Sovereignty: Definition and Dimensions}
 \label{sec:sovereignty-definition}
 
-The term \emph{data sovereignty} is used in more than one sense. In vendor
-literature it most often refers simply to the country in which data is stored.
-In European policy it carries a broader industrial meaning, covering not only
-the confidentiality of European data but also the competitiveness of European
-providers and the reduction of strategic dependency on foreign vendors
-\cite{Blancato_CloudSovereigntyNexus_2024}. The two senses can lead to opposite
-conclusions about the same provider, and so we fix the terminology here before
-applying it to any assessment.
+The term \emph{data sovereignty} is used in more than one sense. Cloud providers
+mostly use it to mean the country in which data is stored. European policy uses it
+more broadly. It covers the confidentiality of European data, but also the
+strength of European providers and the wish to depend less on foreign ones
+\cite{Blancato_CloudSovereigntyNexus_2024}. The two meanings can lead to opposite
+conclusions about the same provider, so the term needs to be pinned down before it
+is used to judge anyone.
 
 \subsection{Four Distinct Properties}
 \label{subsec:four-properties}
 
-Four properties are commonly grouped together under the heading of sovereignty.
-They are not the same thing, and a provider may satisfy one while failing the
-others. \Cref{tab:sovereignty-dimensions} sets out the distinction.
+What people call sovereignty is really four different properties, and a provider
+can have one without the others. \Cref{tab:sovereignty-dimensions} sets them out,
+each with the question it answers and what decides it.
 
 \begin{table}[htbp]
   \centering
@@ -63,142 +56,140 @@ others. \Cref{tab:sovereignty-dimensions} sets out the distinction.
   \end{tabularx}
 \end{table}
 
-\textbf{Data residency} concerns geography alone. It is satisfied when storage
-and processing occur within a defined territory, and it is the property most
-easily demonstrated, since a provider can evidence it with a data centre
-address.
+The easiest of the four to show is \textbf{data residency}, which is simply a
+matter of geography. A provider meets it by keeping and processing data within a
+given territory, and can prove it with the address of its data centre. This is the
+property most providers advertise.
 
-\textbf{Data sovereignty} concerns jurisdiction: which state may lawfully
-compel a provider to disclose customer data. This is determined by the legal
-personality of the operating company and of its parent, not by where its
-facilities stand. We develop this distinction in
-\cref{subsec:location-jurisdiction}.
+\textbf{Data sovereignty} is about something else: which country's authorities can
+lawfully order a provider to hand the data over. That depends not on where the
+servers stand but on where the operating company and its parent are registered.
 
-\textbf{Operational sovereignty} concerns administrative access. A provider
-whose support engineers hold privileged access from outside the territory, or
-which retains the encryption keys protecting customer data, has not placed that
-data beyond external reach even where residency and jurisdiction are both
-satisfied.
+Even a provider registered in Europe may not keep data out of reach if the wrong
+people can get to it. \textbf{Operational sovereignty} asks who can actually
+access and run the system. If a provider's support engineers can log in from
+abroad, or if the provider rather than the customer holds the keys that unlock the
+data, the data is not beyond outside reach, however well the first two properties
+are met.
 
-\textbf{Technological sovereignty} concerns the stack itself: whether the
-hardware, firmware and software can be audited, modified and operated without
-dependence on a single foreign supplier. We return to this property in
-\cref{sec:full-stack}.
+Beneath all three lies \textbf{technological sovereignty}, which asks whether the
+hardware, firmware and software can be inspected, changed and run without
+depending on a single foreign supplier. \Cref{sec:full-stack} returns to this
+property, because it turns out to be the hardest for European providers to meet.
 
 \subsection{Why Location Alone Does Not Guarantee Sovereignty}
 \label{subsec:location-jurisdiction}
 
-It is often assumed that because data resides in a given geographical location,
-it is beyond the reach of foreign jurisdiction. The assumption does not hold
-where the law of a provider's country of incorporation reaches the conduct of
-its subsidiaries overseas. A data centre in Frankfurt operated by the European
-subsidiary of a company incorporated in the United States satisfies residency
-completely, but the parent company remains subject to disclosure obligations under
-United States law that can reach data held abroad.
+The belief that data kept in a country is safe from foreign authorities breaks
+down when the provider's home country claims power over its subsidiaries abroad.
+A data centre in Frankfurt run by the European subsidiary of an American company
+keeps the data in Germany, yet the American parent remains subject to American
+orders to disclose data, including data held abroad.
 
-This is not just a theoretical concern, but a legitimate one. In December 2013 federal agents applied to
-the District Court for the Southern District of New York for a warrant under the
-Stored Communications Act, requiring Microsoft to disclose the contents of a
-customer's electronic mail account in an investigation into illegal drug
-trafficking \cite{MicrosoftIreland_SCOTUS_2018}. Microsoft established that the
-account's contents were held in a single location, its datacentre in Dublin, and
-moved to quash the warrant in respect of that data. The magistrate judge denied
-the motion, the District Court affirmed and held Microsoft in civil contempt, and
-on appeal the Court of Appeals for the Second Circuit reversed, holding that
-compelling disclosure would be an unauthorised extraterritorial application of
-the statute \cite{MicrosoftIreland_2dCir_2016}.
+This is not a theoretical worry, as a case involving Microsoft shows
+(\cref{fig:microsoft-ireland}). In December 2013 American federal agents obtained
+a warrant under the Stored Communications Act requiring Microsoft to hand over the
+contents of a customer's email account, as part of a drug-trafficking
+investigation \cite{MicrosoftIreland_SCOTUS_2018}. The emails were stored in one
+place only, Microsoft's data centre in Dublin, and Microsoft asked the court to cancel
+the warrant for that data. The first judge refused, a higher judge of the same court
+agreed and punished Microsoft for not handing the emails over, and the Court of Appeals then
+reversed both, ruling that forcing disclosure of data stored in Ireland would
+stretch the law beyond the borders of the United States
+\cite{MicrosoftIreland_2dCir_2016}.
 
-The question was never resolved judicially. On 23~March 2018, while the appeal
-was pending before the Supreme Court, Congress enacted the \ac{CLOUD Act}
-\cite{CLOUDAct_2018}, which amends the Stored Communications Act to require a
-provider to preserve, back up or disclose data within its possession, custody or
-control \enquote{regardless of whether such communication, record, or other
-information is located within or outside of the United States}. The Government
-obtained a fresh warrant under the amended statute, and the Supreme Court vacated
-the judgment below and remanded with instructions to dismiss the case as moot
-\cite{MicrosoftIreland_SCOTUS_2018}.
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      ev/.style={draw=black!45, fill=white, rounded corners=3pt, align=center,
+                 text width=2.45cm, font=\scriptsize, inner sep=4pt, execute at begin node={\hyphenpenalty=10000},
+                 minimum height=1.55cm},
+      win/.style={ev, draw=cProvB!80!black, fill=cProvB!10},
+      lose/.style={ev, draw=cProvA!80!black, fill=cProvA!8},
+      law/.style={ev, draw=cBase!90!black, fill=cBase!14},
+      yr/.style={font=\scriptsize\bfseries, text=black!70},
+      arr/.style={-stealth, black!55, line width=0.6pt}]
+    \node[ev]   (a) at (0,0)     {Warrant for emails stored in Dublin};
+    \node[lose] (b) at (2.95,0)  {Judge refuses Microsoft's request to cancel the warrant};
+    \node[lose] (c) at (5.9,0)   {Higher judge agrees; Microsoft punished for refusing};
+    \node[win]  (d) at (8.85,0)  {Court of Appeals: the law does not reach Ireland};
+    \node[law]  (e) at (11.8,0)  {Congress passes the CLOUD Act; the case is closed};
+    \foreach \x/\y in {a/b,b/c,c/d,d/e} { \draw[arr] (\x) -- (\y); }
+    \node[yr, above=2pt] at (a.north) {2013};
+    \node[yr, above=2pt] at (d.north) {2016};
+    \node[yr, above=2pt] at (e.north) {2018};
+  \end{tikzpicture}
+  \caption{The Microsoft Ireland case. A court victory based on where the data was
+           stored was overtaken by a new law based on who controls it.}
+  \label{fig:microsoft-ireland}
+\end{figure}
 
-Residency is therefore a necessary but insufficient condition for sovereignty.
-An assessment that treats the two as equivalent will systematically overstate
-the sovereignty of providers whose corporate parent lies outside the
-\ac{EU}. The legal instruments behind this position are examined in
-\cref{sec:legal-landscape}, and its consequences for provider selection are
-quantified in \cref{sec:study1}.
+For a moment, then, the location of the data seemed to matter.
+But on 23~March 2018, while the case was waiting before the Supreme Court, Congress
+passed the \ac{CLOUD Act} \cite{CLOUDAct_2018}. It changed the Stored
+Communications Act so that a provider must preserve, back up or disclose data in
+its possession, custody or control \enquote{regardless of whether such
+communication, record, or other information is located within or outside of the
+United States}. The government obtained a new warrant under the amended law, and
+the Supreme Court sent the case back to be dismissed, since there was nothing left
+to decide \cite{MicrosoftIreland_SCOTUS_2018}.
+
+Keeping data in Europe is therefore necessary, but it is not enough. Any assessment
+that treats the two as the same will rate providers with a parent outside the
+\ac{EU} as more sovereign than they are. \Cref{sec:legal-landscape} looks at the
+laws behind this, and \cref{sec:study1} shows what it means for the providers in
+this thesis.
 
 \subsection{The Definition Adopted in This Work}
 \label{subsec:definition-adopted}
 
-We treat sovereignty as a composite property spanning all four dimensions in
-\cref{tab:sovereignty-dimensions}. To operationalise it we adopt the Cloud
-Sovereignty Framework \cite{EC_DIGIT_CloudSovereignty_2025}. The framework
-decomposes the concept into eight weighted objectives covering strategic,
-legal, data, operational, supply-chain, technological, security and
-environmental criteria.
+In this thesis sovereignty is treated as all four properties of
+\cref{tab:sovereignty-dimensions} together. To turn that into something that can be
+measured, the thesis adopts the European Commission's Cloud Sovereignty Framework
+\cite{EC_DIGIT_CloudSovereignty_2025}, which breaks sovereignty into eight weighted
+objectives: strategic, legal, data, operational, supply-chain, technological,
+security and environmental.
 
-We adopt this framework rather than construct our own for two reasons. It is
-issued by the institution that defines European public-sector procurement
-policy, which makes the resulting scores externally meaningful rather than
-particular to this study; and its objectives already separate the four
-properties above, so a provider cannot compensate for a jurisdictional weakness
-with a strong residency position. Its structure and scoring rules are specified
-in \cref{sec:method-study1}.
+This framework was chosen instead of developing a new one, for two reasons. The
+framework comes from the institution that sets European public-sector procurement
+policy, so the scores it produces mean something outside this study. And its
+objectives already keep the four properties apart, so a provider cannot make up
+for a weak legal position with a strong showing on data location. How the
+framework is structured and scored is described in \cref{sec:method-study1}.
 
 \section{Legal and Regulatory Landscape}
 \label{sec:legal-landscape}
 
-It is important to consider the legal frameworks and regulations that bind the
-cloud industry, and how the United States, the European Union, China and other
-jurisdictions are each navigating the question of data sovereignty. These
-frameworks have developed independently and in pursuit of different aims, and where
-they meet they frequently clash: a disclosure that one jurisdiction compels may
-be one that another forbids. A provider operating across them is therefore
-subject to obligations it cannot fully satisfy at the same time, and an
-enterprise selecting that provider inherits the conflict.
+The Microsoft case shows that the question of who can reach data is decided by
+law, and not by one law but by several. The United States, the European Union and
+China have each written rules about data, for different purposes, and where those
+rules meet they often pull against each other: what one country orders a provider
+to do, another may forbid. A provider working across them can be caught between
+duties it cannot meet at the same time, and an enterprise that chooses that
+provider takes on the same conflict.
 
-Within the European Union the position is complicated further by the form the
-legislation takes. A regulation binds every member state directly and
-identically, which is how the Union has been able to impose a single data
-protection standard across all twenty-seven. A directive sets only the objective
-and leaves each member state to give it effect through its own national law, so
-that a single European obligation can reach an enterprise in twenty-seven
-different forms. Whether a given requirement is uniform or fragmented therefore
-depends on the instrument that carries it.
-
-We begin in \cref{subsec:regulations-directives} with the two forms European law
-takes, since this determines how every obligation that follows reaches an
-enterprise. \Cref{subsec:gdpr-schrems} then examines the European position on
-international data transfers, \cref{subsec:cloud-act} the United States
-instruments, and \cref{subsec:other-jurisdictions} the Chinese instruments.
 
 \subsection{Regulations versus Directives}
 \label{subsec:regulations-directives}
 
-The European Union makes law in two main forms, and the difference between them
-decides whether a rule is the same everywhere in Europe or different in each
-country. The distinction is worth setting out before any specific law is
-discussed, because it determines how each of them actually reaches an
-enterprise.
+The European Union makes law in two main forms, and the difference decides whether
+a rule is the same everywhere in Europe or different in each country.
 
 A \textbf{regulation} becomes law in every member state on the day it takes
-effect. No national parliament has to act, and no national law has to be
-written. The rule that applies in Germany is the same rule, in the same words,
-that applies in France and in Ireland.
+effect. No national parliament has to act and no national law has to be written.
+The rule that applies in Germany is the same rule, in the same words, that applies
+in France and in Ireland.
 
-A \textbf{directive} does not become law by itself. It states a result that
-every member state must achieve and sets a deadline by which each must pass its
-own national law achieving it. Twenty-seven countries therefore produce
-twenty-seven laws. Those laws pursue a common objective, but they can differ in
-scope, in detail and in the penalties they impose, and they take effect only
-when each country has passed them.
-
-This division is set out in Article~288 of the Treaty on the Functioning of the
-European Union, which describes a regulation as \enquote{binding in its entirety
-and directly applicable} in all member states, and a directive as
-\enquote{binding, as to the result to be achieved} while leaving \enquote{to the
-national authorities the choice of form and methods} \cite{TFEU_Art288}.
-
-\Cref{fig:eu-instruments} shows how the two paths differ once an act has been
-adopted.
+A \textbf{directive} works differently. It sets a goal that every member state must
+reach and a deadline by which each must pass its own law to reach it. Twenty-seven
+countries therefore produce twenty-seven laws. They share a purpose, but they can
+differ in scope, in detail and in their penalties, and each takes effect only when
+its country has passed it. The Union's founding treaty draws exactly this line,
+describing a regulation as \enquote{binding in its entirety and directly
+applicable} in all member states, and a directive as \enquote{binding, as to the
+result to be achieved} while leaving \enquote{to the national authorities the
+choice of form and methods} \cite{TFEU_Art288}. \Cref{fig:eu-instruments} shows the
+two paths side by side.
 
 \begin{figure}[htbp]
   \centering
@@ -233,14 +224,13 @@ adopted.
   \label{fig:eu-instruments}
 \end{figure}
 
-Both forms govern the subject of this thesis, and
-\cref{tab:eu-instruments} lists the instruments most relevant to it. The
-\ac{GDPR} is a regulation \cite{GDPR2016}, which is why one data protection
-standard applies identically across the Union. \Ac{NIS2} is a directive
-\cite{NIS2_2022}, and member states were given until 17~October 2024 to pass
-their implementing laws. Not all of them did. As of 2026 the Commission has
-referred Ireland, Spain, France and the Netherlands to the \ac{CJEU} for failing
-to notify the measures transposing it into national law
+The laws that matter most for cloud services come in both forms
+(\cref{tab:eu-instruments}). The \ac{GDPR} is a regulation \cite{GDPR2016}, which is
+why one standard of data protection applies across the whole Union. \Ac{NIS2}, on
+cybersecurity, is a directive \cite{NIS2_2022}. Member states had until 17~October
+2024 to pass their own versions, and not all of them managed it: by 2026 the
+Commission had taken Ireland, Spain, France and the Netherlands to the \ac{CJEU}
+for failing to report the national laws that put it into effect
 \cite{EC_NIS2_Status_2026}.
 
 \begin{table}[htbp]
@@ -274,113 +264,128 @@ to notify the measures transposing it into national law
   \end{tabularx}
 \end{table}
 
-Two features of \cref{tab:eu-instruments} matter for provider assessment. The
-first is that only one of these instruments is a directive, which reflects a
-deliberate shift: legislating by regulation is how the Union avoids the
-fragmentation the previous subsection described. The second is that two of them
-bear directly on the questions this thesis asks. \Ac{DORA} \cite{DORA_2022}
-brings critical cloud providers under direct supervisory oversight, and the Data
-Act \cite{DataAct_2023} establishes a right to switch between providers, which
-speaks to the vendor lock-in examined in \cref{ch:conclusion}. The \ac{CRA}
-\cite{CRA_2024} reaches further down the stack, imposing obligations on the
-products and components from which infrastructure is built
+Most of these laws are regulations, and that is a deliberate choice: legislating by
+regulation is how the Union avoids the patchwork that directives create. Two of
+them touch the questions of this thesis directly. \Ac{DORA} \cite{DORA_2022}
+places critical cloud providers under direct supervision, and the Data Act
+\cite{DataAct_2023} gives customers the right to switch from one provider to
+another, which matters for the question of lock-in discussed in
+\cref{ch:conclusion}. The \ac{CRA} \cite{CRA_2024} reaches further down, setting
+rules for the products and components that cloud infrastructure is built from
 (\cref{sec:full-stack}).
 
-The consequence for this research is that \enquote{\ac{EU} compliance} is not a
-single property that a provider either has or lacks. Where an obligation comes
-from a regulation, a provider either meets it or does not, and the answer is the
-same across Europe. Where it comes from a directive, what the provider owes
-depends on which member states it and its customer operate in, and in some
-countries the obligation may not yet be in force at all. Scoring providers on a
-single measure of European compliance would conceal that difference, which is
-one reason this study assesses them against the Commission's own framework
-(\cref{subsec:definition-adopted}) rather than against national implementations
-that vary by deployment.
+For this research it follows that \enquote{\ac{EU} compliance} is not one thing a
+provider either has or lacks. Where a duty comes from a regulation, the answer is
+the same everywhere in Europe. Where it comes from a directive, it depends on the
+countries in which the provider and its customer operate, and in some of them the
+duty may not yet be in force at all. This is one reason the providers in this
+thesis are measured against the Commission's own framework
+(\cref{subsec:definition-adopted}) and not against national laws that differ from
+country to country.
 
 \subsection{GDPR and the Schrems II Ruling}
 \label{subsec:gdpr-schrems}
 
-The \ac{GDPR} \cite{GDPR2016} is a regulation, which by the distinction drawn in
-\cref{subsec:regulations-directives} means it applies in identical form in every
-member state, without any national parliament having to pass a law. It governs
-how personal data may be collected, stored and used, and it binds any
-organisation processing the personal data of people in the Union, wherever that
-organisation is itself established.
+Of all these laws, the \ac{GDPR} \cite{GDPR2016} has done most to shape the
+question of where data may go. As a regulation it applies in the same form in
+every member state. It governs how personal data may be collected, stored and
+used, and it binds every organisation that handles the personal data of people in
+the Union, wherever that organisation is based.
 
-One part of it matters particularly here. The Regulation restricts sending
-personal data outside the Union. The reason is straightforward: rights that
-apply inside Europe would count for little if data could simply be moved to a
-country where they do not apply. A transfer abroad is therefore lawful only if
-the protection travels with the data.
+One part of it matters especially for cloud services: the rules on sending
+personal data outside the Union. The reason for them is simple. The rights that
+protect data inside Europe would mean little if the data could be moved to a
+country where those rights do not apply, so a transfer abroad is lawful only if
+the protection travels with the data. The Regulation offers three ways to show that
+it does \cite{GDPR2016}, and \cref{fig:gdpr-transfer} shows how a company works
+through them.
 
-Chapter~V of the Regulation offers three ways to establish that it does
-\cite{GDPR2016}:
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      q/.style={draw=black!50, fill=black!4, rounded corners=3pt, align=center,
+                text width=3.6cm, font=\scriptsize, inner sep=4pt, execute at begin node={\hyphenpenalty=10000}},
+      ok/.style={draw=green!50!black, fill=green!10, rounded corners=3pt,
+                 align=center, text width=3.0cm, font=\scriptsize, inner sep=4pt, execute at begin node={\hyphenpenalty=10000}},
+      no/.style={draw=red!60!black, fill=red!8, rounded corners=3pt,
+                 align=center, text width=3.0cm, font=\scriptsize, inner sep=4pt, execute at begin node={\hyphenpenalty=10000}},
+      lbl/.style={font=\tiny\bfseries, text=black!60},
+      arr/.style={-stealth, black!55, line width=0.6pt}]
+    \node[q, fill=cProvB!12, draw=cProvB!70!black] (s) at (0,0)
+      {Personal data is to be sent outside the Union};
+    \node[q] (q1) at (0,-1.55)
+      {Has the Commission found the destination country's protection adequate?};
+    \node[ok] (o1) at (5.0,-1.55) {Transfer allowed, as within the Union};
+    \node[q] (q2) at (0,-3.25)
+      {Can the recipient sign the Commission's standard contract clauses?};
+    \node[q] (q3) at (0,-4.95)
+      {After Schrems~II: does the destination's law still let the protection
+       hold in practice?};
+    \node[ok] (o2) at (5.0,-4.95) {Transfer allowed under the contract};
+    \node[no] (o3) at (0,-6.55) {Transfer must be suspended};
+    \node[q] (q4) at (-5.0,-3.25)
+      {A narrow exception, such as the person's explicit consent, for a particular
+       case only};
+    \draw[arr] (s) -- (q1);
+    \draw[arr] (q1) -- node[lbl, above] {yes} (o1);
+    \draw[arr] (q1) -- node[lbl, right] {no} (q2);
+    \draw[arr] (q2) -- node[lbl, right] {yes} (q3);
+    \draw[arr] (q2) -- node[lbl, above] {no} (q4);
+    \draw[arr] (q3) -- node[lbl, above] {yes} (o2);
+    \draw[arr] (q3) -- node[lbl, right] {no} (o3);
+  \end{tikzpicture}
+  \caption{How the \acs{GDPR} decides whether personal data may leave the Union.}
+  \label{fig:gdpr-transfer}
+\end{figure}
 
-\begin{itemize}
-  \item an \textbf{adequacy decision}, in which the Commission examines a
-        country's laws and finds that they protect personal data to a standard
-        comparable with the Union's, after which data may flow there as freely
-        as to a member state;
-  \item \textbf{appropriate safeguards}, in practice a contract on standard
-        clauses published by the Commission, through which the recipient commits
-        itself to European standards; or
-  \item a \textbf{derogation}, a narrow exception for particular cases such as
-        the explicit consent of the person concerned, not intended to carry
-        routine transfers.
-\end{itemize}
+The simplest route is an \emph{adequacy decision}. The Commission examines a
+country's laws, finds that they protect personal data about as well as the
+Union's, and data may then flow there as freely as to another member state. Where
+there is no such decision, the recipient can sign a contract built on standard
+clauses published by the Commission, committing itself to European standards. A
+third route, a narrow exception such as the explicit consent of the person
+concerned, exists for particular cases and is not meant for everyday transfers.
 
-The first two were both tested against United States law, in litigation brought
-by a single complainant that ran for most of a decade.
+The first two routes were both tested against the law of the United States, in a
+dispute brought by one man that lasted most of a decade. Maximillian Schrems, an
+Austrian Facebook user, complained to the Irish data protection authority that his
+data, sent by Facebook Ireland to servers in the United States, was not protected
+from American authorities. His complaint was rejected, because the Commission had
+already declared the United States adequate under an arrangement called Safe
+Harbour. In 2015 the Court of Justice declared that decision invalid
+\cite{SchremsI_2015}. Schrems complained again, this time about transfers made
+under the standard contract clauses, and by the time his case returned to the Court
+the Commission had issued a new adequacy decision, the \ac{EU}--US Privacy Shield.
 
-Maximillian Schrems, an Austrian Facebook user, complained to the Irish data
-protection authority that his data, sent by Facebook Ireland to servers in the
-United States, was not protected against access by United States authorities.
-The complaint failed, because the Commission had already found the United States
-adequate under an arrangement called Safe Harbour. In 2015 the Court declared
-that finding invalid \cite{SchremsI_2015}. Schrems complained again, this time
-about transfers made under the standard contractual clauses, and by the time the
-case reached the Court the Commission had issued a replacement adequacy
-decision: the \ac{EU}--US Privacy Shield.
+In 2020 the Court struck that down as well \cite{SchremsII_2020}. American
+surveillance law, it found, let government agencies reach the data far more freely
+than European law allows, and a European whose data ended up there had no
+practical way to challenge it, because American courts were not open to them. The
+standard contract clauses survived, so a company could still send personal data to
+the United States under a contract. What it could no longer do was rely on the
+Commission's word that the country was safe.
 
-In 2020 the Court struck that down too \cite{SchremsII_2020}. It gave two
-reasons. United States surveillance law let government agencies reach the data
-far more freely than European law allows. And a European whose data ended up
-there had no practical way to challenge it, because United States courts were
-not open to them.
+The deeper lesson of the judgment lies in what the \ac{GDPR} can and cannot do. It
+binds those who handle personal data and the contracts between them, but it does
+not bind foreign governments. When a country's law lets its authorities reach data
+in ways Europe considers excessive, no contract can change that, because a contract
+binds only the parties who sign it. The Court therefore placed the burden on the
+company sending the data, which must now examine the law of the destination country
+before transferring, and stop if the protection cannot be guaranteed.
 
-The standard contractual clauses themselves survived. The Court examined them in
-the same judgment and left them in place. So after 2020 a company could still
-send personal data to the United States under a contract, but it could no longer
-rely on the Commission having declared the country safe.
-
-What the judgment exposed matters more than which decision fell. The \ac{GDPR}
-binds those who handle personal data: the organisation that decides why it is
-processed, the organisation that processes it, and the contract between them. It
-does not bind foreign states. Where a destination country's law permits its
-authorities to reach data on terms Europe considers disproportionate, neither
-the Regulation nor any contract written under it can change that, because a
-contract binds only the parties who sign it. This is why the Court invalidated
-an adequacy decision rather than ordering a remedy: nobody had breached the
-Regulation, and there was nothing within it capable of neutralising a foreign
-statute. Its answer was instead to place the burden on the sender, who must
-assess the destination country's legal system before transferring and suspend
-the transfer where the required protection cannot be guaranteed.
-
-For an enterprise choosing a cloud provider, this means that reading the
-contract is not enough. However carefully a contract is written, it cannot stop
-a government from ordering the provider to hand data over. The question that
-decides the outcome is which country's law the provider is subject to
-(\cref{subsec:location-jurisdiction}), and what that law allows the government
-to demand. 
-
+For an enterprise choosing a cloud provider, this means that reading the contract
+is not enough. However carefully it is written, a contract cannot stop a government
+from ordering the provider to hand data over. What decides the outcome is which
+country's law the provider answers to (\cref{subsec:location-jurisdiction}), and
+what that law allows its government to demand.
 
 \subsection{Extraterritorial Reach: CLOUD Act and FISA 702}
 \label{subsec:cloud-act}
 
-United States law gives its government two separate ways to obtain data held by
-an American company. They work differently, and treating them as one obscures
-which of them actually matters to a European enterprise.
-\Cref{tab:us-powers} sets them side by side.
+The law of the United States gives its government two separate ways to obtain data
+held by an American company. They work very differently, and only one of them
+matters greatly to a European enterprise. \Cref{tab:us-powers} sets them side by
+side.
 
 \begin{table}[htbp]
   \centering
@@ -402,137 +407,448 @@ which of them actually matters to a European enterprise.
   \end{tabularx}
 \end{table}
 
-The first route is the \ac{CLOUD Act}, already described in
-\cref{subsec:location-jurisdiction}. It serves criminal investigation. A
-prosecutor obtains a warrant for a named account and the provider must produce
-what it holds. The provider knows the order exists and can challenge it in
-court, as Microsoft did.
+The first is the \ac{CLOUD Act}, the law that ended the Microsoft case. It serves
+criminal investigations. A prosecutor obtains a warrant for a named account, and
+the provider must produce what it holds. The provider knows about the order and
+can challenge it in court, as Microsoft did.
 
 The second is section~702 of the Foreign Intelligence Surveillance Act
-\cite{FISA702}. It serves intelligence collection rather than prosecution. It
-authorises surveillance of people who are not United States citizens and are
-believed to be outside the United States, and it compels providers to assist.
-The provider is not permitted to tell the affected customer.
+\cite{FISA702}, which serves intelligence gathering rather than prosecution. It
+allows the surveillance of people who are not American citizens and are believed
+to be outside the United States, it requires providers to help, and it forbids
+them to tell the customer concerned.
 
-For a European enterprise the second matters more than the first, for a
-straightforward reason: a European company, employees and customers are precisely the
-people section~702 is aimed at. They are not United States citizens and they are
-not in the United States. A criminal warrant is an exceptional event that may
-never arrive; falling inside the target group of a foreign intelligence
-programme is a permanent condition.
+It is this second route that matters more to a European enterprise, because its
+company, its employees and its customers are exactly the people section~702 is
+aimed at: they are not American citizens and they are not in the United States. A
+criminal warrant is a rare event that may never come, but falling within the
+target group of a foreign intelligence programme is a permanent condition.
 
-\subsubsection*{The test is control, not location}
+Neither power depends on where the servers stand. The \ac{CLOUD Act} reaches data
+within a provider's possession, custody or control, which is a question of what the
+company is able to obtain, not of where the data is kept. If an American parent can
+instruct its European subsidiary to retrieve data, or holds passwords that reach
+into the subsidiary's systems, the data is within its control. Setting up a
+European subsidiary therefore does not solve the problem on its own. What decides
+it is the chain of ownership and the lines of access: who can give orders to whom,
+and which staff and systems can reach the data. A subsidiary that is wholly owned
+by an American parent, run by staff who report to it, or dependent on its systems
+for support remains within reach.
 
-Neither power depends on where the servers stand. The \ac{CLOUD Act} reaches
-data within a provider's possession, custody or control --- a test about what
-the company is able to obtain, not about where it is kept. If an American parent
-can instruct its European subsidiary to retrieve data, or holds credentials that
-reach into that subsidiary's systems, the data is within its control.
+European law saw this situation coming. Under the \ac{GDPR}, an order from a
+foreign court or authority demanding personal data is not by itself a lawful
+reason for a European company to hand it over \cite{GDPR2016}. Such an order counts
+only when the two countries have a treaty covering requests of that kind. These
+treaties exist, and they send the request from one government to the other, which
+then obtains the data through its own courts. A warrant served directly on the
+provider skips that route entirely, as \cref{fig:law-collision} shows, and under
+European law it is not a valid reason to disclose anything.
 
-This is why establishing a European subsidiary does not by itself solve the
-problem. What decides the question is the ownership chain and the access paths:
-who can instruct whom, and which staff and systems can reach the data. A
-subsidiary wholly owned by an American parent, administered by staff who
-ultimately report to it, or dependent on its systems for support and
-maintenance, remains within reach.
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      act/.style={draw=black!50, fill=white, rounded corners=3pt, align=center,
+                  text width=3.0cm, font=\scriptsize, inner sep=4pt, execute at begin node={\hyphenpenalty=10000},
+                  minimum height=1.0cm},
+      us/.style={act, draw=cBase!90!black, fill=cBase!14},
+      eu/.style={act, draw=cProvB!80!black, fill=cProvB!10},
+      pr/.style={act, draw=cProvA!80!black, fill=cProvA!8, text width=3.0cm},
+      lbl/.style={font=\scriptsize, text=black!65, align=center, execute at begin node={\hyphenpenalty=10000}},
+      arr/.style={-stealth, line width=0.7pt}]
+    \node[us] (usa) at (0,0)    {United States authority};
+    \node[eu] (eua) at (8.4,0)  {European government and courts};
+    \node[pr] (pro) at (4.2,-3.0) {Provider holding the data in Europe};
+    \draw[arr, green!45!black] (usa) -- node[lbl, above]
+      {treaty request between governments} (eua);
+    \draw[arr, green!45!black] (eua) -- node[lbl, right, text width=3.2cm]
+      {order through European courts: lawful} (pro);
+    \draw[arr, red!65!black, dashed] (usa) -- node[lbl, left, text width=3.2cm]
+      {warrant served directly: no lawful basis under the GDPR} (pro);
+  \end{tikzpicture}
+  \caption{Two ways a United States request can reach data held in Europe. The
+           treaty route satisfies both legal systems; the direct route satisfies
+           only one.}
+  \label{fig:law-collision}
+\end{figure}
 
-\subsubsection*{Where the two legal systems collide}
+A provider caught by both systems is then stuck. American law tells it to hand the
+data over, and European law tells it that the order is no reason to do so. Whichever
+it obeys, it breaks the other, and neither the provider nor its customer can
+resolve the conflict. This is why a provider cannot be judged on where its data
+centres are, since neither power turns on that. It has to be judged on where it is
+registered, who owns it and who can reach its systems, which is what the assessment
+in \cref{sec:method-study1} sets out to measure.
 
-European law anticipated this situation. Under the \ac{GDPR}, an order from a
-foreign court or government agency demanding personal data is not by itself a
-lawful reason for a European company to hand it over \cite{GDPR2016}. The order
-counts only if the two countries have a treaty covering requests of that kind.
-Such treaties exist, and they work by sending the request from one government to
-the other, which then obtains the data through its own courts.
+\subsection{Government Pressure on AI Providers}
+\label{subsec:ai-providers}
 
-A warrant served directly on the provider skips that route entirely. Under
-European law it is therefore not a valid reason to disclose anything.
+The Microsoft case and the Facebook case of Maximillian Schrems were both about the
+same thing: who is allowed to look at someone's data. In each, a government wanted
+access, a company or a citizen pushed back, and judges had the final word. In 2026
+a new kind of conflict appeared. This time a government and a technology company
+fought not over data, but over what an artificial intelligence system should be
+allowed to do.
 
-A provider caught by both systems is then stuck. American law tells it to hand
-the data over. European law tells it the order is not a reason to do so.
-Whichever it obeys, it breaks the other, and neither the provider nor its
-customer can resolve that.
+The company was Anthropic, the American firm that makes the Claude \acs{AI}
+models, and the government, through its Department of
+Defense, which the administration now also calls the Department of War. In
+February 2026 the two were negotiating how the military could use Claude. Anthropic
+was willing to allow almost every use, but it drew two lines. It would not let its
+models be used to watch the population of the United States on a mass scale, and it
+would not let them power weapons that choose and attack targets on their own,
+without a person making the decision. According to Anthropic, the Department
+answered with threats: to throw the company out of its systems, to brand it a
+\enquote{supply chain risk}, a label until then kept for suppliers from hostile
+countries, and to use an emergency law, the Defense Production Act, to force the
+limits to be removed \cite{Anthropic_DoW_Statement_2026}.
 
-The consequence for this thesis is the assessment criterion itself. A provider
-cannot be judged on where its data centres are, because neither power turns on
-that. It has to be judged on where it is incorporated, who owns it, and who can
-reach its systems --- which is what the sovereignty instrument described in
-\cref{sec:method-study1} sets out to measure.
+Anthropic did not give way, and the talks collapsed. The President told every
+federal agency to stop using Anthropic's technology, allowing the military six
+months to remove it from the systems where it was already in use
+\cite{AlJazeera_OpenAI_Pentagon_2026}. The Department then carried out its threat
+and labelled Anthropic a supply chain risk, which shut Claude out of defence work,
+including work done by the Department's many contractors
+\cite{AP_Anthropic_DCCircuit_2026}. Within hours of the talks breaking down, its
+competitor OpenAI announced that it had reached its own agreement with the
+Department. OpenAI said it had kept the same two limits, while its chief executive
+admitted that the deal had been \enquote{definitely rushed}
+\cite{AlJazeera_OpenAI_Pentagon_2026,TechCrunch_OpenAI_Pentagon_2026}.
 
+Anthropic took the government to court, and the judges have not agreed. A federal
+judge in San Francisco found that the Pentagon had acted illegally in punishing the
+company, but in September 2026 an appeals court in Washington decided, by two
+judges to one, that the Pentagon was entitled to treat Anthropic as a supply chain
+risk under a different law \cite{AP_Anthropic_DCCircuit_2026}. As this thesis is
+written, the conflict is still open.
+
+All of this happened between an American government and American companies, yet it
+matters to anyone in Europe who relies on American \acs{AI}. It shows that the
+terms on which such a service is offered are not decided by the provider and its
+customers alone. A provider can be pushed to drop its own limits, can lose a large
+part of its market overnight, and can find a competitor in its place within hours,
+all because of a dispute that its other customers had no say in. In the earlier
+cases the question was who could reach the data. Here the question was who decides
+what the technology may do, and the answer, again, depended on the provider's home
+country. For Alps Alpine the lesson comes close to home, because its search for
+alternatives began with \acs{AI} services, the very area in which, as
+\cref{sec:study2} shows, European providers have the least to offer.
 
 \subsection{China and Other Jurisdictions}
 \label{subsec:other-jurisdictions}
 
-The previous subsection might suggest a simple remedy: avoid American providers.
-It is not that simple. Other countries have their own rules about data crossing
+It might seem that the simple answer is to avoid American providers. The picture is
+not that simple, because other countries have their own rules about data crossing
 their borders, and those rules do not all point the same way.
 
 China restricts data leaving the country in much the same way Europe does. Under
 its Data Security Law, data held in China may not be handed to a foreign law
-enforcement authority unless the Chinese government approves
-\cite{ChinaDSL_2021}. Its Personal Information Protection Law says the same for
-personal data \cite{ChinaPIPL_2021}. The reasoning is the one already seen in
-\cref{subsec:cloud-act}: a country that has gone to the trouble of regulating
-data held on its territory does not want a foreign government reaching past it.
+enforcement authority without the approval of the Chinese government
+\cite{ChinaDSL_2021}, and its Personal Information Protection Law says the same for
+personal data \cite{ChinaPIPL_2021}. The reasoning is the one already met in
+\cref{subsec:cloud-act}: a country that has gone to the trouble of protecting data
+on its territory does not want a foreign government reaching past it. Europe and
+China have therefore arrived at the same position, that a company may not hand data
+to a foreign government outside an agreed channel. The United States stands apart,
+with a law that reaches the other way, and a provider active in all three is caught
+between rules built to resist one another.
 
-The pattern is worth noticing. Europe and China have arrived at the same
-position, and neither will let a company hand data to a foreign government
-without going through an agreed channel. The United States is the outlier, with
-a law that reaches the other way. A provider operating in all three is caught
-between rules that were built to resist one another.
-
-China also has a law on cooperation with intelligence work. It requires an
-organisation to support, assist and cooperate in national intelligence work
-\enquote{in accordance with the law}, and a later provision states that such
-work must respect human rights and protect the lawful rights and interests of
-organisations \cite{ChinaNIL_2017}. How far the obligation reaches in practice
-is disputed, and the qualifying words are often dropped when the provision is
+China also has a law on cooperation with intelligence work. It requires
+organisations to support, assist and cooperate in national intelligence work
+\enquote{in accordance with the law}, and a later provision states that such work
+must respect human rights and protect the lawful rights and interests of
+organisations \cite{ChinaNIL_2017}. How far the obligation reaches in practice is
+disputed, and the qualifying words are often left out when the provision is
 quoted. This thesis takes no position on that dispute. What matters for an
 assessment is that the obligation exists and that its limits are not settled.
 
 None of the providers assessed in this thesis is Chinese-owned, so the question
-does not arise through ownership. It arises through equipment. A European
-provider that builds its infrastructure on hardware and firmware manufactured
-elsewhere inherits whatever questions attach to that equipment, and it cannot
-answer them by pointing at its own place of incorporation. This is the
-supply-chain side of sovereignty, taken up in \cref{sec:full-stack}.
+does not arise through ownership. It arises through equipment. A European provider
+that builds its infrastructure on hardware and firmware made elsewhere takes on
+whatever questions come with that equipment, and it cannot answer them by pointing
+to where it is registered.
 
-The wider point is that a provider cannot be sorted simply into European or not.
-Three jurisdictions have been described here and each behaves differently: one
-reaches outward, two block outward disclosure, and all three can require
-something of a company within their reach. An assessment therefore has to ask
-four separate questions --- where a provider is incorporated, who owns it, whose
-equipment it runs, and what each of those jurisdictions can compel. That is why
-the framework adopted in \cref{subsec:definition-adopted} scores jurisdiction
-and supply chain as distinct objectives rather than merging them into a single
-measure of Europeanness.
-
+By this point the reasons have accumulated. The Microsoft case showed that
+location gives way to control, Schrems showed that contracts cannot bind foreign
+governments, and the comparison of the three legal systems shows that a provider
+cannot simply be sorted into European or not. An assessment has to ask where a
+provider is registered, who owns it, whose equipment it runs and what each of those
+countries can demand. That is why the framework adopted in
+\cref{subsec:definition-adopted} scores law and supply chain as separate
+objectives, and it is also where the next section begins: with the equipment
+itself.
 
 \section{Sovereignty as a Full-Stack Property}
 \label{sec:full-stack}
 
-\todo{The layers of a cloud platform, from hardware through the operating
-system, virtualization, networking, storage and observability to the
-application, and why an application running on a non-sovereign layer is not
-itself sovereign.}
+A cloud service is not a single thing but a stack of layers, each resting on the
+one below. At the bottom are the physical servers, with their processors, memory
+and disks, and the firmware, the low-level software built into the hardware that
+starts it and controls it. On top of the hardware runs an operating system, and on
+top of that a hypervisor, the software that divides one physical server into many
+virtual machines (\cref{sec:technical-foundations}). Around these sit the networks
+that connect the machines, the storage systems that hold the data, and the
+monitoring tools that record what happens on the platform. Only at the very top
+is the customer's own application.
+
+Each layer has power over the layers above it. The operating system decides what
+the programs running on it may do, the hypervisor decides what each virtual
+machine may see and use, and the firmware sits beneath all of them. The United
+States standards body NIST describes platform firmware as critical to the
+trustworthiness of a computing system and notes that much of it is highly
+privileged, so that an attacker who changes it can hide malicious code that
+survives beneath everything installed above it \cite{NIST_SP800193_2018}.
+
+For a cloud customer this has a direct consequence. In the standard definition of
+the most basic cloud service, renting virtual machines, the customer controls its
+operating systems, storage and applications but \enquote{does not manage or
+control the underlying cloud infrastructure} \cite{NIST_SP800145_2011}. Everything
+below the customer's own machines belongs to the provider, and with it the
+equipment, firmware and software the provider has chosen. An application can be
+written, operated and stored entirely in Europe and still run on a hypervisor,
+servers or firmware supplied from elsewhere. Its sovereignty can be no stronger
+than that of the weakest layer beneath it.
+
+This is why the framework adopted in this thesis does not stop at law and
+ownership. It assesses the supply chain and the technology underneath a service
+as objectives of their own (\cref{tab:sov-objectives}), asking where the
+hardware is made, where the firmware comes from and whether the platform depends
+on processors from outside the Union. \Cref{subsec:study1-results} shows that it
+is at these lowest layers that every European provider in this study falls short.
 
 \section{Four Cloud Models}
+\label{sec:cloud-models}
 
-\todo{The architectural philosophy behind four cloud models: centralised (AWS,
-GCP, Azure), decentralised (peer-to-peer, blockchain), federated (Gaia-X,
-Catena-X) and self-hosted.}
+Clouds differ not only in who runs them but in how control over them is shared.
+Four broad models can be distinguished, and each places control, and therefore
+sovereignty, in a different place. \Cref{fig:cloud-models} sketches the four.
 
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      prov/.style={draw=cProvB!70!black, fill=cProvB!15, rounded corners=3pt,
+                   font=\scriptsize\bfseries, align=center, inner sep=3pt},
+      user/.style={circle, draw=black!55, fill=white, inner sep=0pt,
+                   minimum size=0.36cm, font=\tiny},
+      peer/.style={circle, draw=cProvC!70!black, fill=cProvC!18, inner sep=0pt,
+                   minimum size=0.42cm},
+      link/.style={black!45, line width=0.5pt},
+      panel/.style={draw=black!20, rounded corners=5pt, fill=black!2},
+      num/.style={circle, fill=black!80, text=white, font=\scriptsize\bfseries,
+                  inner sep=1.3pt},
+      ttl/.style={font=\footnotesize\bfseries, anchor=north},
+      sub/.style={font=\scriptsize, text=black!65, anchor=north, align=center,
+                  text width=3.4cm, execute at begin node={\hyphenpenalty=10000}}]
+
+    % panel frames
+    \foreach \x in {0,3.95,7.9,11.85} {
+      \draw[panel] (\x,0) rectangle (\x+3.65,3.3);
+    }
+
+    % 1 centralised: one provider, many customers
+    \node[prov, minimum width=1.5cm, minimum height=0.8cm] (c) at (1.825,1.65) {Provider};
+    \foreach \a in {30,90,150,210,270,330} {
+      \node[user] (u\a) at ($(c)+(\a:1.25)$) {};
+      \draw[link] (c) -- (u\a);
+    }
+
+    % 2 decentralised: peers, no owner
+    \foreach \a [count=\i] in {90,150,210,270,330,30} {
+      \node[peer] (p\i) at ($(5.775,1.65)+(\a:1.05)$) {};
+    }
+    \foreach \i/\j in {1/2,2/3,3/4,4/5,5/6,6/1,1/3,2/5,4/6,3/6,1/4} {
+      \draw[link] (p\i) -- (p\j);
+    }
+
+    % 3 federated: separate providers joined by shared rules
+    \node[prov, minimum width=0.85cm, minimum height=0.6cm] (f1) at (8.65,2.35) {A};
+    \node[prov, minimum width=0.85cm, minimum height=0.6cm] (f2) at (9.725,2.35) {B};
+    \node[prov, minimum width=0.85cm, minimum height=0.6cm] (f3) at (10.8,2.35) {C};
+    \node[draw=cProvA!70!black, fill=cProvA!12, rounded corners=3pt,
+          font=\scriptsize\bfseries, minimum width=3.0cm, minimum height=0.5cm]
+          (rules) at (9.725,0.95) {Shared rules (Gaia-X)};
+    \foreach \f in {f1,f2,f3} {
+      \draw[link, <->, >=stealth] (\f) -- (\f |- rules.north);
+    }
+
+    % 4 self-hosted: everything inside the organisation
+    \draw[draw=cProvE!70!black, dashed, line width=0.8pt, rounded corners=5pt,
+          fill=cProvE!8] (12.2,0.35) rectangle (15.15,2.95);
+    \node[font=\tiny\bfseries, text=cProvE!80!black, anchor=north west]
+      at (12.25,2.92) {Organisation};
+    \node[prov, draw=cProvE!70!black, fill=cProvE!18, minimum width=1.3cm,
+          minimum height=0.65cm] (own) at (13.675,1.55) {Own cloud};
+    \foreach \a in {215,270,325} {
+      \node[user] (o\a) at ($(own)+(\a:1.15)$) {};
+      \draw[link] (own) -- (o\a);
+    }
+
+    % numbers and titles
+    \foreach \x/\n/\t/\s in {0/1/Centralised/One provider owns and runs everything,
+                             3.95/2/Decentralised/Peers cooperate{,} no single owner,
+                             7.9/3/Federated/Independent providers{,} common rules,
+                             11.85/4/Self-hosted/The organisation runs its own cloud} {
+      \node[num] at (\x+0.28,3.02) {\n};
+      \node[ttl] at (\x+1.825,-0.12) {\t};
+      \node[sub] at (\x+1.825,-0.52) {\s};
+    }
+
+    % where control lies
+    \draw[-stealth, black!55, line width=0.6pt] (0,-1.6) -- (15.5,-1.6);
+    \node[font=\scriptsize, text=black!65, anchor=north west] at (0,-1.65)
+      {Control rests with the provider};
+    \node[font=\scriptsize, text=black!65, anchor=north east] at (15.5,-1.65)
+      {Control rests with the organisation};
+  \end{tikzpicture}
+  \caption{The four cloud models and where control over the platform lies in each.}
+  \label{fig:cloud-models}
+\end{figure}
+
+\begin{enumerate}
+  \item \textbf{Centralised.} In the centralised model, one company owns and runs the whole platform and
+rents it to anyone who wants it. NIST calls this a public cloud, provisioned for
+open use by the general public and existing on the premises of the cloud provider
+\cite{NIST_SP800145_2011}. \acs{AWS}, Microsoft Azure and Google Cloud follow this
+model, and so do the European providers assessed in this thesis. The customer
+gains a wide range of services and gives up control over everything beneath its
+own machines, as \cref{sec:full-stack} described.
+
+  \item \textbf{Decentralised.} The decentralised model removes the central operator altogether. Data and
+work are spread across many independent computers that cooperate directly, with
+no single owner. The file system IPFS is one example: a peer-to-peer system in
+which, its designer writes, there is no single point of failure and nodes do not
+need to trust each other \cite{Benet_IPFS_2014}. Bitcoin applied the same idea to
+payments, so that they could be made without a trusted third party
+\cite{Nakamoto_Bitcoin_2008}. No single company can then be ordered to hand data
+over, but no single company is responsible for keeping the service running
+either.
+
+  \item \textbf{Federated.} The federated model sits between the two. Independent providers keep their
+own platforms but agree on common rules, so that data and services can move
+between them under shared conditions. Gaia-X, established in 2021 as a
+European association, follows this approach. It is not a cloud provider itself and
+offers no infrastructure or storage of its own; it describes itself as a trusted
+federation of infrastructures and services \cite{GaiaX_FAQ}, and its architecture
+defines the shared services and rules that such an ecosystem runs on
+\cite{GAIAX_Architecture_2023}. Catena-X applies the same principles to one
+industry. Founded in 2021, it is an open data ecosystem for the automotive
+industry and complies with the Gaia-X rules \cite{CatenaX_Network_2026}.
+
+  \item \textbf{Self-hosted.} In the self-hosted model, an organisation runs its own cloud for its own
+use. NIST calls this a private cloud, provisioned for the exclusive use of a single
+organisation, which may be located on or off the organisation's premises
+\cite{NIST_SP800145_2011}. Control is as complete as it can be, because every layer
+is chosen and operated by the organisation itself, but so is the work of building,
+running and extending it.
+\end{enumerate}
+
+This thesis compares the centralised European providers with each other and with
+\acs{AWS}, and includes the self-hosted option as a point of reference at the far
+end of the range. Federated initiatives such as Gaia-X do not replace these
+providers; they set common rules that the providers can choose to follow.
 
 \section{Technical Foundations of Cloud Infrastructure}
 \label{sec:technical-foundations}
 
-\todo{Kernel and privileged access, the three virtualization techniques (full,
-para- and hardware-assisted), Type 1 and Type 2 hypervisors, and why KVM became
-the industry standard.}
+Every computer separates the software that controls the machine from the
+software that merely uses it. The processor offers different levels of privilege.
+The operating system's core, the kernel, runs at the most privileged level, where
+it may carry out every instruction, while ordinary applications run at a lower
+level and are not allowed to carry out the instructions that control the hardware.
+On the common x86 processors these levels are called rings, numbered from zero,
+the most privileged, to three, and the kernel normally runs in ring zero because
+no other ring can execute the privileged instructions \cite{Barham_Xen_2003}.
+Popek and Goldberg described the same division as a supervisor mode, in which the
+full set of instructions is available, and a user mode, in which it is not
+\cite{Popek_Goldberg_1974}.
+
+Virtualization builds on this division. A hypervisor, also called a virtual
+machine monitor, places itself beneath the operating systems and gives each of them
+what appears to be a machine of its own. Popek and Goldberg set out in 1974 what a
+virtual machine must achieve to deserve the name. A program running in it must
+behave as it would on the real machine, it must not be able to take control of
+resources the hypervisor has not given it, and most of its instructions must run
+directly on the hardware, so that it is not slowed down unnecessarily
+\cite{Popek_Goldberg_1974}. The difficulty lies in the privileged instructions, which
+the guest operating system expects to carry out itself but which only the
+hypervisor may be allowed to execute.
+
+Three techniques have been used to solve this. In \emph{full virtualization}, the
+guest operating system runs unchanged, and the hypervisor rewrites its privileged
+instructions as they are met, a technique known as binary translation. The VMware
+products of the early 2000s worked this way \cite{Adams_Agesen_2006}. In
+\emph{paravirtualization}, the guest operating system is modified so that it asks
+the hypervisor directly instead of attempting privileged instructions. Xen took this
+approach, accepting changes to the guest in return for an overhead its authors
+measured at a few per cent at most \cite{Barham_Xen_2003}. In
+\emph{hardware-assisted virtualization}, the processor itself supports the
+hypervisor: Intel and AMD added extensions to their processors for this purpose,
+so that unmodified guests can run without rewriting. The first generation of
+these extensions was, surprisingly, rarely faster than the software techniques
+it was meant to replace \cite{Adams_Agesen_2006}, but the hardware approach has
+since become the foundation of modern hypervisors.
+
+Hypervisors are also divided by where they run. A bare-metal, or native,
+hypervisor runs directly on the hardware without a host operating system beneath
+it, while a hosted hypervisor runs on top of an ordinary operating system, like
+any other program \cite{NIST_SP800125_2011}. Cloud platforms use the bare-metal
+kind, because it leaves less software between the virtual machines and the
+hardware.
+
+KVM, the Kernel-based Virtual Machine, combines the two ideas. Introduced in 2007,
+it is a module of the Linux kernel that uses the processors' virtualization
+extensions to turn Linux itself into a hypervisor, with each virtual machine
+appearing to Linux as an ordinary process \cite{Kivity_KVM_2007}. Because it reuses
+everything Linux already offers, from device drivers to memory management, KVM
+spread widely. It is the default hypervisor of OpenStack \cite{OpenStack_Nova_KVM},
+the open-source software on which several of the European providers in this thesis
+build (\cref{sec:lockin}). Google's Compute Engine runs its virtual machines on KVM
+\cite{Google_GCE_Overview}, and \acs{AWS} replaced its earlier hypervisor with
+one based on KVM in its Nitro system \cite{AWS_Nitro_Journey,AWS_EC2_FAQ}.
+
+These foundations matter for the benchmarking study in \cref{sec:method-study4}.
+Every machine measured there is a virtual machine running on a hypervisor, and
+much of the remaining difference between providers comes not from the hypervisor
+but from the hardware beneath it and the way storage and networks are attached.
 
 \section{Related Work}
 \label{sec:related-work}
 
-\todo{Gillam et al.\ (2013) on fair cloud benchmarking, Blancato (2023) on the
-EU cloud sovereignty nexus, and the EC DG DIGIT Cloud Sovereignty Framework,
-and what this thesis adds to them.}
+This thesis draws on three bodies of earlier work, each of which covers part of
+the question it asks.
+
+The first concerns how to compare cloud providers fairly. Gillam and colleagues
+measured four infrastructure clouds, from Amazon, Rackspace and IBM, alongside a
+private OpenStack installation, using a set of small, focused benchmarks
+\cite{Gillam_FairBenchmarking_2013}. They found that performance varies not only
+between providers but also, sometimes substantially, between virtual machines of
+apparently the same specification from the same provider, and they argued that
+pricing based on the performance actually delivered would be fairer than fixed
+prices. Later work on cloud benchmarking, reviewed in \cref{sec:method-study4},
+built on these concerns. This thesis follows Gillam and colleagues in setting each
+provider against the best result achieved, and applies the approach to European
+providers that the earlier studies did not cover.
+
+The second concerns European cloud sovereignty as a political question. Blancato
+argues that the European Union uses rules and industrial policy gathered under the
+name of data sovereignty for two purposes at once: to protect the confidentiality
+of European data, and to counter the dominance of American providers in the
+European cloud market \cite{Blancato_CloudSovereigntyNexus_2024}. He develops this
+through two cases, Gaia-X and the European Alliance for Industrial Data, Edge and
+Cloud. His study explains why the Union cares about sovereignty, but it works at
+the level of policy and does not assess individual providers.
+
+The third is the European Commission's own Cloud Sovereignty Framework
+\cite{EC_DIGIT_CloudSovereignty_2025}, which turns sovereignty into eight
+objectives and five assurance levels that can be applied to a provider. It is
+written for public procurement and leaves it to the buyer to apply it, and it
+does not report how existing providers score.
+
+What this thesis adds is the connection between the three. It applies the
+Commission's framework to eighteen European providers, question by question and
+with every answer tied to a published source. It sets the result beside what the
+same providers can actually offer an enterprise with real requirements, beside
+the money behind them, and beside the measured speed of their machines. Where
+Blancato explains why sovereignty matters to the Union and Gillam and colleagues
+show how to compare clouds fairly, this thesis asks which European providers can
+deliver sovereignty in practice, and at what cost in services, money and
+performance, for one enterprise moving away from \acs{AWS}.
