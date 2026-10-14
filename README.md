@@ -8,7 +8,7 @@ CloudSov scores 17 European cloud providers against the European Commission's Cl
 
 > Hosted on Render's free tier: the first load after a quiet period can take up to a minute while the API wakes up.
 
-![CloudSov sovereignty score page](docs/screenshots/sovscore.png)
+![CloudSov demo](screenshots/benchmark-gif.gif)
 
 ## Why this exists
 
@@ -27,9 +27,21 @@ CloudSov is organised into four studies, each with its own page.
 | **Financial Consideration** | Is it financially viable long term? | Revenue history, growth, investment and IPCEI-CIS participation for major providers |
 | **Benchmarking** | How does it perform? | Phoronix Test Suite and network results for 5 EU providers against AWS, with price per hour |
 
-![Readiness assessment](docs/screenshots/readiness.png)
+### Sovereignty Score
 
-![Benchmarking results](docs/screenshots/benchmarking.png)
+![Sovereignty score page](screenshots/sovscore.png)
+
+### Readiness Assessment
+
+![Readiness assessment page](screenshots/readiness.png)
+
+### Financial Consideration
+
+![Financial consideration page](screenshots/finance.png)
+
+### Benchmarking
+
+![Benchmarking page](screenshots/benchmark-photo.png)
 
 ## How the sovereignty score works
 
@@ -129,6 +141,7 @@ cloudsov/
 ├── financial/            # Financial data per provider
 ├── financial_research/   # Research notes behind the financial data
 ├── benchmarking/         # Benchmark plan and results
+├── screenshots/          # Images used in this README
 ├── render.yaml           # Render deployment blueprint
 └── run.sh                # Starts backend and frontend locally
 ```
