@@ -4,7 +4,7 @@
 
 CloudSov scores 17 European cloud providers against the European Commission's Cloud Sovereignty Framework, checks how well they can replace AWS services, compares their financial strength, and benchmarks their performance. It turns the research from my master's thesis into an interactive tool for enterprises choosing a European cloud.
 
-**[Live demo](https://cloudsov.onrender.com)** · FastAPI · React · Recharts
+**[Live demo](https://cloudsov.ihonosetale.eu)** · FastAPI · React · Recharts
 
 > Hosted on Render's free tier: the first load after a quiet period can take up to a minute while the API wakes up.
 
