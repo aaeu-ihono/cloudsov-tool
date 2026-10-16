@@ -53,6 +53,7 @@ _allowed_origins = [
     "http://localhost:3000",
     "https://cloudsov-frontend.onrender.com",
     "https://cloudsov.onrender.com",
+    "https://cloudsov.ihonosetale.eu"
 ]
 if _frontend_url := os.environ.get("FRONTEND_URL"):
     _allowed_origins.append(_frontend_url)

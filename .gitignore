@@ -3,7 +3,7 @@
 *.pyd
 /venv/
 .claude
-
+.DS_Store
 # LaTeX auxiliary files (all subdirectories)
 overleaf_latex/**/*.aux
 overleaf_latex/**/*.log
