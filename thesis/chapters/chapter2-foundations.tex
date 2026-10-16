@@ -44,7 +44,7 @@ each with the question it answers and what decides it.
       & In which territory is the data stored and processed?
       & Facility location \\[0.4em]
     Data sovereignty
-      & Which jurisdiction may lawfully compel its disclosure?
+      & Which country's authorities can lawfully demand the data?
       & Corporate incorporation \\[0.4em]
     Operational sovereignty
       & Who is technically able to access or administer the system?
@@ -206,8 +206,7 @@ two paths side by side.
                                        from the date set in the act. No national
                                        legislation is required.};
     \node[box] (dir2)  at (3.3,-4.1)  {Each member state must pass its own
-                                       national law by a transposition
-                                       deadline.};
+                                       national law by a set deadline.};
     \node[box] (reg3)  at (-3.3,-6.8) {One identical rule across the Union.};
     \node[box] (dir3)  at (3.3,-6.8)  {Twenty-seven national laws, which may
                                        differ in scope, detail and penalty.
@@ -248,7 +247,7 @@ for failing to report the national laws that put it into effect
       & 2018 \\[0.35em]
     \acs{NIS2}
       & \textbf{Directive} & Cybersecurity of network and information systems
-      & Transposition due 2024 \\[0.35em]
+      & National laws due 2024 \\[0.35em]
     \acs{DORA}
       & Regulation & ICT operational resilience in the financial sector; oversight
         of critical ICT third-party providers, cloud providers included
@@ -338,7 +337,7 @@ through them.
   \label{fig:gdpr-transfer}
 \end{figure}
 
-The simplest route is an \emph{adequacy decision}. The Commission examines a
+The simplest route is for the Commission to declare a country safe. It examines a
 country's laws, finds that they protect personal data about as well as the
 Union's, and data may then flow there as freely as to another member state. Where
 there is no such decision, the recipient can sign a contract built on standard
@@ -351,17 +350,18 @@ dispute brought by one man that lasted most of a decade. Maximillian Schrems, an
 Austrian Facebook user, complained to the Irish data protection authority that his
 data, sent by Facebook Ireland to servers in the United States, was not protected
 from American authorities. His complaint was rejected, because the Commission had
-already declared the United States adequate under an arrangement called Safe
-Harbour. In 2015 the Court of Justice declared that decision invalid
+already declared the United States safe for European data, under an arrangement
+called Safe Harbour. In 2015 the Court of Justice ruled that this decision was wrong and cancelled it
 \cite{SchremsI_2015}. Schrems complained again, this time about transfers made
 under the standard contract clauses, and by the time his case returned to the Court
-the Commission had issued a new adequacy decision, the \ac{EU}--US Privacy Shield.
+the Commission had again declared the country safe, under a new arrangement called
+the \ac{EU}--US Privacy Shield.
 
-In 2020 the Court struck that down as well \cite{SchremsII_2020}. American
+In 2020 the Court cancelled the Privacy Shield as well \cite{SchremsII_2020}. American
 surveillance law, it found, let government agencies reach the data far more freely
 than European law allows, and a European whose data ended up there had no
 practical way to challenge it, because American courts were not open to them. The
-standard contract clauses survived, so a company could still send personal data to
+standard contract clauses remained valid, so a company could still send personal data to
 the United States under a contract. What it could no longer do was rely on the
 Commission's word that the country was safe.
 
@@ -379,7 +379,7 @@ from ordering the provider to hand data over. What decides the outcome is which
 country's law the provider answers to (\cref{subsec:location-jurisdiction}), and
 what that law allows its government to demand.
 
-\subsection{Extraterritorial Reach: CLOUD Act and FISA 702}
+\subsection{Reach Beyond US Borders: CLOUD Act and FISA 702}
 \label{subsec:cloud-act}
 
 The law of the United States gives its government two separate ways to obtain data
@@ -408,9 +408,9 @@ side.
 \end{table}
 
 The first is the \ac{CLOUD Act}, the law that ended the Microsoft case. It serves
-criminal investigations. A prosecutor obtains a warrant for a named account, and
-the provider must produce what it holds. The provider knows about the order and
-can challenge it in court, as Microsoft did.
+criminal investigations. A prosecutor can obtain a warrant for a named account, to
+force a cloud provider to hand over what it holds. But the cloud provider can
+challenge it in court, as Microsoft did.
 
 The second is section~702 of the Foreign Intelligence Surveillance Act
 \cite{FISA702}, which serves intelligence gathering rather than prosecution. It
@@ -567,6 +567,27 @@ that builds its infrastructure on hardware and firmware made elsewhere takes on
 whatever questions come with that equipment, and it cannot answer them by pointing
 to where it is registered.
 
+How quickly such a question can turn into a real disruption became clear in 2025,
+though not through a cloud provider. Nexperia is a chipmaker based in the
+Netherlands and owned by the Chinese group Wingtech, and its factories turn out
+more than fifty billion components a year \cite{AlJazeera_Nexperia_2025}. On
+30~September 2025 the Dutch government took control of the company's key decisions,
+in a step it called highly exceptional. It said that serious failings in the way
+the company was run threatened to move crucial technology and know-how out of the
+Netherlands and Europe \cite{NL_Nexperia_2025}. China answered within days. On
+4~October it banned Nexperia's Chinese factory and its subcontractors from exporting
+the finished parts they made \cite{AlJazeera_Nexperia_2025}. Because many of those
+parts end up in cars, the ban was felt far beyond the two countries. Europe's car
+makers warned that the situation was critical, the supplier Bosch had to send
+workers home at several of its plants, and Honda stopped production at factories in
+Japan and China \cite{Sourceability_Nexperia_2026}.
+
+Nexperia does not run a cloud, but its story shows the risk described above. The
+company was European by location and Chinese by ownership. When the two governments
+clashed, both used their power over it, and customers who had no part in the
+dispute lost the parts they depended on. A cloud provider that relies on equipment
+from abroad is exposed in the same way.
+
 By this point the reasons have accumulated. The Microsoft case showed that
 location gives way to control, Schrems showed that contracts cannot bind foreign
 governments, and the comparison of the three legal systems shows that a provider
@@ -588,12 +609,69 @@ top of that a hypervisor, the software that divides one physical server into man
 virtual machines (\cref{sec:technical-foundations}). Around these sit the networks
 that connect the machines, the storage systems that hold the data, and the
 monitoring tools that record what happens on the platform. Only at the very top
-is the customer's own application.
+is the customer's own application, as
+\cref{fig:cloud-stack} shows.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      layer/.style={draw=#1!70!black, fill=#1!14, rounded corners=2pt,
+                    text width=7.0cm, minimum height=0.7cm, inner sep=3pt,
+                    font=\footnotesize, align=center,
+                    execute at begin node={\hyphenpenalty=10000}},
+      lbl/.style={font=\scriptsize, text=black!65, align=center}]
+
+    % server rack
+    \draw[black!70, line width=0.9pt, rounded corners=2pt, fill=black!6]
+      (-5.1,-0.2) rectangle (-2.9,6.1);
+    \foreach \i in {0,...,8} {
+      \pgfmathsetmacro{\y}{0.05+\i*0.67}
+      \draw[black!55, fill=white, rounded corners=1pt]
+        (-4.9,\y) rectangle (-3.1,\y+0.5);
+      \fill[green!55!black] (-4.75,\y+0.25) circle (0.05);
+      \fill[cBase] (-4.58,\y+0.25) circle (0.05);
+      \foreach \k in {0,...,4} {
+        \draw[black!35] (-4.25+\k*0.2,\y+0.12) -- (-4.25+\k*0.2,\y+0.38);
+      }
+    }
+    \node[lbl] at (-4.0,-0.55) {A server rack};
+
+    % layers, bottom to top
+    \node[layer=black]  (hw)  at (2.2,0.2)  {Hardware: processors, memory, disks};
+    \node[layer=black]  (fw)  at (2.2,1.12) {Firmware built into the hardware};
+    \node[layer=cProvB] (os)  at (2.2,2.04) {Operating system of the server};
+    \node[layer=cProvB] (hv)  at (2.2,2.96) {Hypervisor: creates the virtual machines};
+    \node[layer=cProvB] (net) at (2.2,3.88) {Networks, storage and monitoring};
+    \node[layer=cProvC] (vm)  at (2.2,4.80) {Operating system of the customer's machine};
+    \node[layer=cProvC] (app) at (2.2,5.72) {The customer's application and data};
+
+    \draw[dashed, black!45] (-2.9,0.3) -- (hw.west);
+
+    % who controls what
+    \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.7pt,
+          cProvC!70!black] (6.05,6.08) -- (6.05,4.44);
+    \node[lbl, anchor=west, text=cProvC!70!black, text width=2.4cm] at (6.3,5.26)
+      {Controlled by the customer};
+    \draw[decorate, decoration={brace, amplitude=5pt}, line width=0.7pt,
+          cProvB!70!black] (6.05,4.24) -- (6.05,-0.16);
+    \node[lbl, anchor=west, text=cProvB!70!black, text width=2.4cm] at (6.3,2.04)
+      {Controlled by the provider and the makers of its equipment};
+
+    % power runs upwards
+    \draw[-stealth, black!50, line width=0.8pt] (-2.2,0.2) -- (-2.2,5.72);
+    \node[lbl, rotate=90, anchor=south] at (-2.3,2.96)
+      {each layer controls the ones above it};
+  \end{tikzpicture}
+  \caption{The layers of a cloud service, from the hardware in the server rack to
+           the customer's application.}
+  \label{fig:cloud-stack}
+\end{figure}
+
 
 Each layer has power over the layers above it. The operating system decides what
 the programs running on it may do, the hypervisor decides what each virtual
 machine may see and use, and the firmware sits beneath all of them. The United
-States standards body NIST describes platform firmware as critical to the
+States \ac{NIST} describes platform firmware as critical to the
 trustworthiness of a computing system and notes that much of it is highly
 privileged, so that an attacker who changes it can hide malicious code that
 survives beneath everything installed above it \cite{NIST_SP800193_2018}.
@@ -705,7 +783,7 @@ sovereignty, in a different place. \Cref{fig:cloud-models} sketches the four.
 
 \begin{enumerate}
   \item \textbf{Centralised.} In the centralised model, one company owns and runs the whole platform and
-rents it to anyone who wants it. NIST calls this a public cloud, provisioned for
+rents it to anyone who wants it. \acs{NIST} calls this a public cloud, provisioned for
 open use by the general public and existing on the premises of the cloud provider
 \cite{NIST_SP800145_2011}. \acs{AWS}, Microsoft Azure and Google Cloud follow this
 model, and so do the European providers assessed in this thesis. The customer
@@ -734,7 +812,7 @@ industry. Founded in 2021, it is an open data ecosystem for the automotive
 industry and complies with the Gaia-X rules \cite{CatenaX_Network_2026}.
 
   \item \textbf{Self-hosted.} In the self-hosted model, an organisation runs its own cloud for its own
-use. NIST calls this a private cloud, provisioned for the exclusive use of a single
+use. \acs{NIST} calls this a private cloud, provisioned for the exclusive use of a single
 organisation, which may be located on or off the organisation's premises
 \cite{NIST_SP800145_2011}. Control is as complete as it can be, because every layer
 is chosen and operated by the organisation itself, but so is the work of building,
@@ -844,7 +922,7 @@ written for public procurement and leaves it to the buyer to apply it, and it
 does not report how existing providers score.
 
 What this thesis adds is the connection between the three. It applies the
-Commission's framework to eighteen European providers, question by question and
+Commission's framework to seventeen European providers, question by question and
 with every answer tied to a published source. It sets the result beside what the
 same providers can actually offer an enterprise with real requirements, beside
 the money behind them, and beside the measured speed of their machines. Where
