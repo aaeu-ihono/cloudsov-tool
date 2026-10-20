@@ -4,8 +4,6 @@
 
 CloudSov scores 17 European cloud providers against the European Commission's Cloud Sovereignty Framework, checks how well they can replace AWS services, compares their financial strength, and benchmarks their performance. It turns the research from my master's thesis into an interactive tool for enterprises choosing a European cloud.
 
-**[Live demo](https://cloudsov.ihonosetale.eu)** · FastAPI · React · Recharts
-
 > Hosted on Render's free tier: the first load after a quiet period can take up to a minute while the API wakes up.
 
 ![CloudSov demo](screenshots/benchmark-gif.gif)
@@ -108,7 +106,7 @@ Interactive API docs are available at `/docs` when the backend is running.
 **Prerequisites:** Python 3.10+ and Node.js 18+
 
 ```bash
-git clone https://github.com/ihonomic/cloudsov.git
+git clone https://github.com/aaeu-ihono/cloudsov-tool.git
 cd cloudsov
 
 # Backend
@@ -164,4 +162,4 @@ CloudSov is part of my master's thesis at Technische Hochschule Rosenheim, *Achi
 
 ## Author
 
-**Ihonosetale Oseghale** · [LinkedIn](https://www.linkedin.com/in/ihonomic) · [GitHub](https://github.com/ihonomic)
+**Ihonosetale Oseghale** · 
