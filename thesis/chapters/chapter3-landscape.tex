@@ -1,0 +1,235 @@
+\chapter{The European Cloud Landscape}
+\label{ch:landscape}
+
+Before any provider could be measured, there had to be a list of providers worth
+measuring. Europe has hundreds of companies that rent out servers in one form or
+another, and most of them could never take over the work Alps Alpine runs on
+\acs{AWS}. This chapter explains how the eighteen providers in this thesis were
+found and chosen, and then introduces each of them briefly, so that the names that
+fill the following chapters are familiar before the studies begin.
+
+\section{How the Providers Were Chosen}
+\label{sec:provider-selection}
+
+Most of the providers came from European Alternatives, a website that collects
+European replacements for digital services and products, including cloud
+services \cite{EuropeanAlternatives_Cloud}. Ten of the providers in this thesis
+are listed there: Hetzner, IONOS, OVHcloud, Scaleway, Elastx, Exoscale,
+Infomaniak, Cyso Cloud, UpCloud and Deutsche Telekom's public cloud, which the
+site lists as T~Cloud \cite{EuropeanAlternatives_Cloud,EuropeanAlternatives_VPS}.
+Deutsche Telekom's platform was also chosen because of the large community of
+users behind it.
+
+Two providers came from within Alps Alpine itself \cite{AlpsAlpine_Internal_2026}.
+STACKIT was recommended internally as a candidate worth examining, and Arvato
+Systems was included because it had approached the company in the past.
+
+The remaining providers were added because of their part in Europe's own efforts
+to build sovereign cloud services. plusserver is a founding member of Gaia-X, the
+European initiative described in \cref{sec:cloud-models}, and helped start the
+Sovereign Cloud Stack, an open-source cloud platform developed in Germany
+\cite{Plusserver_Associations}. Cleura, then called City Network, joined the
+Gaia-X project in 2020 \cite{Cleura_GaiaX_2020}. noris network offers a sovereign
+cloud certified under the Sovereign Cloud Stack \cite{SCS_noris}. Nine was added
+as a Swiss provider that keeps its customers' data in certified data centres in
+Switzerland \cite{Nine_Infrastructure}. Finally, a locally hosted setup, in which
+the company runs its own servers, was included as a point of reference rather than
+as a provider.
+
+Being on one of these lists was only the first step. To stay in the study, a
+provider also had to meet six conditions:
+
+\begin{enumerate}
+  \item it is registered in a member state of the \ac{EU} or the \ac{EEA}, since
+        the law that applies to a provider follows where it is registered;
+  \item it sells cloud infrastructure that a customer can set up and control
+        itself, not only hosting, rented rack space or finished software;
+  \item it runs its data centres in Europe and does not, by default, copy or route
+        data elsewhere;
+  \item it runs its own platform rather than reselling one of the American
+        providers', because a reseller simply inherits the position of the
+        platform beneath it;
+  \item it publishes a list of its services detailed enough to compare with the
+        services Alps Alpine uses; and
+  \item it publishes enough about its technology and governance for the
+        sovereignty questions to be answered from public sources.
+\end{enumerate}
+
+The last condition has a consequence worth stating at the outset. A provider that
+publishes little cannot be assessed fully, so a low score in this thesis may
+reflect poor documentation as much as poor practice
+(\cref{sec:design-limitations}).
+
+\Cref{tab:providers} lists the providers chosen and how each was found. They come
+from six countries and include every common kind of owner: independent firms,
+companies listed on the stock market, subsidiaries of telecoms groups and a
+retail group. Deutsche Telekom's platform appears twice, under its old name and its
+new one, for reasons explained in \cref{sec:study1}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{The eighteen assessed providers and how each was found.}
+  \label{tab:providers}
+  \footnotesize
+  \begin{tabular}{@{}l l c >{\raggedright\arraybackslash}p{4.3cm}
+                           >{\raggedright\arraybackslash}p{3.5cm}@{}}
+    \toprule
+    \textbf{Provider} & \textbf{Country} & \textbf{Founded} & \textbf{Ownership}
+      & \textbf{Found through} \\
+    \midrule
+    Hetzner            & Germany     & 1997 & Independent                & European Alternatives \\
+    IONOS              & Germany     & 1988 & United Internet AG         & European Alternatives \\
+    STACKIT            & Germany     & 2018 & Schwarz Group              & Internal communication \\
+    T-Systems \acs{OTC} & Germany     & 2016 & Deutsche Telekom AG        & European Alternatives \\
+    T-Cloud Public     & Germany     & 2026\textsuperscript{a} & Deutsche Telekom AG        & European Alternatives \\
+    Arvato Systems     & Germany     & ---  & Bertelsmann SE \& Co.\ KGaA & Internal communication \\
+    noris network      & Germany     & 1993 & Independent                & Sovereign Cloud Stack \\
+    PlusServer         & Germany     & 1999 & BC Partners funds\textsuperscript{c} & Gaia-X \\
+    OVHcloud           & France      & 1999 & Listed; Klaba family       & European Alternatives \\
+    Scaleway           & France      & 1999 & Iliad Group                & European Alternatives \\
+    Cleura             & Sweden      & 2009\textsuperscript{b} & Iver (EQT)                 & Gaia-X \\
+    Elastx             & Sweden      & 2012 & Privately held             & European Alternatives \\
+    Exoscale           & Switzerland & 2011 & A1 Telekom Austria Group   & European Alternatives \\
+    Infomaniak         & Switzerland & 1994 & Independent; Infomaniak Foundation & European Alternatives \\
+    Nine               & Switzerland & 2000 & Independent                & Swiss data residency \\
+    Cyso Cloud         & Netherlands & 2016 & Cyso Group                 & European Alternatives \\
+    UpCloud            & Finland     & 2011 & Privately held             & European Alternatives \\
+    Locally hosted     & ---         & ---  & The organisation itself    & Reference point \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{2pt}
+  {\footnotesize\raggedright \textsuperscript{a}~The new name of the Open Telekom
+  Cloud; the platform itself dates from 2016. \textsuperscript{b}~Launch of its
+  cloud; the company, then City Network, dates from the early 2000s.
+  \textsuperscript{c}~Last documented owner, since 2017.\par}
+\end{table}
+
+\section{The Providers}
+\label{sec:provider-profiles}
+
+\subsection{Germany}
+
+\subsubsection*{Hetzner}
+Hetzner is an independent German company founded in 1997 in Gunzenhausen,
+Bavaria, and best known for inexpensive servers \cite{Hetzner_About}. Its cloud runs from Germany and Finland,
+and also from the United States and Singapore \cite{Hetzner_Locations}. It
+represents the independent, low-cost end of the German market.
+
+\subsubsection*{IONOS}
+IONOS grew out of 1\&1, a German company founded in 1988, and is part of the
+United Internet group \cite{IONOS_About}. Long known for websites and domains, it also sells
+cloud infrastructure, and represents the established German hosting market in this
+thesis.
+
+\subsubsection*{STACKIT}
+STACKIT is the cloud of the Schwarz Group, the German retail group. It was
+developed from 2018 for the group's own use and opened to outside customers in 2022
+\cite{STACKIT_About,STACKIT_Launch_2022}.
+Of the European providers studied in depth, it is the most recent to open to
+customers and the one with the largest owner behind it (\cref{sec:method-study3}).
+
+\subsubsection*{T-Systems Open Telekom Cloud and T-Cloud Public}
+Deutsche Telekom launched the Open Telekom Cloud in 2016, built with hardware and
+software from Huawei and run from its data centres in Magdeburg and Biere
+\cite{OTC_GoesLive_2016,TCloudPublic_SecureCloud}. At the start of 2026 it
+renamed the platform T-Cloud Public \cite{TCloudPublic_2026}. Both names are assessed, because
+the difference between them turned out to be a finding in its own right.
+
+\subsubsection*{Arvato Systems}
+Arvato Systems, based in G\"utersloh, is a wholly owned subsidiary of
+Bertelsmann, the German media and services group. It runs its own data centres in
+Germany and offers managed cloud services mainly to large companies, alongside a
+private cloud of its own \cite{Arvato_About,Arvato_DataCenter}.
+
+\subsubsection*{noris network}
+noris network is an independent, owner-managed data-centre operator from
+Nuremberg, founded in 1993, which runs six data centres in Germany
+\cite{NorisNetwork_About}. Its sovereign cloud is built on, and certified under,
+the Sovereign Cloud Stack \cite{SCS_noris}.
+
+\subsubsection*{plusserver}
+plusserver is a provider from Cologne, bought in 2017 by funds advised by the
+investment firm BC Partners \cite{PlusServer_About,BCPartners_Plusserver_2017}. It
+runs its cloud from four data centres in Hamburg, Cologne and D\"usseldorf
+\cite{Plusserver_DataCenters}, is a founding member of Gaia-X and was one of the
+initiators of the Sovereign Cloud Stack \cite{Plusserver_Associations}.
+
+\subsection{France}
+
+\subsubsection*{OVHcloud}
+OVHcloud was founded in Roubaix in 1999 by Octave Klaba, whose family still holds
+most of its shares, and has been listed on the Paris stock exchange since 2021
+\cite{OVHcloud_IPO,OVHcloud_Shareholders}. It is the
+only provider in the study that builds its own servers, at a factory in northern
+France \cite{NextInk_OVHCroix_2023}.
+
+\subsubsection*{Scaleway}
+Scaleway, which traces its origins to the French hosting company Online in 1999,
+belongs to the French telecoms group iliad. It runs its cloud from Paris,
+Amsterdam, Warsaw and Milan \cite{Scaleway_About}, is aimed mainly at software
+developers, and offers a growing range of ready-made services.
+
+\subsection{Sweden}
+
+\subsubsection*{Cleura}
+Cleura, known until 2022 as City Network, is a Swedish provider based in
+Karlskrona that launched one of Sweden's first cloud services in 2009. Since 2020
+it has belonged to the Swedish IT group Iver, itself owned by the investment firm
+EQT \cite{Cleura_About,Cleura_Iver_2020}. It took part in Gaia-X from its early
+days \cite{Cleura_GaiaX_2020}.
+
+\subsubsection*{Elastx}
+Elastx is a small, privately held Swedish provider founded in Stockholm in 2012.
+It runs three data centres in the Stockholm region \cite{Elastx_About}, and
+represents the smaller end of the market.
+
+\subsection{Switzerland}
+
+\subsubsection*{Exoscale}
+Exoscale was founded in Lausanne in 2011 and now belongs to A1 Digital, part of
+the A1 Telekom Austria Group. Its cloud runs from Switzerland, Austria, Germany,
+Bulgaria and Croatia \cite{Exoscale_About}. It brings a telecoms owner from outside
+Germany and France into the study.
+
+\subsubsection*{Infomaniak}
+Infomaniak was founded in Geneva in 1994 and runs its data centres in Geneva. It
+is independent, and a foundation now holds the shareholder rights for the purpose
+of keeping it that way \cite{Infomaniak_About}.
+
+\subsubsection*{Nine}
+Nine is an independent Swiss provider based in Zurich, which has offered hosting
+and managed services in Switzerland since 2000 \cite{Nine_About}. It runs its
+services from two certified data centres in the Zurich area
+\cite{Nine_Infrastructure}.
+
+\subsection{The Netherlands and Finland}
+
+\subsubsection*{Cyso Cloud}
+Cyso Cloud is a Dutch cloud built on the open-source software OpenStack. It began
+in 2016 as Fuga Cloud and took its present name in 2025, when Cyso, a Dutch hosting
+company founded in 1997 and part of the same group, took it over. It runs from
+Amsterdam and Frankfurt \cite{Cyso_FugaComesOfAge,FugaCloud_About}.
+
+\subsubsection*{UpCloud}
+UpCloud is a privately held Finnish provider from Helsinki \cite{UpCloud_About}.
+Alongside its European data centres it also runs locations in the United States,
+Singapore and Australia \cite{UpCloud_DataCenters}.
+
+\subsection{Locally Hosted Infrastructure}
+
+The final entry is not a company but a situation: an organisation running its own
+servers, with its own staff, in buildings it controls. It is included because it
+marks one end of the range. It offers the most control a company can have and, as
+\cref{sec:study2} shows, very few ready-made services.
+
+\section{AWS as the Point of Comparison}
+\label{sec:aws-reference}
+
+\acs{AWS} is not one of the eighteen, but it appears throughout the thesis as the
+yardstick against which the others are measured. Alps Alpine already runs its
+work there, so the practical question is how much of that work each European
+provider could take over, and on what terms. \acs{AWS} is therefore used as the
+reference in the capability, financial and benchmarking studies, but it is not
+scored for sovereignty, since the laws described in \cref{subsec:cloud-act} are
+the reason the search for alternatives began.

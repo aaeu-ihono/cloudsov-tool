@@ -1,48 +1,283 @@
 \chapter{Conclusion}
 \label{ch:conclusion}
 
+This thesis began with a practical worry at Alps Alpine. Much of the company's
+work runs on \acs{AWS}, an American provider, and the company wanted to know
+whether it could move that work to a European provider and keep its data under
+European control without losing the services it relies on. Four studies looked at
+the question from four sides: how well each provider can protect data, how many
+of the needed services it offers, how solid its finances are, and how fast its
+machines run. This chapter draws their findings together, first as answers to the
+three research questions and then as advice that an enterprise can act on.
+
 \section{Research Question Responses}
 \label{sec:rq-responses}
 
-\todo{The answers to the three research questions of
-\cref{sec:research-questions}, in order.}
-
 \subsection{RQ1 --- Sovereignty Framework Compliance}
 \label{subsec:rq1}
-\todo{The answer to RQ1, drawing on the sovereignty results in \cref{sec:study1}.}
+
+\begin{quote}
+  \itshape Can EU cloud providers satisfy the requirements of the EC DG DIGIT
+  Cloud Sovereignty Framework?
+\end{quote}
+
+Partly. Some European providers meet the requirements of the European
+Commission's framework, but none meets them completely. Five of the eighteen
+providers studied, STACKIT, Cyso Cloud, Cleura, Elastx and plusserver, reach every
+minimum level set in this thesis (\cref{sec:study1}). Most of the others fall
+short in the same two places, the legal protection of data and the origin of the
+equipment they run on.
+
+These two shortfalls have very different causes. The legal one is mostly a
+problem of the large providers, and it follows them abroad. A provider with
+offices, subsidiaries and customers in the United States or Canada can be reached
+by those countries' courts and laws, even for data it keeps in Europe. This is a
+matter of each provider's own choices, and every provider that falls short could
+in principle close the gap itself. The equipment problem is different. No
+European provider runs on chips or on the low-level software inside its servers
+that were made in Europe, because Europe does not yet make them in the quantities a
+cloud needs \cite{EU_ChipsAct_2023}. However well a provider is run, it cannot fix
+that alone. European providers can therefore offer a good level of control today,
+with European law in force and European staff in charge, but not yet the full
+independence the framework describes at its highest level.
 
 \subsection{RQ2 --- Readiness Relative to AWS}
 \label{subsec:rq2}
-\todo{The answer to RQ2, drawing on the capability results in \cref{sec:study2}.}
+
+\begin{quote}
+  \itshape How does the readiness of EU providers compare to AWS?
+\end{quote}
+
+European providers are well behind \acs{AWS} in the range of services they offer,
+but level with it, and often cheaper, when it comes to the speed of a single
+machine. No European provider can yet take over everything Alps Alpine runs on
+\acs{AWS}. Deutsche Telekom's platform comes closest, offering a little under three
+quarters of the services the company uses, while most providers offer around a
+quarter (\cref{sec:study2}). The basic building blocks, such as servers and
+storage, are widely available. The ready-made services built on top of them, and
+above all artificial intelligence, are where Europe falls short.
+
+The picture is brighter when the European providers are seen together rather than
+one by one. Between them they already offer about three quarters of what Alps
+Alpine uses, so much of the gap could close if each provider built what its
+European competitors have already built. On machines of the same size they keep
+pace with \acs{AWS} and often cost much less (\cref{sec:study4}). Only the speed at
+which data travels between machines is clearly lower. What holds them back is
+size. \acs{AWS} earns many times more than any of them and keeps adding new
+services every year. At their current pace, T-Cloud Public and STACKIT would offer
+what \acs{AWS} offered in 2026 by around 2030 and 2031, but by then \acs{AWS} will
+have moved on (\cref{sec:study3}).
 
 \subsection{RQ3 --- The Sovereignty--Readiness Trade-off}
 \label{subsec:rq3}
-\todo{The answer to RQ3, drawing on \cref{sec:tradeoff}.}
+
+\begin{quote}
+  \itshape What is the trade-off between sovereignty and readiness?
+\end{quote}
+
+The more control a European provider gives its customers over their data, the
+fewer services it tends to offer. The providers that pass every sovereignty
+minimum are mostly small and offer a short list of services, while the platform
+with the longest list began as the one with the weakest control, built on
+equipment and software from Huawei (\cref{sec:tradeoff}). Today, an enterprise
+that wants the most services has to accept less control, and one that wants the
+most control has to accept fewer services.
+
+Two things lie behind this. The same missing European chips and server software
+that limit how much control any provider can offer also leave artificial
+intelligence the weakest part of the European offer. And growing abroad, which
+brings a provider more revenue to build new services, also brings it under the
+laws of other countries. The trade-off is real, but STACKIT shows that it is not
+fixed. It offers the most control of any provider studied, has added services
+faster than any of them, and already covers almost half of what Alps Alpine uses.
+A provider can grow without giving up control. None has yet grown far enough to
+make the choice unnecessary.
 
 \section{Recommendations for EU Enterprises}
 \label{sec:recommendations}
 
-\todo{Four strategies: moving to a high-readiness EU provider, choosing on
-sovereignty for sensitive workloads, a hybrid architecture, and re-assessing
-STACKIT in 2027--2028. Then the recommendation for Alps Alpine.}
+No single provider is the right answer for every enterprise, or even for all the
+work of one. What fits depends on two things: how sensitive the data is, and what
+kind of service the work needs. Putting these two side by side gives the
+recommendation matrix in \cref{tab:recommendation-matrix}, which brings together
+the results of all four studies.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Recommendation matrix.}
+  \label{tab:recommendation-matrix}
+  \small
+  \newcommand{\main}[2]{\textcolor{#1}{\textbf{#2}}}
+  \newcommand{\movenum}[1]{\tikz[baseline=(c.base)]\node[circle, fill=black!85,
+    text=white, font=\scriptsize\bfseries, inner sep=1.2pt] (c) {#1};}
+  \newcommand{\pick}[3]{\movenum{#1}\,%
+    {\setlength{\fboxsep}{2pt}\setlength{\fboxrule}{0.8pt}\color{#2}%
+     \fbox{\textbf{#3}~$\star$}}}
+  \newcommand{\alt}[1]{\newline{\footnotesize\color{black!75}\hspace*{0.6em}\textbullet~#1}}
+  \newcommand{\why}[1]{\newline{\footnotesize\itshape\color{black!65}#1}}
+  \renewcommand{\arraystretch}{1.5}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.7cm}
+                               >{\raggedright\arraybackslash}X
+                               >{\raggedright\arraybackslash}X
+                               >{\raggedright\arraybackslash}X@{}}
+    \toprule
+    & \textbf{Basic infrastructure}\newline{\footnotesize\color{black!60}servers, storage, networks}
+    & \textbf{Managed services}\newline{\footnotesize\color{black!60}databases, messaging, tools}
+    & \textbf{Artificial intelligence}\newline{\footnotesize\color{black!60}models and \acs{AI} services} \\
+    \midrule
+    \rowcolor{red!9}
+    \textbf{Regulated or confidential data}
+      & \pick{1}{cProvC}{STACKIT}
+        \alt{Cyso Cloud}\alt{Cleura}\alt{Elastx}\alt{plusserver}
+        \why{All five pass every sovereignty minimum}
+      & \main{cProvC}{STACKIT}
+        \why{Missing services run by the enterprise itself on open-source software}
+      & \pick{3}{black!70}{None yet}
+        \why{Self-hosted open models at a sovereign provider, once a trial has
+             proven them} \\
+    \rowcolor{orange!11}
+    \textbf{Internal business data}
+      & \main{cProvB}{OVHcloud}
+        \alt{IONOS}
+        \why{OVHcloud for speed and open accounts, IONOS for the lowest cost}
+      & \pick{2}{cProvA}{T-Cloud Public}
+        \alt{OVHcloud}
+        \why{The broadest European catalogues}
+      & \main{cProvA}{T-Cloud Public}
+        \why{The broadest European \acs{AI} offer} \\
+    \rowcolor{green!9}
+    \textbf{Public or non-sensitive data}
+      & \main{cProvE}{IONOS}
+        \alt{OVHcloud}
+        \why{The most performance per euro}
+      & \main{cProvA}{T-Cloud Public}
+        \alt{\acs{AWS}}
+        \why{\acs{AWS} where a service has no European equivalent}
+      & \main{cBase!85!black}{\acs{AWS}}
+        \why{Until a European equivalent exists} \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{4pt}
+  {\footnotesize\raggedright
+  \textbf{Bold}: main recommendation \quad
+  \textbullet~alternatives \quad
+  {\itshape\color{black!65}Italic}: reason \quad
+  \movenum{1}\,\movenum{2}\,\movenum{3}~{\setlength{\fboxsep}{1.5pt}\fbox{$\star$}}:
+  suggested order of moves for Alps Alpine\par}
+\end{table}
+
+The top row covers data that is regulated or confidential, where protection from
+access outside Europe comes first. Only providers that pass every sovereignty
+minimum belong here, and among the providers studied in depth only STACKIT does.
+Its machines performed well and its owner stands firmly behind it, but it offers
+less than half of the services Alps Alpine uses, so a company that places its
+sensitive work there will have to run some services itself. For artificial
+intelligence on sensitive data, no European provider can yet be recommended
+without conditions. The most promising path is for the company to run openly
+available language models itself, on machines rented from a sovereign provider,
+but that path still has to be tried in practice.
+
+The middle row covers the everyday internal work of a company, which is private
+but not regulated. Here a wide choice of services matters more than passing every
+sovereignty test, and T-Cloud Public and OVHcloud offer the widest choice in
+Europe. Their weaknesses, business abroad in both cases and the Huawei software
+at the heart of T-Cloud Public, matter most for regulated data, which the top row
+keeps away from them. For plain servers and storage, OVHcloud gives the best speed
+for its price and is the most open about its finances, while IONOS is the
+cheapest.
+
+The bottom row covers public or non-sensitive data, and this is where \acs{AWS}
+keeps its place. Such work gains little from extra control, and where it depends
+on services that no European provider offers, such as a ready-made language-model
+service, or on moving large amounts of data between many machines, \acs{AWS}
+remains the stronger choice.
+
+Two further points apply to every cell of the matrix. For a long contract,
+OVHcloud and STACKIT are the safest choices, for opposite reasons: OVHcloud
+publishes its finances in full, while STACKIT has a very strong owner behind it
+(\cref{subsec:study3-interpretation}). And because the market is changing
+quickly, any choice made today should be looked at again. STACKIT in particular
+deserves a fresh look in 2027 and 2028, when its new data-centre campus at
+L\"ubbenau starts to open (\cref{sec:study3-investment}) and its list of services
+is likely to have grown.
+
+For Alps Alpine, the matrix suggests moving in steps rather than all at once, in
+the order marked in \cref{tab:recommendation-matrix}. Confidential data and the
+systems that hold it would move first, to STACKIT, starting with the basic servers
+and storage where its offer is strongest. Internal work that needs a wider range
+of services would follow, to T-Cloud Public or OVHcloud. The artificial
+intelligence work that started this search would move last, because this is where
+the European offer is weakest, and only once running its own models at a
+sovereign provider has proven itself. Moving in this order lets the company take
+control of its most sensitive data first, without waiting for Europe to match
+\acs{AWS} in everything.
 
 \section{Vendor Lock-in Implications}
 \label{sec:lockin}
 
-\todo{OpenStack as an anchor for interoperability, proprietary managed services
-as the main source of lock-in, and what it takes to move away from AWS.}
+Leaving \acs{AWS} would gain little if the company simply became tied to a new
+provider instead. Here the European market is in good shape. In the sovereignty
+study, sixteen of the eighteen providers let customers take their work elsewhere
+without being locked in, and the same number use open, publicly described ways of
+connecting to their services (\cref{sec:study1}). Many of them are also built on
+the same free, openly developed cloud software, called OpenStack. Open Telekom
+Cloud was built on it from the start \cite{OTC_GoesLive_2016}, OVHcloud has used it
+since 2012 \cite{OVHcloud_OpenStack}, Cyso Cloud describes itself as a European
+OpenStack cloud \cite{FugaCloud_About}, and T-Cloud Public names OpenStack among
+the open standards it is built on \cite{TCloudPublic_Sovereignty}. Because these
+providers share the same underlying software, servers and storage set up at one
+can be set up again at another with little change.
+
+The real risk of being tied down lies in the ready-made services that each
+provider builds on top, such as its own databases and messaging tools. Each
+provider designs these in its own way, so a system built around one has to be
+partly rebuilt before it can move. This is also what makes leaving \acs{AWS} hard
+today: the more of its ready-made services a company uses, the more it has to
+rebuild, and some of them have no European counterpart at all (\cref{sec:study2}).
+A company moving to a European provider can avoid repeating the problem by using
+open, widely supported tools wherever it can, and by relying on any one provider's
+own special services only where it truly needs them.
 
 \section{Limitations}
 \label{sec:limitations}
 
-\todo{Evidence reported by the providers themselves, a single point in time in
-a changing market, AWS as the baseline, services selected for one enterprise, no
-assessment of service levels or operational quality, and commercial terms left
-out.}
+The limits of the four studies were described in \cref{sec:design-limitations}.
+They rely on what providers say about themselves, they capture the market at one
+moment, they measure every provider against \acs{AWS}, and the services were chosen
+for the needs of one company. How well a provider supports its customers, and how
+reliable it is over the years, could not be judged from outside. One more limit
+applies to the advice in this chapter. Prices were compared using the published
+hourly price of one machine size, and the terms that shape a real contract, such
+as discounts for long commitments, the cost of taking data out again and the price
+of support, were not part of the comparison. In a real purchase these can change
+which provider is cheapest, so they should be negotiated before acting on any of
+the recommendations above.
 
 \section{Future Work}
 \label{sec:future-work}
 
-\todo{Deploying to the highest-ranked provider, building and running a
-sovereign platform in-house, a live trial of self-hosted language models, and
-repeating the assessment once the IPCEI-CIS investments are delivered.}
+The natural next step is to try the advice on a small scale. Moving one real
+Alps Alpine system to the recommended provider for its row of the matrix, and
+recording over several months what the move involved, what it cost and how well
+the service ran, would test under real conditions what this thesis could only
+judge from outside, such as support and reliability.
+
+The artificial intelligence work that started this search deserves a trial of its
+own. Running openly available language models on machines at a sovereign European
+provider, or on the company's own hardware, would show whether this path can
+replace public \acs{AI} services for Alps Alpine's needs, and at what cost.
+
+A further study could look at the company building and running its own sovereign
+cloud, on free software such as OpenStack. This idea was considered for this
+thesis but left out of its scope. In Study~2 the company's own locally hosted
+infrastructure offered very few of the services it uses, and a full study would
+show what it would take, in equipment, people and money, to change that.
+
+Finally, the assessment should be repeated. The European market is moving fast,
+with large public and private investments under way, among them projects
+supported through the \acs{IPCEI}-CIS programme \cite{IPCEI_CIS_2023} and
+STACKIT's new campus. Because CloudSov keeps the data separate from the rules used
+to score it, the four studies can simply be run again on fresh data as these
+investments are completed, showing whether the gaps found here are closing.

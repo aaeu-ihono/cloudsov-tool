@@ -102,7 +102,7 @@ applies the scoring rules to it, and presents the results side by side.
 \begin{quote}
 \textit{Repository:} \texttt{https://github.com/aaeu-ihono/cloudsov-tool.git}\\
 \textit{Licence:} MIT \\
-\textit{Online Access:}  \texttt{https://cloudsov.onrender.com}\\
+\textit{Online Access:}  \texttt{https://cloudsov.ihonosetale.eu}\\
 \end{quote}
 
 Each judgement in CloudSov is recorded with the source it came from,
@@ -122,75 +122,11 @@ figures, or at best the same conclusions. The providers, the examined factors an
 without altering CloudSov itself, so the assessments of each study or module can be extended or repeated
 when circumstances change.
 
-\section{Provider Selection}
-\label{sec:provider-selection}
+\section{Providers in Each Study}
+\label{sec:study-coverage}
 
-Eighteen European providers were assessed. To be included, a provider had to meet
-all of the following:
-
-\begin{itemize}
-  \item be registered in an \ac{EU} or \ac{EEA} member state, since jurisdiction
-        follows incorporation;
-  \item sell cloud infrastructure that a customer can provision and program, not
-        only managed hosting, colocation or finished software;
-  \item run its data centres in Europe, without routing or replicating elsewhere
-        by default;
-  \item operate its own platform rather than resell a hyperscaler's, since a
-        reseller's sovereignty position is entirely inherited from the platform
-        underneath it;
-  \item publish a service catalogue detailed enough to check against the
-        capability checklist; and
-  \item publish enough technical and governance documentation for the
-        sovereignty questions to be answered from open sources.
-\end{itemize}
-
-If a provider does not publish how it handles data, this research cannot
-accurately assess it, which in turn may result in poor scoring and analysis. For
-this reason, a low score may not necessarily mean poor practice, but poor
-documentation and a lack of information to support the claims. The problem is
-explained in \cref{sec:design-limitations}.
-
-\Cref{tab:providers} lists those selected. They span six countries and every
-common ownership model: family-held independents, listed technology companies,
-telecoms subsidiaries and retail-conglomerate entrants. Locally hosted
-infrastructure is included as an eighteenth entry, not because it is a provider
-but because it marks the far end of the range --- the highest sovereignty a
-company can reach and the lowest service breadth.
-
-\begin{table}[htbp]
-  \centering
-  \caption{The eighteen assessed providers.}
-  \label{tab:providers}
-  \small
-  \begin{tabularx}{\textwidth}{@{}l l l X@{}}
-    \toprule
-    \textbf{Provider} & \textbf{Country} & \textbf{Founded} & \textbf{Ownership} \\
-    \midrule
-    Hetzner            & Germany     & 1997 & Independent, family-owned \\
-    IONOS              & Germany     & 1988 & United Internet AG \\
-    STACKIT            & Germany     & 2021 & Schwarz Group \\
-    T-Systems \ac{OTC} & Germany     & 2016 & Deutsche Telekom AG \\
-    T-Cloud Public     & Germany     & 2023 & Deutsche Telekom AG \\
-    Arvato Systems     & Germany     & 1961 & Bertelsmann SE \& Co.\ KGaA \\
-    noris network      & Germany     & 1993 & Independent \\
-    PlusServer         & Germany     & 1999 & Ioniq Group \\
-    OVHcloud           & France      & 1999 & Listed; Klaba family \\
-    Scaleway           & France      & 1999 & Iliad Group \\
-    Cleura             & Sweden      & 2009 & Independent \\
-    Elastx             & Sweden      & 2013 & Independent \\
-    Exoscale           & Switzerland & 2012 & A1 Telekom Austria Group \\
-    Infomaniak         & Switzerland & 1994 & Independent, employee-owned \\
-    Nine               & Switzerland & 2006 & Independent \\
-    Cyso Cloud         & Netherlands & 2013 & Cyso Group, independent \\
-    UpCloud            & Finland     & 2011 & Independent \\
-    Locally hosted     & ---         & ---  & The organisation itself \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
-
-\subsection*{Which providers entered which study}
-
-Not every study covers all eighteen. The first two assess published documents,
+The eighteen providers, and how they were chosen, are introduced in
+\cref{ch:landscape}. Not every study covers all eighteen. The first two assess published documents,
 which can be done for any provider that publishes them. The last two need more:
 published accounts in one case, and a running instance that has to be paid for
 and measured in the other. \Cref{tab:study-coverage} shows the coverage that
@@ -212,8 +148,8 @@ resulted.
       & 17 + \acs{AWS}
       & All, with the two Deutsche Telekom platforms treated as one \\[0.35em]
     3 --- Financial
-      & 6 + \acs{AWS}
-      & Hetzner, IONOS, OVHcloud, Scaleway, STACKIT, T-Cloud Public \\[0.35em]
+      & 5 + \acs{AWS}
+      & IONOS, OVHcloud, Scaleway, STACKIT, T-Cloud Public \\[0.35em]
     4 --- Benchmarking
       & 5 + \acs{AWS}
       & IONOS, OVHcloud, Scaleway, STACKIT, T-Cloud Public \\
