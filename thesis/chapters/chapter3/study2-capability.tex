@@ -1,51 +1,50 @@
 \section{Study 2 --- Capability Gap Analysis}
 \label{sec:method-study2}
 
-This study measures how much of the enterprise's current platform a European
-provider could replace. It works from a fixed list of sixty \acs{AWS} services
-and asks of every provider whether it offers an equivalent, so what follows
-describes where that list came from and how the answers were scored.
+The second study asks a practical question: how much of the work Alps Alpine runs on
+\acs{AWS} today could a European provider take over? To answer it, the study takes a
+fixed list of sixty \acs{AWS} services and checks, provider by provider, whether
+each one offers something equivalent. This section explains where that list came
+from and how the answers were turned into scores.
 
-The instrument has two parts: a catalogue of services grouped into eleven
-categories, and two further dimensions assessed directly rather than from the
-catalogue.
+The list is grouped into eleven categories of services, and two further qualities,
+how far a provider can grow and how well it performs, are judged directly rather
+than counted from the list.
 
 \subsection*{The reference catalogue}
 
-The list is drawn from the \acs{AWS} product catalogue
-\cite{AWS_Products}, narrowed to what the enterprise uses. Fifty of the sixty
-services come from a checklist completed by Alps Alpine
-\cite{AlpsAlpine_Checklist}, which asked, for each capability, whether it
-was necessary previously, now or later, and named the \acs{AWS} service that
-provides it. Fifty-eight lines were marked as needed; several name the same
-product, leaving fifty distinct services. A further ten in common use elsewhere
-were added, so that a provider is not credited with completeness merely because
-the enterprise does not currently need a category.
+The list starts from the full range of \acs{AWS} services \cite{AWS_Products},
+narrowed down to what the company actually uses. Fifty of the sixty services come
+from a checklist filled in by Alps Alpine \cite{AlpsAlpine_Checklist}. For each
+capability it asked whether it had been needed in the past, is needed now or will
+be needed later, and named the \acs{AWS} service that provides it. Fifty-eight lines
+were marked as needed, and since several of them name the same product, that leaves
+fifty different services. Ten more, widely used elsewhere, were added so that a
+provider does not look complete simply because the company happens not to need a
+whole category today.
 
-\todo{The sources for the ten added services.}
-
-The checklist was completed against the platform shown in
-\cref{fig:alps-infrastructure} in \cref{app:checklist}, which maps the services the department runs, is
-investigating, or expects to need. It is arranged in six stages, from the
-networking and identity foundation on the left through to the applications users
-see on the right, and it shows why the catalogue is weighted as it is: security
-and identity carry the largest number of distinct services, and the specialised
-categories --- machine learning and device management --- sit furthest from the
+The checklist was filled in against the company's own platform, shown in
+\cref{fig:alps-infrastructure} in \cref{app:checklist}, which maps the services the
+department runs, is looking into or expects to need. It is laid out in six stages,
+from the networking and sign-in services on the left to the applications people use
+on the right. The drawing also explains why the list looks the way it does: security
+and sign-in account for the largest number of services, while the specialised areas,
+machine learning and the management of connected devices, sit furthest from the
 foundation.
 
-\acs{AWS} is the baseline. Every one of the sixty services is its own, so it
-scores full marks on every dimension by construction, and each European provider
-is measured by how much of the catalogue it matches. The consequence noted in
-\cref{sec:research-design} follows from this: a provider offering something
-\acs{AWS} does not offer earns nothing for it.
+Because every service on the list is an \acs{AWS} service, \acs{AWS} scores full
+marks everywhere by design, and each European provider is measured by how much of
+the list it can match. As noted in \cref{sec:research-design}, a provider earns
+nothing for a service that \acs{AWS} does not have.
 
 \subsection*{The thirteen dimensions}
 
-The eleven categories are scored from the services they contain. Two further
-dimensions --- scalability and performance --- cannot be settled by counting
-services, and were assessed instead from what each provider publishes about its
-regions, its scaling, its largest instances, its service-level commitments and
-its certifications. \Cref{tab:readiness-dimensions} lists all thirteen.
+The eleven categories are scored from the services they contain. The two other
+qualities, scalability and performance, cannot be settled by counting services.
+They were judged instead from what each provider publishes about its locations, how
+far its systems can grow, the size of its largest machines, the service levels it
+promises and the certificates it holds. \Cref{tab:readiness-dimensions} lists all
+thirteen.
 
 \begin{table}[htbp]
   \centering
@@ -78,19 +77,18 @@ its certifications. \Cref{tab:readiness-dimensions} lists all thirteen.
   \end{tabularx}
 \end{table}
 
-The categories are of very unequal size, which matters when reading a dimension
-score. Web and app hosting contains one service, so a provider either scores nothing
-there or scores full marks; security contains twelve, so a single service moves
-it by four points. The dimensions are therefore comparable as proportions of what
-each contains, not as equally fine measurements.
+The categories differ greatly in size, and that affects how a score should be
+understood. Web and app hosting contains a single service, so a provider scores
+either nothing or full marks there. Security contains twelve, so one service more or
+less changes the score by only four points. The scores therefore show how much of
+each category a provider covers, not equally fine measurements.
 
 \subsection*{The sixty services}
 
-\Cref{tab:readiness-services} gives the catalogue, grouped by dimension. Services
-shown without a mark are those Alps Alpine Europe uses or expects to need; the
-ten marked with a dagger are widely used elsewhere and were added so that a
-provider is not credited with completeness merely because the department does not
-currently need a category.
+\Cref{tab:readiness-services} lists all sixty services by category. Services without
+a mark are the ones Alps Alpine Europe uses or expects to need. The ten marked with
+a dagger are widely used elsewhere and were added so that a provider does not look
+complete only because the department does not need a category today.
 
 \begin{table}[htbp]
 \centering
@@ -164,29 +162,30 @@ Athena                      & Certificate Manager        &                      
 
 \subsection*{The verdicts}
 
-Each service takes one of three verdicts, answered from the provider's published
-service documentation:
+Each service was given one of three verdicts, based on the provider's own published
+service descriptions:
 
 \begin{itemize}
-  \item \textbf{Full (Y)} --- a managed equivalent exists, generally available,
-        with comparable function. Two points.
-  \item \textbf{Partial (P)} --- an equivalent exists but is in beta,
-        feature-limited, or requires a workaround. One point.
-  \item \textbf{None (N)} --- no managed equivalent; the capability has to be
-        built and run on the provider's raw infrastructure. No points.
+  \item \textbf{Full (Y)}: the provider offers a ready-made equivalent that is
+        generally available and does much the same job. This is worth two points.
+  \item \textbf{Partial (P)}: an equivalent exists but is still in testing, does
+        less, or needs a workaround. This is worth one point.
+  \item \textbf{None (N)}: there is no ready-made equivalent, so the customer would
+        have to build and run it on the provider's basic machines. This is worth
+        nothing.
 \end{itemize}
 
-A verdict of none does not mean the work cannot be done. It means the provider
-does not do it for the customer, so the customer does it instead. The gap this
-study measures is therefore a transfer of work rather than a hard obstacle, which
-is why it is reported separately from the sovereignty result and not merged with
-it.
+A verdict of none does not mean the work cannot be done. It means the provider does
+not do it for the customer, so the customer has to do it instead. The gap this study
+measures is therefore extra work for the customer rather than a wall it cannot get
+past, which is why it is reported separately from the sovereignty results.
 
 \subsection*{From verdicts to a score}
 
-A dimension score is the points earned across its services as a share of the
-points available. Writing $S_c$ for the services in category $c$ and $v_p(s)$ for
-the points provider $p$ earned on service $s$:
+In plain words, a category's score is the points a provider earns on its services,
+compared with the points it could have earned, expressed out of 100. Writing $S_c$
+for the services in category $c$ and $v_p(s)$ for the points provider $p$ earned on
+service $s$:
 
 \begin{equation}
   \label{eq:readiness-dimension}
@@ -194,12 +193,12 @@ the points provider $p$ earned on service $s$:
             \times 100
 \end{equation}
 
-Scalability and performance are not computed this way; each is assigned directly
-on the same scale of 0 to 100, against \acs{AWS} at 100.
+Scalability and performance are not worked out this way. Each is given a score
+directly on the same scale, with \acs{AWS} at 100.
 
-A provider's overall coverage is the mean of all thirteen dimensions, and its gap
-is what remains to the baseline. Since \acs{AWS} scores 100 everywhere, the two
-are complements:
+A provider's overall coverage is the average of all thirteen scores, and its gap is
+whatever is left between that average and \acs{AWS}. Because \acs{AWS} scores 100
+everywhere, the two always add up to 100:
 
 \begin{equation}
   \label{eq:readiness-coverage}
@@ -208,22 +207,22 @@ are complements:
   G_p = 100 - C_p
 \end{equation}
 
-Worked through: storage contains five services, so ten points are available.
-STACKIT offers object storage, block storage and managed backup in full, a cold
-storage tier that is less capable than the \acs{AWS} equivalent, and no shared
-file system --- six points for the three full, one for the partial, none for the
-last, giving seven of ten and a storage score of 70.
+An example shows how this works. The storage category has five services, so ten
+points are possible. STACKIT offers object storage, block storage and managed backup
+in full, a cold storage tier that does less than the \acs{AWS} version, and no shared
+file system. That gives six points for the three full services, one for the partial
+one and none for the last, seven of ten in all, and a storage score of 70.
 
 \subsection*{What the method produces}
 
-\Cref{tab:readiness-matrix} gives the score on every dimension for the seventeen
-providers, with the two Deutsche Telekom platforms treated as one, as explained
-in \cref{sec:provider-selection}. The final row is the mean across the providers
-for that dimension.
+\Cref{tab:readiness-matrix} gives every score for the seventeen providers, with the
+two Deutsche Telekom platforms counted as one, as explained in
+\cref{sec:study-coverage}. The last row shows the average across all providers for
+each category.
 
 \begin{table}[htbp]
   \centering
-  \caption{Coverage by dimension, as a percentage of the \acs{AWS} baseline,
+  \caption{Coverage by dimension, as a percentage of \acs{AWS},
            ranked by mean coverage.}
   \label{tab:readiness-matrix}
   \scriptsize
@@ -260,21 +259,21 @@ for that dimension.
   \end{tabular*}
 \end{table}
 
-The final row is the more revealing part of the table. Performance is the one
-dimension on which European providers are close to the baseline, averaging 78,
-and it is also the dimension that separates them least --- every provider falls
-between 65 and 87. Storage and networking follow at 56 and 52. At the other end,
-the average on \acs{AI} and machine learning is 5 and on web and app hosting 6:
-these are not weak areas but largely absent ones.
+That last row tells the most. Performance is the one area where the European
+providers come close to \acs{AWS}, with an average of 78, and it is also the area
+where they differ least, with every provider between 65 and 87. Storage and
+networking follow at 56 and 52. At the other end, the average is 5 for artificial
+intelligence and machine learning and 6 for web and app hosting. These are not weak
+areas so much as missing ones.
 
-Six of the sixty services have no equivalent at any provider in the set:
-managed application deployment, the key-value store, the time-series database,
-the high-performance relational database, the language-model service and workflow
-orchestration. Nothing in the assessment can distinguish providers on these,
-because none of them offers anything.
+Six of the sixty services are offered by no provider in the study: managed
+application deployment, the key-value database, the time-series database, the
+high-performance relational database, the language-model service and workflow
+orchestration. On these six the providers cannot be told apart, because none of them
+offers anything.
 
-\Cref{fig:readiness-profile} draws the four highest-scoring providers against the
-\acs{AWS} ceiling, dimension by dimension.
+\Cref{fig:readiness-profile} shows the leading providers against \acs{AWS}, category
+by category.
 
 \begin{figure}[htbp]
   \centering
@@ -282,7 +281,7 @@ because none of them offers anything.
     \begin{axis}[
       width=\textwidth, height=7.6cm,
       ymin=0, ymax=105,
-      ylabel={Coverage of baseline (\%)},
+      ylabel={Coverage of \acs{AWS} (\%)},
       ylabel style={font=\footnotesize},
       symbolic x coords={Scal,Perf,App,Comp,Stor,Data,Netw,AI,Sec,Mon,Dev,IoT,Msg},
       xtick=data,
@@ -308,19 +307,18 @@ because none of them offers anything.
       \addplot[cProvC, thick, mark=triangle*, mark size=2.1pt] coordinates {
         (Scal,32) (Perf,80) (App,0) (Comp,67) (Stor,70) (Data,36)
         (Netw,79) (AI,8) (Sec,79) (Mon,62) (Dev,30) (IoT,0) (Msg,30)};
-      \legend{\acs{AWS} baseline, T-Systems, OVHcloud, STACKIT}
+      \legend{\acs{AWS}, T-Systems, OVHcloud, STACKIT}
     \end{axis}
   \end{tikzpicture}
-  \caption{Coverage by dimension for the three leading providers against the
-           \acs{AWS} baseline.}
+  \caption{Coverage by dimension for the three leading providers against 
+           \acs{AWS}.}
   \label{fig:readiness-profile}
 \end{figure}
 
-The same three are shown as coverage profiles in \cref{fig:readiness-radar},
-where the area enclosed by each shape is the share of the catalogue it reaches.
-The shapes are not merely smaller than the baseline; they are indented in
-different places, which is what makes the providers hard to rank on a single
-figure.
+\Cref{fig:readiness-radar} shows the same providers in a different form, where the
+area each outline encloses is the share of the list it covers. The outlines are not
+just smaller than that of \acs{AWS}; they fall short in different places, which is
+why the providers are hard to rank with a single number.
 
 \begin{figure}[htbp]
   \centering
@@ -358,16 +356,16 @@ figure.
         (0,32) (27.692,80) (55.385,0) (83.077,67) (110.769,70)
         (138.462,36) (166.154,79) (193.846,8) (221.538,79)
         (249.231,62) (276.923,30) (304.615,0) (332.308,30) (360,32)};
-      \legend{\acs{AWS} baseline, T-Systems, OVHcloud, STACKIT}
+      \legend{\acs{AWS}, T-Systems, OVHcloud, STACKIT}
     \end{polaraxis}
   \end{tikzpicture}
-  \caption{Coverage profiles of the three leading providers against the
-           \acs{AWS} baseline, across the thirteen dimensions.}
+  \caption{Coverage profiles of the three leading providers against 
+           \acs{AWS}, across the thirteen dimensions.}
   \label{fig:readiness-radar}
 \end{figure}
 
-\Cref{fig:readiness-verdicts} shows what lies behind the dimension scores: how
-many of the sixty services each provider covers fully, partly, or not at all.
+\Cref{fig:readiness-verdicts} shows what lies behind the scores: how many of the
+sixty services each provider covers fully, partly or not at all.
 
 \begin{figure}[htbp]
   \centering
@@ -420,120 +418,18 @@ many of the sixty services each provider covers fully, partly, or not at all.
   \label{fig:readiness-verdicts}
 \end{figure}
 
-The figure separates two groups. Four providers --- T-Systems, OVHcloud, STACKIT
-and Scaleway --- cover between a third and a half of the catalogue outright. The
-remaining twelve cluster tightly: six to twelve services in full, most of the
-rest missing. Locally hosted infrastructure marks the floor, with no managed
-equivalent to anything and four partials.
+The providers fall into two groups. Four of them, T-Systems, OVHcloud, STACKIT and
+Scaleway, cover between a third and a half of the list in full. The other twelve sit
+close together, with six to twelve services in full and most of the rest missing.
+Locally hosted infrastructure is at the bottom, with no ready-made equivalent to
+anything and four partial ones.
 
-Behind those totals is a service-by-service picture.
-\Cref{tab:readiness-services-compare} sets the four leading providers against
-the baseline one service at a time, and gives for each service how many of the
-seventeen offer a full equivalent.
+The full picture, service by service and provider by provider, can be
+seen in the readiness module of the CloudSov tool, reproduced in
+\cref{fig:tool-readiness} in \cref{app:cloudsov}.
 
-\footnotesize
-\begin{longtable}{@{}p{4.9cm} *{4}{>{\centering\arraybackslash}p{1.75cm}} r@{}}
-  \caption{Service-by-service comparison against the \acs{AWS} baseline for
-           the four leading providers. Y = a managed equivalent exists in
-           full, P = partial, -- = none. The last column counts how many of
-           the seventeen offer a full equivalent.}
-  \label{tab:readiness-services-compare}\\
-  \toprule
-  \textbf{\acs{AWS} service} & \textbf{T-Systems} & \textbf{OVHcloud} & \textbf{STACKIT} & \textbf{Scaleway} & \textbf{Full/17} \\
-  \midrule
-  \endfirsthead
-  \toprule
-  \textbf{\acs{AWS} service} & \textbf{T-Systems} & \textbf{OVHcloud} & \textbf{STACKIT} & \textbf{Scaleway} & \textbf{Full/17} \\
-  \midrule
-  \endhead
-  \bottomrule
-  \endfoot
-  \multicolumn{6}{@{}l}{\textit{Web and App Hosting}}\\
-  Amplify & P & P & -- & -- & 0 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Compute}}\\
-  Lambda & Y & P & P & Y & 2 \\
-  ECS & Y & Y & Y & Y & 4 \\
-  EKS & Y & Y & Y & Y & 10 \\
-  EC2 & Y & Y & Y & Y & 16 \\
-  Batch & P & P & P & Y & 1 \\
-  Elastic Beanstalk & -- & -- & -- & -- & 0 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Storage}}\\
-  S3 & Y & Y & Y & Y & 16 \\
-  S3 Glacier & P & Y & P & P & 1 \\
-  EBS & Y & Y & Y & Y & 16 \\
-  Backup & Y & Y & Y & P & 5 \\
-  EFS & Y & P & -- & -- & 1 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Database}}\\
-  RDS & Y & Y & Y & Y & 9 \\
-  DocumentDB & P & P & -- & P & 0 \\
-  DynamoDB & -- & -- & -- & -- & 0 \\
-  Timestream & -- & -- & -- & -- & 0 \\
-  Aurora & -- & -- & -- & -- & 0 \\
-  ElastiCache & Y & Y & Y & P & 5 \\
-  Redshift & P & P & P & -- & 0 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Networking}}\\
-  Application Load Balancer & Y & Y & Y & Y & 9 \\
-  Network Load Balancer & Y & Y & Y & P & 4 \\
-  VPC & Y & Y & Y & Y & 16 \\
-  Route 53 & Y & Y & Y & Y & 10 \\
-  API Gateway & Y & P & P & -- & 1 \\
-  CloudFront & P & Y & -- & -- & 1 \\
-  Direct Connect & Y & Y & Y & -- & 5 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{AI/ML}}\\
-  Rekognition & P & -- & -- & -- & 0 \\
-  SageMaker & Y & P & P & P & 1 \\
-  Bedrock & -- & -- & -- & -- & 0 \\
-  Glue & P & -- & -- & -- & 0 \\
-  EMR & P & P & -- & -- & 0 \\
-  Athena & P & -- & -- & -- & 0 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Security}}\\
-  IAM & Y & Y & Y & Y & 14 \\
-  Cognito & -- & P & P & -- & 0 \\
-  IAM Identity Center & -- & P & P & -- & 0 \\
-  KMS & Y & Y & Y & Y & 4 \\
-  Secrets Manager & P & P & Y & Y & 2 \\
-  Certificate Manager & Y & Y & Y & Y & 4 \\
-  GuardDuty & P & P & P & -- & 0 \\
-  Security Hub & P & -- & P & -- & 0 \\
-  Config & P & -- & P & -- & 0 \\
-  Shield & Y & Y & Y & P & 3 \\
-  WAF & Y & Y & Y & -- & 3 \\
-  CloudTrail & Y & P & Y & P & 2 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Monitoring}}\\
-  CloudWatch & Y & P & P & P & 1 \\
-  SNS & Y & P & P & P & 1 \\
-  Systems Manager & P & P & P & -- & 0 \\
-  Cost Explorer & Y & Y & Y & Y & 16 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Dev/Deploy}}\\
-  CodeBuild & P & -- & -- & -- & 0 \\
-  CodeDeploy & P & -- & -- & -- & 0 \\
-  CodePipeline & P & -- & -- & -- & 0 \\
-  ECR & Y & Y & Y & Y & 6 \\
-  CloudFormation & Y & P & P & -- & 1 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{IoT}}\\
-  IoT Core & Y & P & -- & P & 1 \\
-  IoT Device Management & Y & -- & -- & -- & 1 \\
-  \midrule
-  \multicolumn{6}{@{}l}{\textit{Messaging}}\\
-  SQS & Y & Y & Y & Y & 4 \\
-  EventBridge & P & -- & -- & -- & 0 \\
-  Step Functions & -- & -- & -- & -- & 0 \\
-  SES & P & Y & P & Y & 2 \\
-  Kinesis & P & -- & -- & -- & 0 \\
-\end{longtable}
-\normalsize
-
-\Cref{fig:readiness-ranking} ranks the providers by mean coverage, with the
-remaining gap to the baseline shown alongside.
+\Cref{fig:readiness-ranking} ranks the providers by their overall coverage, with the
+remaining gap to \acs{AWS} shown alongside.
 
 \begin{figure}[htbp]
   \centering
@@ -542,7 +438,7 @@ remaining gap to the baseline shown alongside.
       xbar stacked,
       width=0.80\textwidth, height=10.5cm,
       xmin=0, xmax=100,
-      xlabel={Coverage of the \acs{AWS} baseline (\%)},
+      xlabel={Coverage of \acs{AWS} (\%)},
       bar width=8pt,
       enlarge y limits=0.05,
       symbolic y coords={{Locally hosted},{noris network},{nine},{Cyso Cloud},
@@ -575,18 +471,18 @@ remaining gap to the baseline shown alongside.
         (75,{Cleura}) (73,{IONOS}) (72,{UpCloud}) (72,{plusserver})
         (72,{Exoscale}) (60,{Scaleway}) (56,{STACKIT}) (44,{OVHcloud})
         (28,{T-Systems})};
-      \legend{Coverage, Gap to baseline}
+      \legend{Coverage, Gap to \acs{AWS}}
     \end{axis}
   \end{tikzpicture}
   \caption{Mean coverage across the thirteen dimensions, with the remaining gap
-           to the \acs{AWS} baseline.}
+           to \acs{AWS}.}
   \label{fig:readiness-ranking}
 \end{figure}
 
-This ranking runs close to the opposite of the sovereignty ranking in
-\cref{fig:sov-ranking}. T-Systems Open Telekom Cloud scored lowest of the
-eighteen on sovereignty and covers most of the catalogue here. STACKIT scored
-highest on sovereignty and comes third. noris network was third on sovereignty
-and sixteenth here. The two results are measuring different things, and a
-provider that does well on one gives no reason to expect it will do well on the
-other --- which is why they are kept apart until \cref{ch:evaluation}.
+This ranking runs almost opposite to the sovereignty ranking in
+\cref{fig:sov-ranking}. Open Telekom Cloud scored lowest of the eighteen on
+sovereignty but covers the most services here. STACKIT scored highest on sovereignty
+and comes third. noris network came third on sovereignty and sixteenth here. The two
+studies measure different things, and doing well in one gives no reason to expect a
+provider will do well in the other, which is why they are kept apart until
+\cref{ch:evaluation}.

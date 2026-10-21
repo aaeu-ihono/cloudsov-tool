@@ -4,15 +4,51 @@
 \section{Motivation and Problem Statement}
 \label{sec:motivation}
 
-\todo{Alps Alpine's dependency on non-EU hyperscalers, and why the Local
-Products Department is looking for alternatives to public AI services. The
-business problem first, then the regulatory one.}
+Alps Alpine, like many European manufacturers, runs much of its digital work on
+\acs{AWS}, the cloud service of the American company Amazon. Servers, storage,
+databases and a growing number of artificial intelligence services are rented there
+rather than run in the company's own buildings. The arrangement works well: the
+services are broad, reliable and quick to set up. What it does not offer is control
+over who, in the end, can reach the data.
+
+That question became pressing in the Local Products Department, which was looking
+for alternatives to public \acs{AI} services. Artificial intelligence tools learn
+from and work on a company's own information, often its most valuable kind, and the
+department needed to know where that information would go and under whose rules it
+would be handled. Moving such work to a provider based in Europe seemed the obvious
+answer, but it raised a set of practical doubts at once. Would a European provider
+offer the services the department already relies on? Would it be fast enough, and
+affordable? And would it still be in business when a contract of several years came
+to an end?
+
+Behind the business problem lies a legal one. American law allows the American
+government to demand data from American companies even when that data is stored in
+Europe, as \cref{subsec:location-jurisdiction} shows through a case involving
+Microsoft. European law, in turn, limits when personal data may leave the Union at
+all, and the European Court of Justice has twice cancelled agreements that were meant
+to make transfers to the United States safe (\cref{subsec:gdpr-schrems}). Events in
+2026 added a further concern: a dispute between the American government and the
+\acs{AI} company Anthropic showed that the terms on which an \acs{AI} service is
+offered can change because of a conflict in which its customers have no say
+(\cref{subsec:ai-providers}). A data centre in Frankfurt does not settle any of this
+on its own.
+
+The European Union has answered with a growing body of rules and with a framework of
+its own, the Cloud Sovereignty Framework, which sets out what a sovereign cloud
+service should provide \cite{EC_DIGIT_CloudSovereignty_2025}. What is missing is a
+practical answer for an enterprise: which European providers actually meet those
+requirements, what they can offer in place of \acs{AWS}, and at what cost in
+services, money and speed. This thesis sets out to provide that answer for Alps
+Alpine.
 
 \section{Research Questions}
 \label{sec:research-questions}
 
-\todo{The three research questions, each answered by the studies in
-\cref{ch:evaluation} and discussed in \cref{sec:rq-responses}.}
+Three questions guide the thesis. The first asks whether European providers meet the
+European Union's own standard for sovereignty, the second how close they come to
+\acs{AWS} in what they can offer, and the third what an enterprise gives up on one
+side when it gains on the other. Each is answered by the studies in
+\cref{ch:evaluation} and brought together in \cref{sec:rq-responses}.
 
 \begin{description}
   \item[RQ1] Can EU cloud providers satisfy the requirements of the EC DG DIGIT
@@ -24,11 +60,30 @@ business problem first, then the regulatory one.}
 \section{Scope and Delimitation}
 \label{sec:scope}
 
-\todo{What the thesis covers and what it does not: one machine size, one point
-in time, and requirements drawn from one enterprise. Building and running a
-sovereign platform in-house is left to future work.}
+The thesis looks at eighteen European providers, chosen as described in
+\cref{ch:landscape}, and compares them with \acs{AWS}. Their sovereignty and their
+range of services are judged from what they publish, their finances from what they
+and their owners report, and their speed from tests on one size of machine, two
+virtual processors with eight gigabytes of memory, in one location per provider.
+
+Some limits follow from this. The results describe the market at one moment, in 2026,
+and providers change quickly. The list of services comes from the needs of one
+company, Alps Alpine, so another company could reach a different conclusion about the
+same providers. How well a provider supports its customers, how often its services
+fail and how easy it is to leave could not be judged from the outside, and commercial
+terms such as discounts and the cost of moving data out were not compared. These
+limits are discussed in full in \cref{sec:design-limitations}. Building and running a
+sovereign cloud inside the company was considered and left for future work
+(\cref{sec:future-work}).
 
 \section{Structure of this Thesis}
 \label{sec:structure}
 
-\todo{A short overview of the chapters that follow.}
+\Cref{ch:foundations} explains what sovereignty means, why the location of a data
+centre is not enough, and how the laws of Europe, the United States and China bear on
+cloud services. \Cref{ch:landscape} introduces the eighteen providers and how they were
+chosen. \Cref{ch:methodology} describes the four studies, of sovereignty, services,
+finances and technical benchmarking, and the CloudSov tool built to carry them out.
+\Cref{ch:evaluation} reads the results of the four studies and brings them together.
+\Cref{ch:conclusion} answers the research questions and turns the results into
+recommendations for European enterprises and for Alps Alpine.

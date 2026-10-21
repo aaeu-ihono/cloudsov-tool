@@ -126,6 +126,15 @@
 \include{chapters/appendix}
 
 \bibliographystyle{IEEEtran}
+% smaller type and tighter spacing for the bibliography only
+\begingroup
+\footnotesize
+\let\oldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\itemsep}{1pt plus 0.5pt}%
+  \setlength{\parsep}{0pt}}
 \bibliography{ref}
+\endgroup
 
 \end{document}

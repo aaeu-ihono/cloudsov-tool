@@ -1,19 +1,22 @@
 \section{Study 1 --- Sovereignty Scoring}
 \label{sec:method-study1}
 
-This study uses the Cloud Sovereignty Framework published by the European
-Commission \cite{EC_DIGIT_CloudSovereignty_2025}, for the reasons given in
-\cref{subsec:definition-adopted}. The framework was adopted rather than designed
-here, so what follows describes how it was applied.
+The first study asks whether each provider can protect the data it holds from
+anyone outside Europe. Rather than invent a new way of judging this, the study uses
+the Cloud Sovereignty Framework published by the European Commission
+\cite{EC_DIGIT_CloudSovereignty_2025}, for the reasons given in
+\cref{subsec:definition-adopted}. This section explains how that framework works
+and how it was applied to the eighteen providers.
 
-The framework has three parts: a scale of five assurance levels, eight weighted
-objectives, and for each objective a list of contributing factors.
+The framework has three parts. It describes five levels of sovereignty, it divides
+sovereignty into eight areas, and for each area it lists the things that make a
+provider more or less sovereign.
 
 \subsection*{The five assurance levels}
 
-The framework treats sovereignty as a degree rather than a yes or no, and
-measures it on a scale of five levels. It calls them Sovereignty Effectiveness
-Assurance Levels, or seals. \Cref{tab:seal-levels} gives them.
+The framework does not treat sovereignty as something a provider either has or
+lacks. It measures it in five steps, which it calls Sovereignty Effectiveness
+Assurance Levels, or seals for short (\cref{tab:seal-levels}).
 
 \begin{table}[htbp]
   \centering
@@ -47,16 +50,17 @@ Assurance Levels, or seals. \Cref{tab:seal-levels} gives them.
   \end{tabularx}
 \end{table}
 
-The scale is built around one question asked five times over: how much control
-does a party outside the Union still hold? At SEAL-1 that control is exclusive,
-at SEAL-2 indirect, at SEAL-3 marginal, and at SEAL-4 absent. European law
-becoming applicable is not the same as European actors being in charge, and the
-scale separates the two.
+All five levels answer the same question: how much control does someone outside the
+Union still have? At the first level that control is complete, at the second it is
+indirect, at the third it is small, and at the top level it is gone. The scale also
+makes a distinction that is easy to miss. European law applying to a service is not
+the same as European people being in charge of it, and the levels keep the two
+apart.
 
 \subsection*{The eight objectives}
 
-The framework divides sovereignty into eight objectives, each carrying a weight.
-\Cref{tab:sov-objectives} lists them.
+The framework then divides sovereignty into eight areas, which it calls objectives,
+and gives each one a weight (\cref{tab:sov-objectives}).
 
 \begin{table}[htbp]
   \centering
@@ -82,23 +86,22 @@ The framework divides sovereignty into eight objectives, each carrying a weight.
   \end{tabularx}
 \end{table}
 
-Two things in that table shape the results. Supply chain carries the heaviest
-weight of the eight, which matches the argument in \cref{sec:full-stack} that
-sovereignty claimed at one layer depends on the layers beneath it. And the legal
-objective carries the highest minimum: a provider has to reach the top level
-there to pass at all, however well it does elsewhere.
-
-The weights are the framework's. The minimum seal on each objective is set by
-whoever runs the procurement, and the levels in the last column were set for this
-study.
+Two features of this table shape everything that follows. The supply chain carries
+the largest weight of the eight, which fits the argument of \cref{sec:full-stack}
+that a service can be no more sovereign than the layers beneath it. And the legal
+objective has the highest pass mark: a provider must reach the top level there to
+pass at all, however well it does elsewhere. The weights come from the framework
+itself. The pass marks, the minimum level a provider must reach on each objective,
+are left to whoever runs the purchase, and the ones in the last column were set for
+this study.
 
 \subsection*{The contributing factors, as questions}
 
-Each objective has a set of contributing factors, listed in the framework. Each
-factor was written as a question that can be answered from a provider's published
-documentation. \Cref{tab:sov-questions-a,tab:sov-questions-b} give the forty-one
-questions, abbreviated. Each was answered for each provider from published
-sources.
+For each objective the framework lists the factors that make a provider more or less
+sovereign. Each factor was turned into a plain question that can be answered from a
+provider's published documents, which gives the forty-one questions shown in short
+form in \cref{tab:sov-questions-a,tab:sov-questions-b}. Every question was answered
+for every provider from public sources.
 
 \begin{table}[htbp]
   \centering
@@ -184,30 +187,32 @@ sources.
 
 \subsection*{The verdicts}
 
-Each question takes one of three verdicts:
+Each question was given one of three answers:
 
 \begin{itemize}
-  \item \textbf{Yes (Y)} --- the provider meets the condition, and a published
-        document shows it. Two points.
-  \item \textbf{Partly (P)} --- the provider meets it in part, but not fully. Or
-        no published document shows it. One point.
-  \item \textbf{No (N)} --- the provider does not meet it. No points.
+  \item \textbf{Yes (Y)}: the provider meets the condition, and a published document
+        shows it. This is worth two points.
+  \item \textbf{Partly (P)}: the provider meets it only in part, or no published
+        document shows that it meets it in full. This is worth one point.
+  \item \textbf{No (N)}: the provider does not meet it. This is worth nothing.
 \end{itemize}
 
 \subsection*{From verdicts to a score}
 
-The verdicts on an objective are added together and expressed as a share of the
-points available. Writing $Q_n$ for the questions belonging to objective $n$ and
-$v(q)$ for the points a verdict is worth:
+The answers are then turned into a level on each objective and an overall score.
+In plain words, the points a provider earns on an objective are compared with the
+points it could have earned, which gives a share between nothing and all. Writing
+$Q_n$ for the questions of objective $n$ and $v(q)$ for the points an answer is
+worth, that share is:
 
 \begin{equation}
   \label{eq:sov-share}
   r_n = \frac{\displaystyle\sum_{q \in Q_n} v(q)}{2\,\lvert Q_n \rvert}
 \end{equation}
 
-The denominator is two points for every question, so $r_n$ runs from 0 to 1.
-That share is divided into five equal bands of twenty percentage points, which
-gives the seal reached on that objective:
+Because every question is worth at most two points, the share always lies between 0
+and 1. It is then turned into a level by dividing the range into five equal bands,
+each one fifth wide:
 
 \begin{equation}
   \label{eq:sov-seal}
@@ -221,44 +226,48 @@ gives the seal reached on that objective:
   \end{cases}
 \end{equation}
 
-The overall score combines the eight seals in proportion to their weights, and is
-reported on a scale of 0 to 100. Dividing a seal by four, the highest level,
-gives the fraction of full sovereignty reached on that objective; the weight
-$w_n$ sets how much that objective contributes.
+The overall score adds the eight levels together, each counted according to its
+weight, and expresses the result on a scale from 0 to 100. Dividing a level by four,
+the highest level, gives the share of full sovereignty reached on that objective,
+and the weight $w_n$ decides how much that objective counts:
 
 \begin{equation}
   \label{eq:sov-score}
   S_{\text{sov}} = \sum_{n=1}^{8} \frac{\text{seal}_n}{4} \times w_n \times 100
 \end{equation}
 
-The score is not the only result. A provider also passes or fails, and it passes
-only if every objective reaches its own minimum $m_n$:
+The score is only half of the result. A provider also either passes or fails, and it
+passes only if it reaches the pass mark $m_n$ on every one of the eight objectives:
 
 \begin{equation}
   \label{eq:sov-pass}
   \text{pass} \iff \text{seal}_n \ge m_n \quad \text{for every } n = 1,\ldots,8
 \end{equation}
 
-Worked through: the legal objective has five questions, so ten points are
-available. Two yes, two partly and one no earns six points, a share of 0.60,
-which gives SEAL-2 and contributes five points to the total. The minimum on that
-objective is SEAL-4, so the provider fails it.
+An example shows how this works. The legal objective has five questions, so ten
+points are possible. A provider with two answers of yes, two of partly and one of no
+earns six points, a share of 0.60. That puts it on level~2, which adds five points to
+its overall score. But the pass mark on the legal objective is level~4, so the
+provider fails.
 
-The two outcomes can disagree: a provider may score well overall and still fail
-because a single objective falls short. That is deliberate, and it is the rule
-from \cref{ch:methodology} applied within a single study --- a weakness in one
-place is not made good by strength in another.
+The score and the pass can therefore tell different stories: a provider can score
+well overall and still fail, because one objective falls short. This is
+deliberate. It applies within this study the rule set out at the start of
+\cref{ch:methodology}, that strength in one place cannot make up for weakness in
+another.
 
-The minimum levels are settings rather than fixed rules. They can be raised or
-lowered and the assessment recomputed, which is how the sensitivity analysis in
-\cref{subsec:sensitivity} is carried out.
+The pass marks are settings, not fixed rules. They can be raised or lowered and the
+results worked out again, which is how the sensitivity analysis in
+\cref{subsec:sensitivity} was carried out.
 
 \subsection*{What the method produces}
 
-Applying the instrument to the eighteen providers gives a level on each of the
-eight objectives, and from those an overall score. \Cref{tab:sov-seals} shows the
-levels. Shaded cells are those below the minimum for that objective; a provider
-passes only if none of its cells is shaded.
+Applying all of this to the eighteen providers gives each of them a level on every
+objective and an overall score. \Cref{tab:sov-seals} shows the levels. A shaded cell
+marks a level below the pass mark for that objective, so a provider passes only if
+none of its cells is shaded. The answer given to every question for every
+provider is listed in \cref{app:sov-evidence}, and \cref{fig:tool-sovscore} in
+\cref{app:cloudsov} shows the same results as they appear in the CloudSov tool.
 
 \begin{table}[htbp]
   \centering
@@ -300,26 +309,25 @@ passes only if none of its cells is shaded.
   \end{tabularx}
 \end{table}
 
-Reading down the columns shows where the difficulty lies. Two objectives account
-for almost all the shading. Ten of the eighteen fall short on SOV-2, the legal
-objective, where the framework demands the highest level of the eight. Ten also
-fall short on SOV-5, supply chain --- but there the requirement is one of the
-lowest, and no provider in the set reaches above level~2 on it at all.
+Reading down the columns shows where the difficulty lies. Almost all the shaded cells
+fall in two columns. Ten of the eighteen providers fall short on the legal objective,
+where the framework sets the highest pass mark. Ten also fall short on the supply
+chain, even though the pass mark there is one of the lowest, and no provider reaches
+above level~2 on it at all.
 
-The two failures are not the same kind of problem. A provider can improve its
-legal position by restructuring or by contract. It cannot improve its
-supply-chain position the same way, because the hardware and firmware it runs on
-are not made in Europe. This is the constraint described in \cref{sec:full-stack}
-appearing in the measurements, and it explains why the objective carrying the
-heaviest weight is also the one on which every provider does worst.
+The two shortfalls are different in kind. A provider can improve its legal position
+by changing how it is owned or by changing its contracts. It cannot improve its
+supply chain in the same way, because the hardware and firmware it runs on are not
+made in Europe. This is the problem described in \cref{sec:full-stack} showing up in
+the results, and it explains why the objective with the largest weight is also the
+one on which every provider does worst.
 
-The remaining objectives are cleared almost universally: operational sovereignty
-and environmental performance by all eighteen, technology and security by all but
-one each.
+On the remaining objectives nearly everyone passes. All eighteen pass on operations
+and on the environment, and all but one pass on technology and on security.
 
-Combining the eight levels by weight gives the overall score.
-\Cref{fig:sov-ranking} ranks the providers by it, marking those that clear every
-minimum.
+Putting the eight levels together by weight gives the overall score, and
+\cref{fig:sov-ranking} ranks the providers by it, with those that pass every pass
+mark shown in dark.
 
 \begin{figure}[htbp]
   \centering
@@ -366,13 +374,12 @@ minimum.
   \label{fig:sov-ranking}
 \end{figure}
 
-The dark bars are not the top five. Five providers clear every minimum, but three
-that score higher than one of them do not: noris network reaches 77.5 and fails
-on supply chain, while plusserver passes on 71.2. Ranking by score alone would
-place noris network third and plusserver eighth, and would put forward a provider
+The dark bars are not simply the top five. Five providers pass every pass mark, but
+one of them scores lower than providers that fail. noris network reaches 77.5 and
+fails on the supply chain, while plusserver passes with 71.2. Ranking by score alone
+would put noris network third and plusserver eighth, and would recommend a provider
 that does not meet the requirements.
 
-The two Deutsche Telekom entries also separate sharply. T-Cloud Public scores
-66.2 against 46.2 for Open Telekom Cloud --- twenty points between two names for
-what the company describes as one platform. That difference is examined in
-\cref{sec:study1}.
+The two Deutsche Telekom entries are also far apart. T-Cloud Public scores 66.2 and
+Open Telekom Cloud 46.2, twenty points between two names for what the company
+describes as one platform. That difference is examined in \cref{sec:study1}.

@@ -1,44 +1,34 @@
 \chapter{Methodology}
 \label{ch:methodology}
 
-Suppose an enterprise decides to move its systems to a European provider. It
-draws up a shortlist. Every provider on that list describes itself as sovereign,
-and every one can show something to support the claim: a data centre in Germany,
-a company registered in France, a certificate displayed on its website.
+Imagine an enterprise that has decided to move its systems to a European provider.
+It draws up a shortlist, and every provider on it calls itself sovereign. Each can
+point to something that seems to prove it: a data centre in Germany, a company
+registered in France, a certificate on its website. \Cref{ch:foundations} showed
+why none of these settles the matter, which leaves the enterprise with the harder
+task of choosing.
 
-\Cref{ch:foundations} showed why none of that settles the question. So how
-should the enterprise choose?
+Picking the fastest provider would not help, because speed says nothing about who
+can reach the data. Picking the one with the most certificates would not help
+either, because a certificate shows that a process was followed, not that a foreign
+government can be kept out. What the enterprise really needs to know comes down to
+four things: whether the provider can lawfully protect the data it holds, whether
+it can do the work the enterprise needs done, whether it will still be in business
+when the contract ends, and whether it is fast enough at a price worth paying.
 
-It could pick the fastest. But speed says nothing about who can reach the data.
-It could pick the one with the most certificates. But a certificate shows that a
-process was followed, not that a foreign government can be kept out.
-
-What the enterprise actually needs to know is four things, and any one of them
-can rule a provider out on its own:
-
-\begin{itemize}
-  \item Can it lawfully protect the data it holds?
-  \item Can it do the work the enterprise needs done?
-  \item Will it still be trading when the contract matures?
-  \item Is it fast enough, at a price worth paying?
-\end{itemize}
-
-None of these makes up for the others. A fast provider that can be ordered to
-hand data over is still ordered to hand it over. A capable provider that runs out
-of money is still gone. This is why the four are assessed separately in this
-thesis, and why they are not combined into a single figure until the end ---
-merging them early would hide the very trade-offs the choice depends on.
-
-The rest of this chapter sets out how each of these assessments was carried out,
-and describes CloudSov, the evaluation environment built for the purpose.
+Each of these can rule a provider out on its own, and none makes up for another. A
+fast provider that can be ordered to hand data over will still have to hand it
+over, and a capable provider that runs out of money is still gone. For that reason
+this thesis looks at the four separately, and brings them together only at the end,
+so that the trade-offs between them stay visible.
 
 \section{Research Design}
 \label{sec:research-design}
 
-The four questions are answered by four separate studies. Each is carried out on
-the same set of providers, to the same standards, so that the results can be set
-beside one another. \Cref{tab:study-overview} sets out the four, the question
-each answers and what each was carried out in order to establish.
+Each of the four questions became a study of its own, carried out on the same
+providers and to the same standards, so that the results could be laid side by
+side. \Cref{tab:study-overview} shows the four studies, the question each one
+answers and what it set out to find.
 
 \begin{table}[htbp]
   \centering
@@ -70,34 +60,34 @@ each answers and what each was carried out in order to establish.
   \end{tabularx}
 \end{table}
 
-The studies do not draw on data of equal strength. Only the benchmarking figures
-were measured directly, apart from three network results taken from a published
-source. The sovereignty and capability assessments depend on what providers and
-regulators have published, and the financial study on reported accounts. These cannot
-be treated as equally solid, and \cref{sec:evidence-standards} sets out how each
-kind is marked so that a reader can tell them apart at the point of use.
+The four studies do not rest on data of the same kind. Only the speed tests were
+measured directly, apart from three network results taken from a published source.
+The sovereignty and capability studies rely on what providers and regulators have
+published, and the financial study on the accounts that companies report. These are
+not equally solid, and \cref{sec:evidence-standards} explains how each kind is
+marked so that the reader can always tell which is which.
 
-\Ac{AWS} is the baseline the European providers are read against. It is not
-scored for sovereignty, but appears in the other three studies. In the capability
-study its role is structural: the checklist is AWS's own service catalogue, so
-AWS scores full marks by construction and each European provider is measured by
-how much of that catalogue it matches. A provider offering something AWS does not
-offer earns no credit for it, which is noted in \cref{sec:design-limitations}.
+\acs{AWS} is the yardstick throughout. It is not scored for sovereignty, but it
+takes part in the other three studies. In the capability study it plays a special
+role: the list of services comes from \acs{AWS} itself, so \acs{AWS} scores full
+marks by design, and each European provider is measured by how much of that list it
+can match. A service that a European provider offers but \acs{AWS} does not earns
+no credit, a limit discussed in \cref{sec:design-limitations}.
 
-Throughout, the thing being assessed is the provider rather than an individual
-service or instance. Where one company runs more than one platform, each platform
-is assessed separately and any difference between them is reported. A gap between
-two platforms under the same owner is a finding in itself, not an inconsistency to
-be averaged away.
+What is being judged in every study is the provider as a whole, not a single
+service or machine. Where one company runs more than one platform, each platform is
+judged on its own, and any difference between them is reported. A gap between two
+platforms with the same owner is a finding in its own right.
 
 \section{The CloudSov Evaluation Environment}
 \label{sec:cloudsov-tool}
 
-Four studies, nineteen providers, and several hundred individual judgements have
-to be recorded, scored and compared. Done in spreadsheets, that work is difficult
-to check and almost impossible for anyone else to repeat. It was therefore carried
-out in CloudSov, a small open-source evaluation environment that holds the data,
-applies the scoring rules to it, and presents the results side by side.
+Behind the four studies sit a great many separate decisions: a verdict on
+every sovereignty question for every provider, and a check of every service against
+what Alps Alpine uses, each tied to its own source. Kept in spreadsheets, that work
+would be hard to check and almost impossible for anyone else to repeat. It was
+therefore done in CloudSov, a small open-source tool built for this thesis, which
+stores the data, applies the scoring rules and shows the results side by side.
 
 \begin{quote}
 \textit{Repository:} \texttt{https://github.com/aaeu-ihono/cloudsov-tool.git}\\
@@ -105,32 +95,28 @@ applies the scoring rules to it, and presents the results side by side.
 \textit{Online Access:}  \texttt{https://cloudsov.ihonosetale.eu}\\
 \end{quote}
 
-Each judgement in CloudSov is recorded with the source it came from,
-and the verdicts, scores and analysis are all worked out from those records. The
-weightings and thresholds are settings rather than fixed rules, so the same
-data can be scored again under different assumptions. CloudSov presents one module
-per study: sovereignty scoring, readiness assessment, financial viability and
-technical benchmarking. \Cref{app:cloudsov} shows the modules and explains how to
-run CloudSov locally.
+Every decision in CloudSov is stored together with the source it came from, and
+every score and chart is worked out from those stored decisions. The weightings and
+pass marks are settings rather than fixed rules, so the same data can be scored
+again under different assumptions. CloudSov has one section for each study:
+sovereignty, readiness, finances and technical benchmarking. \Cref{app:cloudsov} shows these
+sections and explains how to run CloudSov on a computer.
 
-In CloudSov, every provider is assessed against the same conditions, from
-sources recorded alongside each judgement. This
-keeps the treatment consistent across all eighteen, so that no provider is scored
-on a different basis from another, which makes the results reproducible: anyone
-with access to the repository can run the same computation and arrive at the same
-figures, or at best the same conclusions. The providers, the examined factors and the weightings can all be changed
-without altering CloudSov itself, so the assessments of each study or module can be extended or repeated
-when circumstances change.
+Because every provider passes through the same rules, none of them is judged on a
+different basis from the others, and anyone with the code and the data can repeat
+the calculations and arrive at the same results. Providers, questions and weightings
+can all be changed without touching the tool itself, so each study can be extended
+or repeated as the market changes.
 
 \section{Providers in Each Study}
 \label{sec:study-coverage}
 
-The eighteen providers, and how they were chosen, are introduced in
-\cref{ch:landscape}. Not every study covers all eighteen. The first two assess published documents,
-which can be done for any provider that publishes them. The last two need more:
-published accounts in one case, and a running instance that has to be paid for
-and measured in the other. \Cref{tab:study-coverage} shows the coverage that
-resulted.
+The eighteen providers, and how they were chosen, were introduced in
+\cref{ch:landscape}. Not all of them take part in every study. The first two studies
+work from published documents, which can be done for any provider that publishes
+them. The last two need more: published accounts for the financial study, and a
+running machine that has to be rented and tested for the speed tests.
+\Cref{tab:study-coverage} shows which providers took part in which study.
 
 \begin{table}[htbp]
   \centering
@@ -157,38 +143,34 @@ resulted.
   \end{tabularx}
 \end{table}
 
-Two of the eighteen entries are the same platform under two names: Deutsche
-Telekom renamed Open Telekom Cloud to T-Cloud Public \cite{TCloudPublic_2026}.
-Even though the sovereignty study considers them separately, other studies consider them as a single provider.
-The comparison between them is discussed in \cref{sec:study1}.
+Two of the eighteen entries are the same platform under two names, since Deutsche
+Telekom renamed Open Telekom Cloud as T-Cloud Public \cite{TCloudPublic_2026}. The
+sovereignty study looks at both names separately, while the other studies treat
+them as one provider. The difference between the two is discussed in
+\cref{sec:study1}.
 
-Studies~3 and~4 cover fewer providers than the first two, because each stage
-screens the one before it. Studies~1 and~2 were applied to all eighteen. The
-providers that performed well on both --- satisfying the sovereignty requirements
-and offering a service catalogue close to the \acs{AWS} baseline --- were carried
-forward. The rest were not pursued further, because a provider that cannot
-lawfully hold the data, or cannot do the work, does not become a candidate by
-being cheap or fast.
-
+The last two studies cover fewer providers because each study narrows the field for
+the next. All eighteen went through the first two studies, and only those that did
+well in both, meeting the sovereignty requirements and offering a list of services
+close to that of \acs{AWS}, were carried forward. The others were not followed
+further, because a provider that cannot lawfully hold the data, or cannot do the
+work, does not become a good choice by being cheap or fast.
 
 \section{Data Sources and Collection}
 \label{sec:evidence-standards}
 
-The four studies draw on different kinds of data.
+The four studies draw on three different kinds of information. The sovereignty and
+capability studies rely on what providers publish about themselves: their service
+descriptions, their certificates and their company filings. The financial study
+relies on the figures that companies report about their own finances. The
+benchmarking study relies on measurements, numbers obtained by actually running a
+test.
 
-\begin{itemize}
-  \item Studies~1 and~2 use \textbf{published documentation}: the provider's own
-        service documentation, certification records and corporate filings.
-  \item Study~3 uses \textbf{reported figures}: what a company states about its
-        own finances.
-  \item Study~4 uses \textbf{measurements}: numbers obtained by running a test.
-\end{itemize}
-
-These are all equally reliable but differs. Documentation tells you what a company says about
-itself. A measurement tells you what happened when the thing was actually run.
-
-Every judgement in the sovereignty study is stored with a link to the document it
-came from, and every source is recorded and cited.
+These kinds of information are not equally strong. A document tells the reader what
+a company says about itself, while a measurement shows what happened when the
+machine was actually run. To keep the difference visible, every answer in the
+sovereignty study is stored with a link to the document it came from, and every
+source used in the thesis is recorded and cited.
 
 \input{chapters/chapter3/study1-sovereignty}
 
@@ -201,79 +183,77 @@ came from, and every source is recorded and cited.
 \section{Limitations of these Research Studies}
 \label{sec:design-limitations}
 
-Every study in this chapter had to work with what could be found, read or
-measured from the outside. That brought limits of its own, and some of them were
-a real struggle throughout the research. They are set out here so that the
-results that follow can be read with them in mind.
+Every study in this chapter had to work with what could be found, read or measured
+from the outside. That brought limits of its own, and some of them were a real
+struggle throughout the research.
 
 \subsection*{Relying on what the providers publish}
 
 The sovereignty and capability studies could only be as good as the documents
-behind them. Most providers do not set out in one place who owns them, which laws
-apply to them, or exactly which services they offer. That information had to be
+behind them. Most providers do not explain in one place who owns them, which laws
+apply to them or exactly which services they offer. That information had to be
 pieced together from websites, product pages, certificates and company filings,
-often written for marketing rather than for checking. Where a provider published
-little, there was little to assess, and its score suffered for it. A low score in
-these studies can therefore mean that a provider explains itself poorly, not
-necessarily that it protects data poorly. It also means that the studies record
-what providers say about themselves. Whether they behave that way in practice
-could not be tested from the outside.
+often written to sell rather than to inform. Where a provider published little,
+there was little to judge, and its score suffered for it. A low score in these
+studies can therefore mean that a provider explains itself poorly, not necessarily
+that it protects data poorly. It also means that the studies record what providers
+say about themselves. Whether they act that way in practice could not be tested from
+the outside.
 
 \subsection*{Missing financial figures}
 
 The financial study met the same problem in a sharper form. Several of the cloud
 businesses studied belong to much larger groups, and those groups report their
-results as a whole. They do not say how much their cloud business earns on its
-own. For T-Cloud Public, STACKIT and Scaleway, the nearest published figure had
-to stand in for the cloud business, and for Scaleway the last such figure is from
-2022 (\cref{tab:study3-growth}). Comparisons with \acs{AWS} for these providers can
-therefore only be given as a range, not as a single number. The investment
-announcements raised a similar difficulty. A company can announce that it will
-invest a sum by a given year, but whether that money is actually spent cannot be
-seen from outside. The study could only record what was promised and by when.
+results as a whole, without saying how much their cloud business earns on its own.
+For T-Cloud Public, STACKIT and Scaleway, the closest published figure had to stand
+in for the cloud business, and for Scaleway the last such figure is from 2022
+(\cref{tab:study3-growth}). Comparisons with \acs{AWS} for these providers can
+therefore only be given as a range, not as a single number. Announced investments
+raised a similar difficulty. A company can announce that it will invest a sum by a
+certain year, but whether the money is actually spent cannot be seen from outside,
+so the study could only record what was promised and by when.
 
 \subsection*{A single moment in time}
 
-Cloud providers change quickly. During this research alone, Deutsche Telekom
-renamed its public cloud \cite{TCloudPublic_2026}. Every result in this chapter describes the providers as they were when the data
-was collected. A provider that scored poorly may since have closed some of its
-gaps, and the opposite is also possible. The figures are a snapshot, not a
-permanent verdict, which is one reason CloudSov was built so that the assessments
-can be repeated.
+Cloud providers change quickly. During this research alone, Deutsche Telekom renamed
+its public cloud \cite{TCloudPublic_2026}. Every result in this chapter describes the
+providers as they were when the information was collected. A provider that scored
+poorly may since have closed some of its gaps, and the opposite is also possible.
+The results are a snapshot, not a permanent verdict, which is one reason CloudSov
+was built so that the studies can be repeated.
 
 \subsection*{Measuring against \acs{AWS}}
 
 The capability study measures each European provider against the services that
-\acs{AWS} offers. This makes the comparison clear, because it asks how much of
-what an enterprise already uses could be replaced. It also has a cost. A provider
-that offers something \acs{AWS} does not receive no credit for it, so the study
-shows how close each provider comes to \acs{AWS}, not everything each provider is
-good at.
+\acs{AWS} offers. This keeps the comparison clear, because it asks how much of what
+an enterprise already uses could be replaced. It also has a cost: when a provider
+offers something that \acs{AWS} does not, it gets no credit for it. The study
+therefore shows how close each provider comes to \acs{AWS}, not everything each
+provider does well.
 
 \subsection*{The needs of one company}
 
-The requirements behind the capability study come from one enterprise, Alps
-Alpine, and its current systems. Another company, with different systems or in a
-different industry, would need a different set of services and could reach a
-different conclusion about the same providers. The method can be applied to any
-company, but the results in this chapter answer the question for this one.
+The services behind the capability study are the ones used by one enterprise, Alps
+Alpine. Another company, with different systems or in a different industry, would
+need a different set of services and could reach a different conclusion about the
+same providers. The method works for any company, but the results in this chapter
+answer the question for this one.
 
 \subsection*{Limits of the performance tests}
 
-The performance tests were the only part of the research that could be measured
-directly, and even they had limits. Each provider was tested with one comparable
-machine, in one location, and the tests were run over a short period rather than
-weeks or months. Each test was repeated three times, which shows roughly how
-steady a result is but is too few to prove that small differences between
-providers are real (\cref{sec:bench-findings}). For three
-network results, figures published by Cloud Mercato were used instead, and these
-rest on a different number of runs from the rest.
+The speed tests were the only part of the research that could be measured directly,
+and even they had limits. Each provider was tested with one comparable machine, in
+one location, over a short period rather than weeks or months. Each test was run
+three times, which shows roughly how steady a result is but is too few to prove
+that small differences between providers are real (\cref{sec:bench-findings}). For
+three of the network results, figures published by Cloud Mercato were used instead,
+and these rest on a different number of runs.
 
 \subsection*{What was not assessed}
 
-Finally, some things that matter a great deal to a customer lay outside what this
-research could measure. How quickly a provider responds when something goes
-wrong, how often its services fail, how good its support is, and how easy it is
-to leave all depend on experience over time, from inside a working relationship.
-None of these could be assessed fairly from published material or from a short
-test, so none of them is included in the results.
+Some things that matter a great deal to a customer lay outside what this research
+could measure. How quickly a provider responds when something goes wrong, how often
+its services fail, how good its support is and how easy it is to leave all depend
+on experience over time, from inside a working relationship. None of these could be
+judged fairly from published material or from a short test, so none of them is part
+of the results.

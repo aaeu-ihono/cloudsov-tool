@@ -199,7 +199,8 @@ limitation it exposes and then by the tool used to measure it. Five of the tests
 come from the Phoronix Test Suite, an open-source platform that installs and runs
 standard benchmarks in a uniform way on any Linux machine
 \cite{PhoronixTestSuite}; the other three measure the network and the time a
-machine takes to become usable.
+machine takes to become usable. An example of the report the Phoronix Test Suite
+produces is shown in \cref{fig:pts-trial-report} in \cref{app:benchmark-raw}.
 
 \begin{enumerate}
   \item \textbf{Memory (\texttt{pts/stream}).} The rate at which a processor can exchange data with memory
@@ -567,7 +568,9 @@ This follows Gillam et al.\ in setting each provider against the best result
 achieved rather than against an external standard
 \cite{Gillam_FairBenchmarking_2013}. \Cref{tab:bench-heatmap} gives every
 measurement with its range, in the manner of their results tables, and colours
-each cell by its score.
+each cell by its score. Every run behind these averages is listed in
+\cref{app:benchmark-raw}, and \cref{fig:tool-benchmark} in \cref{app:cloudsov}
+shows the same results as they appear in the CloudSov tool.
 
 \begin{table}[htbp]
   \centering

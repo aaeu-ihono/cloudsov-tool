@@ -1,4 +1,0 @@
-to get into wsl
-
-> wsl 
-> wsl -d Ubuntu-22.04
