@@ -388,7 +388,7 @@ performance is competitive today; whether it stays so, and whether every machine
 customer rents performs alike, the measurements cannot say.
 
 % ============================================================
-\section{The Sovereignty--Readiness Trade-off}
+\section{The Sovereignty--Capability Trade-off}
 \label{sec:tradeoff}
 
 Set side by side, the sovereignty ranking in \cref{fig:sov-ranking} and the
@@ -431,36 +431,33 @@ amount that could be compared.
 
 \begin{table}[htbp]
   \centering
-  \caption{The five providers assessed in all four studies: their three scores,
-           their combined score, and their rank depending on which score is
-           given the most weight.}
+  \caption{The five providers assessed in all four studies: their three scores
+           and their combined score.}
   \label{tab:combined-ranking}
   \small
-  \begin{tabular}{@{}l r r r r c c c c c@{}}
+  \begin{tabular}{@{}l r r r r@{}}
     \toprule
-    & & & & & \multicolumn{5}{c}{\textbf{Rank when the weight falls on}} \\
-    \cmidrule(l){6-10}
     \textbf{Provider} & \textbf{Sov.} & \textbf{Cap.} & \textbf{Perf.}
-      & \textbf{Combined} & \textbf{Equal} & \textbf{Sov.} & \textbf{Cap.}
-      & \textbf{Perf.} & \textbf{Sov.\ + Cap.} \\
+      & \textbf{Combined} \\
     \midrule
-    T-Cloud Public & 66.2 & 72 & 76.0 & 71.4 & 1 & 2 & 1 & 2 & 1 \\
-    STACKIT        & 82.5 & 44 & 82.8 & 69.8 & 2 & 1 & 3 & 1 & 2 \\
-    OVHcloud       & 58.8 & 56 & 87.4 & 67.4 & 3 & 3 & 2 & 3 & 3 \\
-    Scaleway       & 72.5 & 40 & 74.6 & 62.4 & 4 & 4 & 4 & 4 & 4 \\
-    IONOS          & 52.5 & 27 & 78.0 & 52.5 & 5 & 5 & 5 & 5 & 5 \\
+    T-Cloud Public & 66.2 & 72 & 76.0 & 71.4 \\
+    STACKIT        & 82.5 & 44 & 82.8 & 69.8 \\
+    OVHcloud       & 58.8 & 56 & 87.4 & 67.4 \\
+    Scaleway       & 72.5 & 40 & 74.6 & 62.4 \\
+    IONOS          & 52.5 & 27 & 78.0 & 52.5 \\
     \bottomrule
   \end{tabular}
 
   \vspace{4pt}
   {\footnotesize\raggedright
-  Sovereignty from \cref{tab:sov-seals}, capability from
-  \cref{tab:readiness-matrix} and performance from \cref{tab:bench-heatmap}. The
-  combined score gives the three equal weight. Only STACKIT clears every
-  sovereignty minimum.\par}
+  All scores out of 100. \textbf{Sov.} sovereignty (\cref{tab:sov-seals});
+  \textbf{Cap.} capability, the share of the sixty services covered
+  (\cref{tab:readiness-matrix}); \textbf{Perf.} performance
+  (\cref{tab:bench-heatmap}); \textbf{Combined} the average of the three. Only
+  STACKIT clears every sovereignty minimum.\par}
 \end{table}
 
-At equal weight T-Cloud Public and STACKIT finish almost level at the top, with
+On the combined score T-Cloud Public and STACKIT finish almost level at the top, with
 OVHcloud just behind and Scaleway and IONOS some way back. The more important fact
 in the table, though, is not the order. Of the five, only STACKIT passes the
 sovereignty minimums, and for data that must be protected from access outside the
@@ -470,14 +467,13 @@ wherever it stands in the combined order.
 \subsection{Sensitivity Analysis}
 \label{subsec:sensitivity}
 
-The top of the order shifts with what a buyer values most, as the right-hand
-columns of \cref{tab:combined-ranking} show. A buyer who puts services first
-would choose T-Cloud Public, with OVHcloud rising to second; a buyer who puts
-sovereignty first would choose STACKIT; and when performance matters most the
-first three are almost tied. The bottom of the order never moves. Scaleway stays
-fourth and IONOS fifth whatever the buyer values. Judged by its old name rather
-than its new one, Deutsche Telekom's platform falls from first to third, a
-reminder of how much its position rests on the way it is described.
+The three scores in \cref{tab:combined-ranking} each have a different leader.
+T-Cloud Public covers the most services, STACKIT scores highest on sovereignty and
+OVHcloud is the fastest, so which provider comes first depends on what a buyer
+values most. IONOS is last on both sovereignty and services. Judged by its old
+name rather than its new one, Deutsche Telekom's platform would fall from first to
+third on the combined score, a reminder of how much its position rests on the way
+it is described.
 
 The sovereignty minimums were set for this study rather than by the framework
 (\cref{tab:sov-objectives}), so each was raised and lowered in turn. A slightly
@@ -493,7 +489,6 @@ is.
 Taken together, the four studies lead to a consistent result. STACKIT and T-Cloud Public
 are the two strongest European candidates, with OVHcloud close behind, and which
 of the first two leads depends on what a buyer values most. Only STACKIT meets the
-sovereignty requirements, under every weighting and every reasonable reading of
-the framework. In every study, the main limitation is the same: Europe does not
+sovereignty requirements, under every reasonable reading of the framework. In every study, the main limitation is the same: Europe does not
 yet produce its own chips and firmware, which limits both how sovereign any
 provider can become and how many services it can offer.

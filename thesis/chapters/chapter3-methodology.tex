@@ -82,12 +82,11 @@ platforms with the same owner is a finding in its own right.
 \section{The CloudSov Evaluation Environment}
 \label{sec:cloudsov-tool}
 
-Behind the four studies sit a great many separate decisions: a verdict on
-every sovereignty question for every provider, and a check of every service against
-what Alps Alpine uses, each tied to its own source. Kept in spreadsheets, that work
-would be hard to check and almost impossible for anyone else to repeat. It was
-therefore done in CloudSov, a small open-source tool built for this thesis, which
-stores the data, applies the scoring rules and shows the results side by side.
+For this research, a web tool called CloudSov was built and used to carry out all
+four studies. It is open source and can be viewed online by anyone, using the
+addresses below. CloudSov holds the answers collected for every provider, each with
+the source it came from, works out the scores from those answers, and shows the
+results of the four studies as tables and charts that can be compared side by side.
 
 \begin{quote}
 \textit{Repository:} \texttt{https://github.com/aaeu-ihono/cloudsov-tool.git}\\
@@ -99,13 +98,13 @@ Every decision in CloudSov is stored together with the source it came from, and
 every score and chart is worked out from those stored decisions. The weightings and
 pass marks are settings rather than fixed rules, so the same data can be scored
 again under different assumptions. CloudSov has one section for each study:
-sovereignty, readiness, finances and technical benchmarking. \Cref{app:cloudsov} shows these
+sovereignty, capability, finances and technical benchmarking. \Cref{app:cloudsov} shows these
 sections and explains how to run CloudSov on a computer.
 
 Because every provider passes through the same rules, none of them is judged on a
 different basis from the others, and anyone with the code and the data can repeat
 the calculations and arrive at the same results. Providers, questions and weightings
-can all be changed without touching the tool itself, so each study can be extended
+can all be changed without altering the tool itself, so each study can be extended
 or repeated as the market changes.
 
 \section{Providers in Each Study}

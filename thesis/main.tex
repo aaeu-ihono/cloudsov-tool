@@ -84,7 +84,7 @@
 % ── Draft helpers ───────────────────────────────────────────
 % Flip to \draftfalse to hide every TODO note in one go.
 \newif\ifdraft
-\drafttrue
+\draftfalse
 \newcommand{\todo}[1]{%
   \ifdraft\par\medskip\noindent
   \textcolor{red!65!black}{\small\itshape[TO WRITE: #1]}\par\medskip\fi}
